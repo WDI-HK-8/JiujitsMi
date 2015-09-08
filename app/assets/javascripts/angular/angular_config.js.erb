@@ -1,0 +1,13 @@
+var app = angular.module('jiujitsmi', ['ngRoute', 'ng-token-auth']);
+
+app.config(['$routeProvider', '$authProvider', function($routeProvider, $authProvider) {
+  $routeProvider.
+    when('/', {
+      templateUrl: "<%= asset_path('landing_page/index.html') %>",
+      controller: 'LandingPageCtrl'
+    })
+
+  $authProvider.configure({
+      apiUrl: "<%= ENV['URL'] || 'http://localhost:3000' %>"
+  })
+}]);
