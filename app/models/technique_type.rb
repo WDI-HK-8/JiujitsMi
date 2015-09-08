@@ -1,4 +1,4 @@
 class TechniqueType < ActiveRecord::Base
-  belongs_to :postion
-  has_many :technique
+  belongs_to :position
+  has_many :techniques
 end
