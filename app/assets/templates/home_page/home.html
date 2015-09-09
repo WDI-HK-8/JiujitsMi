@@ -1,5 +1,5 @@
 
-  <div>
+<div class="container col-lg-3">
   <form ng-submit="positionForm.create()">
     <div class="textbox">
       <label class="name"><span>position:</span>
@@ -10,22 +10,20 @@
       <button type="submit" class="btn submit down-button" ><b>Create!</b></button>
     </div>
   </form>
-</div>
-
-
-<div class="row">
-  <div class="container" ng-repeat="position in positions">
-    <div class="row">
-      <div class="container col-xs-4">
-        <h5>{{ position.id}} | {{ position.name}} | {{ position.user_id}}</h5>
-        <button ng-click="delete(position)">Delete!</button>
-      </div>
-    </div>  
+  <div class="row">
+    <div class="container" ng-repeat="position in positions">
+      <div class="row">
+        <div class="container col-xs-4">
+          <h5>{{ position.id}} | {{ position.name}} | {{ position.user_id}}</h5>
+          <button ng-click="delete(position)">Delete!</button>
+        </div>
+      </div>  
+    </div>
   </div>
 </div>
 
 
-  <div class="container col-lg-offset-8">
+  <div class="container col-lg-offset-3">
   <form ng-submit="techniqueTypeForm.create()">
     <div class="textbox">
       <label class="name"><span>Tech_type:</span>
