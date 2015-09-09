@@ -18,7 +18,7 @@ class PositionsController < ApplicationController
     @position = Position.find_by_id(params[:id])
 
     if @position.nil?
-      render json: { message: "Cannot find flat" }, status: :not_found
+      render json: { message: "Cannot find position" }, status: :not_found
     else
       if @position.destroy
         render json: { message: "Successfully deleted" }, status: :no_content
@@ -32,5 +32,4 @@ class PositionsController < ApplicationController
   def position_params
     params.require(:position).permit(:name)
   end
-
 end

@@ -1,3 +1,4 @@
+use 'strict';
 app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', function($scope, $http, $location, $auth, $routeParams){
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
@@ -22,10 +23,10 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       console.log(response);
     });
 
-   $http.get(url + '/positions').success(function(response){
+    $http.get(url + '/positions').success(function(response){
     $scope.positions = response
     console.log($scope.positions)
-  })
+    })
   };
 
   // delete a position
@@ -37,6 +38,5 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     });
   console.log(position.id)
   }
-
-
 }]);
+
