@@ -1,5 +1,9 @@
 class StepsController < ApplicationController
 
+  def index
+    @steps = Technique.find(params[:technique_id]).steps.all
+  end
+
   def create
     @step = Technique.find(params[:technique_id]).steps.new(step_params)
 
