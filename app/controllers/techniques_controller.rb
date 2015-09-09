@@ -28,7 +28,6 @@ class TechniquesController < ApplicationController
     end
   end
 
-
   def update
     @technique = Technique.find_by_id(params[:id])
 
@@ -38,7 +37,6 @@ class TechniquesController < ApplicationController
       @technique.update(technique_params)
     end
   end
-
 
 private
   def technique_params
