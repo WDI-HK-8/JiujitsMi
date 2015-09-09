@@ -14,6 +14,21 @@ class TechniquesController < ApplicationController
     end
   end
 
+  def destroy
+    @technique = Technique.find_by_id(params[:id])
+
+    if @technique.nil?
+      render json: { message: "Cannot find technique" }, status: :not_found
+    else
+      if @technique.destroy
+        render json: { message: "Successfully deleted" }, status: :no_content
+      else
+        render json: { message: "Unsuccessfully deleted" }, status: :bad_request 
+      end
+    end
+  end
+
+
 private
   def technique_params
     params.require(:technique).permit(:name, :video_url, :other_notes)
