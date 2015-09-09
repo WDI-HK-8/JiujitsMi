@@ -1,0 +1,42 @@
+use 'strict';
+app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', function($scope, $http, $location, $auth, $routeParams){
+
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+
+
+  //Show all positions
+  $scope.positions = [];
+  $http.get(url + '/positions').success(function(response){
+    $scope.positions = response
+    console.log($scope.positions)
+  })
+
+  //Create new position
+  $scope.newPosition = {};
+  $scope.form = {};
+  $scope.form.create = function(){
+    var data = {
+      position: $scope.newPosition
+    };
+
+    $http.post(url + '/positions', data).success(function(response){
+      console.log(response);
+    });
+
+    $http.get(url + '/positions').success(function(response){
+    $scope.positions = response
+    console.log($scope.positions)
+    })
+  };
+
+  // delete a position
+  $scope.delete = function(position){
+    var person_to_delete = $scope.positions.indexOf(position);
+    $http.delete(url + '/positions/' + position.id).success(function(response){
+      $scope.positions.splice(person_to_delete, 1);
+      console.log(response)
+    });
+  console.log(position.id)
+  }
+}]);
+

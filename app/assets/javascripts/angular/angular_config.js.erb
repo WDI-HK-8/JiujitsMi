@@ -5,7 +5,13 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
     when('/', {
       templateUrl: "<%= asset_path('landing_page/index.html') %>",
       controller: 'LandingPageCtrl'
+    }).
+    when('/home', {
+      templateUrl: "<%= asset_path('home_page/home.html') %>",
+      controller: 'HomePageCtrl'
     })
+
+
 
   $authProvider.configure({
       apiUrl: "<%= ENV['URL'] || 'http://localhost:3000' %>"
