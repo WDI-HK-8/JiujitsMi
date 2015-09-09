@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :positions do
     resources :technique_types do
-      resources :techniques
+      resources :techniques do
+        resources :steps
+      end
     end
   end
 end
