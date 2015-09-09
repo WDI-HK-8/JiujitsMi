@@ -1,9 +1,8 @@
-{{ message }}
 
   <div>
-  <form ng-submit="form.create()">
+  <form ng-submit="positionForm.create()">
     <div class="textbox">
-      <label class="name"><span>name:</span>
+      <label class="name"><span>position:</span>
         <input type="text" name="name" ng-model="newPosition.name" required="required">
       </label>
     </div>
@@ -23,4 +22,18 @@
       </div>
     </div>  
   </div>
+</div>
+
+
+  <div class="container col-lg-offset-8">
+  <form ng-submit="techniqueTypeForm.create()">
+    <div class="textbox">
+      <label class="name"><span>Tech_type:</span>
+        <input type="text" name="name" ng-model="newTechniqueType.name" required="required">
+      </label>
+    </div>
+    <div class="subchck">
+      <button type="submit" class="btn submit down-button" ><b>Create!</b></button>
+    </div>
+  </form>
 </div>

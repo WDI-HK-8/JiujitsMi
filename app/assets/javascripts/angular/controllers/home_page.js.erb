@@ -4,17 +4,19 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
 
+// =================== POSITION ==================== //
+
   //Show all positions
   $scope.positions = [];
   $http.get(url + '/positions').success(function(response){
     $scope.positions = response
     console.log($scope.positions)
-  })
+  });
 
   //Create new position
   $scope.newPosition = {};
-  $scope.form = {};
-  $scope.form.create = function(){
+  $scope.positionForm = {};
+  $scope.positionForm.create = function(){
     var data = {
       position: $scope.newPosition
     };
@@ -24,9 +26,9 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     });
 
     $http.get(url + '/positions').success(function(response){
-    $scope.positions = response
-    console.log($scope.positions)
-    })
+      $scope.positions = response
+      console.log($scope.positions)
+    });
   };
 
   // delete a position
@@ -37,6 +39,6 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       console.log(response)
     });
   console.log(position.id)
-  }
+  };
 }]);
 
