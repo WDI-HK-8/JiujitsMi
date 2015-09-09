@@ -2,15 +2,27 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
-  $scope.position = {};
-  $scope.form = {};
 
+  //Create new position
+  $scope.newPosition = {};
+  $scope.form = {};
   $scope.form.create = function(){
     var data = {
-      position: $scope.position
+      position: $scope.newPosition
     };
+
     $http.post(url + '/positions', data).success(function(response){
       console.log(response);
     });
   };
+
+  //Show all positions
+  $scope.positions = [];
+  $http.get(url + '/positions').success(function(response){
+    $scope.positions = response
+    console.log($scope.positions)
+  })
+
+
+
 }]);

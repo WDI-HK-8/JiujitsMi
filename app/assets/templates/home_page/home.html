@@ -4,11 +4,24 @@
   <form ng-submit="form.create()">
     <div class="textbox">
       <label class="name"><span>name:</span>
-        <input type="text" name="name" ng-model="position.name" required="required">
+        <input type="text" name="name" ng-model="newPosition.name" required="required">
       </label>
     </div>
     <div class="subchck">
       <button type="submit" class="btn submit down-button" ><b>Create!</b></button>
     </div>
   </form>
+</div>
+
+
+<div class="row">
+  <div class="container" ng-repeat="position in positions">
+    <div class="row">
+      <div class="container col-xs-4">
+        <h5>{{ position.id}}</h5>
+        <h5>{{ position.name}}</h5>
+        <h5>{{ position.user_id}}</h5>
+      </div>
+    </div>  
+  </div>
 </div>
