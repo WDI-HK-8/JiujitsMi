@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'landing_page#index'
 
   resources :positions do
-    resources :technique_types
+    resources :technique_types do
+      resources :techniques
+    end
   end
 end
