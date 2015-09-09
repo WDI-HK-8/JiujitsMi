@@ -1,0 +1,16 @@
+app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', function($scope, $http, $location, $auth, $routeParams){
+
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+
+  $scope.position = {};
+  $scope.form = {};
+
+  $scope.form.create = function(){
+    var data = {
+      position: $scope.position
+    };
+    $http.post(url + '/positions', data).success(function(response){
+      console.log(response);
+    });
+  };
+}]);
