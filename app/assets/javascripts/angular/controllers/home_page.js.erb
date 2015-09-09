@@ -3,6 +3,13 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
 
+  //Show all positions
+  $scope.positions = [];
+  $http.get(url + '/positions').success(function(response){
+    $scope.positions = response
+    console.log($scope.positions)
+  })
+
   //Create new position
   $scope.newPosition = {};
   $scope.form = {};
@@ -14,14 +21,12 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $http.post(url + '/positions', data).success(function(response){
       console.log(response);
     });
-  };
 
-  //Show all positions
-  $scope.positions = [];
-  $http.get(url + '/positions').success(function(response){
+   $http.get(url + '/positions').success(function(response){
     $scope.positions = response
     console.log($scope.positions)
   })
+  };
 
   // delete a position
   $scope.delete = function(position){
