@@ -1,5 +1,8 @@
 class TechniquesController < ApplicationController
 
+  def index
+    @techniques = TechniqueType.find(params[:technique_type_id]).techniques.all
+  end
 
   def create
     @technique = TechniqueType.find(params[:technique_type_id]).techniques.new(technique_params)
