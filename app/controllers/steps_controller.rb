@@ -14,6 +14,20 @@ class StepsController < ApplicationController
     end
   end
 
+  def destroy
+    @step = Step.find_by_id(params[:id])
+
+    if @step.nil?
+      render json: { message: "Cannot find step" }, status: :not_found
+    else
+      if @step.destroy
+        render json: { message: "Successfully deleted" }, status: :no_content
+      else
+        render json: { message: "Unsuccessfully deleted" }, status: :bad_request 
+      end
+    end
+  end
+
   private
   def step_params
     params.require(:step).permit(:index, :instruction)
