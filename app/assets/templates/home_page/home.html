@@ -1,37 +1,28 @@
+<navbar></navbar>
 
-<div class="container col-lg-3">
-  <form ng-submit="positionForm.create()">
-    <div class="textbox">
-      <label class="name"><span>position:</span>
-        <input type="text" name="name" ng-model="newPosition.name" required="required">
-      </label>
-    </div>
-    <div class="subchck">
-      <button type="submit" class="btn submit down-button" ><b>Create!</b></button>
-    </div>
-  </form>
-  <div class="row">
-    <div class="container" ng-repeat="position in positions">
-      <div class="row">
-        <div class="container col-xs-4">
-          <h5>{{ position.id}} | {{ position.name}} | {{ position.user_id}}</h5>
-          <button ng-click="delete(position)">Delete!</button>
-        </div>
-      </div>  
-    </div>
-  </div>
+  <!-- Position Bar -->
+  <nav class="navbar navbar-inverse" role="navigation">
+    <ul class="nav navbar-nav side-nav"> 
+      <li>
+        <form ng-submit="positionForm.create()">
+          <!-- <div class="textbox"> -->
+              <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position">
+            <button type="submit" class="subchck btn submit down-button addPos" ><b>+</b></button>
+          <!-- </div> -->
+        </form>
+      </li>
+      <li ng-repeat="position in positions">
+        <a class="fa fa-fw fa-arrows-v"> {{ position.name}}
+        <button ng-click="delete(position)" class="deletePos">-</button></a>
+      </li>
+    </ul>
+  </nav>
+
+
+<div class="ttype-capsule">
+  
 </div>
 
-
-  <div class="container col-lg-offset-3">
-  <form ng-submit="techniqueTypeForm.create()">
-    <div class="textbox">
-      <label class="name"><span>Tech_type:</span>
-        <input type="text" name="name" ng-model="newTechniqueType.name" required="required">
-      </label>
-    </div>
-    <div class="subchck">
-      <button type="submit" class="btn submit down-button" ><b>Create!</b></button>
-    </div>
-  </form>
+<div class="technique-capsule">
+  
 </div>

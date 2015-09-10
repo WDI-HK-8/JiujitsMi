@@ -12,22 +12,6 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth', func
         console.log(response)
       });
   }
-
-  // check if user is logged in
-  $scope.authResponse = $auth.validateUser()
-  $scope.authStatus = $scope.authResponse.$$state.status
-  $scope.loginName = $scope.authResponse.$$state.value.first_name
-  console.log($scope.loginName)
-  
-  if ($scope.authStatus == 2) {
-    $scope.loggedIn = false;  
-    console.log($scope.loggedIn);
-    console.log($scope.authStatus)
-  } else {
-    $scope.loggedIn = true;
-    console.log($scope.loggedIn);
-    console.log($scope.authStatus)
-  }
   
   // Login
   $scope.loginForm = {};
@@ -38,26 +22,11 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth', func
         console.log(response);
         $scope.loggedIn = true;
         $scope.authResponse = $auth.validateUser()
-        $scope.loginName = $scope.authResponse.$$state.value.first_name
+        $scope.loginName = $scope.authResponse.$$state.value.username
+        $location.path('/home')
       }).catch(function(response){
         //handle errors
         console.log(response);
       });
   };
-
-  // Logout (may go in nav bar)
-  $scope.logout = function(){
-    $auth.signOut().
-      then(function(response){
-        //handle success
-        console.log(response);
-        $scope.loggedIn = false;
-        $location.path('/')
-      }).
-      catch(function(response){
-        //handle error
-        console.log(response.data.errors);
-      });
-  };
-
 }]);
