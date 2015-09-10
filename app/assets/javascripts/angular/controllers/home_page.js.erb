@@ -3,16 +3,16 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
 
-// =================== POSITION ==================== //
+// ============= POSITION ============== //
 
-  //Show all positions
+  // SHOW ALL POSITIONS
   $scope.positions = [];
   $http.get(url + '/positions').success(function(response){
     $scope.positions = response
     console.log($scope.positions)
   });
 
-  //Create new position
+  // CREATE NEW POSITION
   $scope.newPosition = {};
   $scope.positionForm = {};
   $scope.positionForm.create = function(){
@@ -30,14 +30,51 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     });
   };
 
-  // delete a position
+  // DELETE A POSITION
   $scope.delete = function(position){
     var person_to_delete = $scope.positions.indexOf(position);
     $http.delete(url + '/positions/' + position.id).success(function(response){
       $scope.positions.splice(person_to_delete, 1);
-      console.log(response)
+      console.log(response);
     });
-  console.log(position.id)
+  console.log(position.id);
   };
+
+// =========== TECHNIQUE TYPE ============ //
+
+  // SHOW TECHNIQUE TYPES & TECHNIQUES
+  $scope.technique_types = []
+  $scope.currentPosition = []
+  $scope.getPosition = function(position){
+    console.log(position.id)
+    $scope.currentPosition = position.id
+
+    $http.get(url + '/positions/' + position.id + '/technique_types').success(function(response){
+      $scope.technique_types = response;
+      console.log(response);
+      console.log($scope.techniques);
+    });
+  };
+
+  // CREATE NEW TECHNIQUE TYPE
+  $scope.newTechType = {};
+  $scope.techTypeForm = {};
+  $scope.techTypeForm.create = function(){
+    var data = {
+      technique_type: $scope.newTechType
+    };
+
+    $http.post(url + '/positions/' + $scope.currentPosition + '/technique_types', data).success(function(response){
+      console.log(response);
+    });
+
+    $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
+      $scope.technique_types = response
+    });
+  };
+
+  // DELETE TECHNIQUE TYPE - WITH ASSOCIATED TECHS
+
+
 }]);
 
