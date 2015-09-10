@@ -28,7 +28,7 @@ class TechniqueTypesController < ApplicationController
     end
   end
 
- private
+  private
   def technique_type_params
     params.require(:technique_type).permit(:name)
   end
