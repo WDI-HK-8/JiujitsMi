@@ -32,9 +32,9 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
   // DELETE A POSITION
   $scope.delete = function(position){
-    var person_to_delete = $scope.positions.indexOf(position);
+    var pos_to_delete = $scope.positions.indexOf(position);
     $http.delete(url + '/positions/' + position.id).success(function(response){
-      $scope.positions.splice(person_to_delete, 1);
+      $scope.positions.splice(pos_to_delete, 1);
       console.log(response);
     });
   console.log(position.id);
@@ -74,6 +74,15 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   };
 
   // DELETE TECHNIQUE TYPE - WITH ASSOCIATED TECHS
+  $scope.deleteTechType = function(technique_type){
+    var ttype_to_delete = $scope.technique_types.indexOf(technique_type);
+    $http.delete(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id).success(function(response){
+      $scope.technique_types.splice(ttype_to_delete, 1);
+      console.log(response);
+    });
+  console.log(technique_type.id);
+  };
+
 
 
 }]);

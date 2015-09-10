@@ -30,7 +30,9 @@
   <div  >
     <div class="ttype-card-container" ng-repeat="technique_type in technique_types">
       <div class="ttype-card-header">
+        <button ng-click="deleteTechType(technique_type)" class="deletePos">-</button>
         <p> {{technique_type.name}} </p>
+
       </div>
       <ul>
         <li ng-repeat="technique in technique_type.techniques">
