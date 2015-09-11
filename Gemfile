@@ -11,6 +11,7 @@ gem 'unicorn'
 # gem 'active_hash'
 gem 'devise_token_auth'
 gem 'omniauth'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem "web-console"

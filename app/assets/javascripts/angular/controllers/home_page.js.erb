@@ -3,16 +3,16 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
 
-// =================== POSITION ==================== //
+// ============= POSITION ============== //
 
-  //Show all positions
+  // SHOW ALL POSITIONS
   $scope.positions = [];
   $http.get(url + '/positions').success(function(response){
     $scope.positions = response
     console.log($scope.positions)
   });
 
-  //Create new position
+  // CREATE NEW POSITION
   $scope.newPosition = {};
   $scope.positionForm = {};
   $scope.positionForm.create = function(){
@@ -30,14 +30,87 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     });
   };
 
-  // delete a position
+  // DELETE A POSITION
   $scope.delete = function(position){
-    var person_to_delete = $scope.positions.indexOf(position);
+    var pos_to_delete = $scope.positions.indexOf(position);
     $http.delete(url + '/positions/' + position.id).success(function(response){
-      $scope.positions.splice(person_to_delete, 1);
-      console.log(response)
+      $scope.positions.splice(pos_to_delete, 1);
+      console.log(response);
     });
-  console.log(position.id)
+  console.log(position.id);
+  };
+
+// =========== TECHNIQUE TYPE ============ //
+
+  // SHOW TECHNIQUE TYPES & TECHNIQUES
+  $scope.technique_types = []
+  $scope.currentPosition = []
+  $scope.currentPostionName = []
+  $scope.getPosition = function(position){
+    console.log(position.id)
+    $scope.currentPosition = position.id
+    $scope.currentPositionName = position.name
+
+    $http.get(url + '/positions/' + position.id + '/technique_types').success(function(response){
+      $scope.technique_types = response;
+      console.log(response);
+      console.log($scope.techniques);
+    });
+  };
+
+  // CREATE NEW TECHNIQUE TYPE
+  $scope.newTechType = {};
+  $scope.techTypeForm = {};
+  $scope.techTypeForm.create = function(){
+    var data = {
+      technique_type: $scope.newTechType
+    };
+
+    $http.post(url + '/positions/' + $scope.currentPosition + '/technique_types', data).success(function(response){
+      console.log(response);
+    });
+
+    $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
+      $scope.technique_types = response
+    });
+  };
+
+  // DELETE TECHNIQUE TYPE
+  $scope.deleteTechType = function(technique_type){
+    var ttype_to_delete = $scope.technique_types.indexOf(technique_type);
+    $http.delete(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id).success(function(response){
+      $scope.technique_types.splice(ttype_to_delete, 1);
+      console.log(response);
+    });
+  console.log(technique_type.id);
+  };
+
+// =============== TECHNIQUE =============== //
+
+  // CREATE NEW TECHNIQUE
+  $scope.newTech = {};
+  $scope.techForm = {};
+  $scope.techForm.create = function(technique_type){
+    var data = {
+      technique: $scope.newTech
+    };
+    $http.post(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques', data).success(function(response){
+      console.log(response);
+    });
+
+    $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
+      $scope.technique_types = response;
+    });
+  };
+
+  // DELETE TECHNIQUE TYPE
+  $scope.deleteTech = function(technique_type,technique){
+    var tech_type_to_delete = $scope.technique_types.indexOf(technique_type);
+    var tech_to_delete = $scope.technique_types[tech_type_to_delete].techniques.indexOf(technique);
+
+    $http.delete(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques/' + technique.id).success(function(response){
+        $scope.technique_types[tech_type_to_delete].techniques.splice(tech_to_delete, 1);
+    });
   };
 }]);
 
