@@ -16,7 +16,7 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
     border: none;
     border-radius: 0;
     overflow-y: auto;
-    background-color: #222;
+    background-color: #363636;
     bottom: 0;
     overflow-x: hidden;
     padding-bottom: 40px;
@@ -107,7 +107,7 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
   border: none;
   border-radius: 0;
   overflow-y: auto;
-  background-color: #f0f0f0;
+  background-color: #f6f6f6;
   bottom: 0;
   overflow-x: hidden;
   padding-bottom: 40px;
@@ -119,8 +119,13 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
 
 .ttype-head {
   position: fixed;
-  border: none;
-  background-color: #222;
+  background-color: #fff;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #eaeaea;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #daeeec;
   width: 30%;
   height: 65px;
 }
@@ -131,13 +136,20 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
 
 
 .ttype-card-container {
-  /*position: fixed;*/
+  margin-top: 6px;
+  margin-right: 2%; 
+  margin-left: 2%;
   border: none;
   background-color: #fff;
-  width: 100%;
   min-height: 50px;
   height:auto;
   list-style-type: none;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #ececec;
+  border-right-width: 3px;
+  border-right-style: solid;
+  border-right-color: #ececec;
 }
 
 ul {
@@ -145,7 +157,7 @@ ul {
 }
 
 .ttype-card-header {
-  background-color: #ffa3a3;
+  background-color: #ff6d6d;
   color: #fff;
   height: 50px;  
   font-size: 17px;
@@ -159,7 +171,7 @@ ul {
   display: inline-block;
   margin-left: 30px;
   padding-top: 25px;
-  color: #dfdfdf;
+  color: #7c7c7c;
 }
 
 .ttype-card-header>p {
@@ -169,20 +181,6 @@ ul {
 
 
 /*Technique*/
-.technique-capsule {
-  margin-left: 50%;
-  width:50%;
-  position: fixed;
-  top: 64px;
-  border: none;
-  border-radius: 0;
-  overflow-y: auto;
-  background-color: #fff;
-  bottom: 0;
-  overflow-x: hidden;
-  padding-bottom: 40px;
-
-}
 
 .tech-row {
   margin-left: -40px;
@@ -225,8 +223,8 @@ ul {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #e3e3e3;
-  color: #e3e3e3;
+  border-color: #ececec;
+  color: #ececec;
 }
 
 input:focus {
@@ -257,7 +255,7 @@ input:focus {
 
 .deleteTechRow {
   display: none;
-    float: right;
+  float: right;
   color: transparent;
   background-color: transparent;
   border-color: transparent;
@@ -277,4 +275,45 @@ input:focus {
   background-color: transparent;
 }
 
+
+/*TECHNIQUE COLUMN*/
+
+.technique-capsule {
+  margin-left: 50%;
+  width:50%;
+  position: fixed;
+  top: 64px;
+  border: none;
+  border-radius: 0;
+  overflow-y: auto;
+  background-color: #f6f6f6;
+  bottom: 0;
+  overflow-x: hidden;
+  padding-bottom: 40px;
+}
+
+.tech-head {
+  position: fixed;
+  border: none;
+  background-color: #fff;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #eaeaea;
+  width: 50%;
+  height: 65px;
+}
+
+.details-card {
+  margin-top: 71px;
+  margin-left: 3%;
+  margin-right: 3%;
+  min-height: 90%;
+  background-color: #fff;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #ececec;
+  border-right-width: 3px;
+  border-right-style: solid;
+  border-right-color: #ececec;
+}
 

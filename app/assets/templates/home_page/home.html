@@ -10,7 +10,7 @@
         </form>
       </li>
       <li ng-repeat="position in positions">
-        <a class="fa fa-fw fa-arrows-v" ng-click="getPosition(position)"> {{ position.name}}
+        <a href=""class="fa fa-fw fa-arrows-v" ng-click="getPosition(position)"> {{ position.name}}
         <button ng-click="delete(position)" class="deletePos">✖</button></a>
       </li>
     </ul>
@@ -22,8 +22,8 @@
   <div class="ttype-head">
     <span>{{currentPositionName}}</span>
     <form ng-submit="techTypeForm.create()" class="create-ttype">
-      <input class="forms-control" type="text" name="name" ng-model="newTechType.name" required="required" placeholder="Add a new technique type">
-      <button type="submit" class="subchck btn submit down-button addPos" ><b>+</b></button>
+      <input class="forms-control-tech" type="text" name="name" ng-model="newTechType.name" required="required" placeholder="Add a new technique type">
+      <button type="submit" class="subchck btn submit down-button addTech" ><b>+</b></button>
     </form>
   </div>
   <div class="block-spacing"></div>
@@ -36,7 +36,7 @@
       </div>
       <ul class="nav">
         <li ng-repeat="technique in technique_type.techniques" class="tech-row">
-          <a href="">{{technique.name}}<button ng-click="deleteTech(technique_type, technique)" class="deleteTechRow">✖</button></a>
+          <a href="" ng-click="getTechnique(technique_type, technique)">{{technique.name}}<button ng-click="deleteTech(technique_type, technique)" class="deleteTechRow">✖</button></a>
         </li>
         <li>
           <form ng-submit="techForm.create(technique_type)" class="add-tech-form">
@@ -50,10 +50,29 @@
 </div>
 
 
-
-
-<!-- Technique -->
+<!-- TECHNIQUE COLUMN-->  
 <div class="technique-capsule">
+  <div class="tech-head">
+    <span>{{currentTechniqueName}}</span>
+  </div>
+  <div class="details-card">
+
+    <!-- VIDEO -->
+    <div id="video" class="container selector col-xs-12 text-center">
+      <div id="tech-vid" class="input-group col-xs-12">
+        <span class="input-group-addon" id="basic-addon1">Video</span>
+        <input type="text" class="form-control" placeholder="Type in the URL of the video" aria-describedby="basic-addon1">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Enter</button>
+        </span>
+      </div>
+    </div>
+
+    <!-- OTHER NOTES -->
+
+
+
+  </div>
 </div>
 
 
