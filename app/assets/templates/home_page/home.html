@@ -70,14 +70,37 @@
 
     <!-- OTHER NOTES -->
     <div>
-
-    <form ng-submit="notesForm.create()">
-      <textarea ng-readonly="doNotesExist"cols="80" rows="8" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have"></textarea>
-      <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addPos" ><b>+</b></button>
-    </form>
-    <button ng-if="doNotesExist" ng-click="editBtn()" type="" ><b>edit</b></button>
-
+      <form ng-submit="notesForm.create()">
+        <textarea ng-readonly="doNotesExist"cols="80" rows="8" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have"></textarea>
+        <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addPos" ><b>+</b></button>
+      </form>
+      <button ng-if="doNotesExist" ng-click="editBtn()" type="" ><b>edit</b></button>
     </div>
+
+    <!-- STEPS -->
+
+    <div>
+      <div class="ttype-card-container">
+        <div class="ttype-card-header">
+          <p> <b>Steps</b> </p>
+        </div>
+        <ul class="nav">
+          <li ng-repeat="step in steps" class="tech-row">
+            <a href="">{{$index +1}}. {{step.instruction}}<button ng-click="deleteStep(step)" class="deleteTechRow">✖</button></a>
+          </li>
+          <li>
+            <form ng-submit="stepForm.create()" class="add-tech-form">
+              <input class="forms-control-tech" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new technique">
+              <button type="submit" class="subchck btn submit down-button addTech" ><b>+</b></button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
   </div>
 </div>
 
