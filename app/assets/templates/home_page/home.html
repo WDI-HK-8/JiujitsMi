@@ -53,7 +53,7 @@
 <!-- TECHNIQUE COLUMN-->  
 <div class="technique-capsule">
   <div class="tech-head">
-    <span>{{currentTechniqueName}}</span>
+    <span>{{currentTechniqueName.name}}</span>
   </div>
   <div class="details-card">
 
@@ -69,9 +69,15 @@
     </div>
 
     <!-- OTHER NOTES -->
+    <div>
 
+    <form ng-submit="notesForm.create()">
+      <textarea ng-readonly="doNotesExist"cols="80" rows="8" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have"></textarea>
+      <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addPos" ><b>+</b></button>
+    </form>
+    <button ng-if="doNotesExist" ng-click="editBtn()" type="" ><b>edit</b></button>
 
-
+    </div>
   </div>
 </div>
 
