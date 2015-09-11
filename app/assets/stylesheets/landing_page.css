@@ -1,3 +1,10 @@
+/*fonts*/
+@font-face {
+font-family: 'Lato';
+src: asset-url("Lato-Light.ttf")  format('truetype');
+/*font-weight: bold;*/
+}
+
 /*navbar*/
 .content {
   margin-top: 70px;
@@ -16,6 +23,7 @@
   background-color: #40E0D0;
   height:65px;
   border-bottom: 0px;
+  font-family: Lato;
 }
 
 .navbar-brand {
