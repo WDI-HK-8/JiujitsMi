@@ -111,9 +111,9 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
   bottom: 0;
   overflow-x: hidden;
   padding-bottom: 40px;
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-right-color: #daeeec;
+  /*border-right-width: 1px;*/
+  /*border-right-style: solid;*/
+  /*border-right-color: #daeeec;*/
     font-family: Lato;
 }
 
@@ -305,8 +305,8 @@ input:focus {
 
 .details-card {
   margin-top: 71px;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin-left: 2%;
+  margin-right: 2%;
   min-height: 90%;
   background-color: #fff;
   border-bottom-width: 5px;
@@ -317,3 +317,134 @@ input:focus {
   border-right-color: #ececec;
 }
 
+.right-card-header {
+  background-color: #404040;
+  color: #fff;
+  height: 50px;  
+  font-size: 17px;
+}
+
+textarea {
+  outline: none;
+  resize: none;
+  border-color: #c9c9c9;
+  border-radius: 5px;
+  width: 90%; 
+  margin-left: 5%;
+  margin-right:5%;
+}
+
+.addNotes {
+  display: block;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ececec;
+  color: #7c7c7c;
+  float: right;
+  margin-right: 5%;
+}
+
+.addNotes:hover {
+  background-color: #fbfbfb;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ececec;
+  color: black;
+}
+
+.editNotes {
+  display: block;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ececec;
+  color: #7c7c7c;
+  float: right;
+  margin-right: 5%;
+}
+
+.editNotes:hover {
+  background-color: #fbfbfb;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ececec;
+  color: black;
+}
+
+
+
+
+
+.step-list-container {
+  margin-top: 10%;
+  margin-right: 5%; 
+  margin-left: 5%;
+  border: none;
+  background-color: #fff;
+  min-height: 50px;
+  height:auto;
+  list-style-type: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ececec;
+}
+
+
+.step-list-header {
+  background-color: #6bc0d2;
+  color: #fff;
+  height: 50px;  
+  font-size: 17px;
+}
+
+.step-list-header>p {
+  text-align: center;
+  padding-top: 12px;
+
+}
+
+.step-row {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #daeeec;
+  color: #363636;
+}
+
+.step-row:hover {
+  border-bottom-color: #fff;
+}
+
+.step-row>a {
+  color: #363636;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
+}
+
+#video {
+  display: inline-block;
+  width: 25px;
+  margin-left: 36%;
+  margin-right: 25px;
+  margin-top: 20px;
+}
+
+#steps {
+  display: inline-block;
+  width: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 20px;
+
+}
+
+#notes {
+  display: inline-block;
+  width: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 20px;
+  
+}

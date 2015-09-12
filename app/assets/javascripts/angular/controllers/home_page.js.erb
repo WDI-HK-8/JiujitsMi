@@ -3,6 +3,11 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
 
+  // BOOTSTRAP TOOLTIP PLUGIN
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
 // ============= POSITION ============== //
 
   // SHOW ALL POSITIONS
@@ -130,31 +135,58 @@ $scope.steps = [];
       $scope.currentTechnique = $scope.technique
       console.log($scope.currentTechnique)
 
-      //Notes fill
+      // NOTES SHOW
       $scope.newNotes = $scope.currentTechnique.other_notes 
+
+      if ($scope.currentTechnique.other_notes == null) {
+        $scope.showNotes = false;
+      } else {
+        $scope.showNotes = true;
+      }
+
+      // NOTES FILL
       if ($scope.currentTechnique.other_notes == null) {
         $scope.doNotesExist = false;
       } else {
         $scope.doNotesExist = true;
-      }
+      };
     });
 
     // GET STEPS
     $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques/' + technique.id + '/steps').success(function(response) {
         console.log(response)
         $scope.steps = response
-    })
+
+      // STEPS SHOW
+      if ($scope.steps.length < 1) {
+        $scope.showSteps = false;
+      } else {
+        $scope.showSteps = true;
+      };
+    });
   };
 
 
+
+  // EDIT BUTTON
   $scope.editBtn = function() {
     $scope.doNotesExist = false;
-    console.log("edit")
+  }
+
+  // ADD NOTES BUTTON
+  $scope.addNotes = function() {
+    $scope.showNotes = true;
+  }
+
+  // ADD STEPS BUTTON 
+  $scope.addSteps = function() {
+    $scope.showSteps = true;
+    console.log("working")
   }
 
 
-  // EDIT NOTES
 
+  // EDIT NOTES
   $scope.newNotes = {};
   $scope.notesForm = {};
 

@@ -32,7 +32,7 @@
     <div class="ttype-card-container" ng-repeat="technique_type in technique_types">
       <div class="ttype-card-header">
         <button ng-click="deleteTechType(technique_type)" class="deleteTType">Delete</button>
-        <p> <b>{{technique_type.name}}</b> </p>
+        <p>{{ technique_type.name}}</p>
       </div>
       <ul class="nav">
         <li ng-repeat="technique in technique_type.techniques" class="tech-row">
@@ -53,39 +53,38 @@
 <!-- TECHNIQUE COLUMN-->  
 <div class="technique-capsule">
   <div class="tech-head">
-    <span>{{currentTechniqueName.name}}</span>
-  </div>
+    <a href="" ng-init="imgsrc1='<%= image_path('video.png') %>'" 
+    ng-mouseover="imgsrc1='<%= image_path('videoh.png') %>'" 
+    ng-mouseout="imgsrc1='<%= image_path('video.png') %>'" >
+    <img id="video" ng-src="{{imgsrc1}}" data-toggle="tooltip" data-placement="bottom" title="Add a link to a video">
+    </a>
+    <a href="" ng-click="addSteps()" ng-init="imgsrc2='<%= image_path('steps.png') %>'" 
+    ng-mouseover="imgsrc2='<%= image_path('stepsh.png') %>'" 
+    ng-mouseout="imgsrc2='<%= image_path('steps.png') %>'">
+     <img id="steps" ng-src="{{imgsrc2}}" data-toggle="tooltip" data-placement="bottom" title="Add technique steps">
+     </a>
+     <a href="" ng-click="addNotes()" ng-init="imgsrc3='<%= image_path('notes.png') %>'" 
+    ng-mouseover="imgsrc3='<%= image_path('notesh.png') %>'" 
+    ng-mouseout="imgsrc3='<%= image_path('notes.png') %>'">
+      <img id="notes" ng-src="{{imgsrc3}}" data-toggle="tooltip" data-placement="bottom" title="Add other technique notes">
+      </a>
+   </div>
   <div class="details-card">
 
-    <!-- VIDEO -->
-    <div id="video" class="container selector col-xs-12 text-center">
-      <div id="tech-vid" class="input-group col-xs-12">
-        <span class="input-group-addon" id="basic-addon1">Video</span>
-        <input type="text" class="form-control" placeholder="Type in the URL of the video" aria-describedby="basic-addon1">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Enter</button>
-        </span>
-      </div>
+    <!-- HEADER -->
+    <div class="right-card-header">
+      <span>{{currentTechnique.name}}</span>
     </div>
 
-    <!-- OTHER NOTES -->
-    <div>
-      <form ng-submit="notesForm.create()">
-        <textarea ng-readonly="doNotesExist"cols="80" rows="8" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have"></textarea>
-        <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addPos" ><b>+</b></button>
-      </form>
-      <button ng-if="doNotesExist" ng-click="editBtn()" type="" ><b>edit</b></button>
-    </div>
 
     <!-- STEPS -->
-
-    <div>
-      <div class="ttype-card-container">
-        <div class="ttype-card-header">
-          <p> <b>Steps</b> </p>
+    <div ng-show="showSteps">
+      <div class="step-list-container">
+        <div class="step-list-header">
+          <p> Steps </p>
         </div>
         <ul class="nav">
-          <li ng-repeat="step in steps" class="tech-row">
+          <li ng-repeat="step in steps" class="step-row">
             <a href="">{{$index +1}}. {{step.instruction}}<button ng-click="deleteStep(step)" class="deleteTechRow">✖</button></a>
           </li>
           <li>
@@ -96,9 +95,16 @@
           </li>
         </ul>
       </div>
-    </div>
-  </div>
+    </div>    
 
+    <!-- OTHER NOTES -->
+    <div ng-show="showNotes">
+      <form ng-submit="notesForm.create()">
+        <textarea ng-readonly="doNotesExist" rows="8" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have"></textarea>
+        <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addNotes" ><b>Add Notes</b></button>
+      </form>
+      <button ng-if="doNotesExist" ng-click="editBtn()" class="subchck btn submit down-button editNotes" ><b>Edit Notes</b></button>
+    </div>
 
 
   </div>
