@@ -1,52 +1,97 @@
 <navbar></navbar>
 <!-- log in -->
 
-<div class="container tempsign">
-  <div ng-if="!loggedIn">
-    <form ng-submit="login()">
-      <div class="textbox">
-        <label class="email"><span>Email</span>
-          <input class="js-email-field" id="si_email" type="email" name="email" ng-model="loginForm.email" required="required">
-        </label>
-        <label class="password"><span>Password</span>
-          <input class="js-password-field" id="si_password" type="password" name="password" ng-model="loginForm.password" required="required" class="form-control">
-        </label>
-      </div>
-      <div class="subchck">
-        <button type="submit" class="btn submit down-button" id="log-in" ><b>Log in</b></button>
-      </div>
-    </form>
-  </div>
 
-  <!-- sign up -->
 
-  <div>
-    <form ng-submit="signup()">
-      <div class="form-group">
-        <lable>Username</lable>
-        <input type="text" name="last_name" ng-model="registrationForm.username" required="required" class="form-control">
-      </div>
-      <div class="form-group">
-        <lable>Name</lable>
-        <input type="text" name="name" ng-model="registrationForm.name" required="required" class="form-control">
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control">
-      </div>
-      <div class="form-group">
-        <lable>Country</lable>
-        <input type="text" name="country" ng-model="registrationForm.country" required="required" class="form-control">
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control">
-      </div>
-      <div class="form-group">
-        <label>Password Confirmation</label>
-        <input type="password" name="password_confirmation" ng-model="registrationForm.password_confirmation" required="required" class="form-control">
-      </div>
-      <button type="submit" class="btn btn-success">Submit</button>
-    </form>
+
+<section class="module parallax parallax-1"  ng-style="{'background-image':'url(/app/assets/images/bg1.jpg)'}">>
+
+  <div class="container tempsign">
+    <div ng-if="!loggedIn">
+      <form ng-submit="login()">
+        <div class="textbox">
+          <label class="email"><span>Email</span>
+            <input class="js-email-field" id="si_email" type="email" name="email" ng-model="loginForm.email" required="required">
+          </label>
+          <label class="password"><span>Password</span>
+            <input class="js-password-field" id="si_password" type="password" name="password" ng-model="loginForm.password" required="required" class="form-control">
+          </label>
+        </div>
+        <div class="subchck">
+          <button type="submit" class="btn submit down-button" id="log-in" ><b>Log in</b></button>
+        </div>
+      </form>
+    </div>
+
+    <!-- sign up -->
+
+    <div>
+      <form ng-submit="signup()">
+        <div class="form-group">
+          <lable>Username</lable>
+          <input type="text" name="last_name" ng-model="registrationForm.username" required="required" class="form-control">
+        </div>
+        <div class="form-group">
+          <lable>Name</lable>
+          <input type="text" name="name" ng-model="registrationForm.name" required="required" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control">
+        </div>
+        <div class="form-group">
+          <lable>Country</lable>
+          <input type="text" name="country" ng-model="registrationForm.country" required="required" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Password Confirmation</label>
+          <input type="password" name="password_confirmation" ng-model="registrationForm.password_confirmation" required="required" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+   </div>
+
+
+</section>
+
+<section class="module content">
+  <div class="container">
+    <h2>Lorem Ipsum Dolor</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
   </div>
- </div>
+</section>
+
+<section class="module parallax parallax-2">
+  <div class="container">
+    <h1>Rise</h1>
+  </div>
+</section>
+
+<section class="module content">
+  <div class="container">
+    <h2>Lorem Ipsum Dolor</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+  </div>
+</section>
+
+<section class="module parallax parallax-3">
+  <div class="container">
+    <h1>Calm</h1>
+  </div>
+</section>
+
+<section class="module content">
+  <div class="container">
+    <h2>Lorem Ipsum Dolor</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+  </div>
+</section>
+
+
+
+
