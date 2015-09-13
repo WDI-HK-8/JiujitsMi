@@ -2,6 +2,14 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
+  // BY DEFAULT HIDE ALL CARDS
+  $scope.positionBg = true;
+  $scope.ttechBg = false;
+  $scope.showTechTypes = false;
+  $scope.techSelected = false;
+
+  // DISABLE INPUT BOX UNLESS POSITION IS SELECTED
+  $scope.techTypeInput = false;
 
   // BOOTSTRAP TOOLTIP PLUGIN
   $(function () {
@@ -32,7 +40,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $http.get(url + '/positions').success(function(response){
       $scope.positions = response
       console.log($scope.positions)
-    });
+    }); 
   };
 
   // DELETE A POSITION
@@ -40,7 +48,12 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     var pos_to_delete = $scope.positions.indexOf(position);
     $http.delete(url + '/positions/' + position.id).success(function(response){
       $scope.positions.splice(pos_to_delete, 1);
-      console.log(response);
+      if ($scope.positions.length < 1) {
+        $scope.positionBg = true;
+        $scope.ttechBg = false;
+        $scope.showTechTypes = false;
+        $scope.techTypeInput = false;
+      };
     });
   console.log(position.id);
   };
@@ -60,6 +73,20 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       $scope.technique_types = response;
       console.log(response);
       console.log($scope.techniques);
+
+      // SHOW INPUT BOX
+      $scope.techTypeInput = true;
+      
+      // HIDE STARTING BACKGROUND
+      if ($scope.technique_types.length < 1) {
+        $scope.positionBg = false;
+        $scope.ttechBg = true;
+        $scope.showTechTypes = false;
+      } else {
+        $scope.positionBg = false;
+        $scope.ttechBg = false;
+        $scope.showTechTypes = true;
+      }
     });
   };
 
@@ -73,6 +100,8 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
     $http.post(url + '/positions/' + $scope.currentPosition + '/technique_types', data).success(function(response){
       console.log(response);
+      $scope.showTechTypes = true;
+      $scope.techSelected = false;
     });
 
     $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
@@ -85,7 +114,13 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     var ttype_to_delete = $scope.technique_types.indexOf(technique_type);
     $http.delete(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id).success(function(response){
       $scope.technique_types.splice(ttype_to_delete, 1);
-      console.log(response);
+      
+      if ($scope.technique_types.length < 1) {
+        $scope.positionBg = false;
+        $scope.ttechBg = true;
+        $scope.showTechTypes = false;
+      };
+
     });
   console.log(technique_type.id);
   };
@@ -129,6 +164,9 @@ $scope.steps = [];
     var tech_type_to_get = $scope.technique_types.indexOf(technique_type);
     var tech_to_get = $scope.technique_types[tech_type_to_get].techniques.indexOf(technique);
 
+    $scope.techSelected = true;
+
+
     // GET VIDEO URL, NOTES
     $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques/' + technique.id).success(function(response){
       $scope.technique = response;
@@ -136,7 +174,7 @@ $scope.steps = [];
       console.log($scope.currentTechnique)
 
       // NOTES SHOW
-      $scope.newNotes = $scope.currentTechnique.other_notes; 
+      $scope.newNotes = $scope.currentTechnique.other_notes;
 
       if ($scope.currentTechnique.other_notes == null) {
         $scope.showNotes = false;
@@ -151,10 +189,8 @@ $scope.steps = [];
         $scope.doNotesExist = true;
       };      
 
-
       // VIDEO SHOW
       $scope.newVideo = $scope.currentTechnique.video_url;
-
       if ($scope.currentTechnique.video_url == null) {
         $scope.doVideosExist = false;
         $scope.showVideo = false;
@@ -163,7 +199,6 @@ $scope.steps = [];
         $scope.showVideo = true;
       };
 
-
       // CONVERT VIDEO URL TO EMBEDED
        $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
@@ -171,8 +206,6 @@ $scope.steps = [];
       vidURL = $scope.currentTechnique.video_url.split('=');
       vidID = vidURL[1];
       $scope.vidSRC = "http://www.youtube.com/embed/" + vidID;
-
-
     });
 
     // GET STEPS
