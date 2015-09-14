@@ -38,6 +38,15 @@ class TechniquesController < ApplicationController
     end
   end
 
+
+  def show
+    @technique = Technique.find_by_id(params[:id])
+
+    if @technique.nil?
+      render json: { message: "Cannot find technique" }, status: :not_found
+    end
+  end
+
 private
   def technique_params
     params.require(:technique).permit(:name, :video_url, :other_notes)

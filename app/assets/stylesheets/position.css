@@ -5,6 +5,11 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
 /*font-weight: bold;*/
 }
 
+body {
+  font-size: 16px;
+  font-family: Lato;
+  color: #5c5c5c;
+}
 /* Position */
 @media(min-width:768px) {
   .side-nav {
@@ -16,16 +21,15 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
     border: none;
     border-radius: 0;
     overflow-y: auto;
-    background-color: #222;
+    background-color: #363636;
     bottom: 0;
     overflow-x: hidden;
     padding-bottom: 40px;
     font-size: 16px;
-    font-family: Lato;
   }
 
   .side-nav>li>a {
-    width: 290px;
+    width: 320px;
   }
 
   .side-nav li a:hover,
@@ -61,7 +65,7 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
   width: 200px;
   height: 34px;
   padding: 6px 12px;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.42857143;
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
@@ -96,48 +100,74 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
   background-color: transparent;
 }
 
-
-
 /*technique type*/
 .ttype-capsule {
   margin-left: 20%;
-  width:30%;
+  width: 30.5%;
   position: fixed;
-  top: 64px;
+  top: 129px;
   border: none;
   border-radius: 0;
   overflow-y: auto;
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
   bottom: 0;
   overflow-x: hidden;
   padding-bottom: 40px;
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-right-color: #daeeec;
-    font-family: Lato;
+  font-family: Lato;
 }
 
 .ttype-head {
   position: fixed;
-  border: none;
-  background-color: #222;
+  background-color: #fff;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #eaeaea;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #daeeec;
   width: 30%;
   height: 65px;
+  margin-top: -21px;
+  margin-left: 20%;
+}
+
+.newtech-head {
+  position: fixed;
+  border: none;
+  background-color: #fff;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #eaeaea;
+  width: 50%;
+  height: 65px;
+  margin-left: 50%;
+  margin-top: -21px;
+  z-index: 1;
+}
+
+.newtech-head>a {
+  color: white;
 }
 
 .block-spacing {
   height: 65px;
 }
 
-
 .ttype-card-container {
-  /*position: fixed;*/
+  margin-top: 6px;
+  margin-right: 2%; 
+  margin-left: 2%;
   border: none;
   background-color: #fff;
-  width: 100%;
   min-height: 50px;
   height:auto;
   list-style-type: none;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #bababa;
+  border-right-width: 3px;
+  border-right-style: solid;
+  border-right-color: #bababa;
 }
 
 ul {
@@ -145,7 +175,7 @@ ul {
 }
 
 .ttype-card-header {
-  background-color: #ffa3a3;
+  background-color: #ff6d6d;
   color: #fff;
   height: 50px;  
   font-size: 17px;
@@ -159,7 +189,8 @@ ul {
   display: inline-block;
   margin-left: 30px;
   padding-top: 25px;
-  color: #dfdfdf;
+  color: #7c7c7c;
+  font-size: 14px;
 }
 
 .ttype-card-header>p {
@@ -167,26 +198,8 @@ ul {
   padding-left: 15px;
 }
 
-
 /*Technique*/
-.technique-capsule {
-  margin-left: 50%;
-  width:50%;
-  position: fixed;
-  top: 64px;
-  border: none;
-  border-radius: 0;
-  overflow-y: auto;
-  background-color: #fff;
-  bottom: 0;
-  overflow-x: hidden;
-  padding-bottom: 40px;
-
-}
-
 .tech-row {
-  margin-left: -40px;
-  padding-left: 40px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: #daeeec;
@@ -201,7 +214,7 @@ ul {
   text-decoration: none;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .forms-control-tech {
@@ -210,12 +223,12 @@ ul {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #f0f0f0;
+  border-color: #d6d6d6;
   color: #363636;
   width: 200px;
   height: 34px;
   padding: 6px 12px;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.42857143;
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
@@ -225,8 +238,14 @@ ul {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #e3e3e3;
-  color: #e3e3e3;
+  border-color: #d6d6d6;
+  color: #d6d6d6;
+}
+
+.addTech:hover {
+  background-color: #62dcee;
+  border-color: #fff;
+  color: #fff;
 }
 
 input:focus {
@@ -244,7 +263,7 @@ input:focus {
   background-color: transparent;
   border-style: none;
   font-size: 12px;
-  color:gray;
+  color: #ffebe3;
 }
 
 .deleteTType:hover {
@@ -257,11 +276,11 @@ input:focus {
 
 .deleteTechRow {
   display: none;
-    float: right;
+  float: right;
   color: transparent;
   background-color: transparent;
   border-color: transparent;
- }
+}
 
 .tech-row:hover .deleteTechRow {
   display: block;
@@ -277,4 +296,310 @@ input:focus {
   background-color: transparent;
 }
 
+/*TECHNIQUE COLUMN*/
+.technique-capsule {
+  margin-left: 50%;
+  width:50%;
+  position: fixed;
+  top: 129px;
+  border: none;
+  border-radius: 0;
+  overflow-y: auto;
+  background-color: #d6d6d6;
+  bottom: 0;
+  overflow-x: hidden;
+  padding-bottom: 40px;
+  min-height: 90%;
+  z-index: -1;
+}
 
+.tech-head {
+  position: fixed;
+  border: none;
+  background-color: #fff;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #eaeaea;
+  width: 50%;
+  height: 65px;
+}
+
+.details-card {
+  margin-top: 4px;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 2%;
+  min-height: 98%;
+  background-color: #fff;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #bababa;
+  border-right-width: 3px;
+  border-right-style: solid;
+  border-right-color: #bababa;
+}
+
+.right-card-header {
+  background-color: #ff9a44;
+  color: #fff;
+  height: 50px;  
+  font-size: 20px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #d6d6d6;
+  text-align: center;
+  padding-top: 10px;
+}
+
+textarea {
+  outline: none;
+  resize: none;
+  border-color: #c9c9c9;
+  border-radius: 5px;
+  width: 90%; 
+  margin-left: 5%;
+  margin-right:5%;
+}
+
+.addNotes {
+  display: block;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d6d6d6;
+  color: #7c7c7c;
+  float: right;
+  margin-right: 5%;
+}
+
+.addNotes:hover {
+  background-color: #62dcee;
+  border-color: #fff;
+  color: #fff;
+}
+
+.editNotes {
+  display: block;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d6d6d6;
+  color: #7c7c7c;
+  float: right;
+  margin-right: 5%;
+}
+
+.editNotes:hover {
+  background-color: #62dcee;
+  border-color: #fff;
+  color: #fff;
+}
+
+.step-list-container {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-right: 5%; 
+  margin-left: 5%;
+  border: none;
+  background-color: #fff;
+  min-height: 50px;
+  height:auto;
+  list-style-type: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d6d6d6;
+}
+
+.step-list-header {
+  background-color: #7494b0;
+  color: #fff;
+  height: 50px;  
+  font-size: 17px;
+}
+
+.step-list-header>p {
+  text-align: center;
+  padding-top: 12px;
+}
+
+.step-row {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #daeeec;
+  color: #363636;
+}
+  
+.step-row>a {
+  color: #363636;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
+}
+
+.step-row>a:focus, .step-row>a:hover {
+  background-color: #fff !important;
+}
+
+.step-row:hover .deleteTechRow {
+  display: block;
+  float: right;
+  color: gray;
+  background-color: transparent;
+}
+
+.step-row:hover .deleteTechRow:hover {
+  display: block;
+  float: right;
+  color: red;
+  background-color: transparent;
+}
+
+#video {
+  display: inline-block;
+  width: 25px;
+  margin-left: 36%;
+  margin-right: 25px;
+  margin-top: 20px;
+}
+
+#steps {
+  display: inline-block;
+  width: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 20px;
+}
+
+#notes {
+  display: inline-block;
+  width: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 20px;
+}
+
+.videocard {
+  margin-top: 5px;
+}
+
+.video-thumb {
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.editVideo {
+  margin-top: 10px;
+  display: block;
+  margin: auto;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d6d6d6;
+  color: #d6d6d6;
+}
+
+.editVideo:hover {
+  background-color: #62dcee;
+  border-color: #fff;
+  color: #fff;
+}
+
+.add-video-form {
+ margin-left: 12%;
+}
+
+.forms-control-video {
+  margin-left: 2%;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f0f0f0;
+  color: #363636;
+  width: 350px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.notes-block {
+  margin-top: 1px;
+  margin-bottom: 10%;
+}
+
+.forms-control-step {
+  margin-top: 20px;
+  margin-left: 10px;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d6d6d6;
+  color: #363636;
+  width: 500px;
+  height: 34px;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+#bg-addposition {
+  width: 25%;
+  display: block;
+  margin: auto;
+  margin-top: 12%;
+}
+
+#bg-addtech {
+  width: 38%;
+  display: block;
+  margin: auto;
+  margin-top: 20%;
+}
+
+.bg-addposition-container {
+  margin-left: 20%;
+  width: 80%;
+  position: fixed;
+  top: 129px;
+  border: none;
+  border-radius: 0;
+  overflow-y: auto;
+  background-color: #d6d6d6;
+  bottom: 0;
+  overflow-x: hidden;
+  padding-bottom: 40px;
+}
+
+.nav2 {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    list-style: none;
+}
+
+.deleteVideoBtn {
+  margin-left: 92%;
+  margin-bottom: -0.8%;
+  color: #e1e1e1;
+  background-color: white;
+  border-color: white;
+}
+
+.deleteVideoBtn:hover {
+  margin-left: 92%;
+  color: red;
+  background-color: white;
+  border-color: white;
+}
+
+#bg-showmessage {
+  display: block;
+  margin: auto;
+  margin-top: 22%;
+  width: 40%;
+}
