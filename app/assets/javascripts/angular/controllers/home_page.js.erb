@@ -306,6 +306,9 @@ $scope.steps = [];
   
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
       console.log(response)
+      vidURL = $scope.newVideo.split('=');
+      vidID = vidURL[1];
+      $scope.vidSRC = "http://www.youtube.com/embed/" + vidID;
       $scope.doVideosExist = true;
     });
   };
