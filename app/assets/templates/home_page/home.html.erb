@@ -119,6 +119,7 @@
         <button type="submit" class="subchck btn submit down-button addTech" ><b>+</b></button>
       </form>
       <button ng-show="doVideosExist" ng-click="editVideoBtn()" class="subchck btn submit down-button editVideo" ><b>Edit video</b></button>
+      <button ng-click="deleteVideo()">✖</button>
     </div>
 
     <!-- STEPS -->
@@ -148,6 +149,7 @@
         <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addNotes" ><b>Add Notes</b></button>
       </form>
       <button ng-if="doNotesExist" ng-click="editBtn()" class="subchck btn submit down-button editNotes" ><b>Edit Notes</b></button>
+      <button ng-click="deleteNotes()">✖</button>
     </div>
   </div>
 </div>

@@ -25,7 +25,7 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
   }
 
   .side-nav>li>a {
-    width: 290px;
+    width: 320px;
   }
 
   .side-nav li a:hover,
@@ -140,6 +140,7 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
   height: 65px;
   margin-left: 50%;
   margin-top: -21px;
+  z-index: 1;
 
 }
 
@@ -196,8 +197,6 @@ ul {
 /*Technique*/
 
 .tech-row {
-  margin-left: -40px;
-  padding-left: 40px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: #daeeec;
@@ -287,6 +286,7 @@ input:focus {
   color: red;
   background-color: transparent;
 }
+
 
 
 /*TECHNIQUE COLUMN*/
@@ -437,8 +437,23 @@ textarea {
   font-size: 15px;
 }
 
-.step-row:hover {
-  background-color: white;
+.step-row>a:focus, .step-row>a:hover {
+  background-color: #fff !important;
+}
+
+
+.step-row:hover .deleteTechRow {
+  display: block;
+  float: right;
+  color: gray;
+  background-color: transparent;
+}
+
+.step-row:hover .deleteTechRow:hover {
+  display: block;
+  float: right;
+  color: red;
+  background-color: transparent;
 }
 
 #video {
@@ -552,5 +567,12 @@ textarea {
   overflow-x: hidden;
   padding-bottom: 40px;
 
+}
+
+.nav2 {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    list-style: none;
 }
 

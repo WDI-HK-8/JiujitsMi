@@ -40,7 +40,8 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $http.get(url + '/positions').success(function(response){
       $scope.positions = response
       console.log($scope.positions)
-    }); 
+    });
+    $scope.newPosition = null; 
   };
 
   // DELETE A POSITION
@@ -107,6 +108,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
       $scope.technique_types = response
     });
+    $scope.newTechType = null;
   };
 
   // DELETE TECHNIQUE TYPE
@@ -141,6 +143,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
       $scope.technique_types = response;
     });
+    $scope.newTech = null;
   };
 
   // DELETE TECHNIQUE
@@ -222,6 +225,29 @@ $scope.steps = [];
     });
   };
 
+  // DELETE VIDEO
+  $scope.deleteVideo = function(){
+    var data = {
+      video_url: null
+    };
+    $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
+      console.log(response)
+      $scope.showVideo = false;
+      console.log("hello")
+    });
+  };
+
+  // DELETE NOTES
+  $scope.deleteNotes = function(){
+    var data = {
+      other_notes: null
+    };
+    $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
+      console.log(response)
+      $scope.showNotes = false;
+      console.log("hello")
+    });
+  };
 
 
   // EDIT NOTES BUTTON
@@ -298,6 +324,7 @@ $scope.steps = [];
         console.log(response)
         $scope.steps = response
     });
+    $scope.newStep = null;
   };
 
     // DELETE STEP
@@ -305,11 +332,11 @@ $scope.steps = [];
     var step_to_delete = $scope.steps.indexOf(step);
     $http.delete(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id + '/steps/' + step.id).success(function(response){
         $scope.steps.splice(step_to_delete, 1);
-        console.log(response);
+        if ($scope.steps.length < 1) {
+          $scope.showSteps = false;
+        }
     });
   };
-
-
 
 }]);
 
