@@ -100,8 +100,6 @@ body {
   background-color: transparent;
 }
 
-
-
 /*technique type*/
 .ttype-capsule {
   margin-left: 20%;
@@ -200,9 +198,7 @@ ul {
   padding-left: 15px;
 }
 
-
 /*Technique*/
-
 .tech-row {
   border-bottom-width: 1px;
   border-bottom-style: solid;
@@ -284,7 +280,7 @@ input:focus {
   color: transparent;
   background-color: transparent;
   border-color: transparent;
- }
+}
 
 .tech-row:hover .deleteTechRow {
   display: block;
@@ -300,10 +296,7 @@ input:focus {
   background-color: transparent;
 }
 
-
-
 /*TECHNIQUE COLUMN*/
-
 .technique-capsule {
   margin-left: 50%;
   width:50%;
@@ -417,7 +410,6 @@ textarea {
   border-color: #d6d6d6;
 }
 
-
 .step-list-header {
   background-color: #7494b0;
   color: #fff;
@@ -428,7 +420,6 @@ textarea {
 .step-list-header>p {
   text-align: center;
   padding-top: 12px;
-
 }
 
 .step-row {
@@ -449,7 +440,6 @@ textarea {
 .step-row>a:focus, .step-row>a:hover {
   background-color: #fff !important;
 }
-
 
 .step-row:hover .deleteTechRow {
   display: block;
@@ -479,7 +469,6 @@ textarea {
   margin-left: 25px;
   margin-right: 25px;
   margin-top: 20px;
-
 }
 
 #notes {
@@ -502,7 +491,6 @@ textarea {
 
 .editVideo {
   margin-top: 10px;
-  /*margin-bottom: 5%;*/
   display: block;
   margin: auto;
   background-color: transparent;
@@ -542,8 +530,6 @@ textarea {
   margin-top: 1px;
   margin-bottom: 10%;
 }
-
-embed{width:1450px;height: 500px}
 
 .forms-control-step {
   margin-top: 20px;
@@ -611,12 +597,9 @@ embed{width:1450px;height: 500px}
   border-color: white;
 }
 
-
 #bg-showmessage {
   display: block;
   margin: auto;
   margin-top: 22%;
   width: 40%;
-
-
 }

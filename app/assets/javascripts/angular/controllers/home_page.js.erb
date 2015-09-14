@@ -13,15 +13,15 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   // BOOTSTRAP TOOLTIP PLUGIN
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
-  })
+  });
 
-// ============= POSITION ============== //
+  // ============= POSITION ============== //
 
   // SHOW ALL POSITIONS
   $scope.positions = [];
   $http.get(url + '/positions').success(function(response){
-    $scope.positions = response
-    console.log($scope.positions)
+    $scope.positions = response;
+    console.log($scope.positions);
   });
 
   // CREATE NEW POSITION
@@ -36,8 +36,8 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       console.log(response);
 
       $http.get(url + '/positions').success(function(response){
-      $scope.positions = response
-      console.log($scope.positions)
+        $scope.positions = response;
+        console.log($scope.positions);
       });
     });
     $scope.newPosition = null; 
@@ -63,21 +63,19 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 // =========== TECHNIQUE TYPE ============ //
 
   // SHOW TECHNIQUE TYPES & TECHNIQUES
-  $scope.technique_types = []
-  $scope.currentPosition = []
-  $scope.currentPostionName = []
+  $scope.technique_types = [];
+  $scope.currentPosition = [];
+  $scope.currentPostionName = [];
   $scope.getPosition = function(position){
-    console.log(position.id)
-    $scope.currentPosition = position.id
-    $scope.currentPositionName = position.name
+    console.log(position.id);
+    $scope.currentPosition = position.id;
+    $scope.currentPositionName = position.name;
     $scope.newTechType = null;
 
     $http.get(url + '/positions/' + position.id + '/technique_types').success(function(response){
       $scope.technique_types = response;
       console.log(response);
       console.log($scope.techniques);
-
-
       // SHOW INPUT BOX
       $scope.techTypeInput = true;
       
@@ -90,7 +88,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         $scope.positionBg = false;
         $scope.ttechBg = false;
         $scope.showTechTypes = true;
-      }
+      };
     });
   };
 
@@ -108,7 +106,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       $scope.techSelected = false;
 
       $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
-      $scope.technique_types = response
+      $scope.technique_types = response;
       });
     });
     $scope.newTechType = null;
@@ -125,7 +123,6 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         $scope.ttechBg = true;
         $scope.showTechTypes = false;
       };
-
     });
   console.log(technique_type.id);
   };
@@ -140,7 +137,6 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       technique: $scope.newTech
     };
     $http.post(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques', data).success(function(response){
-
       console.log(response);
 
       $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
@@ -160,12 +156,11 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     });
   };
 
-// =========== TECHNIQUE-COLUMN =========== //
+  // =========== TECHNIQUE-COLUMN =========== //
 
   // SHOW NAME, VIDEO URL, NOTES, STEPS 
-
-$scope.currentTechnique = []
-$scope.steps = [];
+  $scope.currentTechnique = [];
+  $scope.steps = [];
 
   $scope.getTechnique = function(technique_type, technique){
     console.log(technique.id)
@@ -175,29 +170,14 @@ $scope.steps = [];
     $scope.techSelected = true;
     $scope.newStep = null;
 
-
-    // if ($scope.showVideo == false && 
-    //     $scope.showSteps == false && 
-    //     $scope.showNotes == false || 
-    //     $scope.doStepsExist == true || 
-    //     $scope.doVideosExist == true || 
-    //     $scope.doNotesExist == true) {
-    //     $scope.showMessage = false;
-    //      } else {
-    //    $scope.showMessage = true;
-    //     };
-
-
-
     // GET VIDEO URL, NOTES
     $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques/' + technique.id).success(function(response){
       $scope.technique = response;
-      $scope.currentTechnique = $scope.technique
-      console.log($scope.currentTechnique)
+      $scope.currentTechnique = $scope.technique;
+      console.log($scope.currentTechnique);
 
       // NOTES SHOW
       $scope.newNotes = $scope.currentTechnique.other_notes;
-
       if ($scope.currentTechnique.other_notes == null) {
         $scope.showNotes = false;
       } else {
@@ -232,18 +212,20 @@ $scope.steps = [];
 
     // GET STEPS
     $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques/' + technique.id + '/steps').success(function(response) {
-        console.log(response)
-        $scope.steps = response
+        console.log(response);
+        $scope.steps = response;
       // STEPS SHOW
       if ($scope.steps.length < 1) {
         $scope.showSteps = false;
-        $scope.doStepsExist = false
+        $scope.doStepsExist = false;
       } else {
         $scope.showSteps = true;
         $scope.doStepsExist = true;
       };
       // SHOW MESSAGE?
-      if ($scope.currentTechnique.other_notes == null && $scope.currentTechnique.video_url == null && $scope.steps.length < 1) {
+      if ($scope.currentTechnique.other_notes == null && 
+          $scope.currentTechnique.video_url == null && 
+          $scope.steps.length < 1) {
         $scope.showMessage = true;
       } else {
         $scope.showMessage = false;
@@ -257,9 +239,8 @@ $scope.steps = [];
       video_url: null
     };
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
-      console.log(response)
+      console.log(response);
       $scope.showVideo = false;
-      console.log("hello")
     });
   };
 
@@ -269,9 +250,8 @@ $scope.steps = [];
       other_notes: null
     };
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
-      console.log(response)
+      console.log(response);
       $scope.showNotes = false;
-      console.log("hello")
     });
   };
 
@@ -304,8 +284,6 @@ $scope.steps = [];
     $scope.doVideosExist = false;
   };
 
-
-
   // EDIT NOTES
   $scope.newNotes = {};
   $scope.notesForm = {};
@@ -330,7 +308,7 @@ $scope.steps = [];
     };
   
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
-      console.log(response)
+      console.log(response);
       vidURL = $scope.newVideo.split('=');
       vidID = vidURL[1];
       $scope.vidSRC = "http://www.youtube.com/embed/" + vidID;
@@ -349,8 +327,8 @@ $scope.steps = [];
       console.log(response);
 
       $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id + '/steps').success(function(response) {
-        console.log(response)
-        $scope.steps = response
+        console.log(response);
+        $scope.steps = response;
       });
     });
     $scope.newStep = null;
@@ -363,9 +341,9 @@ $scope.steps = [];
         $scope.steps.splice(step_to_delete, 1);
         if ($scope.steps.length < 1) {
           $scope.showSteps = false;
-        }
+        };
     });
   };
-
 }]);
+
 
