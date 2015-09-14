@@ -170,7 +170,7 @@ $scope.steps = [];
     var tech_to_get = $scope.technique_types[tech_type_to_get].techniques.indexOf(technique);
 
     $scope.techSelected = true;
-
+    $scope.newStep = null;
 
     // GET VIDEO URL, NOTES
     $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques/' + technique.id).success(function(response){
