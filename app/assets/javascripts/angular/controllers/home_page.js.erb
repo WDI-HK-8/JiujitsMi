@@ -205,9 +205,13 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
        $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
       };
-      vidURL = $scope.currentTechnique.video_url.split('=');
+      vidURL = $scope.currentTechnique.video_url.split('v=');
       vidID = vidURL[1];
-      $scope.vidSRC = "http://www.youtube.com/embed/" + vidID;
+      var ampersandPosition = vidID.indexOf('&');
+      if(ampersandPosition != -1) {
+        vidID = vidID.substring(0, ampersandPosition);
+      };
+      $scope.vidSRC = "https://www.youtube.com/embed/" + vidID;
     });
 
     // GET STEPS
@@ -309,9 +313,13 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
       console.log(response);
-      vidURL = $scope.newVideo.split('=');
+      vidURL = $scope.currentTechnique.video_url.split('v=');
       vidID = vidURL[1];
-      $scope.vidSRC = "http://www.youtube.com/embed/" + vidID;
+      var ampersandPosition = vidID.indexOf('&');
+      if(ampersandPosition != -1) {
+        vidID = vidID.substring(0, ampersandPosition);
+      };
+      $scope.vidSRC = "https://www.youtube.com/embed/" + vidID;
       $scope.doVideosExist = true;
     });
   };
