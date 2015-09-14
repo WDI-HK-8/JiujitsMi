@@ -576,3 +576,17 @@ textarea {
     list-style: none;
 }
 
+.deleteVideoBtn {
+  margin-left: 92%;
+  margin-bottom: -0.8%;
+  color: #e1e1e1;
+  background-color: white;
+  border-color: white;
+}
+
+.deleteVideoBtn:hover {
+  margin-left: 92%;
+  color: red;
+  background-color: white;
+  border-color: white;
+}
