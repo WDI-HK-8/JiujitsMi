@@ -35,11 +35,11 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
     $http.post(url + '/positions', data).success(function(response){
       console.log(response);
-    });
 
-    $http.get(url + '/positions').success(function(response){
+      $http.get(url + '/positions').success(function(response){
       $scope.positions = response
       console.log($scope.positions)
+      });
     });
     $scope.newPosition = null; 
   };
@@ -54,6 +54,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         $scope.ttechBg = false;
         $scope.showTechTypes = false;
         $scope.techTypeInput = false;
+        $scope.currentPositionName = null;
       };
     });
   console.log(position.id);
@@ -103,10 +104,10 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       console.log(response);
       $scope.showTechTypes = true;
       $scope.techSelected = false;
-    });
 
-    $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
+      $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
       $scope.technique_types = response
+      });
     });
     $scope.newTechType = null;
   };
@@ -137,13 +138,14 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       technique: $scope.newTech
     };
     $http.post(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques', data).success(function(response){
-      console.log(response);
-    });
 
-    $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
-      $scope.technique_types = response;
+      console.log(response);
+
+      $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
+        $scope.technique_types = response;
+      });
     });
-    $scope.newTech = null;
+    $scope.newTech = {};
   };
 
   // DELETE TECHNIQUE
@@ -308,7 +310,6 @@ $scope.steps = [];
     });
   };
 
-
   // CREATE STEPS
   $scope.newStep = {};
   $scope.stepForm = {};
@@ -318,11 +319,11 @@ $scope.steps = [];
     };
     $http.post(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id + '/steps', data).success(function(response){
       console.log(response);
-    });
 
-    $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id + '/steps').success(function(response) {
+      $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id + '/steps').success(function(response) {
         console.log(response)
         $scope.steps = response
+      });
     });
     $scope.newStep = null;
   };
