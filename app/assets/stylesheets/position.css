@@ -5,6 +5,11 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
 /*font-weight: bold;*/
 }
 
+body {
+  font-size: 16px;
+  font-family: Lato;
+  color: #5c5c5c;
+}
 /* Position */
 @media(min-width:768px) {
   .side-nav {
@@ -21,7 +26,6 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
     overflow-x: hidden;
     padding-bottom: 40px;
     font-size: 16px;
-    font-family: Lato;
   }
 
   .side-nav>li>a {
@@ -61,7 +65,7 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
   width: 200px;
   height: 34px;
   padding: 6px 12px;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.42857143;
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
@@ -141,13 +145,15 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
   margin-left: 50%;
   margin-top: -21px;
   z-index: 1;
+}
 
+.newtech-head>a {
+  color: white;
 }
 
 .block-spacing {
   height: 65px;
 }
-
 
 .ttype-card-container {
   margin-top: 6px;
@@ -186,6 +192,7 @@ ul {
   margin-left: 30px;
   padding-top: 25px;
   color: #7c7c7c;
+  font-size: 14px;
 }
 
 .ttype-card-header>p {
@@ -211,7 +218,7 @@ ul {
   text-decoration: none;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .forms-control-tech {
@@ -220,12 +227,12 @@ ul {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #f0f0f0;
+  border-color: #d6d6d6;
   color: #363636;
   width: 200px;
   height: 34px;
   padding: 6px 12px;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.42857143;
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
@@ -237,6 +244,12 @@ ul {
   border-width: 1px;
   border-color: #d6d6d6;
   color: #d6d6d6;
+}
+
+.addTech:hover {
+  background-color: #62dcee;
+  border-color: #fff;
+  color: #fff;
 }
 
 input:focus {
@@ -254,7 +267,7 @@ input:focus {
   background-color: transparent;
   border-style: none;
   font-size: 12px;
-  color: #515151;
+  color: #ffebe3;
 }
 
 .deleteTType:hover {
@@ -320,10 +333,10 @@ input:focus {
 
 .details-card {
   margin-top: 4px;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin-left: 1%;
+  margin-right: 1%;
   margin-bottom: 2%;
-  min-height: 90%;
+  min-height: 98%;
   background-color: #fff;
   border-bottom-width: 5px;
   border-bottom-style: solid;
@@ -334,8 +347,8 @@ input:focus {
 }
 
 .right-card-header {
-  background-color: #EDEDFA;
-  color: gray;
+  background-color: #ff9a44;
+  color: #fff;
   height: 50px;  
   font-size: 20px;
   border-bottom-width: 1px;
@@ -367,11 +380,9 @@ textarea {
 }
 
 .addNotes:hover {
-  background-color: #fbfbfb;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #d6d6d6;
-  color: black;
+  background-color: #62dcee;
+  border-color: #fff;
+  color: #fff;
 }
 
 .editNotes {
@@ -386,16 +397,14 @@ textarea {
 }
 
 .editNotes:hover {
-  background-color: #fbfbfb;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #d6d6d6;
-  color: black;
+  background-color: #62dcee;
+  border-color: #fff;
+  color: #fff;
 }
 
 .step-list-container {
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
   margin-right: 5%; 
   margin-left: 5%;
   border: none;
@@ -410,8 +419,8 @@ textarea {
 
 
 .step-list-header {
-  background-color: #e3e3e7;
-  color: #515151;
+  background-color: #7494b0;
+  color: #fff;
   height: 50px;  
   font-size: 17px;
 }
@@ -482,19 +491,31 @@ textarea {
 }
 
 .videocard {
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .video-thumb {
   display: block;
   margin: auto;
+  margin-bottom: 10px;
 }
 
 .editVideo {
-  margin-top: 5%;
+  margin-top: 10px;
   /*margin-bottom: 5%;*/
   display: block;
   margin: auto;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d6d6d6;
+  color: #d6d6d6;
+}
+
+.editVideo:hover {
+  background-color: #62dcee;
+  border-color: #fff;
+  color: #fff;
 }
 
 .add-video-form {
@@ -518,9 +539,11 @@ textarea {
 }
 
 .notes-block {
-  margin-top: 5%;
+  margin-top: 1px;
   margin-bottom: 10%;
 }
+
+embed{width:1450px;height: 500px}
 
 .forms-control-step {
   margin-top: 20px;
@@ -528,17 +551,15 @@ textarea {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #f0f0f0;
+  border-color: #d6d6d6;
   color: #363636;
   width: 500px;
   height: 34px;
   padding: 6px 12px;
-  font-size: 12px;
   line-height: 1.42857143;
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
-
 
 #bg-addposition {
   width: 25%;
@@ -566,7 +587,6 @@ textarea {
   bottom: 0;
   overflow-x: hidden;
   padding-bottom: 40px;
-
 }
 
 .nav2 {
@@ -589,4 +609,14 @@ textarea {
   color: red;
   background-color: white;
   border-color: white;
+}
+
+
+#bg-showmessage {
+  display: block;
+  margin: auto;
+  margin-top: 22%;
+  width: 40%;
+
+
 }
