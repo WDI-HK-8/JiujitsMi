@@ -1,0 +1,109 @@
+<navbar></navbar>
+<section class="module parallax parallax-1">
+  <div class="leftCard col-lg-offset-1 col-lg-3">
+    <h1>JiuJitsMi</h1>
+    <p>The most complicated martial art in the world just got a whole lot easier</p>
+    <button ng-click="gotoSignup()" >SIGN UP</button>
+  </div>
+<!-- log in -->
+  <div class="front-signin col-lg-offset-7 col-lg-4">
+    <div ng-if="!loggedIn">
+      <form ng-submit="login()">
+        <div class="textbox">
+          <label class="front-txt email"><span>Email</span>
+            <input class="js-email-field" id="si_email" type="email" name="email" ng-model="loginForm.email" required="required">
+          </label>
+        </div>
+        <div>
+          <label class="password front-txt"><span>Password</span>
+            <input class="js-password-field" id="si_password" type="password" name="password" ng-model="loginForm.password" required="required" class="form-control">
+          </label>
+        </div>
+        <div class="subchck">
+          <button type="submit" class="btn submit down-button" id="log-in" ><b>Log in</b></button>
+        </div>
+      </form>
+    </div>
+</section>
+<section class="module elevator">
+  <div class="pitch">
+JiujitsMi brings the traditional pen and paper Brazilian Jiu Jitsu journal into the digital age, providing a superior solution to recording, organisng and viewing your techniques to further advance your game!
+  </div>
+</section>
+<section class="module parallax parallax-2">
+</section>
+<section class="module explaination">
+  <div class="threepoints">
+    <div>
+      <img class="circles" src="<%= image_path('frontpage-organise.png') %>">
+      <img class="circles" src="<%= image_path('frontpage-details.png') %>">
+      <img class="circles" src="<%= image_path('frontpage-video.png') %>">
+    </div>
+    <div>
+      <div>
+      <p class="circles-txt">Organise your techniques any way you desire so that you recall them swiftly</p>
+      <p class="circles-txt">List the specific details of your techniques so that you execute effectively everytime</p>
+      <p class="circles-txt">Love scouring Youtube for new techniques? Add them to your dashboard</p>
+    </div>
+  </div>
+</section>
+<section class="module parallax parallax-3">
+</section>
+<section class="module signup-section" id="signup">
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-offset-1 col-lg-10">   
+        <!-- PRICE ITEM -->
+        <div class="panel price panel-red">
+          <div class="panel-heading  text-center">
+          <h3>FOUNDATION MEMBERSHIP</h3>
+          </div>
+          <div class="panel-body text-center">
+            <p class="lead" style="font-size:40px"><strong>FREE</strong></p>
+          </div>
+          <ul class="list-group list-group-flush text-center">
+            <li class="list-group-item"><i class="icon-ok text-danger"></i>We love that you’ve found us and as a thank you we would like to offer you access to our foundation membership plan. No credit cards, no fees... everything for free!</li>
+            <li class="list-group-signup"><i class="icon-ok text-danger">
+              <!-- sign up -->
+              <div class="signupbox">
+                <form ng-submit="signup()">
+                  <div class="form-group">
+                    <label><span class="signup-label email">Username</span>
+                      <input type="text" name="last_name" ng-model="registrationForm.username" required="required" class="form-control js-field">
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label><span class="signup-label">Name</span>
+                      <input type="text" name="name" ng-model="registrationForm.name" required="required" class="form-control js-field">
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label><span class="signup-label">Email</span>
+                      <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control js-field">
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label><span class="signup-label">Country</span>
+                      <input type="text" name="country" ng-model="registrationForm.country" required="required" class="form-control js-field">
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label><span class="signup-label">Password</span>
+                      <input type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control js-field">
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label><span class="signup-label">Password Confirmation</span>
+                      <input type="password" name="password_confirmation" ng-model="registrationForm.password_confirmation" required="required" class="form-control js-field">
+                    </label>
+                  </div>
+                  <button type="submit" class="signup-submit">Submit</button>
+                </form>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

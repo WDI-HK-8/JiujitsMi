@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.2'
 gem 'rails', '4.2.3'
+gem 'sass-rails'
 gem 'bower'
 gem 'pg'
 gem 'jbuilder', '~> 2.0'
@@ -10,6 +11,7 @@ gem 'unicorn'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'active_hash'
 gem 'devise_token_auth'
+gem 'rack-cors'
 gem 'omniauth'
 gem 'rails_12factor', group: :production
 

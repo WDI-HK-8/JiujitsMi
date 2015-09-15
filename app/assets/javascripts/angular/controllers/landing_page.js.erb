@@ -1,4 +1,4 @@
-app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth', function($scope, $http, $location, $auth){
+app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$window', '$rootScope','$anchorScroll', function($scope, $http, $location, $auth, $window, $rootScope, $anchorScroll){
 
   // Sign up
   $scope.registrationForm = {};
@@ -29,4 +29,16 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth', func
         console.log(response);
       });
   };
+
+
+    $scope.gotoSignup = function() {
+      // set the location.hash to the id of
+      // the element you wish to scroll to.
+      $location.hash('signup');
+
+      // call $anchorScroll()
+      $anchorScroll();
+    };
+
+
 }]);
