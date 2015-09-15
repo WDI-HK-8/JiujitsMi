@@ -4,16 +4,26 @@
 
 
 
-<section class="module parallax parallax-1"  ng-style="{'background-image':'url(/app/assets/images/bg1.jpg)'}">>
+<section class="module parallax parallax-1">
+  
 
-  <div class="container tempsign">
+  <div class="leftCard col-lg-offset-1 col-lg-3">
+    <h1>JiuJitsMi</h1>
+    <p>The most complicated martial art in the world just got a whole lot easier</p>
+    <button>SIGN UP</button>
+  </div>
+
+
+  <div class="front-signin col-lg-offset-7 col-lg-4">
     <div ng-if="!loggedIn">
       <form ng-submit="login()">
         <div class="textbox">
-          <label class="email"><span>Email</span>
+          <label class="front-txt email"><span>Email</span>
             <input class="js-email-field" id="si_email" type="email" name="email" ng-model="loginForm.email" required="required">
           </label>
-          <label class="password"><span>Password</span>
+        </div>
+        <div>
+          <label class="password front-txt"><span>Password</span>
             <input class="js-password-field" id="si_password" type="password" name="password" ng-model="loginForm.password" required="required" class="form-control">
           </label>
         </div>
@@ -23,6 +33,47 @@
       </form>
     </div>
 
+
+</section>
+
+<section class="module elevator">
+  <div class="pitch">
+JiujitsMi brings the traditional pen and paper Brazilian Jiu Jitsu journal into the digital age, providing a superior solution to recording, organisng and viewing your techniques to further advance your game!
+  </div>
+</section>
+
+<section class="module parallax parallax-2">
+  <div class="container">
+
+  </div>
+</section>
+
+<section class="module explaination">
+  <div class="threepoints">
+    <div>
+      <img class="circles" src="<%= image_path('frontpage-organise.png') %>">
+      <img class="circles" src="<%= image_path('frontpage-details.png') %>">
+      <img class="circles" src="<%= image_path('frontpage-video.png') %>">
+    </div>
+    <div>
+      <div>
+      <p class="circles-txt">Organise your techniques any way you desire so that you recall them swiftly</p>
+    
+      <p class="circles-txt">List the specific details of your techniques so that you execute effectively everytime</p>
+
+      <p class="circles-txt">Love scouring Youtube for new techniques? Add them to your dashboard</p>
+    </div>
+  </div>
+</section>
+
+<section class="module parallax parallax-3">
+  <div class="container">
+
+  </div>
+</section>
+
+<section class="module content">
+  <div class="container">
     <!-- sign up -->
 
     <div>
@@ -57,38 +108,7 @@
    </div>
 
 
-</section>
 
-<section class="module content">
-  <div class="container">
-    <h2>Lorem Ipsum Dolor</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-  </div>
-</section>
-
-<section class="module parallax parallax-2">
-  <div class="container">
-    <h1>Rise</h1>
-  </div>
-</section>
-
-<section class="module content">
-  <div class="container">
-    <h2>Lorem Ipsum Dolor</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-  </div>
-</section>
-
-<section class="module parallax parallax-3">
-  <div class="container">
-    <h1>Calm</h1>
-  </div>
-</section>
-
-<section class="module content">
-  <div class="container">
-    <h2>Lorem Ipsum Dolor</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
   </div>
 </section>
 
