@@ -1,7 +1,7 @@
 <navbar></navbar>
   <!-- Position Bar -->
   <nav class="navbar navbar-inverse" role="navigation">
-    <ul class="nav navbar-nav side-nav"> 
+    <ul class="nav navbar-nav side-nav"  dragula='"bag-one"' dragula-model="fields"> 
       <li>
         <form ng-submit="positionForm.create()">
           <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position">
@@ -66,7 +66,7 @@
         <button ng-click="deleteTechType(technique_type)" class="deleteTType">Delete</button>
         <p>{{ technique_type.name}}</p>
       </div>
-      <ul class="nav">
+      <ul class="nav" dragula='"sixth-bag"' dragula-model="fields">
         <li ng-repeat="technique in technique_type.techniques" class="tech-row">
           <a href="" ng-click="getTechnique(technique_type, technique)">{{technique.name}}<button ng-click="deleteTech(technique_type, technique)" class="deleteTechRow">✖</button></a>
         </li>

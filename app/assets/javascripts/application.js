@@ -17,4 +17,5 @@
 //= require angular-cookie/angular-cookie
 //= require jquery/dist/jquery
 //= require bootstrap/dist/js/bootstrap
+//= require angular-dragula/dist/angular-dragula
 //= require_tree .
