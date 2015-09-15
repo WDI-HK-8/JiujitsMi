@@ -1,19 +1,11 @@
 <navbar></navbar>
-<!-- log in -->
-
-
-
-
 <section class="module parallax parallax-1">
-  
-
   <div class="leftCard col-lg-offset-1 col-lg-3">
     <h1>JiuJitsMi</h1>
     <p>The most complicated martial art in the world just got a whole lot easier</p>
     <button>SIGN UP</button>
   </div>
-
-
+<!-- log in -->
   <div class="front-signin col-lg-offset-7 col-lg-4">
     <div ng-if="!loggedIn">
       <form ng-submit="login()">
@@ -32,22 +24,14 @@
         </div>
       </form>
     </div>
-
-
 </section>
-
 <section class="module elevator">
   <div class="pitch">
 JiujitsMi brings the traditional pen and paper Brazilian Jiu Jitsu journal into the digital age, providing a superior solution to recording, organisng and viewing your techniques to further advance your game!
   </div>
 </section>
-
 <section class="module parallax parallax-2">
-  <div class="container">
-
-  </div>
 </section>
-
 <section class="module explaination">
   <div class="threepoints">
     <div>
@@ -58,60 +42,68 @@ JiujitsMi brings the traditional pen and paper Brazilian Jiu Jitsu journal into 
     <div>
       <div>
       <p class="circles-txt">Organise your techniques any way you desire so that you recall them swiftly</p>
-    
       <p class="circles-txt">List the specific details of your techniques so that you execute effectively everytime</p>
-
       <p class="circles-txt">Love scouring Youtube for new techniques? Add them to your dashboard</p>
     </div>
   </div>
 </section>
-
 <section class="module parallax parallax-3">
-  <div class="container">
-
-  </div>
 </section>
-
-<section class="module content">
+<section class="module signup-section">
   <div class="container">
-    <!-- sign up -->
-
-    <div>
-      <form ng-submit="signup()">
-        <div class="form-group">
-          <lable>Username</lable>
-          <input type="text" name="last_name" ng-model="registrationForm.username" required="required" class="form-control">
+    <div class="row">
+        <div class="col-lg-offset-1 col-lg-10">   
+        <!-- PRICE ITEM -->
+        <div class="panel price panel-red">
+          <div class="panel-heading  text-center">
+          <h3>FOUNDATION MEMBERSHIP</h3>
+          </div>
+          <div class="panel-body text-center">
+            <p class="lead" style="font-size:40px"><strong>FREE</strong></p>
+          </div>
+          <ul class="list-group list-group-flush text-center">
+            <li class="list-group-item"><i class="icon-ok text-danger"></i>We love that you’ve found us and as a thank you we would like to offer you access to our foundation membership plan. No credit cards, no fees... everything for free!</li>
+            <li class="list-group-signup"><i class="icon-ok text-danger">
+              <!-- sign up -->
+              <div class="signupbox">
+                <form ng-submit="signup()">
+                  <div class="form-group">
+                    <label><span class="signup-label email">Username</span>
+                      <input type="text" name="last_name" ng-model="registrationForm.username" required="required" class="form-control js-field">
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label><span class="signup-label">Name</span>
+                      <input type="text" name="name" ng-model="registrationForm.name" required="required" class="form-control js-field">
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label><span class="signup-label">Email</span>
+                      <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control js-field">
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label><span class="signup-label">Country</span>
+                      <input type="text" name="country" ng-model="registrationForm.country" required="required" class="form-control js-field">
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label><span class="signup-label">Password</span>
+                      <input type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control js-field">
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label><span class="signup-label">Password Confirmation</span>
+                      <input type="password" name="password_confirmation" ng-model="registrationForm.password_confirmation" required="required" class="form-control js-field">
+                    </label>
+                  </div>
+                  <button type="submit" class="signup-submit">Submit</button>
+                </form>
+              </div>
+            </li>
+          </ul>
         </div>
-        <div class="form-group">
-          <lable>Name</lable>
-          <input type="text" name="name" ng-model="registrationForm.name" required="required" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control">
-        </div>
-        <div class="form-group">
-          <lable>Country</lable>
-          <input type="text" name="country" ng-model="registrationForm.country" required="required" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Password Confirmation</label>
-          <input type="password" name="password_confirmation" ng-model="registrationForm.password_confirmation" required="required" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-      </form>
+      </div>
     </div>
-   </div>
-
-
-
   </div>
 </section>
-
-
-
-

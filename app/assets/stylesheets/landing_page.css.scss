@@ -217,6 +217,8 @@ section.module.elevator {
   width: 150px;
   color: red;
   font-size: 20px;
+  box-shadow: 0px 0px 30px rgba(0,0,0, .2);
+
 }
 
 .front-signin {
@@ -261,7 +263,7 @@ section.module.elevator {
 #log-in {
   float: right;
   width: 100px;
-  background-color: #ffb90f; 
+  background-color: #EF5A5C; 
 
 }
 
@@ -270,4 +272,112 @@ section.module.elevator {
 }
 
 
+/*SIGN UP */
+.signup-section {
+  background-color: #434b4d 
+}
 
+.signupbox {
+  margin-bottom: 20px;
+  margin-top: -315px;
+}
+       
+.panel.price>.panel-heading{
+  box-shadow: 0px 5px 0px rgba(50,50,50, .2) inset;
+}
+  
+.price .list-group-item{
+  border-bottom-:1px solid rgba(250,250,250, .5);
+}
+
+.panel.price .list-group-item:last-child {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.panel.price .list-group-item:first-child {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.price .panel-footer {
+  color: #fff;
+  border-bottom:0px;
+  background-color:  rgba(0,0,0, .1);
+  box-shadow: 0px 3px 0px rgba(0,0,0, .3);
+}
+
+.panel.price .btn{
+  box-shadow: 0 -1px 0px rgba(50,50,50, .2) inset;
+  border:0px;
+}
+
+.price.panel-red {
+  margin-top: 50px;
+}
+
+.price.panel-red>.panel-heading {
+  color: #fff;
+  background-color: #D04E50;
+  border-color: #FF6062;
+  border-bottom: 1px solid #FF6062;
+}
+
+.price.panel-red>.panel-body {
+  color: #fff;
+  background-color: #EF5A5C;
+}
+
+.price.panel-red>.panel-body .lead{
+  text-shadow: 0px 3px 0px rgba(50,50,50, .3);
+}
+.price.panel-red .list-group-item {
+  color: #333;
+  background-color: rgba(50,50,50, .01);
+  font-weight:600;
+}
+
+.price.panel-red .list-group-signup {
+  color: #333;
+  background-color: rgba(50,50,50, .01);
+  font-weight:600;
+  padding-top: 350px;
+  height: 500px;
+}
+
+.price.panel-red .signup-label {
+  text-align: left;
+  float: left;
+}
+
+.form-group {
+  display: block;
+  margin-right: 30%;
+  text-align: right;
+}
+
+.js-field {
+  width: 280px;
+  height: 38px;
+  display: block;
+  float: right;
+  margin-left: 20px;
+  background-color: #fff;
+  border: 1px solid #e1e8ed;
+  border-radius: 3px;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.signup-submit {
+  background-color: transparent;
+  border: 3px solid #EF5A5C;
+  border-radius: 7px;
+  width: 150px;
+  color: #EF5A5C;
+  font-size: 20px;
+}
+
+.signup-submit:hover {
+  border: 3px solid #D04E50;
+  color: #D04E50;
+}
