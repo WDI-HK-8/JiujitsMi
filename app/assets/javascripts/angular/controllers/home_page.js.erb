@@ -15,12 +15,23 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $('[data-toggle="tooltip"]').tooltip()
   });
 
+
   // ============= POSITION ============== //
+
+  //Reorganise the fields array by index
+  var compare = function(a,b) {
+    if (a.index < b.index)
+      return -1;
+    if (a.index > b.index)
+      return 1;
+    return 0;
+  }
 
   // SHOW ALL POSITIONS
   $scope.positions = [];
   $http.get(url + '/positions').success(function(response){
     $scope.positions = response;
+    $scope.positions.sort(compare);
     console.log($scope.positions);
   });
 
@@ -354,6 +365,19 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         };
     });
   };
+
+  $scope.test = function(){
+    console.log($scope.positions)
+    for(var i = 0; i < $scope.positions.length; i++){
+        $scope.positions[i].index = i
+        var content = $scope.positions[i];
+        $http.put(url + '/positions/' + content.id,content).success(function(response) {
+          console.log(response)
+        });
+      }
+
+  }
+
 }]);
 
 
