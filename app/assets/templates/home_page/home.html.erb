@@ -1,7 +1,7 @@
 <navbar></navbar>
   <!-- Position Bar -->
   <nav class="navbar navbar-inverse" role="navigation">
-    <ul class="nav navbar-nav side-nav" dnd-list="positions"> 
+    <ul class="nav navbar-nav side-nav snav" dnd-list="positions"> 
       <li>
         <form ng-submit="positionForm.create()">
           <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position">
@@ -64,7 +64,7 @@
 <!-- TECHNIQUE TYPE  COLUMN-->
 <div class="ttype-capsule" ng-show="showTechTypes">
   <!-- TECHNIQUE CARDS -->
-  <div ng-show="currentPosition" dnd-list="technique_types">
+  <div ng-show="currentPosition" dnd-list="technique_types" class="tnav">
     <div class="ttype-card-container" ng-repeat="technique_type in technique_types" dnd-draggable="technique_type"
     dnd-moved="technique_types.splice($index, 1); ttypeSave()"
         dnd-effect-allowed="move"

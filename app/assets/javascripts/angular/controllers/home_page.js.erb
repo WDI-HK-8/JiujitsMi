@@ -38,7 +38,9 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.positionForm = {};
   $scope.positionForm.create = function(){
     var data = {
-      position: $scope.newPosition
+      index: $scope.positions.length,
+      name: $scope.newPosition.name,
+      user_id: $scope.newPosition.user_id
     };
 
     $http.post(url + '/positions', data).success(function(response){
