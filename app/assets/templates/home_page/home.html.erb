@@ -12,9 +12,9 @@
         dnd-moved="positions.splice($index, 1); test()"
         dnd-effect-allowed="move"
         dnd-selected="models.selected = position"
-        ng-class="{'selected': models.selected === position}">
-        <a href=""class="fa fa-fw fa-arrows-v" ng-click="getPosition(position)"> {{ position.name}}
-        <button ng-click="delete(position)" class="deletePos">✖</button></a>
+        ng-class="{'selected': models.selected === position}" ng-click="getPosition(position)">
+         <a href="" class="newpad fa fa-fw fa-arrows-v" ><span class="handle testspan">::</span> <span dnd-nodrag >{{ position.name}}</span> 
+         <button ng-click="delete(position)" class="deletePos">✖</button></a>
       </li>
     </ul>
   </nav>
