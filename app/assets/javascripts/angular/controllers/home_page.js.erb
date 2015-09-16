@@ -113,7 +113,8 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.techTypeForm = {};
   $scope.techTypeForm.create = function(){
     var data = {
-      technique_type: $scope.newTechType
+      name: $scope.newTechType.name,
+      index: $scope.technique_types.length,
     };
 
     $http.post(url + '/positions/' + $scope.currentPosition + '/technique_types', data).success(function(response){
@@ -386,7 +387,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.ttypeSave = function(){
     console.log($scope.technique_types)
     for(var i = 0; i < $scope.technique_types.length; i++){
-      $scope.technique_types[i].index = i
+      $scope.technique_types[i].index = i;
       var content = $scope.technique_types[i];
       $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + content.id,content).success(function(response) {
         console.log(response);
