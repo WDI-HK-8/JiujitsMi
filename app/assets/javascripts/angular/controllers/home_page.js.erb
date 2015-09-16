@@ -369,7 +369,6 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     });
   };
 
-
   // DRAG AND DROP - REORDER INDEX
   $scope.positionSave = function(){
     console.log($scope.positions)
@@ -377,7 +376,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       $scope.positions[i].index = i
       var content = $scope.positions[i];
       $http.put(url + '/positions/' + content.id,content).success(function(response) {
-        console.log(response)
+        console.log(response);
       });
     };
   };
@@ -388,33 +387,21 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       $scope.technique_types[i].index = i
       var content = $scope.technique_types[i];
       $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + content.id,content).success(function(response) {
-        console.log(response)
+        console.log(response);
       });
     };
-    // console.log($scope.technique_type.techniques)
   };
 
   $scope.techniqueSave = function(){
     console.log($scope.technique_types)
-    
     for (var x = 0; x < $scope.technique_types.length; x++){
-
-      // console.log($scope.technique_types[x])
-
       for(var i = 0; i < $scope.technique_types[x].techniques.length; i++){
-      
-          // console.log($scope.technique_types[x].techniques[i])
-
         $scope.technique_types[x].techniques[i].index = i;
-
-
         var content = $scope.technique_types[x].techniques[i];
         $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + content.id, content).success(function(response){
-          console.log(response)
+          console.log(response);
         });
       };
     };
-    // console.log($scope.technique_type.techniques)
   };
-
 }]);

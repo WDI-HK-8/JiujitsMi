@@ -72,7 +72,6 @@
         ng-class="{'selected': models.selected === technique_type}">
       <div class="ttype-card-header" >
         <button ng-click="deleteTechType(technique_type)" class="deleteTType">Delete</button>
-
         <p><span class="handle ttypespan"><b>::</b></span><span dnd-nodrag>{{ technique_type.name}}</span></p>
       </div>
       <ul dnd-allowed-types="technique_type.techniques.technique_type_id" class="nav" dnd-list="technique_type.techniques">
