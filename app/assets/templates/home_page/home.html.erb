@@ -13,7 +13,7 @@
         dnd-effect-allowed="move"
         dnd-selected="models.selected = position"
         ng-class="{'selected': models.selected === position}" ng-click="getPosition(position)">
-         <a href="" class="newpad fa fa-fw fa-arrows-v" ><span class="handle testspan">::</span> <span dnd-nodrag >{{ position.name}}</span> 
+         <a href="" class="newpad fa fa-fw fa-arrows-v" ><span class="handle positionspan">::</span> <span dnd-nodrag >{{ position.name}}</span> 
          <button ng-click="delete(position)" class="deletePos">✖</button></a>
       </li>
     </ul>
@@ -70,9 +70,10 @@
         dnd-effect-allowed="move"
         dnd-selected="models.selected = technique_type"
         ng-class="{'selected': models.selected === technique_type}">
-      <div class="ttype-card-header">
+      <div class="ttype-card-header" >
         <button ng-click="deleteTechType(technique_type)" class="deleteTType">Delete</button>
-        <p>{{ technique_type.name}}</p>
+
+        <p><span class="handle ttypespan"><b>::</b></span><span dnd-nodrag>{{ technique_type.name}}</span></p>
       </div>
       <ul class="nav">
         <li ng-repeat="technique in technique_type.techniques" class="tech-row">

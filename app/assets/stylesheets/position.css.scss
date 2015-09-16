@@ -604,7 +604,7 @@ textarea {
   width: 40%;
 }
 
-ul li a .testspan {
+ul li a .positionspan {
   font-size: 23px;
   cursor: move;
   padding-right: 3px;  
@@ -612,7 +612,20 @@ ul li a .testspan {
   margin-left: -10px;
 }
 
-ul li a:hover .testspan {
+ul li a:hover .positionspan {
+  display: inline;
+  color: #fff;
+}
+
+
+.ttype-card-header .ttypespan {
+  font-size: 20px;
+  cursor: move;
+  padding-right: 10px;  
+  color: #ff6d6d;
+}
+
+.ttype-card-header:hover .ttypespan {
   display: inline;
   color: #fff;
 }
