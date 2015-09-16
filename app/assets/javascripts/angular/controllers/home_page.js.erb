@@ -28,7 +28,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   // SHOW ALL POSITIONS
   $scope.positions = [];
   $http.get(url + '/positions').success(function(response){
-    $scope.positions = response;
+    $scope.positions = response.sort(compare);
     $scope.positions.sort(compare);
     console.log($scope.positions);
   });
@@ -38,9 +38,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.positionForm = {};
   $scope.positionForm.create = function(){
     var data = {
-      index: $scope.positions.length,
-      name: $scope.newPosition.name,
-      user_id: $scope.newPosition.user_id
+      position: $scope.newPosition
     };
 
     $http.post(url + '/positions', data).success(function(response){
@@ -85,7 +83,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $scope.newTechType = null;
 
     $http.get(url + '/positions/' + position.id + '/technique_types').success(function(response){
-      $scope.technique_types = response;
+      $scope.technique_types = response.sort(compare);
 
       for (var i = 0; i < $scope.technique_types.length; i++) {
         $scope.technique_types[i].techniques.sort(compare);
@@ -113,8 +111,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.techTypeForm = {};
   $scope.techTypeForm.create = function(){
     var data = {
-      name: $scope.newTechType.name,
-      index: $scope.technique_types.length,
+      technique_type: $scope.newTechType
     };
 
     $http.post(url + '/positions/' + $scope.currentPosition + '/technique_types', data).success(function(response){
@@ -387,7 +384,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.ttypeSave = function(){
     console.log($scope.technique_types)
     for(var i = 0; i < $scope.technique_types.length; i++){
-      $scope.technique_types[i].index = i;
+      $scope.technique_types[i].index = i
       var content = $scope.technique_types[i];
       $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + content.id,content).success(function(response) {
         console.log(response);
