@@ -1,16 +1,20 @@
 <navbar></navbar>
   <!-- Position Bar -->
   <nav class="navbar navbar-inverse" role="navigation">
-    <ul class="nav navbar-nav side-nav"> 
+    <ul class="nav navbar-nav side-nav" dnd-list="positions"> 
       <li>
         <form ng-submit="positionForm.create()">
           <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position">
           <button type="submit" class="subchck btn submit down-button addPos" ><b>+</b></button>
         </form>
       </li>
-      <li ng-repeat="position in positions">
-        <a href=""class="fa fa-fw fa-arrows-v" ng-click="getPosition(position)"> {{ position.name}}
-        <button ng-click="delete(position)" class="deletePos">✖</button></a>
+      <li ng-repeat="position in positions" dnd-draggable="position"
+        dnd-moved="positions.splice($index, 1); positionSave()"
+        dnd-effect-allowed="move"
+        dnd-selected="models.selected = position"
+        ng-class="{'selected': models.selected === position}" ng-click="getPosition(position)">
+         <a href="" class="newpad fa fa-fw fa-arrows-v" ><span class="handle positionspan">::</span> <span dnd-nodrag >{{ position.name}}</span> 
+         <button ng-click="delete(position)" class="deletePos">✖</button></a>
       </li>
     </ul>
   </nav>
@@ -60,15 +64,19 @@
 <!-- TECHNIQUE TYPE  COLUMN-->
 <div class="ttype-capsule" ng-show="showTechTypes">
   <!-- TECHNIQUE CARDS -->
-  <div ng-show="currentPosition">
-    <div class="ttype-card-container" ng-repeat="technique_type in technique_types">
-      <div class="ttype-card-header">
+  <div ng-show="currentPosition" dnd-list="technique_types">
+    <div class="ttype-card-container" ng-repeat="technique_type in technique_types" dnd-draggable="technique_type"
+    dnd-moved="technique_types.splice($index, 1); ttypeSave()"
+        dnd-effect-allowed="move"
+        dnd-selected="models.selected = technique_type"
+        ng-class="{'selected': models.selected === technique_type}">
+      <div class="ttype-card-header" >
         <button ng-click="deleteTechType(technique_type)" class="deleteTType">Delete</button>
-        <p>{{ technique_type.name}}</p>
+        <p><span class="handle ttypespan"><b>::</b></span><span dnd-nodrag>{{ technique_type.name}}</span></p>
       </div>
-      <ul class="nav">
-        <li ng-repeat="technique in technique_type.techniques" class="tech-row">
-          <a href="" ng-click="getTechnique(technique_type, technique)">{{technique.name}}<button ng-click="deleteTech(technique_type, technique)" class="deleteTechRow">✖</button></a>
+      <ul dnd-allowed-types="technique_type.techniques.technique_type_id" class="nav" dnd-list="technique_type.techniques">
+        <li ng-repeat="technique in technique_type.techniques" dnd-draggable="technique" dnd-moved="technique_type.techniques.splice($index, 1); techniqueSave()" dnd-type="technique.technique_type_id" dnd-disable-if="technique.technique_type_id == 'unknown'" dnd-effect-allowed="move" dnd-selected="models.selected = technique" ng-class="{'selected': models.selected === technique_type}" class="tech-row">
+          <a href="" ng-click="getTechnique(technique_type, technique)"><span class="handle techspan"><b>::</b></span><span dnd-nodrag> {{technique.name}}<button ng-click="deleteTech(technique_type, technique)" class="deleteTechRow">✖</button></span></a>
         </li>
         <li>
           <form ng-submit="techForm.create(technique_type)" class="add-tech-form">

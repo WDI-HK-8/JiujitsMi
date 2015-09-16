@@ -15,12 +15,21 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $('[data-toggle="tooltip"]').tooltip()
   });
 
+  //Reorganise the fields array by index
+  var compare = function(a,b) {
+    if (a.index < b.index)
+      return -1;
+    if (a.index > b.index)
+      return 1;
+    return 0;
+  }
   // ============= POSITION ============== //
 
   // SHOW ALL POSITIONS
   $scope.positions = [];
   $http.get(url + '/positions').success(function(response){
     $scope.positions = response;
+    $scope.positions.sort(compare);
     console.log($scope.positions);
   });
 
@@ -70,10 +79,15 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     console.log(position.id);
     $scope.currentPosition = position.id;
     $scope.currentPositionName = position.name;
+    $scope.technique_types.sort(compare);
     $scope.newTechType = null;
 
     $http.get(url + '/positions/' + position.id + '/technique_types').success(function(response){
       $scope.technique_types = response;
+
+      for (var i = 0; i < $scope.technique_types.length; i++) {
+        $scope.technique_types[i].techniques.sort(compare);
+      }
       console.log(response);
       console.log($scope.techniques);
       // SHOW INPUT BOX
@@ -354,6 +368,40 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         };
     });
   };
+
+  // DRAG AND DROP - REORDER INDEX
+  $scope.positionSave = function(){
+    console.log($scope.positions)
+    for(var i = 0; i < $scope.positions.length; i++){
+      $scope.positions[i].index = i
+      var content = $scope.positions[i];
+      $http.put(url + '/positions/' + content.id,content).success(function(response) {
+        console.log(response);
+      });
+    };
+  };
+
+  $scope.ttypeSave = function(){
+    console.log($scope.technique_types)
+    for(var i = 0; i < $scope.technique_types.length; i++){
+      $scope.technique_types[i].index = i
+      var content = $scope.technique_types[i];
+      $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + content.id,content).success(function(response) {
+        console.log(response);
+      });
+    };
+  };
+
+  $scope.techniqueSave = function(){
+    console.log($scope.technique_types)
+    for (var x = 0; x < $scope.technique_types.length; x++){
+      for(var i = 0; i < $scope.technique_types[x].techniques.length; i++){
+        $scope.technique_types[x].techniques[i].index = i;
+        var content = $scope.technique_types[x].techniques[i];
+        $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + content.id, content).success(function(response){
+          console.log(response);
+        });
+      };
+    };
+  };
 }]);
-
-
