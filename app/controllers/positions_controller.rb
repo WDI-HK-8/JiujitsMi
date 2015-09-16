@@ -28,8 +28,19 @@ class PositionsController < ApplicationController
     end
   end
 
+  def update
+    @position = Position.find_by_id(params[:id])
+
+    if @position.nil?
+      render json: { message: "Cannot find technique" }, status: :not_found
+    else
+      @position.update(position_params)
+    end
+  end
+
+
   private
   def position_params
-    params.require(:position).permit(:name)
+    params.require(:position).permit(:name, :index)
   end
 end

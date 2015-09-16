@@ -1,16 +1,17 @@
 <navbar></navbar>
   <!-- Position Bar -->
-  <nav class="navbar navbar-inverse" role="navigation">
-    <ul class="nav navbar-nav side-nav"  dragula='"bag-one"' dragula-model="fields"> 
-      <li>
+  <nav class="" role="">
+    <ul class="nav navbar-nav side-nav" dragula='"bag-one"'> 
+<!--       <li>
         <form ng-submit="positionForm.create()">
           <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position">
           <button type="submit" class="subchck btn submit down-button addPos" ><b>+</b></button>
         </form>
-      </li>
-      <li ng-repeat="position in positions">
-        <a href=""class="fa fa-fw fa-arrows-v" ng-click="getPosition(position)"> {{ position.name}}
-        <button ng-click="delete(position)" class="deletePos">✖</button></a>
+      </li> -->
+      <li ng-repeat="position in positions" dragula-model="positions">
+        <!-- <a href=""class="fa fa-fw fa-arrows-v" ng-click="getPosition(position)"> {{ position.name}} -->
+        <!-- <button ng-click="delete(position)" class="deletePos">✖</button></a> -->
+        <a href="" class="fa fa-fw fa-arrows-v"> {{ position.name }}</a>
       </li>
     </ul>
   </nav>

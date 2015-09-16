@@ -1,4 +1,4 @@
-app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', '$sce', 'dragulaService', function($scope, $http, $location, $auth, $routeParams, $sce, dragulaService){
+app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', '$sce', 'dragulaService', '$timeout', function($scope, $http, $location, $auth, $routeParams, $sce, dragulaService, $timeout){
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
@@ -16,11 +16,17 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   });
 
 
-    dragulaService.options($scope, 'sixth-bag', {
-      moves: function (el, container, handle) {
-        return handle.className === 'handle';
-      }
-    });
+
+
+
+
+  
+
+
+
+
+
+
   // ============= POSITION ============== //
 
   // SHOW ALL POSITIONS
@@ -28,7 +34,30 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $http.get(url + '/positions').success(function(response){
     $scope.positions = response;
     console.log($scope.positions);
+    
+  // GIVE POSITION INDEX 
+    //Reorganise the fields array by index
+    var compare = function(a,b) {
+      if (a.index < b.index)
+        return -1;
+      if (a.index > b.index)
+        return 1;
+      return 0;
+    }
+
+    //for each position make index = index + 1
+    // for (var x = 0; x < $scope.positions.length; x++) {    
+    //   $scope.positions[x].index = x;
+    //   var content = $scope.positions[x];
+
+    //   $http.put(url + '/positions/' + content.id, content).success(function(response){
+    //     console.log(response)
+    //   });
+    // };
+    $scope.positions.sort(compare);
   });
+
+
 
   // CREATE NEW POSITION
   $scope.newPosition = {};
@@ -360,6 +389,21 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         };
     });
   };
+
+$scope.$on('bag-one.drop',function(e, el, source) {
+    $timeout(function() {
+    //  for (var x = 0; x < $scope.positions.length; x++) {
+    //     $scope.positions[x].index = x;
+    //     console.log($scope.positions[x])    
+    //     var content = $scope.positions[x];
+
+    //     $http.put(url + '/positions/' + content.id, content).success(function(response){
+    //   });
+    // };
+    console.log($scope.positions[0]);
+    },100);
+  });
+
 }]);
 
 
