@@ -551,14 +551,14 @@ textarea {
   width: 25%;
   display: block;
   margin: auto;
-  margin-top: 12%;
+  margin-top: 16%;
 }
 
 #bg-addtech {
   width: 38%;
   display: block;
   margin: auto;
-  margin-top: 20%;
+  margin-top: 24%;
 }
 
 .bg-addposition-container {
@@ -605,7 +605,7 @@ textarea {
 }
 
 ul li a .positionspan {
-  font-size: 23px;
+  font-size: 20px;
   cursor: move;
   padding-right: 3px;  
   color: #363636;
@@ -614,9 +614,8 @@ ul li a .positionspan {
 
 ul li a:hover .positionspan {
   display: inline;
-  color: #fff;
+  color: #ddd;
 }
-
 
 .ttype-card-header .ttypespan {
   font-size: 20px;
@@ -661,4 +660,17 @@ ul[dnd-list] li {
 
 .nav2 > li > a {
   padding-left: 5px;
+}
+
+
+.tech-row .techspan {
+  font-size: 20px;
+  cursor: move;
+  padding-right: 6px;  
+  color: #fff;
+}
+
+.tech-row:hover .techspan {
+  display: inline;
+  color: #FFC3A0;
 }
