@@ -686,3 +686,8 @@ ul li a:hover .positionspan {
     min-height: 42px;
 }
 
+.tnav ul[dnd-list] li {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    display: block;
+}

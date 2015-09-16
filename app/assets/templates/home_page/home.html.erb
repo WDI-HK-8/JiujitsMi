@@ -66,10 +66,7 @@
   <!-- TECHNIQUE CARDS -->
   <div ng-show="currentPosition" dnd-list="technique_types" class="tnav">
     <div class="ttype-card-container" ng-repeat="technique_type in technique_types" dnd-draggable="technique_type"
-    dnd-moved="technique_types.splice($index, 1); ttypeSave()"
-        dnd-effect-allowed="move"
-        dnd-selected="models.selected = technique_type"
-        ng-class="{'selected': models.selected === technique_type}">
+    dnd-moved="technique_types.splice($index, 1); ttypeSave()" dnd-effect-allowed="move" dnd-selected="models.selected = technique_type" ng-class="{'selected': models.selected === technique_type}">
       <div class="ttype-card-header" >
         <button ng-click="deleteTechType(technique_type)" class="deleteTType">Delete</button>
         <p><span class="handle ttypespan"><b>::</b></span><span dnd-nodrag>{{ technique_type.name}}</span></p>
