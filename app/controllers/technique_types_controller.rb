@@ -28,8 +28,18 @@ class TechniqueTypesController < ApplicationController
     end
   end
 
+  def update
+    @technique_type = TechniqueType.find_by_id(params[:id])
+
+    if @technique_type.nil?
+      render json: { message: "Cannot find technique" }, status: :not_found
+    else
+      @technique_type.update(technique_type_params)
+    end
+  end
+
   private
   def technique_type_params
-    params.require(:technique_type).permit(:name)
+    params.require(:technique_type).permit(:name, :index)
   end
 end

@@ -9,7 +9,7 @@
         </form>
       </li>
       <li ng-repeat="position in positions" dnd-draggable="position"
-        dnd-moved="positions.splice($index, 1); test()"
+        dnd-moved="positions.splice($index, 1); positionSave()"
         dnd-effect-allowed="move"
         dnd-selected="models.selected = position"
         ng-class="{'selected': models.selected === position}" ng-click="getPosition(position)">
@@ -64,8 +64,12 @@
 <!-- TECHNIQUE TYPE  COLUMN-->
 <div class="ttype-capsule" ng-show="showTechTypes">
   <!-- TECHNIQUE CARDS -->
-  <div ng-show="currentPosition">
-    <div class="ttype-card-container" ng-repeat="technique_type in technique_types">
+  <div ng-show="currentPosition" dnd-list="technique_types">
+    <div class="ttype-card-container" ng-repeat="technique_type in technique_types" dnd-draggable="technique_type"
+        dnd-moved="technique_types.splice($index, 1); ttypeSave()"
+        dnd-effect-allowed="move"
+        dnd-selected="models.selected = technique_type"
+        ng-class="{'selected': models.selected === technique_type}">
       <div class="ttype-card-header">
         <button ng-click="deleteTechType(technique_type)" class="deleteTType">Delete</button>
         <p>{{ technique_type.name}}</p>

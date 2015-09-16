@@ -15,12 +15,6 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $('[data-toggle="tooltip"]').tooltip()
   });
 
-
-
-
-
-  // ============= POSITION ============== //
-
   //Reorganise the fields array by index
   var compare = function(a,b) {
     if (a.index < b.index)
@@ -29,6 +23,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       return 1;
     return 0;
   }
+  // ============= POSITION ============== //
 
   // SHOW ALL POSITIONS
   $scope.positions = [];
@@ -84,6 +79,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     console.log(position.id);
     $scope.currentPosition = position.id;
     $scope.currentPositionName = position.name;
+    $scope.technique_types.sort(compare);
     $scope.newTechType = null;
 
     $http.get(url + '/positions/' + position.id + '/technique_types').success(function(response){
@@ -369,17 +365,28 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     });
   };
 
-  $scope.test = function(){
+  $scope.positionSave = function(){
     console.log($scope.positions)
     for(var i = 0; i < $scope.positions.length; i++){
-        $scope.positions[i].index = i
-        var content = $scope.positions[i];
-        $http.put(url + '/positions/' + content.id,content).success(function(response) {
-          console.log(response)
-        });
-      }
+      $scope.positions[i].index = i
+      var content = $scope.positions[i];
+      $http.put(url + '/positions/' + content.id,content).success(function(response) {
+        console.log(response)
+      });
+    };
+  };
 
-  }
+  $scope.ttypeSave = function(){
+    console.log($scope.technique_types)
+    for(var i = 0; i < $scope.technique_types.length; i++){
+      $scope.technique_types[i].index = i
+      var content = $scope.technique_types[i];
+      $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + content.id,content).success(function(response) {
+        console.log(response)
+      });
+    };
+    console.log($scope.technique_types)
+  };
 
 }]);
 
