@@ -15,7 +15,11 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
     $auth.submitRegistration($scope.registrationForm).
       then(function(response){
         //handle success
-        console.log(response)
+        console.log(response);
+        $location.path('/home');
+        $scope.loggedIn = true;
+        $scope.authResponse = $auth.validateUser();
+        $scope.loginName = $scope.authResponse.$$state.value.username;
       }).catch(function(response){
         //handle errors
         console.log(response)
@@ -30,9 +34,9 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
         //handle success
         console.log(response);
         $scope.loggedIn = true;
-        $scope.authResponse = $auth.validateUser()
-        $scope.loginName = $scope.authResponse.$$state.value.username
-        $location.path('/home')
+        $scope.authResponse = $auth.validateUser();
+        $scope.loginName = $scope.authResponse.$$state.value.username;
+        $location.path('/home');
       }).catch(function(response){
         //handle errors
         console.log(response);
