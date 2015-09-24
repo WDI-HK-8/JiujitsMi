@@ -2,6 +2,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
+
   // BY DEFAULT HIDE ALL CARDS
   $scope.positionBg = true;
   $scope.ttechBg = false;
@@ -181,8 +182,12 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     var tech_type_to_get = $scope.technique_types.indexOf(technique_type);
     var tech_to_get = $scope.technique_types[tech_type_to_get].techniques.indexOf(technique);
 
+    console.log('show message is orignally ' + $scope.showMessage)
     $scope.techSelected = true;
     $scope.newStep = null;
+    $scope.showVideo = false;
+    $scope.showSteps = false;
+    $scope.showNotes = false;
 
     // GET VIDEO URL, NOTES
     $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques/' + technique.id).success(function(response){
@@ -196,13 +201,17 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         $scope.showNotes = false;
       } else {
         $scope.showNotes = true;
+        $scope.showMessage = false;
       }
 
       // NOTES FILL
       if ($scope.currentTechnique.other_notes == null) {
         $scope.doNotesExist = false;
+
       } else {
         $scope.doNotesExist = true;
+        $scope.showMessage = false;
+
       };      
 
       // VIDEO SHOW
@@ -210,22 +219,28 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       if ($scope.currentTechnique.video_url == null) {
         $scope.doVideosExist = false;
         $scope.showVideo = false;
+
       } else {
         $scope.doVideosExist = true;
         $scope.showVideo = true;
+        $scope.showMessage = false;
+
       };
 
       // CONVERT VIDEO URL TO EMBEDED
+
+      if ($scope.currentTechnique.video_url != null) {
        $scope.trustSrc = function(src) {
-        return $sce.trustAsResourceUrl(src);
+          return $sce.trustAsResourceUrl(src);
+        };
+        vidURL = $scope.currentTechnique.video_url.split('v=');
+        vidID = vidURL[1];
+        var ampersandPosition = vidID.indexOf('&');
+        if(ampersandPosition != -1) {
+          vidID = vidID.substring(0, ampersandPosition);
+        };
+        $scope.vidSRC = "https://www.youtube.com/embed/" + vidID;
       };
-      vidURL = $scope.currentTechnique.video_url.split('v=');
-      vidID = vidURL[1];
-      var ampersandPosition = vidID.indexOf('&');
-      if(ampersandPosition != -1) {
-        vidID = vidID.substring(0, ampersandPosition);
-      };
-      $scope.vidSRC = "https://www.youtube.com/embed/" + vidID;
     });
 
     // GET STEPS
@@ -236,19 +251,32 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       if ($scope.steps.length < 1) {
         $scope.showSteps = false;
         $scope.doStepsExist = false;
+
       } else {
         $scope.showSteps = true;
         $scope.doStepsExist = true;
+        $scope.showMessage = false;
+
       };
+    });
+
+
+
+    console.log('show video is now ' + $scope.showVideo)
+    console.log('show notes is now ' + $scope.showNotes)
+    console.log('steps.length is now ' + $scope.showSteps)
+    console.log('=========================')
+
+    console.log('show message is now ' + $scope.showMessage)
+
       // SHOW MESSAGE?
-      if ($scope.currentTechnique.other_notes == null && 
-          $scope.currentTechnique.video_url == null && 
-          $scope.steps.length < 1) {
+      if ($scope.showVideo == false && 
+          $scope.showNotes == false && 
+          $scope.showSteps == false) {
         $scope.showMessage = true;
       } else {
         $scope.showMessage = false;
       };
-    });
   };
 
   // DELETE VIDEO
