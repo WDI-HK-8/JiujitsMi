@@ -1,5 +1,14 @@
 app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$window', '$rootScope','$anchorScroll', function($scope, $http, $location, $auth, $window, $rootScope, $anchorScroll){
 
+
+  // redirect to landing page if user is signed in
+  $scope.authResponse = $auth.validateUser()
+  $scope.authStatus = $scope.authResponse.$$state.status
+  if ($scope.authStatus == 1) {
+    console.log("hitting")
+    $location.path('/home')
+  };
+
   // Sign up
   $scope.registrationForm = {};
   $scope.signup = function(){
