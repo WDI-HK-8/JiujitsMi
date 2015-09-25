@@ -199,14 +199,15 @@ ul {
 
 .create-ttype {
   float: right;
+  margin-top: -3px;
 }
 
 .ttype-head>span {
   display: inline-block;
-  margin-left: 30px;
+  margin-left: 20px;
   padding-top: 25px;
   color: #7c7c7c;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .ttype-card-header>p {
@@ -647,6 +648,11 @@ ul li a:hover .positionspan {
 
 .newpad {
   padding-left: -15px;
+}
+
+#posName {
+  max-width: 10px;
+  overflow: hidden;
 }
 
 .snav ul[dnd-list] {

@@ -5,7 +5,7 @@
     <ul class="addposition">
       <li>
         <form dnd-nodrag ng-submit="positionForm.create()">
-          <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position">
+          <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position" maxlength="30">
           <button type="submit" class="subchck btn submit down-button addPos" ><b>+</b></button>
         </form>
       <li>  
@@ -18,7 +18,7 @@
         dnd-selected="models.selected = position"
         class="background-{{position.name}}"
         dnd-type="position" ng-click="getPosition(position)">
-         <a href="" class="newpad fa fa-fw fa-arrows-v" ><span class="handle positionspan">::</span> <span dnd-nodrag >{{ position.name}}</span> 
+         <a href="" class="newpad fa fa-fw fa-arrows-v" ><span class="handle positionspan">::</span> <span dnd-nodrag id="posName" >{{ position.name}}</span> 
          <button ng-click="delete(position)" class="deletePos">✖</button></a>
       </li>
     </ul>
@@ -28,7 +28,7 @@
   <div class="ttype-head">
     <span>{{currentPositionName}}</span>
     <form ng-submit="techTypeForm.create()" class="create-ttype">
-      <input class="forms-control-tech" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new technique type">
+      <input class="forms-control-tech" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new technique type"  maxlength="32">
       <button type="submit" class="subchck btn submit down-button addTech" ><b>+</b></button>
     </form>
   </div>
@@ -82,7 +82,7 @@
         </li>
         <li>
           <form ng-submit="techForm.create(technique_type)" class="add-tech-form">
-            <input class="forms-control-tech" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTech.name" required="required" placeholder="Add a new technique">
+            <input class="forms-control-tech" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTech.name" required="required" placeholder="Add a new technique"  maxlength="36">
             <button type="submit" class="subchck btn submit down-button addTech" ><b>+</b></button>
           </form>
         </li>
@@ -134,8 +134,8 @@
           </li>
           <li>
             <form ng-submit="stepForm.create()" class="add-tech-form">
-              <input class="forms-control-step" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step">
-              <button type="submit" class="subchck btn submit down-button addTech" ><b>+</b></button>
+              <input class="forms-control-step" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step" >
+              <button type="submit" class="subchck btn submit down-button addTech" maxlength="500" ><b>+</b></button>
             </form>
           </li>
         </ul>
@@ -145,7 +145,7 @@
     <div ng-show="showNotes" class="notes-block">
       <button  class="deleteVideoBtn subchck btn submit down-button" data-toggle="tooltip" data-placement="bottom" title="Delete Notes" ng-click="deleteNotes()">✖</button>
       <form ng-submit="notesForm.create()">
-        <textarea ng-readonly="doNotesExist" rows="8" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have"></textarea>
+        <textarea ng-readonly="doNotesExist" rows="8" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="1000"></textarea>
         <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addNotes" ><b>Add Notes</b></button>
       </form>
       <button ng-if="doNotesExist" ng-click="editNotesBtn()" class="subchck btn submit down-button editNotes" ><b>Edit Notes</b></button>
