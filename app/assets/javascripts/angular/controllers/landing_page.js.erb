@@ -1,5 +1,8 @@
 app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$window', '$rootScope','$anchorScroll', function($scope, $http, $location, $auth, $window, $rootScope, $anchorScroll){
 
+  // Turn off alerts by default
+  $scope.loginFail = false;
+
 
   // redirect to landing page if user is signed in
   $scope.authResponse = $auth.validateUser()
@@ -39,6 +42,7 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
         $location.path('/home');
       }).catch(function(response){
         //handle errors
+        $scope.loginFail = true;
         console.log(response);
       });
   };
