@@ -2,6 +2,7 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
 
   // Turn off alerts by default
   $scope.loginFail = false;
+  $scope.signupFail = false;
 
 
   // redirect to landing page if user is signed in
@@ -25,9 +26,13 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
         $scope.loginName = $scope.authResponse.$$state.value.username;
       }).catch(function(response){
         //handle errors
-        console.log(response)
+        $scope.errorResponse = response;
+        $scope.errorMessages = $scope.errorResponse.data.errors.full_messages;
+        console.log(response);
+        console.log($scope.errorMessages);
+        $scope.signupFail = true;
       });
-  }
+  };
   
   // Login
   $scope.loginForm = {};

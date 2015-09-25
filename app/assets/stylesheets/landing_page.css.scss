@@ -339,7 +339,7 @@ section.module.elevator {
   background-color: rgba(50,50,50, .01);
   font-weight:600;
   padding-top: 350px;
-  height: 500px;
+  min-height: 500px;
 }
 
 .price.panel-red .signup-label {
@@ -383,4 +383,9 @@ section.module.elevator {
 #loginFail {
   margin-top: 10px;
   text-align: center;
+}
+
+#signupFail {
+  text-align: center;
+  margin-top: -18px;
 }
