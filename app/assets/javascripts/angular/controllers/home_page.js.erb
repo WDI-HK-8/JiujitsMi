@@ -286,6 +286,8 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
       console.log(response);
       $scope.showVideo = false;
+      $scope.doVideosExist = false;
+      $scope.newVideo = null;
     });
   };
 
@@ -364,6 +366,10 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       };
       $scope.vidSRC = "https://www.youtube.com/embed/" + vidID;
       $scope.doVideosExist = true;
+
+      $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +$scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id).success(function(response){
+        console.log(response);
+      });
     });
   };
 
