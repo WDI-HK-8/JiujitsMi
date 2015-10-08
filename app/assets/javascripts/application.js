@@ -12,7 +12,7 @@
 //
 //= require angular/angular
 //= require angular-route/angular-route
-//= require angular-bootstrap/ui-bootstrap
+//= require angular-bootstrap/ui-bootstrap-tpls.js
 //= require ng-token-auth/dist/ng-token-auth
 //= require angular-cookie/angular-cookie
 //= require jquery/dist/jquery

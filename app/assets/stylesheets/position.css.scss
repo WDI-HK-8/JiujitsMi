@@ -713,3 +713,29 @@ ul li a:hover .positionspan {
     border-top-left-radius: 4px;
     display: block;
 }
+
+/*Modal*/
+
+.app-modal-window .modal-dialog {
+  width: 390px;
+}
+
+.modal {
+  text-align: center;
+  font-size: 18px;
+}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
