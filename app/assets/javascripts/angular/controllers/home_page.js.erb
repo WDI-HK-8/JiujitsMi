@@ -1,4 +1,4 @@
-app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', '$sce', function($scope, $http, $location, $auth, $routeParams, $sce){
+app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', '$sce', '$modal', '$window', function($scope, $http, $location, $auth, $routeParams, $sce, $modal, $window){
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
@@ -56,15 +56,14 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   // DELETE A POSITION
   $scope.delete = function(position){
     var pos_to_delete = $scope.positions.indexOf(position);
+
     $http.delete(url + '/positions/' + position.id).success(function(response){
       $scope.positions.splice(pos_to_delete, 1);
-      if ($scope.positions.length < 1) {
-        $scope.positionBg = true;
-        $scope.ttechBg = false;
-        $scope.showTechTypes = false;
-        $scope.techTypeInput = false;
-        $scope.currentPositionName = null;
-      };
+      $scope.positionBg = true;
+      $scope.ttechBg = false;
+      $scope.showTechTypes = false;
+      $scope.techTypeInput = false;
+      $scope.currentPositionName = null;
       $scope.currentPositionName = null;
       $scope.techTypeInput = false;   
     });
