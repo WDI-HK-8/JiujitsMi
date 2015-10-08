@@ -355,9 +355,9 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
       console.log(response);
-      $scope.currentTechnique = response 
+      $scope.videoResponse = response 
 
-      vidURL = $scope.currentTechnique.video_url.split('v=');
+      vidURL = $scope.videoResponse.video_url.split('v=');
       vidID = vidURL[1];
       var ampersandPosition = vidID.indexOf('&');
       if(ampersandPosition != -1) {
