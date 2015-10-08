@@ -257,8 +257,17 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         $scope.showMessage = false;
 
       };
-    });
 
+    // CHANGE THE COLOR OF NOTES BOX
+    var t = document.getElementById('text');
+    if ($scope.doNotesExist == true) {
+      t.style.backgroundColor='#fdfdfd';
+    } else {
+      t.style.backgroundColor='white';
+    };
+
+
+    });
 
 
     console.log('show video is now ' + $scope.showVideo)
@@ -268,14 +277,14 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
     console.log('show message is now ' + $scope.showMessage)
 
-      // SHOW MESSAGE?
-      if ($scope.showVideo == false && 
-          $scope.showNotes == false && 
-          $scope.showSteps == false) {
-        $scope.showMessage = true;
-      } else {
-        $scope.showMessage = false;
-      };
+    // SHOW MESSAGE?
+    if ($scope.showVideo == false && 
+        $scope.showNotes == false && 
+        $scope.showSteps == false) {
+      $scope.showMessage = true;
+    } else {
+      $scope.showMessage = false;
+    };    
   };
 
   // DELETE VIDEO
@@ -306,6 +315,8 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   // EDIT NOTES BUTTON
   $scope.editNotesBtn = function() {
     $scope.doNotesExist = false;
+    var t = document.getElementById('text');
+    t.style.backgroundColor='white';
   };
 
   // ADD NOTES BUTTON
@@ -342,6 +353,9 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
       console.log(response)
       $scope.doNotesExist = true;
+
+      var t = document.getElementById('text');
+      t.style.backgroundColor='#fdfdfd';
     });
   };
 
