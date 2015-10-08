@@ -145,7 +145,7 @@
     <div ng-show="showNotes" class="notes-block">
       <button  class="deleteVideoBtn subchck btn submit down-button" data-toggle="tooltip" data-placement="bottom" title="Delete Notes" ng-click="deleteNotes()">✖</button>
       <form ng-submit="notesForm.create()">
-        <textarea ng-readonly="doNotesExist" rows="8" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="1000"></textarea>
+        <textarea ng-readonly="doNotesExist" rows="8" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="1000" id="text"></textarea>
         <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addNotes" ><b>Add Notes</b></button>
       </form>
       <button ng-if="doNotesExist" ng-click="editNotesBtn()" class="subchck btn submit down-button editNotes" ><b>Edit Notes</b></button>
