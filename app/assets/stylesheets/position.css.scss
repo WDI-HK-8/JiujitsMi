@@ -10,6 +10,7 @@ body {
   font-family: Lato;
   color: #5c5c5c;
 }
+
 /* Position */
 @media(min-width:768px) {
   .side-nav {
@@ -45,7 +46,14 @@ body {
   }
 
   .side-nav>li>a {
-    width: 320px;
+    width: 100%;
+  }
+
+  .side-nav>li {
+    float: left;
+    clear: left;
+    width: 100%;
+    display: block;
   }
 
   .side-nav li a:hover,
@@ -70,9 +78,14 @@ body {
   color: #fff;
 }
 
+.add-position-form {
+  float: right;
+  margin-left: -50px;
+}
+
 .forms-control {
   margin-top: 20px;
-  margin-left: 10px;
+  /*margin-left: 10px;*/
   background-color: #1a1a1a;
   border-style: solid;
   border-width: 1px;
