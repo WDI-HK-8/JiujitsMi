@@ -7,7 +7,9 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
 /*navbar*/
 
 #brand {
-  width: 13%;
+  width: 210px;
+  min-width: 210px;
+  height: 100%;
 }
 
 .content {
@@ -30,8 +32,6 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
 }
 
 .navbar-brand {
-  width: 220%;
-  height: 100%;
   padding-top: 10px;
   padding-left: 10px;
 }
@@ -53,10 +53,6 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
   background-color: transparent;
-}
-
-.dropdown {
-  margin-top: -73px;
 }
 
 .dropdown-toggle {
