@@ -32,3 +32,9 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', function($scope, $
       });
   };
 }]);
+
+$(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+});
