@@ -25,11 +25,12 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
   background-size: cover;
 }
 
-.navbar-inverse {
+.navbar {
   background-color: #4a2e69;
   height:65px;
   border-bottom: 0px;
   font-family: Lato;
+  margin-left: 20%;
 }
 
 .navbar-brand {
