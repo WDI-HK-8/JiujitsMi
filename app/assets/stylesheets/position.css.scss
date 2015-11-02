@@ -138,7 +138,7 @@ body {
   border: none;
   border-radius: 0;
   overflow-y: auto;
-  background-color: #d6d6d6;
+  background-color: #f3f3f4;
   bottom: 0;
   overflow-x: hidden;
   padding-bottom: 40px;
@@ -148,9 +148,9 @@ body {
 .ttype-head {
   position: fixed;
   background-color: #fff;
-  border-bottom-width: 5px;
+  border-bottom-width: 4px;
   border-bottom-style: solid;
-  border-bottom-color: #eaeaea;
+  border-bottom-color: #cfd4d6;
   border-right-width: 1px;
   border-right-style: solid;
   border-right-color: #daeeec;
@@ -164,9 +164,9 @@ body {
   position: fixed;
   border: none;
   background-color: #fff;
-  border-bottom-width: 5px;
+  border-bottom-width: 4px;
   border-bottom-style: solid;
-  border-bottom-color: #eaeaea;
+  border-bottom-color: #cfd4d6;
   width: 50%;
   height: 65px;
   margin-left: 50%;
@@ -183,7 +183,7 @@ body {
 }
 
 .ttype-card-container {
-  margin-top: 6px;
+  margin-top: 5px;
   margin-right: 2%; 
   margin-left: 2%;
   border: none;
@@ -191,12 +191,9 @@ body {
   min-height: 50px;
   height:auto;
   list-style-type: none;
-  border-bottom-width: 5px;
-  border-bottom-style: solid;
-  border-bottom-color: #bababa;
-  border-right-width: 3px;
-  border-right-style: solid;
-  border-right-color: #bababa;
+  border-top-width: 3px;
+  border-top-style: solid;
+  border-top-color: #cfd4d6;
 }
 
 ul {
@@ -204,7 +201,7 @@ ul {
 }
 
 .ttype-card-header {
-  background-color: #ff6d6d;
+  background-color: #20bd79;
   color: #fff;
   height: 50px;  
   font-size: 17px;
@@ -232,7 +229,7 @@ ul {
 .tech-row {
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #daeeec;
+  border-bottom-color: #f3f3f4;
 }
 
 .tech-row:hover {
@@ -253,7 +250,7 @@ ul {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #d6d6d6;
+  border-color: #f3f3f4;
   color: #363636;
   width: 200px;
   height: 34px;
@@ -268,8 +265,8 @@ ul {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #d6d6d6;
-  color: #d6d6d6;
+  border-color: #f3f3f4;
+  color: #f3f3f4;
 }
 
 .addTech:hover {
@@ -335,7 +332,7 @@ input:focus {
   border: none;
   border-radius: 0;
   overflow-y: auto;
-  background-color: #d6d6d6;
+  background-color: #f3f3f4;
   bottom: 0;
   overflow-x: hidden;
   padding-bottom: 40px;
@@ -349,34 +346,31 @@ input:focus {
   background-color: #fff;
   border-bottom-width: 5px;
   border-bottom-style: solid;
-  border-bottom-color: #eaeaea;
+  border-bottom-color: #f3f3f4;
   width: 50%;
   height: 65px;
 }
 
 .details-card {
-  margin-top: 4px;
+  margin-top: 5px;
   margin-left: 1%;
   margin-right: 1%;
   margin-bottom: 2%;
   min-height: 98%;
   background-color: #fff;
-  border-bottom-width: 5px;
-  border-bottom-style: solid;
-  border-bottom-color: #bababa;
-  border-right-width: 3px;
-  border-right-style: solid;
-  border-right-color: #bababa;
+  border-top-width: 3px;
+  border-top-style: solid;
+  border-top-color: #cfd4d6;
 }
 
 .right-card-header {
-  background-color: #ff9a44;
+  background-color: #395eab;
   color: #fff;
   height: 50px;  
   font-size: 20px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #d6d6d6;
+  border-bottom-color: #f3f3f4;
   text-align: center;
   padding-top: 10px;
 }
@@ -396,7 +390,7 @@ textarea {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #d6d6d6;
+  border-color: #f3f3f4;
   color: #7c7c7c;
   float: right;
   margin-right: 5%;
@@ -413,7 +407,7 @@ textarea {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #d6d6d6;
+  border-color: #f3f3f4;
   color: #7c7c7c;
   float: right;
   margin-right: 5%;
@@ -437,7 +431,7 @@ textarea {
   list-style-type: none;
   border-width: 1px;
   border-style: solid;
-  border-color: #d6d6d6;
+  border-color: #f3f3f4;
 }
 
 .step-list-header {
@@ -526,8 +520,8 @@ textarea {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #d6d6d6;
-  color: #d6d6d6;
+  border-color: #f3f3f4;
+  color: #f3f3f4;
 }
 
 .editVideo:hover {
@@ -567,7 +561,7 @@ textarea {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #d6d6d6;
+  border-color: #f3f3f4;
   color: #363636;
   width: 500px;
   height: 34px;
@@ -599,7 +593,7 @@ textarea {
   border: none;
   border-radius: 0;
   overflow-y: auto;
-  background-color: #d6d6d6;
+  background-color: #f3f3f4;
   bottom: 0;
   overflow-x: hidden;
   padding-bottom: 40px;
@@ -635,6 +629,7 @@ textarea {
 }
 
 ul li a .positionspan {
+  padding-top: 1px;
   font-size: 20px;
   cursor: move;
   padding-right: 3px;  
@@ -651,7 +646,7 @@ ul li a:hover .positionspan {
   font-size: 20px;
   cursor: move;
   padding-right: 10px;  
-  color: #ff6d6d;
+  color: #22cc83;
 }
 
 .ttype-card-header:hover .ttypespan {
@@ -703,7 +698,7 @@ ul li a:hover .positionspan {
 
 .tech-row:hover .techspan {
   display: inline;
-  color: #c9c9c9;
+  color: #fff;
 }
 
 

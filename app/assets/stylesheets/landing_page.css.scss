@@ -10,6 +10,7 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
   width: 210px;
   min-width: 210px;
   height: 100%;
+  margin-top: 10px;
 }
 
 .content {
@@ -25,7 +26,7 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
 }
 
 .navbar-inverse {
-  background-color: #40E0D0;
+  background-color: #4a2e69;
   height:65px;
   border-bottom: 0px;
   font-family: Lato;
@@ -187,7 +188,7 @@ section.module.elevator {
 }
 
 .leftCard>h1 {
-  font-size: 70px
+  font-size: 50px
 }
 
 .leftCard>p {
