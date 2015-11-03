@@ -77,7 +77,14 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.currentPostionName = [];
   $scope.getPosition = function(position){
     console.log(position.id);
-    $scope.toggleClass= "inactive"
+
+    if (window.innerWidth <= 1024) {
+      $scope.navToggle()
+      $scope.arrow = false;
+    }
+
+    console.log($window.innerWidth)
+
     $scope.currentPosition = position.id;
     $scope.currentPositionName = position.name;
     $scope.technique_types.sort(compare);
