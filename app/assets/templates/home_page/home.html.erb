@@ -1,13 +1,13 @@
 <navbar></navbar>
   <!-- Position Bar -->
   <nav class="navbar-inverse navbar snav">
-    <ul class="newbrand">
+    <ul ng-class="posCol" class="newbrand">
       <a href="/#/" >
         <img class="navbar-brand" id="brand" src="<%= image_path('logo.png') %>">
       </a>
     </ul>
 
-    <ul class="addposition">
+    <ul ng-class="posCol" class="addposition">
       <li class="active">
         <form class="add-position-form" dnd-nodrag ng-submit="positionForm.create()">
           <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position" maxlength="30">
@@ -16,7 +16,7 @@
       <li>  
     </ul>
 
-    <ul class="nav navbar-nav side-nav" dnd-list="positions" dnd-allowed-types="positions"> 
+    <ul ng-class="posCol" class="nav navbar-nav side-nav" dnd-list="positions" dnd-allowed-types="positions"> 
       <li ng-repeat="position in positions" dnd-draggable="position"
         dnd-moved="positions.splice($index, 1); positionSave()"
         dnd-effect-allowed="move"
@@ -30,7 +30,7 @@
   </nav>
 
   <!-- TTYPE HEADDER -->
-  <div class="ttype-head">
+  <div ng-class="ttypeCol" class="ttype-head">
     <span>{{currentPositionName}}</span>
     <form ng-submit="techTypeForm.create()" class="create-ttype">
       <input class="forms-control-tech" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new intention"  maxlength="32">
@@ -58,7 +58,7 @@
   </div>
 
   <!-- BACKGROUND -->
-  <div class="bg-addposition-container" ng-hide="showTechTypes">
+  <div ng-class="toggleClass" class="bg-addposition-container" ng-hide="showTechTypes">
     <div ng-show="positionBg">
       <a ng-init="imgsrc4='<%= image_path('addPositon2.png') %>'">
         <img id="bg-addposition" ng-src="{{imgsrc4}}">
@@ -72,7 +72,7 @@
   </div>
 
 <!-- TECHNIQUE TYPE  COLUMN-->
-<div class="ttype-capsule" ng-show="showTechTypes">
+<div ng-class="ttypeCol" class="ttype-capsule" ng-show="showTechTypes">
   <!-- TECHNIQUE CARDS -->
   <div ng-show="currentPosition" dnd-list="technique_types" dnd-allowed-types="technique_types" class="tnav">
     <div class="ttype-card-container" ng-repeat="technique_type in technique_types" dnd-draggable="technique_type" dnd-type="technique_type"

@@ -1,18 +1,13 @@
 <!-- NAVBAR START -->
-<nav class="navbar navbar-fixed-top" role="navigation">
-<!--   <div class="navbar-header">
-    <a href="/#/" >
-      <img class="navbar-brand" id="brand" src="<%= image_path('logo.png') %>">
-    </a>
-  </div> -->
+<nav  ng-class="toggleClass" class="navbar navbar-fixed-top" role="navigation">
   <!-- Top Menu Items -->
-  <ul ng-class="toggleClass" class="nav navbar navbar-default top-nav">
+  <ul class="nav navbar navbar-default top-nav">
+    <!-- Navbar toggle button -->
     <div ng-click="arrow = !arrow; navToggle()" ng-class="{'hamburger': !arrow, 'arrow-right': arrow}" class="nav-toggle" data-toggle="" data-target=".sidebar-nav">
-      <p ng-show="!arrow">Menu</p>
-      <p ng-show="arrow">Close</p>
+      <p ng-show="!arrow"></p>
+      <p ng-show="arrow"></p>
       <span class="togglespan" ></span>
     </div>
-
 
     <!-- logout -->
     <li ng-if="loggedIn" class="pull-right">
