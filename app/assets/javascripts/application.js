@@ -18,4 +18,5 @@
 //= require jquery/dist/jquery
 //= require bootstrap/dist/js/bootstrap
 //= require angular-drag-and-drop-lists/angular-drag-and-drop-lists
+//= require angular-animate/angular-animate
 //= require_tree .

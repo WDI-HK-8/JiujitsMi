@@ -31,10 +31,23 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', function($scope, $
         console.log(response.data.errors);
       });
   };
+
+
+  $scope.toggleClass= "inactive"
+
+  $scope.navToggle = function() {
+
+    if ($scope.toggleClass === "inactive") {
+      $scope.toggleClass = "toggleClassActive"
+    }
+    else {
+      $scope.toggleClass = "inactive";
+      };
+
+      console.log($scope.toggleClass)
+  };
+
+
+
 }]);
 
-$(document).ready(function() {
-  $('[data-toggle=offcanvas]').click(function() {
-    $('.row-offcanvas').toggleClass('active');
-  });
-});
