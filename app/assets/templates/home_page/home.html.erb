@@ -23,7 +23,7 @@
         dnd-selected="models.selected = position"
         class="background-{{position.name}}"
         dnd-type="position" ng-click="getPosition(position)">
-         <a href="" class="newpad fa fa-fw fa-arrows-v" ><span class="handle positionspan">::</span> <span dnd-nodrag id="posName" >{{ position.name}}</span> 
+         <a href="" class="newpad fa fa-fw fa-arrows-v" ><span class="handle positionspan">||</span> <span dnd-nodrag id="posName" >{{ position.name}}</span> 
          <button ng-really-message="Are you sure you want to delete this position?" ng-really-click="delete(position)" class="deletePos">✖</button></a>
       </li>
     </ul>
@@ -31,7 +31,7 @@
 
   <!-- TTYPE HEADDER -->
   <div ng-class="ttypeCol" class="ttype-head">
-    <span>{{currentPositionName}}</span>
+    <span class="ttype-text">{{currentPositionName}}</span>
     <form ng-submit="techTypeForm.create()" class="create-ttype">
       <input class="forms-control-tech" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new intention"  maxlength="32">
       <button type="submit" class="subchck btn submit down-button addTech" ><b>+</b></button>
@@ -118,11 +118,11 @@
     </div>
     <!-- VIDEO -->
     <div ng-show="showVideo" class="videocard">
-      <button class="deleteVideoBtn subchck btn submit down-button" ng-click="deleteVideo()" data-toggle="tooltip" data-placement="bottom" title="Delete Video">✖</button>
-      <iframe ng-show="doVideosExist" width="640" height="360" class="video-thumb" ng-src="{{trustSrc(vidSRC)}}">
-      </iframe>
+      <button class="deleteVideoBtn subchck btn submit down-button" ng-click="deleteVideo()" data-toggle="tooltip" data-placement="bottom" title="Delete Video">Delete video</button>
+      <div  ng-show="doVideosExist" class="video-container"><iframe width="640" height="360" class="video-thumb" ng-src="{{trustSrc(vidSRC)}}">
+      </iframe></div>
       <form ng-show="!doVideosExist" ng-submit="videoForm.create()" class="add-video-form">
-        <label>Add a video url: </label><input class="forms-control-video" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newVideo" required="required" placeholder="e.g. https://www.youtube.com/watch?v=YaNLxS2-HEY">
+        <label>Add a Youtube url: </label><input class="forms-control-video" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newVideo" required="required" placeholder="e.g. https://www.youtube.com/watch?v=YaNLxS2-HEY">
         <button type="submit" class="subchck btn submit down-button addTech" ><b>+</b></button>
       </form>
       <button ng-show="doVideosExist" ng-click="editVideoBtn()" class="subchck btn submit down-button editVideo" >Edit video</button>
@@ -135,12 +135,12 @@
         </div>
         <ul class="nav">
           <li ng-repeat="step in steps" class="step-row">
-            <a>{{$index +1}}. {{step.instruction}}<button ng-click="deleteStep(step)" class="deleteTechRow">✖</button></a>
+            <a><span class="step-text">{{$index +1}}. {{step.instruction}}</span><button ng-click="deleteStep(step)" class="deleteTechRow">✖</button></a>
           </li>
           <li>
-            <form ng-submit="stepForm.create()" class="add-tech-form">
+            <form ng-submit="stepForm.create()" class="add-step-form">
               <input class="forms-control-step" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step" >
-              <button type="submit" class="subchck btn submit down-button addTech" maxlength="500" ><b>+</b></button>
+              <button type="submit" class="subchck btn submit down-button addTech addStep" maxlength="500" ><b>+</b></button>
             </form>
           </li>
         </ul>
@@ -148,7 +148,7 @@
     </div>    
     <!-- OTHER NOTES -->
     <div ng-show="showNotes" class="notes-block">
-      <button  class="deleteVideoBtn subchck btn submit down-button" data-toggle="tooltip" data-placement="bottom" title="Delete Notes" ng-click="deleteNotes()">✖</button>
+      <button  class="deleteVideoBtn subchck btn submit down-button" data-toggle="tooltip" data-placement="bottom" title="Delete Notes" ng-click="deleteNotes()">Delete notes</button>
       <form ng-submit="notesForm.create()">
         <textarea ng-readonly="doNotesExist" rows="8" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="1000" id="text"></textarea>
         <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addNotes" ><b>Add Notes</b></button>

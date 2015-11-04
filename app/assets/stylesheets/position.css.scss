@@ -142,6 +142,8 @@ body {
     padding-bottom: 40px;
     font-size: 16px;
     z-index: 2;
+    display: inline-block;
+    overflow: hidden;
     -webkit-transition: all 0.25s ease-in;
     -moz-transition: all 0.25s ease-in;
     transition: all 0.25s ease-in;
@@ -192,6 +194,10 @@ body {
 
   .side-nav>li>a {
     width: 100%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+
   }
 
   .side-nav>li {
@@ -257,7 +263,7 @@ body {
 }
 
 .deletePos {
-  display: none;
+  display: inline-block;
   float: right;
   color: transparent;
   background-color: transparent;
@@ -276,6 +282,24 @@ body {
   float: right;
   color: red;
   background-color: transparent;
+}
+
+
+
+ul li a .positionspan {
+  padding-top: 1px;
+  font-size: 20px;
+  cursor: move;
+  padding-right: 5px;
+  display: inline-block;
+  color: #363636;
+  margin-left: -10px;
+}
+
+ul li a:hover .positionspan {
+  display: inline-block;
+  color: #ddd;
+  font-size: 20px;
 }
 
 /*technique type*/
@@ -410,7 +434,7 @@ ul {
   border-width: 1px;
   border-color: #f3f3f4;
   color: #363636;
-  width: 200px;
+  width: 65%;
   height: 34px;
   padding: 6px 12px;
   font-size: 16px;
@@ -431,6 +455,11 @@ ul {
   margin-top: 8px;
 }
 
+.addStep {
+  margin-right: 0px;
+
+}
+
 .addTech:hover {
   background-color: #62dcee;
   border-color: #fff;
@@ -443,6 +472,11 @@ input:focus {
 
 .add-tech-form {
   float:right;
+}
+
+.add-step-form {
+  width: 100%;
+  float: right;  
 }
 
 .deleteTType {
@@ -609,21 +643,43 @@ textarea {
 .step-list-header>p {
   text-align: center;
   padding-top: 12px;
+  margin: auto;
 }
+
+.step-text {
+  width: 96%;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.ttype-text {
+  width: 30%;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
 
 .step-row {
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: #daeeec;
   color: #363636;
+  display: inline-block;
 }
   
 .step-row>a {
+  display: inline-block;
   color: #363636;
   text-decoration: none;
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 15px;
+  text-overflow: ellipsis;
+  overflow: hidden;  
 }
 
 .step-row>a:focus, .step-row>a:hover {
@@ -642,6 +698,10 @@ textarea {
   float: right;
   color: red;
   background-color: transparent;
+}
+
+.deleteTechRow {
+  width: 10px;
 }
 
 #video {
@@ -678,6 +738,23 @@ textarea {
   margin-bottom: 10px;
 }
 
+.video-container {
+  position:relative;
+  padding-bottom:56.25%;
+  padding-top:1px;
+  height:0;
+  overflow:hidden;
+  margin: auto;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+  position:absolute;
+  left: 0;
+  right: 0;
+  width:90%;
+  height:90%;
+}
+
 .editVideo {
   margin-top: 10px;
   display: block;
@@ -706,7 +783,7 @@ textarea {
   border-width: 1px;
   border-color: #f0f0f0;
   color: #363636;
-  width: 350px;
+  width: 55%;
   height: 34px;
   padding: 6px 12px;
   font-size: 12px;
@@ -722,13 +799,13 @@ textarea {
 
 .forms-control-step {
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: 10%;
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
   border-color: #f3f3f4;
   color: #363636;
-  width: 500px;
+  width: 80%;
   height: 34px;
   padding: 6px 12px;
   line-height: 1.42857143;
@@ -774,16 +851,16 @@ textarea {
     list-style: none;
 }
 
+
 .deleteVideoBtn {
-  margin-left: 92%;
-  margin-bottom: -0.8%;
+  margin-left: 83%;
+  margin-bottom: -0.5%;
   color: #e1e1e1;
   background-color: white;
   border-color: white;
 }
 
 .deleteVideoBtn:hover {
-  margin-left: 92%;
   color: red;
   background-color: white;
   border-color: white;
@@ -794,20 +871,6 @@ textarea {
   margin: auto;
   margin-top: 22%;
   width: 40%;
-}
-
-ul li a .positionspan {
-  padding-top: 1px;
-  font-size: 20px;
-  cursor: move;
-  padding-right: 3px;  
-  color: #363636;
-  margin-left: -10px;
-}
-
-ul li a:hover .positionspan {
-  display: inline;
-  color: #ddd;
 }
 
 .ttype-card-header .ttypespan {
@@ -826,9 +889,18 @@ ul li a:hover .positionspan {
   padding-left: -15px;
 }
 
+.navbar-nav > li > a {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
 #posName {
-  max-width: 10px;
+  width: 84%;
+  padding-top: 8px;
+  display: inline-block;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .snav ul[dnd-list] {
@@ -943,7 +1015,28 @@ ul li a:hover .positionspan {
     -moz-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
   }
+
+  .deleteVideoBtn {
+  margin-left: 79%;
+  }
+
+  #posName {
+    width: 75%;
+  }
+
+  .ttype-text {
+    width: 32%;
+  }
+
 }
+
+@media screen and (max-width: 1200px) {
+  .ttype-text {
+    width: 20%;
+  }
+
+}
+
 
 @media screen and (max-width: 1024px) {
   .newbrand {
@@ -1014,6 +1107,10 @@ ul li a:hover .positionspan {
     transition: all 0.25s ease-out;
   }
 
+  .ttype-text {
+    width: 38%;
+  }
+
   /*shrunk down position bar*/
   .posColActive {
     margin-left: -20%;
@@ -1056,7 +1153,7 @@ ul li a:hover .positionspan {
   }
 
 
-  p {
+  .toggle-p {
     padding-right: 20px;
     font-size: 16px;
     opacity: 1;
