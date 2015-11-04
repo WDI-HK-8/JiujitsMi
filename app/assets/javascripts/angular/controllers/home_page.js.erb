@@ -172,12 +172,11 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   };
 
   // DELETE TECHNIQUE
-  $scope.deleteTech = function(technique_type,technique){
-    var tech_type_to_delete = $scope.technique_types.indexOf(technique_type);
-    var tech_to_delete = $scope.technique_types[tech_type_to_delete].techniques.indexOf(technique);
+  $scope.deleteTech = function(){
 
-    $http.delete(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques/' + technique.id).success(function(response){
+    $http.delete(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id).success(function(response){
         $scope.technique_types[tech_type_to_delete].techniques.splice(tech_to_delete, 1);
+          $scope.techSelected = false;
     });
   };
 
@@ -187,10 +186,18 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.currentTechnique = [];
   $scope.steps = [];
 
+  // delete variables
+  var tech_type_to_delete
+  var tech_to_delete
+
   $scope.getTechnique = function(technique_type, technique){
     console.log(technique.id)
     var tech_type_to_get = $scope.technique_types.indexOf(technique_type);
     var tech_to_get = $scope.technique_types[tech_type_to_get].techniques.indexOf(technique);
+
+    // Declare delete variables
+    tech_type_to_delete = $scope.technique_types.indexOf(technique_type);
+    tech_to_delete = $scope.technique_types[tech_type_to_delete].techniques.indexOf(technique);
 
     console.log('show message is orignally ' + $scope.showMessage)
     $scope.techSelected = true;
