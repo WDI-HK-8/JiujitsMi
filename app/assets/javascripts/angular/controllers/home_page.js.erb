@@ -77,6 +77,14 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.currentPostionName = [];
   $scope.getPosition = function(position){
     console.log(position.id);
+
+    if (window.innerWidth <= 1024) {
+      $scope.navToggle()
+      $scope.arrow = false;
+    }
+
+    console.log($window.innerWidth)
+
     $scope.currentPosition = position.id;
     $scope.currentPositionName = position.name;
     $scope.technique_types.sort(compare);
@@ -92,6 +100,9 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       console.log($scope.techniques);
       // SHOW INPUT BOX
       $scope.techTypeInput = true;
+
+      // HIDE ANY EXISTING SHOWING TECH
+      $scope.techSelected = false;
       
       // HIDE STARTING BACKGROUND
       if ($scope.technique_types.length < 1) {

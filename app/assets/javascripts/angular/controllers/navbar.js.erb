@@ -31,4 +31,28 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', function($scope, $
         console.log(response.data.errors);
       });
   };
+
+
+  $scope.toggleClass= "inactive"
+
+  $scope.navToggle = function() {
+
+    if ($scope.toggleClass === "inactive") {
+      $scope.toggleClass = "toggleClassActive"
+      $scope.ttypeCol = "ttypeColActive"
+      $scope.posCol = "posColActive"
+    }
+    else {
+      $scope.toggleClass = "inactive";
+      $scope.ttypeCol = "inactive"
+      $scope.posCol = "inactive"
+
+      };
+
+      console.log($scope.toggleClass)
+  };
+
+
+
 }]);
+
