@@ -49,6 +49,6 @@ class TechniquesController < ApplicationController
 
 private
   def technique_params
-    params.require(:technique).permit(:name, :video_url, :other_notes, :index)
+    params.require(:technique).permit(:name, :video_url, :other_notes, :index, :proficiency)
   end
 end
