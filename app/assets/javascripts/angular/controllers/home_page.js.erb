@@ -112,13 +112,16 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         $scope.showTechTypes = true;
       };
 
-      $scope.resetDropDownPos();
     });
   };
 
   $scope.hideTech = function() {
-          // HIDE ANY EXISTING SHOWING TECH
-      $scope.techSelected = false;
+    // HIDE ANY EXISTING SHOWING TECH
+    $scope.techSelected = false;
+    // CLEAR PROF DROPDOWN
+    if(angular.isDefined($scope.profData.repeatSelect)){
+    $scope.profData.repeatSelect = null;
+    };
   };
 
   // CREATE NEW TECHNIQUE TYPE
@@ -501,12 +504,6 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.resetDropDown = function() {
     if(angular.isDefined($scope.profData.repeatSelect)){
       $scope.profData.repeatSelect = $scope.currentTechnique.proficiency;
-    };
-  };
-
-  $scope.resetDropDownPos = function() {
-    if(angular.isDefined($scope.profData.repeatSelect)){
-      $scope.profData.repeatSelect = null;
     };
   };
 
