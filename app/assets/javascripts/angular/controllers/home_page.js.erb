@@ -75,6 +75,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.technique_types = [];
   $scope.currentPosition = [];
   $scope.currentPostionName = [];
+  $scope.currentPositionFull = [];
   $scope.getPosition = function(position){
     console.log(position.id);
 
@@ -83,14 +84,13 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       $scope.arrow = false;
     }
 
-    console.log($window.innerWidth)
-
+    $scope.currentPositionFull = position;
     $scope.currentPosition = position.id;
     $scope.currentPositionName = position.name;
     $scope.technique_types.sort(compare);
     $scope.newTechType = null;
 
-    $http.get(url + '/positions/' + position.id + '/technique_types').success(function(response){
+    $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
       $scope.technique_types = response.sort(compare);
 
       for (var i = 0; i < $scope.technique_types.length; i++) {
@@ -101,9 +101,6 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       // SHOW INPUT BOX
       $scope.techTypeInput = true;
 
-      // HIDE ANY EXISTING SHOWING TECH
-      $scope.techSelected = false;
-      
       // HIDE STARTING BACKGROUND
       if ($scope.technique_types.length < 1) {
         $scope.positionBg = false;
@@ -114,7 +111,17 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         $scope.ttechBg = false;
         $scope.showTechTypes = true;
       };
+
     });
+  };
+
+  $scope.hideTech = function() {
+    // HIDE ANY EXISTING SHOWING TECH
+    $scope.techSelected = false;
+    // CLEAR PROF DROPDOWN
+    if(angular.isDefined($scope.profData.repeatSelect)){
+    $scope.profData.repeatSelect = null;
+    };
   };
 
   // CREATE NEW TECHNIQUE TYPE
@@ -258,6 +265,9 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         };
         $scope.vidSRC = "https://www.youtube.com/embed/" + vidID;
       };
+         // $scope.currentProf = $scope.profData.availableOptions[Number($scope.currentTechnique.proficiency) - 1].name || null;
+
+         $scope.resetDropDown();
     });
 
     // GET STEPS
@@ -469,4 +479,32 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       };
     };
   };
+
+  // PROFECIENCY
+  $scope.profData = {
+    repeatSelect: null,
+    availableOptions: [
+      {id: '1', name: 'Very good'},
+      {id: '2', name: 'Needs practice'},
+      {id: '3', name: 'To be learned'}
+    ],
+   };
+
+  $scope.setProf = function(item) {
+    var data = {
+      proficiency: item
+    };  
+    $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
+      $scope.getPosition($scope.currentPositionFull)  
+      $scope.currentTechnique.proficiency = response.proficiency
+      console.log(response)
+    });
+  };
+
+  $scope.resetDropDown = function() {
+    if(angular.isDefined($scope.profData.repeatSelect)){
+      $scope.profData.repeatSelect = $scope.currentTechnique.proficiency;
+    };
+  };
+
 }]);
