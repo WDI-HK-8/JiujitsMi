@@ -737,28 +737,33 @@ textarea {
   width: 10px;
 }
 
+
+#blocker {
+  margin-left: 75%;
+  
+}
+
 #video {
   display: inline-block;
-  width: 25px;
-  margin-left: 36%;
-  margin-right: 25px;
-  margin-top: 20px;
+  width: 22px;
+  margin-right: 2%;
+  margin-top: -52px;
 }
 
 #steps {
   display: inline-block;
-  width: 25px;
-  margin-left: 25px;
-  margin-right: 25px;
-  margin-top: 20px;
+  width: 22px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: -52px;
 }
 
 #notes {
   display: inline-block;
-  width: 25px;
-  margin-left: 25px;
-  margin-right: 25px;
-  margin-top: 20px;
+  width: 22px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: -52px;
 }
 
 .videocard {
@@ -994,6 +999,15 @@ textarea {
     border-top-left-radius: 4px;
     display: block;
 }
+
+
+
+#repeatSelect {
+  height: 30px;
+  color: red;
+}
+
+
 
 /*Modal*/
 
@@ -1273,5 +1287,141 @@ textarea {
       }
     }
   }
+}
 
+
+
+.custom-dropdown--large {
+    font-size: 1.5em;
+}
+
+.custom-dropdown--small {
+    font-size: .7em;
+}
+
+.custom-dropdown__select{
+    font-size: inherit; /* inherit size from .custom-dropdown */
+    padding: .5em; /* add some space*/
+    margin: 0; /* remove default margins */
+}
+
+.custom-dropdown__select--white {
+    background-color: #fff;
+    color: #444;    
+}
+
+@supports (pointer-events: none) and
+      ((-webkit-appearance: none) or
+      (-moz-appearance: none) or
+      (appearance: none)) {
+
+    .custom-dropdown {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .custom-dropdown__select {
+        padding-right: 2.5em; /* accommodate with the pseudo elements for the dropdown arrow */
+        border: 0;
+        border-radius: 3px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;    
+    }
+
+    .custom-dropdown::before,
+    .custom-dropdown::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .custom-dropdown::after { /*  Custom dropdown arrow */
+        content: "\25BC";
+        height: 1em;
+        font-size: .625em;
+        line-height: 1;
+        right: 1.2em;
+        top: 50%; margin-top: -.5em;
+    }
+
+    .custom-dropdown::before { /*  Custom dropdown arrow cover */
+        width: 2em;
+        right: 0; top: 0; bottom: 0;
+        border-radius: 0 3px 3px 0;
+    }
+
+    .custom-dropdown__select[disabled] {
+        color: rgba(0,0,0,.3);
+    }
+
+    .custom-dropdown.custom-dropdown--disabled::after {
+        color: rgba(0,0,0,.1);
+    }
+
+    /* White dropdown style */
+    .custom-dropdown--white::before {
+        background-color: #fff;
+        border-left: 1px solid rgba(0,0,0,.1);
+    }
+
+    .custom-dropdown--white::after {
+        color: rgba(0,0,0,.9);
+    }
+
+    /* FF only temp fix */
+    @-moz-document url-prefix() {
+        .custom-dropdown__select             { padding-right: .9em }
+        .custom-dropdown--large .custom-dropdown__select { padding-right: 1.3em }
+        .custom-dropdown--small .custom-dropdown__select { padding-right: .5em }
+    }
+}
+
+
+
+
+.select-style {
+    padding: 0;
+    margin-top: 16px;
+    margin-left: 25px;
+    border: 0px solid #ccc;
+    width: 155px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #fff;
+    background: #fff;
+    position: relative;
+}
+
+.select-style:after {
+    top: 50%;
+    left: 85%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: #5a5a5a;
+    border-width: 5px;
+    margin-top: -2px;
+    z-index: 100;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
 }
