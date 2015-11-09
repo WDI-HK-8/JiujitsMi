@@ -41,15 +41,32 @@
   <!-- TECHNIQUE HEADER -->
   <div class="newtech-head">
     <!-- PROFICIENCY -->
-   <form name="myForm">
-      <select name="repeatSelect" id="repeatSelect" ng-model="profData.repeatSelect"  ng-change="setProf(profData.repeatSelect)">
-        <option value=""> Select a proficiency level</option> <!-- not selected / blank option -->
-        <option ng-repeat="option in profData.availableOptions" value="{{option.id}}">{{option.name}}</option>
-      </select>
-    </form>
 
+
+<!--   <span class="custom-dropdown custom-dropdown--white">
+    <select  name="repeatSelect" ng-model="profData.repeatSelect"  ng-change="setProf(profData.repeatSelect)" class="custom-dropdown__select custom-dropdown__select--white">
+        <option value=""> Select a proficiency level</option>
+        <option ng-repeat="option in profData.availableOptions" value="{{option.id}}">{{option.name}}</option>
+    </select>
+  </span> -->
+<!-- <div class="select">
+  <span class="arr">
+    <select  name="repeatSelect" ng-model="profData.repeatSelect"  ng-change="setProf(profData.repeatSelect)">
+        <option value=""> Select a proficiency level</option>
+        <option ng-repeat="option in profData.availableOptions" value="{{option.id}}">{{option.name}}</option>
+    </select>
+  </span>
+</div>
+ -->
+<div class="select-style">
+    <select  name="repeatSelect" ng-model="profData.repeatSelect"  ng-change="setProf(profData.repeatSelect)">
+        <option value=""> Proficiency level</option>
+        <option ng-repeat="option in profData.availableOptions" value="{{option.id}}">{{option.name}}</option>
+    </select>
+</div>
 
     <!-- ICONS -->
+    <span id="blocker"></span>
     <a href="" ng-click="addVideo()" ng-init="imgsrc1='<%= image_path('video.png') %>'" 
     ng-mouseover="imgsrc1='<%= image_path('videoh.png') %>'" 
     ng-mouseout="imgsrc1='<%= image_path('video.png') %>'" >
