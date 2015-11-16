@@ -181,8 +181,13 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.techForm = {};
   $scope.techForm.create = function(technique_type){
     var data = {
-      technique: $scope.newTech
+      name: $scope.newTech.name,
+      technique_type_id: technique_type.id,
+      index: technique_type.techniques.length
     };
+
+    console.log($scope.newTech)
+
     $http.post(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques', data).success(function(response){
       console.log(response);
 
@@ -351,6 +356,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
       console.log(response);
       $scope.showNotes = false;
+      $scope.techniqueSave();
     });
   };
 
