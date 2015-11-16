@@ -37,17 +37,25 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   // CREATE NEW POSITION
   $scope.newPosition = {};
   $scope.positionForm = {};
+
+
   $scope.positionForm.create = function(){
     var data = {
-      position: $scope.newPosition
+      index: ($scope.positions.length),
+      name: $scope.newPosition.name      
     };
+        console.log($scope.newPosition);
+        console.log($scope.newIndex);
+        console.log(data);
+
 
     $http.post(url + '/positions', data).success(function(response){
-      console.log(response);
+      console.log(response);      
 
       $http.get(url + '/positions').success(function(response){
-        $scope.positions = response;
-        console.log($scope.positions);
+      $scope.positions = response.sort(compare);
+      $scope.positions.sort(compare);
+      console.log($scope.positions);
       });
     });
     $scope.newPosition = null; 
@@ -65,7 +73,9 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       $scope.techTypeInput = false;
       $scope.currentPositionName = null;
       $scope.currentPositionName = null;
-      $scope.techTypeInput = false;   
+      $scope.techTypeInput = false;  
+      console.log($scope.positions.length)
+      $scope.positionSave(); 
     });
   };
 
