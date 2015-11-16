@@ -59,7 +59,7 @@
 </div>
  -->
 <div class="select-style">
-    <select  name="repeatSelect" ng-model="profData.repeatSelect"  ng-change="setProf(profData.repeatSelect)">
+    <select  ng-disabled="!proficiencySelect" name="repeatSelect" ng-model="profData.repeatSelect"  ng-change="setProf(profData.repeatSelect)" ng-class="{profActivate: !proficiencySelect}">
         <option value=""> Proficiency level</option>
         <option ng-repeat="option in profData.availableOptions" value="{{option.id}}">{{option.name}}</option>
     </select>
