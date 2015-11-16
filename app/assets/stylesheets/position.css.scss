@@ -164,12 +164,6 @@ body {
     transition: all 0.25s ease-in;
   }
 
-  .addPos {
-    margin-top: 6px;
-    display: inline-block;
-    z-index: 2;
-
-  }
 
   .addposition {
     position: fixed;
@@ -255,12 +249,24 @@ body {
   transition: all 0.25s ease-in;
 }
 
+.forms-control:hover {
+  border-color: #a5a3a3;
+}
+
 .addPos {
   background-color: #222;
   border-style: solid;
   border-width: 1px;
   border-color: #404040;
+  margin-top: 6px;
+  display: inline-block;
+  z-index: 2;
 }
+
+.addpos:hover {
+  color: #404040;
+}
+
 
 .deletePos {
   display: inline-block;
@@ -270,36 +276,33 @@ body {
   border-color: transparent;
 }
 
-.fa-arrows-v:hover .deletePos {
+.position-a:hover .deletePos {
+  padding-top: 6px;
   display: block;
   float: right;
   color: gray;
   background-color: transparent;
 }
 
-.fa-arrows-v:hover .deletePos:hover {
+.position-a:hover .deletePos:hover {
   display: block;
   float: right;
-  color: red;
+  color: #fff;
   background-color: transparent;
 }
 
 
 
 ul li a .positionspan {
-  padding-top: 1px;
-  font-size: 20px;
+  display: inline-block;
   cursor: move;
   padding-right: 5px;
-  display: inline-block;
   color: #363636;
   margin-left: -10px;
 }
 
 ul li a:hover .positionspan {
-  display: inline-block;
   color: #ddd;
-  font-size: 20px;
 }
 
 /*technique type*/
@@ -329,7 +332,7 @@ ul li a:hover .positionspan {
   border-bottom-color: #cfd4d6;
   border-right-width: 1px;
   border-right-style: solid;
-  border-right-color: #daeeec;
+  border-right-color: #e3e3e3;
   width: 30%;
   height: 65px;
   margin-top: -21px;
@@ -383,7 +386,7 @@ ul {
 }
 
 .ttype-card-header {
-  background-color: #20bd79;
+  background-color: #734d78;
   color: #fff;
   height: 50px;  
   font-size: 17px;
@@ -432,7 +435,7 @@ ul {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #f3f3f4;
+  border-color: #d8d8d8;
   color: #363636;
   width: 65%;
   height: 34px;
@@ -446,12 +449,16 @@ ul {
   transition: all 0.25s ease-in;
 }
 
+.forms-control-tech:hover {
+  border-color: #9f9f9f;
+}
+
 .addTech {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #f3f3f4;
-  color: #f3f3f4;
+  border-color: #d8d8d8;
+  color: #d8d8d8;
   margin-top: 8px;
 }
 
@@ -461,9 +468,11 @@ ul {
 }
 
 .addTech:hover {
-  background-color: #62dcee;
-  border-color: #fff;
-  color: #fff;
+  background-color: #f6f6f6;
+  /*border-color: #fff;*/
+  /*color: #fff;*/
+  color: #d8d8d8;
+
 }
 
 input:focus {
@@ -477,6 +486,9 @@ input:focus {
 .add-step-form {
   width: 100%;
   float: right;  
+    border-width: 1px;
+  border-style: solid;
+  border-color: #e3e3e3;
 }
 
 .deleteTType {
@@ -486,7 +498,7 @@ input:focus {
   background-color: transparent;
   border-style: none;
   font-size: 12px;
-  color: #ffebe3;
+  color: #dfd2e1;
 }
 
 .deleteTType:hover {
@@ -505,7 +517,7 @@ input:focus {
   background-color: transparent;
   border-style: none;
   font-size: 12px;
-  color: #ffebe3;
+  color: #e1e1e1;
 }
 
 .deleteTechRow:hover {
@@ -596,7 +608,7 @@ input:focus {
 }
 
 .right-card-header {
-  background-color: #395eab;
+  background-color: #7c737c;
   color: #fff;
   height: 50px;  
   font-size: 20px;
@@ -622,33 +634,34 @@ textarea {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #f3f3f4;
-  color: #7c7c7c;
+  border-color: #c9c9c9;
+  color: #5c5c5c;
   float: right;
   margin-right: 5%;
 }
 
 .addNotes:hover {
-  background-color: #62dcee;
-  border-color: #fff;
-  color: #fff;
+  background-color: #f2f0f0;
+  border-color: #e1e1e1;
+  color: #e1e1e1;
 }
 
+
+
 .editNotes {
-  display: block;
-  background-color: transparent;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #f3f3f4;
-  color: #7c7c7c;
-  float: right;
-  margin-right: 5%;
+  margin-left: 73%;
+  margin-bottom: -60px;
+  color: #e1e1e1;
+  background-color: white;
+  border-color: white;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .editNotes:hover {
-  background-color: #62dcee;
-  border-color: #fff;
-  color: #fff;
+  color: black;
+  background-color: white;
+  border-color: white;
 }
 
 .step-list-container {
@@ -667,7 +680,7 @@ textarea {
 }
 
 .step-list-header {
-  background-color: #7494b0;
+  background-color: #9f9f9f;
   color: #fff;
   height: 50px;  
   font-size: 17px;
@@ -696,10 +709,12 @@ textarea {
 }
 
 
+
 .step-row {
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: #daeeec;
+
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e3e3e3;
   color: #363636;
   display: inline-block;
 }
@@ -719,19 +734,30 @@ textarea {
   background-color: #fff !important;
 }
 
-.step-row:hover .deleteTechRow {
+.step-row:hover .deleteStepRow {
   display: block;
   float: right;
-  color: gray;
+  color: #e1e1e1;
   background-color: transparent;
 }
 
-.step-row:hover .deleteTechRow:hover {
+.step-row:hover .deleteStepRow:hover {
   display: block;
   float: right;
   color: red;
   background-color: transparent;
 }
+
+.deleteStepRow {
+  float: right;
+  margin-top: 5px;
+  /*margin-right: 35px;*/
+  background-color: transparent;
+  border-style: none;
+  font-size: 12px;
+  color: white;
+}
+
 
 .deleteTechRow {
   width: 10px;
@@ -767,7 +793,7 @@ textarea {
 }
 
 .videocard {
-  margin-top: 5px;
+  margin-top: -5px;
 }
 
 .video-thumb {
@@ -793,21 +819,37 @@ textarea {
   height:90%;
 }
 
-.editVideo {
-  margin-top: 10px;
+/*.editVideo {
+  margin-top: -10px;
   display: block;
   margin: auto;
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #f3f3f4;
-  color: #f3f3f4;
+  border-color: #e1dfdf;
+  color: #e1dfdf;
 }
 
 .editVideo:hover {
   background-color: #62dcee;
   border-color: #fff;
   color: #fff;
+}*/
+
+.editVideo {
+  margin-left: 73%;
+  margin-bottom: -60px;
+  color: #e1e1e1;
+  background-color: white;
+  border-color: white;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.editVideo:hover {
+  color: black;
+  background-color: white;
+  border-color: white;
 }
 
 .add-video-form {
@@ -832,7 +874,7 @@ textarea {
 
 .notes-block {
   margin-top: 1px;
-  margin-bottom: 10%;
+  padding-bottom: 60px;
 }
 
 .forms-control-step {
@@ -841,7 +883,7 @@ textarea {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
-  border-color: #f3f3f4;
+  border-color: #d8d8d8;
   color: #363636;
   width: 80%;
   height: 34px;
@@ -849,7 +891,15 @@ textarea {
   line-height: 1.42857143;
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
 }
+
+.forms-control-step:hover {
+  border-color: #9f9f9f;
+}
+
 
 #bg-addposition {
   width: 25%;
@@ -896,6 +946,8 @@ textarea {
   color: #e1e1e1;
   background-color: white;
   border-color: white;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .deleteVideoBtn:hover {
@@ -915,7 +967,7 @@ textarea {
   font-size: 20px;
   cursor: move;
   padding-right: 10px;  
-  color: #22cc83;
+  color: #734d78;
 }
 
 .ttype-card-header:hover .ttypespan {
@@ -976,7 +1028,7 @@ textarea {
 
 .tech-row:hover .techspan {
   display: inline;
-  color: #fff;
+  color: #cecece;
 }
 
 
@@ -1066,6 +1118,14 @@ textarea {
   .deleteVideoBtn {
   margin-left: 79%;
   }
+
+  .editVideo {
+  margin-left: 65%;
+}
+
+.editNotes {
+  margin-left: 65%;
+}
 
   #posName {
     width: 75%;
@@ -1424,4 +1484,13 @@ textarea {
 
 .select-style select:focus {
     outline: none;
+}
+
+
+.fa-ellipsis-v {
+  font-size: 15px;
+}
+
+.position-handle {
+  padding-top: -5px;
 }

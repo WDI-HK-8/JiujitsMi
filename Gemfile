@@ -13,6 +13,7 @@ gem 'unicorn'
 gem 'devise_token_auth'
 gem 'rack-cors'
 gem 'omniauth'
+gem 'font-awesome-sass'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
