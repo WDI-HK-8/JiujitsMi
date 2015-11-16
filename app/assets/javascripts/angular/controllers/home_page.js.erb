@@ -11,6 +11,10 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   // DISABLE INPUT BOX UNLESS POSITION IS SELECTED
   $scope.techTypeInput = false;
 
+
+  // DISABLE SELECT BOX UNLESS TECHNIQUE IS SELECTED
+  $scope.proficiencySelect = false;
+
   // BOOTSTRAP TOOLTIP PLUGIN
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
@@ -88,6 +92,8 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.currentPositionFull = [];
   $scope.getPosition = function(position){
     console.log(position.id);
+
+    $scope.proficiencySelect = false;
 
     if (window.innerWidth <= 1024) {
       $scope.navToggle()
@@ -204,6 +210,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $http.delete(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id).success(function(response){
         $scope.technique_types[tech_type_to_delete].techniques.splice(tech_to_delete, 1);
           $scope.techSelected = false;
+        $scope.techniqueSave();
     });
   };
 
@@ -219,6 +226,8 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
   $scope.getTechnique = function(technique_type, technique){
     console.log(technique.id)
+
+    $scope.proficiencySelect = true;
     var tech_type_to_get = $scope.technique_types.indexOf(technique_type);
     var tech_to_get = $scope.technique_types[tech_type_to_get].techniques.indexOf(technique);
 
@@ -356,7 +365,6 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
       console.log(response);
       $scope.showNotes = false;
-      $scope.techniqueSave();
     });
   };
 
