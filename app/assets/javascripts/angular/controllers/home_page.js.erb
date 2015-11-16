@@ -139,8 +139,13 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.techTypeForm = {};
   $scope.techTypeForm.create = function(){
     var data = {
-      technique_type: $scope.newTechType
+      name: $scope.newTechType.name,
+      position_id: $scope.newTechType.position_id,
+      index: ($scope.technique_types.length)
+
     };
+
+    console.log ($scope.newTechType);
 
     $http.post(url + '/positions/' + $scope.currentPosition + '/technique_types', data).success(function(response){
       console.log(response);
@@ -159,7 +164,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     var ttype_to_delete = $scope.technique_types.indexOf(technique_type);
     $http.delete(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id).success(function(response){
       $scope.technique_types.splice(ttype_to_delete, 1);
-      
+      $scope.ttypeSave();
       if ($scope.technique_types.length < 1) {
         $scope.positionBg = false;
         $scope.ttechBg = true;
