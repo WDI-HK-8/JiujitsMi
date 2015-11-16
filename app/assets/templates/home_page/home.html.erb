@@ -23,8 +23,8 @@
         dnd-selected="models.selected = position"
         class="background-{{position.name}}"
         dnd-type="position" ng-click="getPosition(position); hideTech()">
-         <a href="" class="newpad fa fa-fw fa-arrows-v" ><span class="handle positionspan"></span> <span dnd-nodrag id="posName" >{{ position.name}}</span> 
-         <button ng-really-message="Are you sure you want to delete this position?" ng-really-click="delete(position)" class="deletePos">✖</button></a>
+         <a href="" class="position-a" ><span class="handle positionspan"><i class="fa fa-ellipsis-v position-handle"></i></span> <span dnd-nodrag id="posName" >{{ position.name}}</span> 
+         <button ng-really-message="Are you sure you want to delete this position?" ng-really-click="delete(position)" class="deletePos"><i class="fa fa-times-circle-o"></i></button></a>
       </li>
     </ul>
   </nav>
@@ -106,11 +106,11 @@
     dnd-moved="technique_types.splice($index, 1); ttypeSave()" dnd-effect-allowed="move" dnd-selected="models.selected = technique_type">
       <div class="ttype-card-header" >
         <button ng-really-message="Are you sure you want to delete this intention?"  ng-really-click="deleteTechType(technique_type)" class="deleteTType">Delete</button>
-        <p><span class="handle ttypespan"><b>::</b></span><span dnd-nodrag>{{ technique_type.name}}</span></p>
+        <p><span class="handle ttypespan"><i class="fa fa-ellipsis-v"></i></span><span dnd-nodrag>{{ technique_type.name}}</span></p>
       </div>
       <ul class="nav" dnd-list="technique_type.techniques" dnd-allowed-types="technique_type.techniques">
         <li ng-repeat="technique in technique_type.techniques" dnd-draggable="technique" dnd-moved="technique_type.techniques.splice($index, 1); techniqueSave()" dnd-effect-allowed="move" dnd-selected="models.selected = technique" dnd-type="technique" class="tech-row">
-          <a href="" ng-click="getTechnique(technique_type, technique)"><span class="handle techspan"><b>::</b></span><span dnd-nodrag> {{technique.name}}</span><div ng-class="{'prof-color4': technique.proficiency === null, 'prof-color3': technique.proficiency === '3', 'prof-color2': technique.proficiency === '2', 'prof-color1': technique.proficiency === '1'}"></div></a>
+          <a href="" ng-click="getTechnique(technique_type, technique)"><span class="handle techspan"><i class="fa fa-ellipsis-v"></i><i class="fa fa-ellipsis-v"></i></span><span dnd-nodrag> {{technique.name}}</span><div ng-class="{'prof-color4': technique.proficiency === null, 'prof-color3': technique.proficiency === '3', 'prof-color2': technique.proficiency === '2', 'prof-color1': technique.proficiency === '1'}"></div></a>
         </li>
 
         <li>
@@ -184,7 +184,6 @@
         <textarea ng-readonly="doNotesExist" rows="8" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="1000" id="text"></textarea>
         <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addNotes" ><b>Add Notes</b></button>
       </form>
-
     </div>
   </div>
 </div>

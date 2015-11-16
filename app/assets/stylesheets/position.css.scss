@@ -249,6 +249,10 @@ body {
   transition: all 0.25s ease-in;
 }
 
+.forms-control:hover {
+  border-color: #a5a3a3;
+}
+
 .addPos {
   background-color: #222;
   border-style: solid;
@@ -272,36 +276,33 @@ body {
   border-color: transparent;
 }
 
-.fa-arrows-v:hover .deletePos {
+.position-a:hover .deletePos {
+  padding-top: 6px;
   display: block;
   float: right;
   color: gray;
   background-color: transparent;
 }
 
-.fa-arrows-v:hover .deletePos:hover {
+.position-a:hover .deletePos:hover {
   display: block;
   float: right;
-  color: red;
+  color: #fff;
   background-color: transparent;
 }
 
 
 
 ul li a .positionspan {
-  padding-top: 1px;
-  font-size: 20px;
+  display: inline-block;
   cursor: move;
   padding-right: 5px;
-  display: inline-block;
   color: #363636;
   margin-left: -10px;
 }
 
 ul li a:hover .positionspan {
-  display: inline-block;
   color: #ddd;
-  font-size: 20px;
 }
 
 /*technique type*/
@@ -446,6 +447,10 @@ ul {
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
+}
+
+.forms-control-tech:hover {
+  border-color: #9f9f9f;
 }
 
 .addTech {
@@ -886,7 +891,15 @@ textarea {
   line-height: 1.42857143;
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
 }
+
+.forms-control-step:hover {
+  border-color: #9f9f9f;
+}
+
 
 #bg-addposition {
   width: 25%;
@@ -1015,7 +1028,7 @@ textarea {
 
 .tech-row:hover .techspan {
   display: inline;
-  color: #fff;
+  color: #cecece;
 }
 
 
@@ -1471,4 +1484,13 @@ textarea {
 
 .select-style select:focus {
     outline: none;
+}
+
+
+.fa-ellipsis-v {
+  font-size: 15px;
+}
+
+.position-handle {
+  padding-top: -5px;
 }
