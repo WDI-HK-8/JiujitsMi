@@ -371,6 +371,7 @@ ul li a:hover .positionspan {
   margin-top: 5px;
   margin-right: 2%; 
   margin-left: 2%;
+  margin-bottom: 8px;
   border: none;
   background-color: #fff;
   min-height: 50px;
@@ -379,6 +380,18 @@ ul li a:hover .positionspan {
   border-top-width: 3px;
   border-top-style: solid;
   border-top-color: #cfd4d6;
+
+}
+
+.ttype-card-header:hover + .ttype-card-hover{
+    -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  z-index:1000;
+  box-shadow:rgba(0, 0, 0, 0.3) 0 9px 9px 0;
+  -webkit-box-shadow:rgba(0, 0, 0, 0.3) 0 9px 9px 0;
+  -moz-box-shadow:rgba(0, 0, 0, 0.3) 0 9px 9px 0;
 }
 
 ul {
@@ -415,10 +428,22 @@ ul {
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: #f3f3f4;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #fff;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.tech-row:hover {
-  border-bottom-color: #fff;
+.tech-row:hover{
+  z-index:1000;
+  box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
+  -webkit-box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
+  -moz-box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
+  background-color: #fff;  
+  border-top-color: #ececec;
 }
 
 .tech-row>a {
@@ -428,6 +453,11 @@ ul {
   padding-bottom: 10px;
   font-size: 16px;
 }
+
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: #fff
+}
+
 
 .forms-control-tech {
   margin-top: 20px;
@@ -558,11 +588,6 @@ input:focus {
   height: 48px;
   float: right;
 }
-
-.tech-row:hover .prof-color4 {
-  background-color: #eee;
-}
-
 
 /*TECHNIQUE COLUMN*/
 .technique-capsule {
@@ -711,7 +736,6 @@ textarea {
 
 
 .step-row {
-
   border-width: 1px;
   border-style: solid;
   border-color: #e3e3e3;
@@ -1030,6 +1054,7 @@ textarea {
   display: inline;
   color: #cecece;
 }
+
 
 
 .tnav ul[dnd-list] {

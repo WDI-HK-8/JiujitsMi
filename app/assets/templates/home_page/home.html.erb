@@ -67,7 +67,7 @@
 
     <!-- ICONS -->
     <span id="blocker"></span>
-    <a href="" ng-click="addVideo()" ng-init="imgsrc1='<%= image_path('video.png') %>'" 
+    <a href=""  ng-click="addVideo()" ng-init="imgsrc1='<%= image_path('video.png') %>'" 
     ng-mouseover="imgsrc1='<%= image_path('videoh.png') %>'" 
     ng-mouseout="imgsrc1='<%= image_path('video.png') %>'" >
     <img id="video" ng-src="{{imgsrc1}}" data-toggle="tooltip" data-placement="bottom"  title="Add a youtube video">
@@ -108,7 +108,7 @@
         <button ng-really-message="Are you sure you want to delete this intention?"  ng-really-click="deleteTechType(technique_type)" class="deleteTType">Delete</button>
         <p><span class="handle ttypespan"><i class="fa fa-ellipsis-v"></i></span><span dnd-nodrag>{{ technique_type.name}}</span></p>
       </div>
-      <ul class="nav" dnd-list="technique_type.techniques" dnd-allowed-types="technique_type.techniques">
+      <ul class="nav ttype-card-hover" dnd-list="technique_type.techniques" dnd-allowed-types="technique_type.techniques">
         <li ng-repeat="technique in technique_type.techniques" dnd-draggable="technique" dnd-moved="technique_type.techniques.splice($index, 1); techniqueSave()" dnd-effect-allowed="move" dnd-selected="models.selected = technique" dnd-type="technique" class="tech-row">
           <a href="" ng-click="getTechnique(technique_type, technique)"><span class="handle techspan"><i class="fa fa-ellipsis-v"></i><i class="fa fa-ellipsis-v"></i></span><span dnd-nodrag> {{technique.name}}</span><div ng-class="{'prof-color4': technique.proficiency === null, 'prof-color3': technique.proficiency === '3', 'prof-color2': technique.proficiency === '2', 'prof-color1': technique.proficiency === '1'}"></div></a>
         </li>
