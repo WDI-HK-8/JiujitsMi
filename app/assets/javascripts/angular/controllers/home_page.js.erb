@@ -527,6 +527,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       $scope.getPosition($scope.currentPositionFull)  
       $scope.currentTechnique.proficiency = response.proficiency
       console.log(response)
+        $scope.proficiencySelect = true;
     });
   };
 
