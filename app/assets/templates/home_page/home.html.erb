@@ -26,6 +26,9 @@
          <a href="" class="position-a" ><span class="handle positionspan"><i class="fa fa-ellipsis-v position-handle"></i></span> <span dnd-nodrag id="posName" >{{ position.name}}</span> 
          <button ng-really-message="Are you sure you want to delete this position?" ng-really-click="delete(position)" class="deletePos"><i class="fa fa-times-circle-o"></i></button></a>
       </li>
+      <li class="dndPlaceholder">
+        <span class="placeholder-text"><strong>Drag and drop to reorder position</strong></span>
+     </li>
     </ul>
   </nav>
 
@@ -113,6 +116,10 @@
           <a angular-ripple href="" ng-click="getTechnique(technique_type, technique)"><span class="handle techspan"><i class="fa fa-ellipsis-v"></i><i class="fa fa-ellipsis-v"></i></span><span dnd-nodrag> {{technique.name}}</span><div ng-class="{'prof-color4': technique.proficiency === null, 'prof-color3': technique.proficiency === '3', 'prof-color2': technique.proficiency === '2', 'prof-color1': technique.proficiency === '1'}"></div></a>
         </li>
 
+        <li class="dndPlaceholder">
+          <span class="tech-placeholder-text"><strong>Drag and drop to reorder technique</strong></span>
+        </li>
+
         <li>
           <form ng-submit="techForm.create(technique_type)" class="add-tech-form">
             <input class="forms-control-tech" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTech.name" required="required" placeholder="Add a new technique"  maxlength="36">
@@ -120,6 +127,10 @@
           </form>
         </li>
       </ul>
+    </div>
+
+    <div class="dndPlaceholder">
+      <span class="ttype-placeholder-text"><strong>Drag and drop to reorder intention</strong></span>
     </div>
   </div>
 </div>
