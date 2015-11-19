@@ -186,7 +186,7 @@ body {
 
   }
 
-  .side-nav>li>a {
+  .position-a {
     width: 100%;
     display: inline-block;
     text-overflow: ellipsis;
@@ -201,7 +201,7 @@ body {
     display: block;
   }
 
-  .side-nav li a:hover{
+  .position-a:hover{
     -webkit-transition: all 0.25s ease-in;
     -moz-transition: all 0.25s ease-in;
     transition: all 0.25s ease-in;
@@ -215,14 +215,15 @@ body {
   padding: 0;
 }
 
-.side-nav>li>ul>li>a {
+.position-a {
   display: block;
-  padding: 10px 15px 10px 38px;
+  padding: 10px 15px 10px 20px;
   text-decoration: none;
   color: #999;
+  cursor: pointer;
 }
 
-.navbar-inverse .navbar-nav > li > a:focus {
+.position-a:focus {
   color: #9d9d9d;
 }
 
@@ -300,7 +301,7 @@ body {
 
 
 
-ul li a .positionspan {
+.position-a .positionspan {
   display: inline-block;
   position: absolute;
   margin-top: 8px;
@@ -310,7 +311,7 @@ ul li a .positionspan {
   margin-left: -10px;
 }
 
-ul li a:hover .positionspan {
+.position-a:hover .positionspan {
   color: #d2d0d0;
 }
 
@@ -440,10 +441,6 @@ ul {
   border-top-width: 1px;
   border-top-style: solid;
   border-top-color: #fff;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease;
 }
 
 .tech-row:hover{
@@ -453,24 +450,25 @@ ul {
   -moz-box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
   background-color: #fff;  
   border-top-color: #ececec;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
 }
 
-.tech-row>a {
+.tech-a {
   color: #363636;
   text-decoration: none;
-  padding-top: 10px;
-  padding-bottom: 10px;
   font-size: 16px;
+  position: relative;
+  display: block;
+  padding: 10px 15px 0px 15px;
+  cursor: pointer;
 }
 
-.nav > li > a:hover, .nav > li > a:focus {
+.tech-a:hover, .tech-a:focus {
   background-color: #fff
 }
-
-.nav > li > a {
-  padding-bottom: 0px;
-}
-
 
 .forms-control-tech {
   margin-top: 20px;
@@ -1040,6 +1038,10 @@ textarea {
     display: none;
 }
 
+.snav ul[dnd-list] .dndDragging {
+  opacity: .3;
+}
+
 .snav ul[dnd-list] .dndPlaceholder {
     display: block;
     background-color: #000;
@@ -1090,6 +1092,10 @@ textarea {
     display: none;
 }
 
+.tnav[dnd-list] .dndDragging {
+  opacity: .3;
+}
+
 .tnav[dnd-list] .dndPlaceholder {
     display: block;
     min-height: 42px;
@@ -1123,7 +1129,7 @@ textarea {
 }
 
 .ttype-card-container ul[dnd-list] .dndDragging {
-  color: red;
+  opacity: .3;
 }
 
 .ttype-card-container ul[dnd-list] .dndPlaceholder {
