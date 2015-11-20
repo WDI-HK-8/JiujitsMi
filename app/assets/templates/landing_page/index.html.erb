@@ -1,116 +1,275 @@
-<navbar></navbar>
-<section class="module parallax parallax-1">
-  <div class="leftCard col-lg-offset-1 col-lg-3">
-    <h1>GrappleGame</h1>
-    <p>The hardest combat sports in the world just got a whole lot easier</p>
-    <button ng-click="gotoSignup()" >SIGN UP</button>
-  </div>
-<!-- log in -->
-  <div class="front-signin col-lg-offset-7 col-lg-4">
-    <div ng-if="!loggedIn">
-      <!-- ERROR ALERT -->
-      <div ng-show="loginFail" class="alert alert-danger" id="loginFail" role="alert">Your username or password is not correct</div>
-
-      <form ng-submit="login()">
-        <div class="textbox">
-          <label class="front-txt email"><span>Email</span>
-            <input class="js-email-field" id="si_email" type="email" name="email" ng-model="loginForm.email" required="required">
-          </label>
-        </div>
-        <div>
-          <label class="password front-txt"><span>Password</span>
-            <input class="js-password-field" id="si_password" type="password" name="password" ng-model="loginForm.password" required="required" class="form-control">
-          </label>
-        </div>
-        <div class="subchck">
-          <button type="submit" class="btn submit down-button" id="log-in" ><b>Log in</b></button>
-        </div>
-      </form>
-    </div>    
-</section>
-<section class="module elevator">
-  <div class="pitch">
-GrappleGame brings the traditional pen and paper Grappler's journal into the digital age, providing a superior solution to recording, organisng and viewing your techniques to further advance your game!
-  </div>
-</section>
-<section class="module parallax parallax-2">
-</section>
-<section class="module explaination">
-  <div class="threepoints">
-    <div>
-      <img class="circles" src="<%= image_path('frontpage-organise.png') %>">
-      <img class="circles" src="<%= image_path('frontpage-details.png') %>">
-      <img class="circles" src="<%= image_path('frontpage-video.png') %>">
+<div class="dbody" data-spy="scroll" data-offset="80">
+  <div class="navbar navbar-default-landing navbar-default navbar-fixed-top menu-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href=""><i class="fa fa-star-half-o"></i> GRAPPLEDASH</a>
+      </div>
+      <div class="navbar-collapse collapse" aria-expanded="false">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="http://themebootstrap.net/primes-v1.5.1/template-05/index.html#home">Log in</a></li>
+          <li class=""><a href="http://themebootstrap.net/primes-v1.5.1/template-05/index.html#features-section">Features</a></li>
+          <li class=""><a href="http://themebootstrap.net/primes-v1.5.1/template-05/index.html#pricing-section">Pricing</a></li>
+          <li class=""><a href="http://themebootstrap.net/primes-v1.5.1/template-05/index.html#team-section">Team</a></li>
+          <li class=""><a href="http://themebootstrap.net/primes-v1.5.1/template-05/index.html#contact-section">Contact</a></li>
+        </ul>
+      </div> 
     </div>
-    <div>
-      <div>
-      <p class="circles-txt">Organise your techniques any way you desire so that you recall them swiftly</p>
-      <p class="circles-txt">List the specific details of your techniques so that you execute effectively everytime</p>
-      <p class="circles-txt">Love scouring Youtube for new techniques? Add them to your dashboard</p>
-    </div>
-  </div>
-</section>
-<section class="module parallax parallax-3">
-</section>
-<section class="module signup-section" id="signup">
-  <div class="container">
+  </div> 
 
-        
-    <div class="row">
-        <div class="col-lg-offset-1 col-lg-10">   
-        <!-- PRICE ITEM -->
-        <div class="panel price panel-red">
-          <div class="panel-heading  text-center">
-          <h3>FOUNDATION MEMBERSHIP</h3>
+    <!-- Top content -->
+  <div id="home" class="parallax top-content">
+    <div class="inner-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 col-sm-7 top-description">
+            <h2 class="text-left"> Learn <strong>Faster</strong>, your <strong>way</strong></h2>
+            <p>Finally. A flexible dashboard, designed for grapplers.</p>
+            <div class="top-button">
+              <a class="btn1 btn-top-white btn-lg" href=""> Learn More</a>
+            </div>
           </div>
-          <div class="panel-body text-center">
-            <p class="lead" style="font-size:40px"><strong>FREE</strong></p>
+
+  <!-- LOGIN -->
+          <div class="col-md-5 col-sm-5">
+            <div class="vertical-registration-form">
+              <form class="registration-form" ng-submit="login()" >
+                <div class="form-group">
+                  <p>Email</p>      
+                  <input id="name" type="email" name="email" ng-model="loginForm.email" required="required"class="optin-input" placeholder=" ">
+                </div>
+                <div class="form-group">
+                  <p>Password</p>   
+                  <input id="email" type="password" name="password" ng-model="loginForm.password" required="required" class="optin-input" placeholder=" ">
+                </div>
+                <div class="form-group">
+                  <button class="btn1 btn-top-white btn-lg" type="submit">Log in</button>
+                </div>                      
+              </form>
+            </div>
           </div>
-          <ul class="list-group list-group-flush text-center">
-            <li class="list-group-item"><i class="icon-ok text-danger"></i>We love that you’ve found us and as a thank you we would like to offer you access to our foundation membership plan. No credit cards, no fees... everything for free!</li>
-            <li class="list-group-signup"><i class="icon-ok text-danger">
-              <!-- sign up -->
-              <div class="signupbox">
-              <!-- ERROR ALERT -->
-                <div ng-show="signupFail" ng-repeat="errorMessage in errorMessages" class="alert alert-danger" id="signupFail" role="alert">{{ errorMessage }}</div>
-                <form ng-submit="signup()">
-                  <div class="form-group">
-                    <label><span class="signup-label email">Username</span>
-                      <input type="text" name="last_name" ng-model="registrationForm.username" required="required" class="form-control js-field">
-                    </label>
-                  </div>
-                  <div class="form-group">
-                    <label><span class="signup-label">Name</span>
-                      <input type="text" name="name" ng-model="registrationForm.name" required="required" class="form-control js-field">
-                    </label>
-                  </div>
-                  <div class="form-group">
-                    <label><span class="signup-label">Email</span>
-                      <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control js-field">
-                    </label>
-                  </div>
-                  <div class="form-group">
-                    <label><span class="signup-label">Country</span>
-                      <input type="text" name="country" ng-model="registrationForm.country" required="required" class="form-control js-field">
-                    </label>
-                  </div>
-                  <div class="form-group">
-                    <label><span class="signup-label">Password</span>
-                      <input type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control js-field">
-                    </label>
-                  </div>
-                  <div class="form-group">
-                    <label><span class="signup-label">Password Confirmation</span>
-                      <input type="password" name="password_confirmation" ng-model="registrationForm.password_confirmation" required="required" class="form-control js-field">
-                    </label>
-                  </div>
-                  <button type="submit" class="signup-submit">Submit</button>
-                </form>
-              </div>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
   </div>
-</section>
+
+    <!-- Features -->
+    <div id="features-section" class="features-container">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12 features">
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-4 features-box1">
+                <div class="icon">
+                  <i class="icon ion-map"></i>
+                </div>
+                  <h4>Lorem Ipsum</h4>
+                  <p>
+                    Ut lobortis auctor est, quis ornare orci tristique vel. Pellentesque sit amet ultricies nisl. Ut aliquet dolor mi, vitae varius felis elementum.
+                  </p>
+              </div>
+              <div class="col-sm-4 features-box2">
+                <div class="icon">
+                  <i class="icon ion-paper-airplane"></i>
+                </div>
+                  <h4>Lorem Ipsum</h4>
+                  <p>
+                    Ut lobortis auctor est, quis ornare orci tristique vel. Pellentesque sit amet ultricies nisl. Ut aliquet dolor mi, vitae varius felis elementum.
+                  </p>
+              </div>
+              <div class="col-sm-4 features-box3">
+                <div class="icon">
+                  <i class="icon ion-clipboard"></i>
+                </div>
+                  <h4>Lorem Ipsum</h4>
+                  <p>
+                    Ut lobortis auctor est, quis ornare orci tristique vel. Pellentesque sit amet ultricies nisl. Ut aliquet dolor mi, vitae varius felis elementum.
+                  </p>
+              </div>
+              <div class="col-sm-4 features-box4">
+                <div class="icon">
+                  <i class="icon ion-earth"></i>
+                </div>
+                  <h4>Lorem Ipsum</h4>
+                  <p>
+                    Ut lobortis auctor est, quis ornare orci tristique vel. Pellentesque sit amet ultricies nisl. Ut aliquet dolor mi, vitae varius felis elementum.
+                  </p>
+              </div>
+              <div class="col-sm-4 features-box5">
+                <div class="icon">
+                  <i class="icon ion-flash-off"></i>
+                </div>
+                  <h4>Lorem Ipsum</h4>
+                  <p>
+                    Ut lobortis auctor est, quis ornare orci tristique vel. Pellentesque sit amet ultricies nisl. Ut aliquet dolor mi, vitae varius felis elementum.
+                  </p>
+              </div>
+              <div class="col-sm-4 features-box6">
+                <div class="icon">
+                  <i class="icon ion-levels"></i>
+                </div>
+                  <h4>Lorem Ipsum</h4>
+                  <p>
+                    Ut lobortis auctor est, quis ornare orci tristique vel. Pellentesque sit amet ultricies nisl. Ut aliquet dolor mi, vitae varius felis elementum.
+                  </p>
+              </div>
+
+          </div>
+      </div>
+    </div>
+    
+    
+    <!-- Product -->
+
+    <div class="product-container product-bg1">
+      <div class="container">
+          <div class="row">
+
+                  <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+                      <div class="product">
+                  <h3>More Features</h3>
+
+                      <img src="./Primes - Landing Page Template_files/3.png" alt="">
+
+              </div>
+
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+    <!-- Product -->
+    <div class="product-container product-bg2">
+      <div class="container">
+          <div class="row">
+
+    <div class="col-lg-6 col-sm-6">
+      <div class="productbox">
+        <div>
+                  <i class="icon ion-erlenmeyer-flask"></i>
+        </div>
+        <h5>Lorem Ipsum</h5>
+Nulla fringilla dapibus nisieu accumsan arcu convallis tincidunt donec mauris libero laciniade mollis malesuade odio interdum. Integer sed magna vel velit dignissim luctus eu in urna. Dapibus egestas turpis. Praesent faucibus nisl sit amet nulla sollicitudin.
+      </div>
+      <div class="productbox">
+        <div>
+                  <i class="icon ion-android-boat"></i>
+        </div>
+        <h5>Lorem Ipsum</h5>
+Nulla fringilla dapibus nisieu accumsan arcu convallis tincidunt donec mauris libero laciniade mollis malesuade odio interdum. Integer sed magna vel velit dignissim luctus eu in urna. Dapibus egestas turpis. Praesent faucibus nisl sit amet nulla sollicitudin.
+      </div>
+      <div class="productbox">
+        <div>
+                  <i class="icon ion-android-archive"></i>
+        </div>
+        <h5>Lorem Ipsum</h5>
+Nulla fringilla dapibus nisieu accumsan arcu convallis tincidunt donec mauris libero laciniade mollis malesuade odio interdum. Integer sed magna vel velit dignissim luctus eu in urna. Dapibus egestas turpis. Praesent faucibus nisl sit amet nulla sollicitudin.
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-6">
+      <div class="productbox">
+        <div>
+                  <i class="icon ion-ios-speedometer"></i>
+        </div>
+        <h5>Lorem Ipsum</h5>
+Nulla fringilla dapibus nisieu accumsan arcu convallis tincidunt donec mauris libero laciniade mollis malesuade odio interdum. Integer sed magna vel velit dignissim luctus eu in urna. Dapibus egestas turpis. Praesent faucibus nisl sit amet nulla sollicitudin.
+      </div>
+      <div class="productbox">
+        <div>
+                  <i class="icon ion-pie-graph"></i>
+        </div>
+        <h5>Lorem Ipsum</h5>
+Nulla fringilla dapibus nisieu accumsan arcu convallis tincidunt donec mauris libero laciniade mollis malesuade odio interdum. Integer sed magna vel velit dignissim luctus eu in urna. Dapibus egestas turpis. Praesent faucibus nisl sit amet nulla sollicitudin.
+      </div>
+      <div class="productbox">
+        <div>
+                  <i class="icon ion-trophy"></i>
+        </div>
+        <h5>Lorem Ipsum</h5>
+Nulla fringilla dapibus nisieu accumsan arcu convallis tincidunt donec mauris libero laciniade mollis malesuade odio interdum. Integer sed magna vel velit dignissim luctus eu in urna. Dapibus egestas turpis. Praesent faucibus nisl sit amet nulla sollicitudin.
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Pricing -->
+
+    <div id="pricing-section" class="pricing-container">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12 pricing">
+                  <h3>Choose the package</h3>
+                  <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 toLeft">
+      <div class="price-column">
+        <h2>Standard</h2>
+        <h3><span>From</span> $45<span>.99 per month</span></h3>
+        <ul>
+          <li>Vestibulum est magna</li>
+          <li>Mauris auctor massa libero</li>
+          <li>Praesent magna tortor</li>
+          <li>Cras et fermentum massa</li>
+        <li><button type="button" class="btn1 btn-top btn-lg">Purchase</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4 toIn">
+      <div class="price-column large">
+        <h2>Premium</h2>
+        <h3><span>From</span> $75<span>.00 per month</span></h3>
+        <ul>
+          <li>Vestibulum est magna</li>
+          <li>Mauris auctor massa libero</li>
+          <li>Praesent magna tortor</li>
+          <li>Cras et fermentum massa</li>
+        <li><button type="button" class="btn1 btn-top btn-lg">Purchase</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4 toRight">
+      <div class="price-column">
+        <h2>Ultimate</h2>
+        <h3><span>From</span> $99<span>.99 per month</span></h3>
+        <ul>
+          <li>Vestibulum est magna</li>
+          <li>Mauris auctor massa libero</li>
+          <li>Praesent magna tortor</li>
+          <li>Cras et fermentum massa</li>
+        <li><button type="button" class="btn1 btn-top btn-lg">Purchase</button></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  
+      </div>
+
+</div>
+
+<!-- footer 2 -->
+<div id="footer2">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+    <div class="copyright">©primes 2015
+        </div>
+        </div>
+      </div>
+    </div>
+      </div>
+
+
+
+  </div>
+</div>
