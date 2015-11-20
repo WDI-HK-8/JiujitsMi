@@ -59,20 +59,11 @@
     <!-- ICONS -->
     <div>
       <span id="blocker"></span>
-      <a href=""  ng-click="addVideo()" ng-init="imgsrc1='<%= image_path('video.png') %>'" 
-      ng-mouseover="imgsrc1='<%= image_path('videoh.png') %>'" 
-      ng-mouseout="imgsrc1='<%= image_path('video.png') %>'" >
-      <img id="video" ng-src="{{imgsrc1}}" data-toggle="tooltip" data-placement="bottom"  title="Add a youtube video">
+      <a href=""  ng-click="addVideo()"><i class="fa fa-play-circle-o icons" id="video" data-toggle="tooltip" data-placement="bottom"  title="Add a youtube video"></i>
       </a>
-      <a href="" ng-click="addSteps()" ng-init="imgsrc2='<%= image_path('steps.png') %>'" 
-      ng-mouseover="imgsrc2='<%= image_path('stepsh.png') %>'" 
-      ng-mouseout="imgsrc2='<%= image_path('steps.png') %>'">
-       <img id="steps" ng-src="{{imgsrc2}}" data-toggle="tooltip" data-placement="bottom" title="Add technique steps">
+      <a href="" ng-click="addSteps()"><i class="fa fa-th-list icons" id="steps" data-toggle="tooltip" data-placement="bottom" title="Add technique steps"></i>
       </a>
-      <a href="" ng-click="addNotes()" ng-init="imgsrc3='<%= image_path('notes.png') %>'" 
-      ng-mouseover="imgsrc3='<%= image_path('notesh.png') %>'" 
-      ng-mouseout="imgsrc3='<%= image_path('notes.png') %>'">
-        <img id="notes" ng-src="{{imgsrc3}}" data-toggle="tooltip" data-placement="bottom" title="Add other technique notes">
+      <a href="" ng-click="addNotes()"><i class="fa fa-pencil-square-o icons" id="notes"  data-toggle="tooltip" data-placement="bottom" title="Add other technique notes"></i>
       </a>
     </div>
   </div>
