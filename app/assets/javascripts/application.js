@@ -20,4 +20,5 @@
 //= require angular-drag-and-drop-lists/angular-drag-and-drop-lists
 //= require angular-animate/angular-animate
 //= require angular-ripple/angular-ripple
+//= require angular-scroll-animate/dist/angular-scroll-animate
 //= require_tree .

@@ -64,10 +64,8 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
 
 
 
-jQuery(document).ready(function() {
-
-/***** Scroll Up *****/
-
+  jQuery(document).ready(function() {
+  /***** Scroll Up *****/
     $('a[href*=#]').bind("click", function(e){
       var anchor = $(this);
       $('html, body').stop().animate({
@@ -89,12 +87,33 @@ jQuery(document).ready(function() {
         $(this).collapse('hide');
       }
     });
+ 
+
+     // PARRALEX
+    (function(){
+
+      var parallax = document.querySelectorAll(".parallax"),
+          speed = 0.2;
+
+      window.onscroll = function(){
+        [].slice.call(parallax).forEach(function(el,i){
+          var windowYOffset = window.pageYOffset,
+              elBackgrounPos = "50% " + (windowYOffset * speed) + "px";
+          el.style.backgroundPosition = elBackgrounPos;
+        });
+      };
+    })();
+  });
 
 
-    
-});
+  $scope.animateElementIn = function($el) {
+    $el.removeClass('test');
+    $el.addClass('animated fadeInLeft'); // this example leverages animate.css classes
+  };
 
-
-
+  $scope.animateElementFade = function($el) {
+    $el.removeClass('test');
+    $el.addClass('animated zoomIn'); // this example leverages animate.css classes
+  };
 
 }]);

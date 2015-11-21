@@ -47,11 +47,11 @@ h2 {
 
 h3 {
   margin-top: 10px;
-    font-family: 'Open Sans', sans-serif;
-  color: #fff;
-    font-size: 32px;
-    font-weight: 300;
-    line-height: 36px;
+  font-family: 'Open Sans', sans-serif;
+  color: #323A45;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 36px;
 }
 
 img { max-width: 100%; }
@@ -239,16 +239,16 @@ textarea:focus {
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
-    color: #0dc0c0 !important;
+    color: #52B4AF !important;
   background-color: transparent;
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
-    color: #0dc0c0 !important;
+    color: #52B4AF !important;
   background-color: transparent;
 }
 .navbar-brand{
     font-weight: 700;
-    color: #0dc0c0 !important;
+    color: #52B4AF !important;
     font-size: 22px;
     line-height: 20px;
 }
@@ -258,7 +258,7 @@ textarea:focus {
     font-size: 16px;
 }
 .navbar-default .navbar-nav>li>a:hover {
-    color: #0dc0c0 !important;
+    color: #52B4AF !important;
 
 }
 
@@ -269,6 +269,7 @@ textarea:focus {
 .navbar-default.menu-shrink{
     padding: 2px 0;
   background-color: #493b76;
+  opacity: .9;
     /*border-bottom: 2px solid #eee;*/
       -webkit-box-shadow: 0 4px 0 rgba(0, 0, 0, 0.04);
   -moz-box-shadow: 0 4px 0 rgba(0, 0, 0, 0.04);
@@ -322,7 +323,7 @@ textarea:focus {
     padding: 0;
   padding-top: 180px;
   padding-bottom: 120px;
-    background-color: rgba(40, 42, 46, 0.9);
+    background-color: rgba(40, 42, 46, 0.85);
 }
 
 .top-content .text {
@@ -378,7 +379,7 @@ textarea:focus {
 
 .vertical-registration-form {
   background-color: #1c1c1c;
-  opacity: .5;
+  opacity: .7;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 30px;
@@ -918,7 +919,8 @@ textarea:focus {
   padding-bottom: 0px;
   background: #f4f4f4;
   color: #888;
-    text-align: center;
+  text-align: center;
+  overflow: hidden;
 }
 
 .product {
@@ -950,6 +952,11 @@ textarea:focus {
 .product-img {
     text-align: center !important;
   margin-top: 30px;
+}
+
+.mockup {
+  margin-top: 100px;
+  transform: scale(1.50);
 }
 
 .product-bg1 {
@@ -1424,25 +1431,44 @@ color: #0dc0c0;
   
 }
 
-.top-content {
-  height:calc(90% - 50px);
+
+
+.circles {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  width: 220px;
 }
 
-.affix {
-  padding:0px;
-  -webkit-transition:padding 0.2s linear;
-  -moz-transition:padding 0.2s linear;  
-  -o-transition:padding 0.2s linear;         
-  transition:padding 0.2s linear;  
-  opacity: .5;
+
+.circles:hover {
+  transform: scale(1.15);
+  -webkit-transition: all 0.15s ease;
+  -moz-transition: all 0.15s ease;
+  transition: all 0.15s ease;
 }
 
-.affix-top {
-  padding-top:15px;
-  padding-bottom:15px;
-  -webkit-transition:padding 0.5s linear;
-  -moz-transition:padding 0.5s linear;  
-  -o-transition:padding 0.5s linear;         
-  transition:padding 0.5s linear;  
+.section-header {
+  margin-top: 40px;
 }
 
+.section-header span {
+  display: inline-block;
+  position: relative;  
+}
+
+.section-header span::before, .section-header span::after {
+  position: absolute;
+  display: inline-block;
+  width: 50px;
+  height: 2px;
+  margin-top: 15%;
+  background: rgba(5,10,15,0.12);
+  content:""}
+
+.section-header  span::before{left:-65px}
+.section-header  span::after{right:-65px}
+
+
+.test {
+  visibility: hidden;
+}
