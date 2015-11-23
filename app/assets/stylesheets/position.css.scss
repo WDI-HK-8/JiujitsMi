@@ -7,7 +7,7 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
 
 body {
   font-size: 16px;
-  font-family: Lato;
+  font-family: Lato, sans-serif;
   color: #5c5c5c;
 }
 
@@ -47,7 +47,7 @@ body {
   background-size: cover;
 }
 
-.navbar {
+.homenav {
   background-color: #493b76;
   height:65px;
   border-bottom: 0px;
