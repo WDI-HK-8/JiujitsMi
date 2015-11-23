@@ -11,7 +11,7 @@
       <li class="active">
         <form class="add-position-form" dnd-nodrag ng-submit="positionForm.create()">
           <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position" maxlength="30">
-          <button type="submit" class="subchck btn submit down-button addPos" ><b>+</b></button>
+          <button type="submit" class="subchck btn submit down-button addPos" ><i class="fa fa-plus"></i></button>
         </form>
       <li>  
     </ul>
@@ -43,7 +43,7 @@
     <span class="ttype-text">{{currentPositionName}}</span>
     <form ng-submit="techTypeForm.create()" class="create-ttype">
       <input class="forms-control-tech" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new intention"  maxlength="32">
-      <button type="submit" class="subchck btn submit down-button addTech" ><b>+</b></button>
+      <button type="submit" class="subchck btn submit down-button addTech" ><i class="fa fa-plus"></i></button>
     </form>
   </div>
 
@@ -59,20 +59,11 @@
     <!-- ICONS -->
     <div>
       <span id="blocker"></span>
-      <a href=""  ng-click="addVideo()" ng-init="imgsrc1='<%= image_path('video.png') %>'" 
-      ng-mouseover="imgsrc1='<%= image_path('videoh.png') %>'" 
-      ng-mouseout="imgsrc1='<%= image_path('video.png') %>'" >
-      <img id="video" ng-src="{{imgsrc1}}" data-toggle="tooltip" data-placement="bottom"  title="Add a youtube video">
+      <a href=""  ng-click="addVideo()"><i class="fa fa-play-circle-o icons" id="video" data-toggle="tooltip" data-placement="bottom"  title="Add a youtube video"></i>
       </a>
-      <a href="" ng-click="addSteps()" ng-init="imgsrc2='<%= image_path('steps.png') %>'" 
-      ng-mouseover="imgsrc2='<%= image_path('stepsh.png') %>'" 
-      ng-mouseout="imgsrc2='<%= image_path('steps.png') %>'">
-       <img id="steps" ng-src="{{imgsrc2}}" data-toggle="tooltip" data-placement="bottom" title="Add technique steps">
+      <a href="" ng-click="addSteps()"><i class="fa fa-th-list icons" id="steps" data-toggle="tooltip" data-placement="bottom" title="Add technique steps"></i>
       </a>
-      <a href="" ng-click="addNotes()" ng-init="imgsrc3='<%= image_path('notes.png') %>'" 
-      ng-mouseover="imgsrc3='<%= image_path('notesh.png') %>'" 
-      ng-mouseout="imgsrc3='<%= image_path('notes.png') %>'">
-        <img id="notes" ng-src="{{imgsrc3}}" data-toggle="tooltip" data-placement="bottom" title="Add other technique notes">
+      <a href="" ng-click="addNotes()"><i class="fa fa-pencil-square-o icons" id="notes"  data-toggle="tooltip" data-placement="bottom" title="Add other technique notes"></i>
       </a>
     </div>
   </div>
@@ -106,7 +97,7 @@
     dnd-selected="models.selected = technique_type">
       <div class="ttype-card-header" >
         <button ng-really-message="Are you sure you want to delete this intention?"  ng-really-click="deleteTechType(technique_type)" class="deleteTType">Delete</button>
-        <p><span class="handle ttypespan"><i class="fa fa-ellipsis-v"></i></span><span dnd-nodrag >{{ technique_type.name}}</span></p>
+        <p><span class="handle ttypespan"><i class="fa fa-ellipsis-v"></i></span><span dnd-nodrag>{{ technique_type.name}}</span></p>
       </div>
       <ul class="nav ttype-card-hover" dnd-list="technique_type.techniques" dnd-allowed-types="technique_type.techniques">
         <li ng-repeat="technique in technique_type.techniques" dnd-draggable="technique" dnd-moved="technique_type.techniques.splice($index, 1); techniqueSave()" dnd-effect-allowed="move" dnd-selected="models.selected = technique" dnd-type="technique" class="tech-row">
@@ -120,7 +111,7 @@
         <li>
           <form ng-submit="techForm.create(technique_type)" class="add-tech-form">
             <input class="forms-control-tech" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTech.name" required="required" placeholder="Add a new technique"  maxlength="36">
-            <button type="submit" class="subchck btn submit down-button addTech" ><b>+</b></button>
+            <button type="submit" class="subchck btn submit down-button addTech" ><i class="fa fa-plus"></i></button>
           </form>
         </li>
       </ul>
@@ -161,7 +152,7 @@
       </iframe></div>
       <form ng-show="!doVideosExist" ng-submit="videoForm.create()" class="add-video-form">
         <label>Add a Youtube url: </label><input class="forms-control-video" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newVideo" required="required" placeholder="e.g. https://www.youtube.com/watch?v=YaNLxS2-HEY">
-        <button type="submit" class="subchck btn submit down-button addTech" ><b>+</b></button>
+        <button type="submit" class="subchck btn submit down-button addTech" ><i class="fa fa-plus"></i></button>
       </form>
      
     </div>
@@ -173,12 +164,12 @@
         </div>
         <ul class="nav">
           <li ng-repeat="step in steps" class="step-row">
-            <a><span class="step-text">{{$index +1}}. {{step.instruction}}</span><button ng-click="deleteStep(step)" class="deleteStepRow">✖</button></a>
+            <a><span class="step-text">{{$index +1}}. {{step.instruction}}</span><button ng-click="deleteStep(step)" class="deleteStepRow"><i class="fa fa-times-circle-o"></i></button></a>
           </li>
           <li>
             <form ng-submit="stepForm.create()" class="add-step-form">
               <input class="forms-control-step" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step" >
-              <button type="submit" class="subchck btn submit down-button addTech addStep" maxlength="500" ><b>+</b></button>
+              <button type="submit" class="subchck btn submit down-button addTech addStep" maxlength="500" ><i class="fa fa-plus"></i></button>
             </form>
           </li>
         </ul>
