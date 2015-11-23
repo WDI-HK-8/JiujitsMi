@@ -1,11 +1,48 @@
-app.controller('NavbarCtrl', ['$scope', '$auth', '$location', function($scope, $auth, $location){
+app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', function($scope, $auth, $location, $aside){
   $scope.loginForm = {};
+
+
+  // ASIDE
+  $scope.asideState = {
+    open: false
+  };
+  
+  $scope.openAside = function(position, backdrop) {
+    $scope.asideState = {
+      open: true,
+      position: position
+    };
+    
+    function postClose() {
+      $scope.asideState.open = false;
+    };
+    
+    $aside.open({
+      templateUrl: "<%= asset_path('directives/aside.html') %>",
+      placement: position,
+      size: 'sm',
+      backdrop: backdrop,
+      controller: function($scope, $uibModalInstance) {
+        $scope.ok = function(e) {
+          $uibModalInstance.close();
+          e.stopPropagation();
+        };
+        $scope.cancel = function(e) {
+          $uibModalInstance.dismiss();
+          e.stopPropagation();
+        };
+
 
 // check if user is logged in
   $scope.authResponse = $auth.validateUser()
   $scope.authStatus = $scope.authResponse.$$state.status
-  $scope.loginName = $scope.authResponse.$$state.value.username
+  
+  // GET USERS FIRST NAME
+  $scope.fullname = $scope.authResponse.$$state.value.name
+  $scope.splitedname = $scope.fullname.split(" ");
+  $scope.loginName = $scope.splitedname[0]
   console.log($scope.loginName)
+
   
   if ($scope.authStatus == 2) {
     $scope.loggedIn = false;  
@@ -51,6 +88,16 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', function($scope, $
 
       console.log($scope.toggleClass)
   };
+
+      }
+    }).result.then(postClose, postClose);
+  }
+
+
+$scope.myDash = function() {
+  $location.path('/home');
+}
+
 
 
 

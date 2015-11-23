@@ -21,4 +21,5 @@
 //= require angular-animate/angular-animate
 //= require angular-ripple/angular-ripple
 //= require angular-scroll-animate/dist/angular-scroll-animate
+//= require angular-aside/dist/js/angular-aside
 //= require_tree .
