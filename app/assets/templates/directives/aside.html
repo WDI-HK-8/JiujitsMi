@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h3 class="modal-title">Hi {{ loginName}} </h3>
+</div>
+<div class="modal-body" id="slide-menu">
+  <ul class="aside-list">
+    <li><a ng-click="myDash(); cancel($event)" href=""><i class="fa fa-tachometer aside-icon"></i>My GrappleDash</a></li>
+    <li><a href=""><i class="fa fa-user aside-icon"></i>My Profile</a></li>
+    <li><a ng-click="logout(); cancel($event)"href=""><i class="fa fa-sign-out aside-icon"></i>Log out</a></li>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" ng-click="cancel($event)">Close</button>
+</div>

@@ -1,0 +1,47 @@
+/*ASIDE*/
+
+
+.modal-header {
+  padding: 15px;
+  background-color: #493b76;
+  color: white;
+}
+
+
+#slide-menu {
+  padding: 0px;
+}
+
+.aside-list {
+  margin: 0px;
+  padding: 0px;
+}
+
+.aside-list li {
+  border-top: 1px solid #e5e5e5;
+}
+
+.aside-list li a {
+  display: block;
+  padding: 16px 0 16px 30px;
+  text-decoration: none;
+  color: #363636;
+  font-size: 20px;
+  font-weight: 1000px;
+  cursor: pointer;
+}
+
+.aside-list li a:hover {
+  color: #59e9df;
+}
+
+.aside-icon {
+  padding-right: 10px;
+}
+
+.modal-title {
+  font-family: lato;
+  color: #fff;
+  padding-left: 20px;
+  font-size: 26px;
+}

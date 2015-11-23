@@ -11,7 +11,7 @@
 
     <!-- logout -->
     <li ng-if="loggedIn" class="pull-right">
-      <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Oss, {{ loginName }}</a>
+      <a href=""  class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Oss, {{ loginName }}</a>
         <ul class="dropdown-menu dropdown-menu2">
           <li class="move">
             <a href="#/home"><i class="logout-options fa fa-fw fa-user"></i> My Moves</a>
@@ -22,9 +22,8 @@
         </ul>
       </a>
     </li>
-
     <li class="pull-right">
-      <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+      <a ng-click="openAside('right', false)" href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
     </li>
   </ul>
 </nav>
