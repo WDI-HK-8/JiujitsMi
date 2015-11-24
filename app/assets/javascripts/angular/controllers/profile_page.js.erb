@@ -1,0 +1,72 @@
+app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', function($scope, $auth, $location, $aside){
+
+
+  $scope.showProfile = true;
+  $scope.showSub = false; 
+
+  $scope.switchToProfile = function() {
+    $scope.showProfile = true;
+    $scope.showSub = false; 
+    $scope.showNameInput = false;
+    $scope.showEmailInput = false;
+    $scope.showPasswordInput = false;
+  };
+
+    $scope.switchToSub = function() {
+    $scope.showProfile = false;
+    $scope.showSub = true; 
+  };
+
+  // USER DETAILS
+  $scope.authResponse = $auth.validateUser()
+  $scope.authName = $scope.authResponse.$$state.value.name;
+  $scope.authEmail = $scope.authResponse.$$state.value.email;
+
+
+  // CHANGE NAME
+  $scope.showName = function(){
+    $scope.showNameInput = true;
+    $scope.showEmailInput = false;
+    $scope.showPasswordInput = false;
+  };
+
+  $scope.editAccountForm = {}
+  $scope.editAccount = function(){
+    $auth.updateAccount($scope.editAccountForm).then(function(response){
+      // console.log(response);
+      $scope.newDetails = response
+      console.log($scope.newDetails.data.data.name)
+      $scope.switchToProfile();
+
+      if ($scope.newDetails.data.data.name != $scope.authName) {
+        $scope.authName = $scope.newDetails.data.data.name;
+      };
+
+      if ($scope.newDetails.data.data.email != $scope.authEmail) {
+        $scope.authEmail = $scope.newDetails.data.data.email;
+      };
+
+    }).catch(function(response){
+      console.log(response);
+    });
+  };
+
+  
+
+
+  // CHANGE EMAIL
+  $scope.showEmail = function(){
+    $scope.showNameInput = false;
+    $scope.showEmailInput = true;
+    $scope.showPasswordInput = false;
+
+  };
+
+  // CHANGE PASSWORD
+  $scope.showPassword = function(){
+    $scope.showNameInput = false;
+    $scope.showEmailInput = false;
+    $scope.showPasswordInput = true;
+  };
+
+}]);
