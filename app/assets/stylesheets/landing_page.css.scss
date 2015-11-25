@@ -1118,8 +1118,15 @@ color: #0dc0c0;
 
 
 
-input { font-family: 'FontAwesome'; } /* This is for the placeholder */
+.optin-input, .signup-text { font-family: 'FontAwesome'; } /* This is for the placeholder */
 
 
+.landing-brand {
+  width: 250px;
+  padding-top: 7px;
+}
 
-
+.top-link {
+    padding-top: 24px !important;
+    padding-bottom: 8px;
+}

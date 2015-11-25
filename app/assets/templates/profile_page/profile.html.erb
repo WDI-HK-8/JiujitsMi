@@ -11,10 +11,10 @@
     <ul ng-class="posCol" 
     class="nav navbar-nav side-nav"> 
       <li ng-click="switchToProfile()">
-         <span class="position-a" ><span class="profile-list" >PROFILE DETAILS</span> 
+         <span class="position-a position-b" ><span class="profile-list" >PROFILE DETAILS</span> 
       </li>
       <li ng-click="switchToSub()">
-         <span class="position-a" ><span class="profile-list" >SUBSCRIPTION DETAILS</span> 
+         <span class="position-a position-b" ><span class="profile-list" >SUBSCRIPTION DETAILS</span> 
       </li>
     </ul>
   </nav>
@@ -24,31 +24,41 @@
     <div ng-show="showProfile" class="profile-details col-md-6">
       <h3>MY ACCOUNT - PROFILE</h3>
       <ul>
-        <li><span>{{authName}}</span><a ng-click="showName()"href="">Change Name</a>
+      <!-- NAME -->
+        <li class="profile-element"><i class="fa fa-user profile-icon"></i><span class="element-span">{{authName}}</span><a ng-click="showName()"href=""class="change-link">Change Name</a>
+          <div ng-show="showNameInput">
+            <form role="form" ng-submit="editAccount()" >
+              <input ng-model='editAccountForm.name' type="text" name="text" class="profile-input profile-input-top" placeholder="Enter your selected name"></input>
+              <hr>
+              <button type="submit" class="btn1 btn-top btn-lg profile-btn">Update</button>
+            </form>
+          </div>
         </li>
-        <li ng-show="showNameInput">
-          <form role="form" ng-submit="editAccount()" >
-            <input ng-model='editAccountForm.name' type="text" name="text"></input>
-            <button type="submit">Update</button>
-          </form>
+        <!-- Email -->
+        <li class="profile-element"><i class="fa fa-envelope profile-icon"></i><span class="element-span">{{authEmail}}</span><a ng-click="showEmail()"href=""class="change-link">Change Email</a>
+          <div ng-show="showEmailInput">
+            <div ng-show="updateFail" ng-repeat="errorMessage in errorMessages" class="alert alert-danger" id="signupFail" role="alert">{{ errorMessage }}</div>
+            <form role="form" ng-submit="editAccount()" >
+              <input ng-model='editAccountForm.email' type="email" name="email" class="profile-input profile-input-top" placeholder="Enter your new email address"></input>
+              <hr>
+              <button type="submit" class="btn1 btn-top btn-lg profile-btn" >Update</button>
+            </form>       
+          </div>
         </li>
-        <li><span>{{authEmail}}</span><a ng-click="showEmail()"href="">Change Email</a>
-        </li>
-        <li ng-show="showEmailInput">
-          <form role="form" ng-submit="editAccount()" >
-            <input ng-model='editAccountForm.email' type="text" name="text"></input>
-            <button type="submit">Update</button>
-          </form>       
-        </li>
-        <li><span>********</span><a ng-click="showPassword()" href="">Change Password</a>
-        </li>
-         <li ng-show="showPasswordInput">
-           <form role="form" ng-submit="editAccount()" >
-            <input ng-model='editAccountForm.current_password' type="text" name="text"></input>
-            <input ng-model='editAccountForm.password' type="text" name="text"></input>
-            <input ng-model='editAccountForm.password_confirmation' type="text" name="text"></input>
-          <button type="submit">Update</button>
-          </form> 
+        <!-- PASSWORD -->
+        <li class="profile-element-last"><i class="fa fa-lock profile-icon"></i><span id="pw-block">  ********</span><a ng-click="showPassword()" href=""class="change-link">Change Password</a>
+         <div ng-show="showPasswordInput">
+          <div ng-show="updateFail" ng-repeat="errorMessage in errorMessages" class="alert alert-danger" id="signupFail" role="alert">{{ errorMessage }}</div>
+            <form role="form" ng-submit="editAccount()" >
+              <input ng-model='editAccountForm.current_password' type="text" name="text" class="profile-input profile-input-top" placeholder="Enter your current password"></input>
+              <hr>
+              <input ng-model='editAccountForm.password' type="text" name="text" placeholder="Enter your new password" class="profile-input"></input>
+              <hr>
+              <input ng-model='editAccountForm.password_confirmation' type="text" name="text"  placeholder="Enter your new password again" class="profile-input"></input>
+              <hr>
+              <button type="submit" class="btn1 btn-top btn-lg profile-btn" >Update</button>
+            </form> 
+          </div>
         </li>
       </ul>
     </div>
@@ -57,11 +67,7 @@
     <div ng-show="showSub" class="profile-details col-md-6">
       <h3>MY ACCOUNT - SUBSCRIPTION</h3>
       <ul>
-        <li><span>{{authName}}</span><a href="">Change Name</a>
-        </li>
-        <li><span>{{authEmail}}</span><a href="">Change Email</a>
-        </li>
-        <li><span>********</span><a href="">Change Password</a>
+        <li class="profile-element-last"><i class="fa fa-users profile-icon"></i><span class="element-span">Subscription type - {{authName}}</span>
         </li>
       </ul>
     </div>
