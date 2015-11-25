@@ -15,6 +15,7 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
       controller: 'ProfilePageCtrl'
     })
 
+  console.log("url > ", "<%= ENV['URL']%>")
   $authProvider.configure({
       apiUrl: "<%= ENV['URL']%>" || 'http://localhost:3000' 
   })
