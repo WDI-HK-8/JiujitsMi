@@ -349,7 +349,7 @@ textarea:focus {
 
 .inner-bg {
     padding: 0;
-  padding-top: 180px;
+  padding-top: 100px;
   padding-bottom: 150px;
     background-color: rgba(40, 42, 46, 0.85);
 }
@@ -399,7 +399,7 @@ textarea:focus {
 
 .top-description p {
   color: rgba(255, 255, 255, 0.8);
-  font-size: 18px;
+  font-size: 23px;
   line-height: 30px;
   text-align: left;
 }
@@ -466,7 +466,7 @@ textarea:focus {
 .features-container {
     margin: 0 auto;
     padding-bottom: 20px;
-    color: #888;
+    color: #7c7c7c;
     text-align: center;
 }
 
@@ -565,7 +565,7 @@ textarea:focus {
   margin: 0 auto;
   padding-bottom: 0px;
   background: #f4f4f4;
-  color: #888;
+  color: #7c7c7c;
   text-align: center;
   overflow: hidden;
 }
@@ -608,7 +608,7 @@ textarea:focus {
 
 .product-bg1 {
   background: #f4f4f4;
-  color: #888;
+  color: #7c7c7c;
 }
 .product-bg1 h3 {
   color: #444;
@@ -616,17 +616,18 @@ textarea:focus {
 
 .product-bg2 {
   background: #fff;
-  color: #888;
+  color: #7c7c7c;
     text-align: left;
   padding-top: 0px;
 }
 
 .product-bg2 h3 {
     text-align: center;
+    padding-bottom: 30px;
 }
 
 .product-bg2 h5 {
-  color: #444;
+  color: #52B4AF;
     font-size: 18px;
     font-weight: 400;
 }
@@ -661,15 +662,12 @@ textarea:focus {
     line-height: 36px;
     text-align: center;
     font-size: 36px;
-    color: #009ca8 !important;
+    color: #52B4AF !important;
     -o-transition: all .3s;
     -moz-transition: all .3s;
     -webkit-transition: all .3s;
     -ms-transition: all .3s;
     transition: all .3s;
-  }
-    .productbox:hover div {
-    color: #0dc0c0 !important;
   }
 
 /***** Pricing *****/
@@ -678,7 +676,7 @@ textarea:focus {
   margin: 0 auto;
   padding-bottom: 50px !important;
   background: #f4f4f4;
-  color: #888;
+  color: #7c7c7c;
     text-align: center;
 }
 
@@ -787,7 +785,7 @@ text-align:center;
     line-height: 36px;
 }
 #footer p {
-  color: #888;
+  color: #7c7c7c;
   width: 60%;
   margin: 0 auto 40px;
   margin-top: 30px;
@@ -1129,4 +1127,27 @@ color: #0dc0c0;
 .top-link {
     padding-top: 24px !important;
     padding-bottom: 8px;
+}
+
+
+.how-icon {
+  position: absolute;
+  margin-left: -25px;
+  margin-top: -10px;
+}
+
+
+.product-box-last {
+  margin-top: -20px;
+}
+
+
+.bold {
+  font-weight: 900px;
+}
+
+.coming-soon {
+  width: 150px;
+  /*margin-left: 45%;*/
+  /*margin-top: 500px;*/
 }
