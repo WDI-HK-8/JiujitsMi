@@ -1,5 +1,11 @@
-app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', function($scope, $auth, $location, $aside){
+app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', '$window', '$location', function($scope, $auth, $location, $aside, $window, $location){
 
+  // redirect to landing page if user is signed in
+  $scope.authResponse = $auth.validateUser()
+  $scope.authStatus = $scope.authResponse.$$state.status
+  if ($scope.authStatus == 2) {
+    $location.path('/')
+  };
 
   $scope.showProfile = true;
   $scope.showSub = false; 
@@ -70,7 +76,7 @@ app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', fun
     };
   };
 
-
+  // EDIT ACCOUNT DETAILS
   $scope.editAccountForm = {}
   $scope.editAccount = function(){
     $auth.updateAccount($scope.editAccountForm).then(function(response){
@@ -96,5 +102,19 @@ app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', fun
       $scope.updateFail = true;
     });
   };
+
+  // DELETE ACCOUNT
+  $scope.DestroyAccountBtn = function() {
+    $auth.destroyAccount()
+      .then(function(response) {
+        // handle success response
+        alert("Your account has been successfully deleted!");
+      $location.path('/');
+        
+      })
+      .catch(function(response) {
+        console.log(response)
+      });
+    };
 
 }]);

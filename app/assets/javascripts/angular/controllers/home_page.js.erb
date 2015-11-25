@@ -3,6 +3,15 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   console.log("<%= ENV['URL'] %>")
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
+  // redirect to landing page if user is signed in
+  $scope.authResponse = $auth.validateUser()
+  $scope.authStatus = $scope.authResponse.$$state.status
+  if ($scope.authStatus == 2) {
+    console.log("hitting")
+    $location.path('/')
+  };
+
+
   // BY DEFAULT HIDE ALL CARDS
   $scope.positionBg = true;
   $scope.ttechBg = false;
