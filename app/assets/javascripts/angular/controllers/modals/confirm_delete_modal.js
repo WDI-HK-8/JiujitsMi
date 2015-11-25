@@ -1,7 +1,7 @@
 angular.module('jiujitsmi').directive('ngReallyClick', ['$modal',
     function($modal) {
 
-  url = "<%= ENV['URL'] %>" || 'http://localhost:3000';
+  url = "<%= ENV['URL'] %>" || 'https://localhost:3000';
 
     var ModalInstanceCtrl = function($scope, $modalInstance) {
       $scope.ok = function() {
