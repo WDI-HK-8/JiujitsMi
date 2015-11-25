@@ -32,6 +32,8 @@ app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', fun
   $scope.authName = $scope.authResponse.$$state.value.name;
   $scope.authEmail = $scope.authResponse.$$state.value.email;
 
+  $scope.authMembershipType = $scope.authResponse.$$state.value.membership_type
+
 
   // CHANGE NAME
   $scope.showName = function(){

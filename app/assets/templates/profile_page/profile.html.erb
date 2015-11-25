@@ -14,7 +14,7 @@
          <span class="position-a position-b" ><span class="profile-list" >PROFILE DETAILS</span> 
       </li>
       <li ng-click="switchToSub()">
-         <span class="position-a position-b" ><span class="profile-list" >SUBSCRIPTION DETAILS</span> 
+         <span class="position-a position-b" ><span class="profile-list" >MEMBERSHIP DETAILS</span> 
       </li>
     </ul>
   </nav>
@@ -63,11 +63,11 @@
       </ul>
     </div>
 
-    <!-- SUBSCRIPTION DETAILS -->
+    <!-- MEMBERSHIP DETAILS -->
     <div ng-show="showSub" class="profile-details col-md-6">
-      <h3>MY ACCOUNT - SUBSCRIPTION</h3>
+      <h3>MY ACCOUNT - MEMBERSHIP</h3>
       <ul>
-        <li class="profile-element-last"><i class="fa fa-users profile-icon"></i><span class="element-span">Subscription type - {{authName}}</span>
+        <li class="profile-element-last"><i class="fa fa-users profile-icon"></i><span class="element-span"> Membership type - <strong>{{authMembershipType}}</strong></span>               <button type="submit" class="btn1 btn-top btn-lg profile-btn delete-profile-btn">Delete Account</button>
         </li>
       </ul>
     </div>
