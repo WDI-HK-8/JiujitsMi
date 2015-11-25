@@ -7,7 +7,6 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.authResponse = $auth.validateUser()
   $scope.authStatus = $scope.authResponse.$$state.status
   if ($scope.authStatus == 2) {
-    console.log("hitting")
     $location.path('/')
   };
 
