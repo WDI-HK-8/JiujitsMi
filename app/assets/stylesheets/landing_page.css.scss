@@ -278,6 +278,7 @@ textarea:focus {
     color: #52B4AF !important;
     font-size: 22px;
     line-height: 20px;
+    padding-right: 0px;
 }
 .navbar-default .navbar-nav>li>a {
     color: #323A45;
@@ -349,8 +350,8 @@ textarea:focus {
 
 .inner-bg {
     padding: 0;
-  padding-top: 100px;
-  padding-bottom: 150px;
+  padding-top: 200px;
+  padding-bottom: 50px;
     background-color: rgba(40, 42, 46, 0.85);
 }
 
@@ -466,7 +467,7 @@ textarea:focus {
 .features-container {
     margin: 0 auto;
     padding-bottom: 20px;
-    color: #7c7c7c;
+    color: #4f4f4f;
     text-align: center;
 }
 
@@ -565,7 +566,7 @@ textarea:focus {
   margin: 0 auto;
   padding-bottom: 0px;
   background: #f4f4f4;
-  color: #7c7c7c;
+  color: #4f4f4f;
   text-align: center;
   overflow: hidden;
 }
@@ -608,7 +609,7 @@ textarea:focus {
 
 .product-bg1 {
   background: #f4f4f4;
-  color: #7c7c7c;
+  color: #4f4f4f;
 }
 .product-bg1 h3 {
   color: #444;
@@ -616,7 +617,7 @@ textarea:focus {
 
 .product-bg2 {
   background: #fff;
-  color: #7c7c7c;
+  color: #4f4f4f;
     text-align: left;
   padding-top: 0px;
 }
@@ -676,7 +677,7 @@ textarea:focus {
   margin: 0 auto;
   padding-bottom: 50px !important;
   background: #f4f4f4;
-  color: #7c7c7c;
+  color: #4f4f4f;
     text-align: center;
 }
 
@@ -785,7 +786,7 @@ text-align:center;
     line-height: 36px;
 }
 #footer p {
-  color: #7c7c7c;
+  color: #4f4f4f;
   width: 60%;
   margin: 0 auto 40px;
   margin-top: 30px;
@@ -1149,5 +1150,5 @@ color: #0dc0c0;
 .coming-soon {
   width: 150px;
   /*margin-left: 45%;*/
-  /*margin-top: 500px;*/
+  margin-top: 50px;
 }
