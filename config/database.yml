@@ -15,7 +15,3 @@ development:
 test:
   <<: *default
   database: jiujitsmi_test
-
-production:
-  <<: *default
-  database: db/production.sqlite3
