@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable,
           :omniauthable
   include DeviseTokenAuth::Concerns::User
-  # validates :email, uniqueness: true
+  validates :email, uniqueness: true
   has_many :positions
 end

@@ -1,0 +1,100 @@
+app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', function($scope, $auth, $location, $aside){
+
+
+  $scope.showProfile = true;
+  $scope.showSub = false; 
+
+  $scope.switchToProfile = function() {
+    $scope.showProfile = true;
+    $scope.showSub = false; 
+    $scope.showNameInput = false;
+    $scope.showEmailInput = false;
+    $scope.showPasswordInput = false;
+
+    if (window.innerWidth <= 1024) {
+      $scope.navToggle()
+      $scope.arrow = false;
+    }
+  };
+
+  $scope.switchToSub = function() {
+    $scope.showProfile = false;
+    $scope.showSub = true; 
+      if (window.innerWidth <= 1024) {
+      $scope.navToggle()
+      $scope.arrow = false;
+    }
+
+  };
+
+  // USER DETAILS
+  $scope.authResponse = $auth.validateUser()
+  $scope.authName = $scope.authResponse.$$state.value.name;
+  $scope.authEmail = $scope.authResponse.$$state.value.email;
+
+  $scope.authMembershipType = $scope.authResponse.$$state.value.membership_type
+
+
+  // CHANGE NAME
+  $scope.showName = function(){
+    $scope.showEmailInput = false;
+    $scope.showPasswordInput = false;
+    if ($scope.showNameInput == false){
+      $scope.showNameInput = true;
+    } else {
+      $scope.showNameInput = false
+    };
+  };
+
+
+  // CHANGE EMAIL
+  $scope.showEmail = function(){
+    $scope.showNameInput = false;
+    $scope.showPasswordInput = false;
+
+    if ($scope.showEmailInput == false){
+      $scope.showEmailInput = true;
+    } else {
+      $scope.showEmailInput = false
+    };
+  };
+
+  // CHANGE PASSWORD
+  $scope.showPassword = function(){
+    $scope.showNameInput = false;
+    $scope.showEmailInput = false;
+    if ($scope.showPasswordInput == false){
+      $scope.showPasswordInput = true;
+    } else {
+      $scope.showPasswordInput = false
+    };
+  };
+
+
+  $scope.editAccountForm = {}
+  $scope.editAccount = function(){
+    $auth.updateAccount($scope.editAccountForm).then(function(response){
+      // console.log(response);
+      $scope.newDetails = response
+      console.log($scope.newDetails.data.data.name)
+      $scope.switchToProfile();
+
+      if ($scope.newDetails.data.data.name != $scope.authName) {
+        $scope.authName = $scope.newDetails.data.data.name;
+      };
+
+      if ($scope.newDetails.data.data.email != $scope.authEmail) {
+        $scope.authEmail = $scope.newDetails.data.data.email;
+      };
+
+      $scope.editAccountForm = null;
+
+    }).catch(function(response){
+      console.log(response);
+      $scope.errorResponse = response;
+      $scope.errorMessages = $scope.errorResponse.data.errors.full_messages;
+      $scope.updateFail = true;
+    });
+  };
+
+}]);

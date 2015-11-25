@@ -33,47 +33,57 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', function
         };
 
 
-// check if user is logged in
-  $scope.authResponse = $auth.validateUser()
-  $scope.authStatus = $scope.authResponse.$$state.status
-  
-  // GET USERS FIRST NAME
-  $scope.fullname = $scope.authResponse.$$state.value.name
-  $scope.splitedname = $scope.fullname.split(" ");
-  $scope.loginName = $scope.splitedname[0]
-  console.log($scope.loginName)
+        // check if user is logged in
+        $scope.authResponse = $auth.validateUser()
+        $scope.authStatus = $scope.authResponse.$$state.status       
 
-  
-  if ($scope.authStatus == 2) {
-    $scope.loggedIn = false;  
-    console.log($scope.loggedIn);
-    console.log($scope.authStatus)
-  } else {
-    $scope.loggedIn = true;
-    console.log($scope.loggedIn);
-    console.log($scope.authStatus)
+        if ($scope.authStatus == 2) {
+          $scope.loggedIn = false;  
+          console.log($scope.loggedIn);
+          console.log($scope.authStatus)
+        } else {
+          $scope.loggedIn = true;
+          console.log($scope.loggedIn);
+          console.log($scope.authStatus)
+          console.log($scope.authResponse)
+        }
+
+        // GET USERS FIRST NAME
+        $scope.fullname = $scope.authResponse.$$state.value.name
+        $scope.splitedname = $scope.fullname.split(" ");
+        $scope.loginName = $scope.splitedname[0]
+        console.log($scope.loginName)
+        
+        // Logout
+        $scope.logout = function(){
+          $auth.signOut().
+            then(function(response){
+              //handle success
+              console.log(response);
+              $scope.loggedIn = false;
+              $location.path('/')
+            }).
+            catch(function(response){
+              //handle error
+              console.log(response.data.errors);
+            });
+        };
+        // Go to profile
+        $scope.goToProfile = function(){
+          $location.path('/profile');
+        };
+
+        // Go to dashboard
+        $scope.myDash = function() {
+          $location.path('/home');
+        };
+      }
+    }).result.then(postClose, postClose);
   }
-  
-  // Logout (may go in nav bar)
-  $scope.logout = function(){
-    $auth.signOut().
-      then(function(response){
-        //handle success
-        console.log(response);
-        $scope.loggedIn = false;
-        $location.path('/')
-      }).
-      catch(function(response){
-        //handle error
-        console.log(response.data.errors);
-      });
-  };
 
-
+  // POSITION TOGGLE
   $scope.toggleClass= "inactive"
-
   $scope.navToggle = function() {
-
     if ($scope.toggleClass === "inactive") {
       $scope.toggleClass = "toggleClassActive"
       $scope.ttypeCol = "ttypeColActive"
@@ -83,21 +93,9 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', function
       $scope.toggleClass = "inactive";
       $scope.ttypeCol = "inactive"
       $scope.posCol = "inactive"
-
       };
-
       console.log($scope.toggleClass)
   };
-
-      }
-    }).result.then(postClose, postClose);
-  }
-
-
-$scope.myDash = function() {
-  $location.path('/home');
-}
-
 
 
 

@@ -14,7 +14,11 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
   };
 
   // Sign up
-  $scope.registrationForm = {};
+  $scope.registrationForm = {
+    status: "Active",
+    membership_type: "Foundation"
+  };
+
   $scope.signup = function(){
     $auth.submitRegistration($scope.registrationForm).
       then(function(response){

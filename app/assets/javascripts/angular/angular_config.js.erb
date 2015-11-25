@@ -9,6 +9,10 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
     when('/home', {
       templateUrl: "<%= asset_path('home_page/home.html') %>",
       controller: 'HomePageCtrl'
+    }).
+    when('/profile', {
+      templateUrl: "<%= asset_path('profile_page/profile.html.erb') %>",
+      controller: 'ProfilePageCtrl'
     })
 
   $authProvider.configure({

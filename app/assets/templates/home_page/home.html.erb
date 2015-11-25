@@ -3,7 +3,7 @@
   <nav class="navbar-inverse navbar homenav snav">
     <ul ng-class="posCol" class="newbrand">
       <a href="/#/" >
-        <img class="navbar-brand" id="brand" src="<%= image_path('logo.png') %>">
+        <img class="navbar-brand" id="brand" src="<%= image_path('newlogo.png') %>">
       </a>
     </ul>
 
@@ -157,7 +157,7 @@
      
     </div>
     <!-- STEPS -->
-    <div ng-show="showSteps">
+    <div class="step-container" ng-show="showSteps">
       <div class="step-list-container">
         <div class="step-list-header">
           <p> Steps </p>
@@ -180,7 +180,7 @@
       <button ng-if="doNotesExist" ng-click="editNotesBtn()" class="subchck btn submit down-button editNotes" ><b>Edit Notes</b></button>
       <button  class="deleteVideoBtn subchck btn submit down-button" data-toggle="tooltip" data-placement="bottom" title="Delete Notes" ng-click="deleteNotes()">Delete notes</button>
       <form ng-submit="notesForm.create()">
-        <textarea ng-readonly="doNotesExist" rows="8" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="1000" id="text"></textarea>
+        <textarea ng-readonly="doNotesExist" rows="4" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="1000" id="text"></textarea>
         <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addNotes" ><b>Add Notes</b></button>
       </form>
     </div>
