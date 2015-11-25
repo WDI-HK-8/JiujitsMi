@@ -1,9 +1,7 @@
 app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', '$sce', '$modal', '$window', function($scope, $http, $location, $auth, $routeParams, $sce, $modal, $window){
 
+  console.log("<%= ENV['URL'] %>")
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
-
-
-
 
   // BY DEFAULT HIDE ALL CARDS
   $scope.positionBg = true;
