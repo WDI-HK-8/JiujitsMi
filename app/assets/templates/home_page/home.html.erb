@@ -10,7 +10,7 @@
     <ul ng-class="posCol" class="addposition">
       <li class="active">
         <form class="add-position-form" dnd-nodrag ng-submit="positionForm.create()">
-          <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position" maxlength="30">
+          <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position" maxlength="36">
           <button type="submit" class="subchck btn submit down-button addPos" ><i class="fa fa-plus"></i></button>
         </form>
       <li>  
@@ -110,7 +110,7 @@
 
         <li>
           <form ng-submit="techForm.create(technique_type)" class="add-tech-form">
-            <input class="forms-control-tech" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTech.name" required="required" placeholder="Add a new technique"  maxlength="36">
+            <input class="forms-control-tech" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTech.name" required="required" placeholder="Add a new technique"  maxlength="40">
             <button type="submit" class="subchck btn submit down-button addTech" ><i class="fa fa-plus"></i></button>
           </form>
         </li>
@@ -169,7 +169,7 @@
           <li>
             <form ng-submit="stepForm.create()" class="add-step-form">
               <input class="forms-control-step" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step" >
-              <button type="submit" class="subchck btn submit down-button addTech addStep" maxlength="500" ><i class="fa fa-plus"></i></button>
+              <button type="submit" class="subchck btn submit down-button addTech addStep" maxlength="1000" ><i class="fa fa-plus"></i></button>
             </form>
           </li>
         </ul>
@@ -180,7 +180,7 @@
       <button ng-if="doNotesExist" ng-click="editNotesBtn()" class="subchck btn submit down-button editNotes" ><b>Edit Notes</b></button>
       <button  class="deleteVideoBtn subchck btn submit down-button" data-toggle="tooltip" data-placement="bottom" title="Delete Notes" ng-click="deleteNotes()">Delete notes</button>
       <form ng-submit="notesForm.create()">
-        <textarea ng-readonly="doNotesExist" rows="4" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="1000" id="text"></textarea>
+        <textarea ng-readonly="doNotesExist" rows="4" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="2000" id="text"></textarea>
         <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addNotes" ><b>Add Notes</b></button>
       </form>
     </div>
