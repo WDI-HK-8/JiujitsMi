@@ -255,7 +255,7 @@ textarea:focus {
     border-radius: 0;
     margin-bottom: 0;
     width:100%;
-    min-height: 70px;
+    min-height: 60px;
     padding: 20px 0;
     background: #fff;
     transition: all 0.4s ease-in-out;
@@ -322,16 +322,28 @@ textarea:focus {
 }*/
 
 .navbar-default .navbar-toggle {
-  border-color: #323A45;
-}
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-  background-color: #323A45;
-}
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: #0dc0c0;
+  border-color: #fff;
+  border-width: 3px;
+  margin-top: 10px;
+  margin-right: 18px;
 }
 
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border: none;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #0dc0c0;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
+.navbar-default.menu-top li a {
+  color: #fff !important;
+}
 
 /***** Top content *****/
 
@@ -893,16 +905,15 @@ color: #0dc0c0;
     }    
  
     .navbar-default.menu-top{
-        background-color: #fff !important;
-    border-bottom: 1px solid #eee;
-        text-align: center;
-    width:100%;
+      background-color: #665BC4 !important;
+      text-align: center;
+      width:100%;
     }  
 .navbar-default.menu-top li a{
-    color: #323A45 !important;
+    color: #fff !important;
 }
 .navbar-default.menu-top .navbar-brand{
-    color: #323A45 !important;
+    color: #fff !important;
 }
 
     .top-content .text {
@@ -1045,10 +1056,10 @@ color: #0dc0c0;
 @media (max-width: 345px) {
 
 .navbar-default.menu-top li a{
-    color: #323A45 !important;
+    color: #fff !important;
 }
 .navbar-default.menu-top .navbar-brand{
-    color: #323A45 !important;
+    color: #fff !important;
 }
 
     .top-content h2, .top-content .logo a, .features h3, .product-text h3, .product-button, .faq-text h3, .subscribe h3, .testimonials h3, .team h3, .contact h3 {
@@ -1122,7 +1133,6 @@ color: #0dc0c0;
 
 .landing-brand {
   width: 250px;
-  padding-top: 7px;
 }
 
 .top-link {
