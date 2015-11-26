@@ -26,13 +26,6 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', '$uibMod
     }).result.then(postClose, postClose);
   }
 
-
-
-
-
-
-
-
   // POSITION TOGGLE
   $scope.toggleClass= "inactive"
   $scope.navToggle = function() {
@@ -49,25 +42,6 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', '$uibMod
       };
       console.log($scope.toggleClass)
   };
-
-
-
-
-        // Logout
-        $scope.logout = function(){
-          $auth.signOut().
-            then(function(response){
-              //handle success
-              console.log(response);
-              $scope.loggedIn = false;
-              $location.path('/')
-            }).
-            catch(function(response){
-              //handle error
-              console.log(response.data.errors);
-            });
-        };
-
 }]);
 
 app.controller('AsideCtrl', ['$scope', '$auth', '$location', '$aside', '$uibModalInstance', function($scope, $auth, $location, $aside, $uibModalInstance) {
@@ -127,8 +101,6 @@ app.controller('AsideCtrl', ['$scope', '$auth', '$location', '$aside', '$uibModa
   $scope.myDash = function() {
     $location.path('/home');
   };
-
-
 }]);
 
 
