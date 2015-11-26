@@ -102,5 +102,22 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', function
 
 
 
+
+        // Logout
+        $scope.logout = function(){
+          $auth.signOut().
+            then(function(response){
+              //handle success
+              console.log(response);
+              $scope.loggedIn = false;
+              $location.path('/')
+            }).
+            catch(function(response){
+              //handle error
+              console.log(response.data.errors);
+            });
+        };
+
+
 }]);
 
