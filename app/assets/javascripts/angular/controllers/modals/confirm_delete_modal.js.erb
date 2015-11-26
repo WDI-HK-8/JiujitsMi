@@ -1,17 +1,7 @@
-angular.module('jiujitsmi').directive('ngReallyClick', ['$uibModal',
+app.directive('ngReallyClick', ['$uibModal',
     function($uibModal) {
 
   url = "<%= ENV['URL'] %>" || 'http://localhost:3000';
-
-    var ModalInstanceCtrl = function($scope, $uibModalInstance) {
-      $scope.ok = function() {
-        $uibModalInstance.close();
-      };
-
-      $scope.cancel = function() {
-        $uibModalInstance.dismiss('cancel');
-      };
-    };
 
     return {
       restrict: 'A',
@@ -23,20 +13,15 @@ angular.module('jiujitsmi').directive('ngReallyClick', ['$uibModal',
         element.bind('click', function() {
           var message = attrs.ngReallyMessage || "Are you sure ?";
 
-          /*
-          //This works
-          if (message && confirm(message)) {
-            scope.$apply(attrs.ngReallyClick);
-          }
-          //*/
+ 
 
-          //*This doesn't works
+
           var modalHtml = '<div class="modal-body">' + message + '</div>';
           modalHtml += '<div class="modal-footer"><button class="btn btn-primary" ng-click="ok()">OK</button><button class="btn btn-warning" ng-click="cancel()">Cancel</button></div>';
 
           var modalInstance = $uibModal.open({
             template: modalHtml,
-            controller: ModalInstanceCtrl,
+            controller: 'ModalInstanceCtrl',
             windowClass: 'app-modal-window'
           });
 
@@ -53,3 +38,17 @@ angular.module('jiujitsmi').directive('ngReallyClick', ['$uibModal',
     }
   }
 ]);
+
+
+app.controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
+
+      $scope.ok = function() {
+        $uibModalInstance.close();
+        console.log("ok")
+      };
+
+      $scope.cancel = function() {
+        $uibModalInstance.dismiss('cancel');
+        console.log("cancel")
+      };
+}]);
