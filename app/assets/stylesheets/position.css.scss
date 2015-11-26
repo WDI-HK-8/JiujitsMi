@@ -848,9 +848,10 @@ textarea {
 }
 
 .step-row:hover .deleteStepRow {
-  display: block;
+  display: inline;
   float: right;
   color: #e1e1e1;
+  margin-right: -10px;
   background-color: transparent;
 }
 
@@ -1000,7 +1001,7 @@ textarea {
 
 .notes-block {
   margin-top: 1px;
-  padding-bottom: 60px;
+  padding-bottom: 100px;
 }
 
 .forms-control-step {
