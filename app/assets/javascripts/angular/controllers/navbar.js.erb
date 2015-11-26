@@ -1,4 +1,4 @@
-app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', function($scope, $auth, $location, $aside){
+app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', '$uibModal', function($scope, $auth, $location, $aside, $uibModal){
   $scope.loginForm = {};
 
 
@@ -22,64 +22,15 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', function
       placement: position,
       size: 'sm',
       backdrop: backdrop,
-      controller: function($scope, $uibModalInstance) {
-        $scope.ok = function(e) {
-          $uibModalInstance.close();
-          e.stopPropagation();
-        };
-        $scope.cancel = function(e) {
-          $uibModalInstance.dismiss();
-          e.stopPropagation();
-        };
-
-
-        // check if user is logged in
-        $scope.authResponse = $auth.validateUser()
-        $scope.authStatus = $scope.authResponse.$$state.status       
-
-        if ($scope.authStatus == 2) {
-          $scope.loggedIn = false;  
-          console.log($scope.loggedIn);
-          console.log($scope.authStatus)
-        } else {
-          $scope.loggedIn = true;
-          console.log($scope.loggedIn);
-          console.log($scope.authStatus)
-          console.log($scope.authResponse)
-        }
-
-        // GET USERS FIRST NAME
-        $scope.fullname = $scope.authResponse.$$state.value.name
-        $scope.splitedname = $scope.fullname.split(" ");
-        $scope.loginName = $scope.splitedname[0]
-        console.log($scope.loginName)
-        
-        // Logout
-        $scope.logout = function(){
-          $auth.signOut().
-            then(function(response){
-              //handle success
-              console.log(response);
-              $scope.loggedIn = false;
-              $location.path('/')
-            }).
-            catch(function(response){
-              //handle error
-              console.log(response.data.errors);
-            });
-        };
-        // Go to profile
-        $scope.goToProfile = function(){
-          $location.path('/profile');
-        };
-
-        // Go to dashboard
-        $scope.myDash = function() {
-          $location.path('/home');
-        };
-      }
+      controller: 'AsideCtrl'
     }).result.then(postClose, postClose);
   }
+
+
+
+
+
+
 
 
   // POSITION TOGGLE
@@ -117,6 +68,70 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', function
             });
         };
 
+}]);
+
+app.controller('AsideCtrl', ['$scope', '$auth', '$location', '$aside', '$uibModalInstance', function($scope, $auth, $location, $aside, $uibModalInstance) {
+
+  $scope.ok = function(e) {
+    $uibModalInstance.close();
+    e.stopPropagation();
+  };
+
+  $scope.cancel = function(e) {
+    $uibModalInstance.dismiss();
+    e.stopPropagation();
+  };
+
+
+  // check if user is logged in
+  $scope.authResponse = $auth.validateUser()
+  $scope.authStatus = $scope.authResponse.$$state.status       
+
+  if ($scope.authStatus == 2) {
+    $scope.loggedIn = false;  
+    console.log($scope.loggedIn);
+    console.log($scope.authStatus)
+  } else {
+    $scope.loggedIn = true;
+    console.log($scope.loggedIn);
+    console.log($scope.authStatus)
+    console.log($scope.authResponse)
+  }
+
+  // GET USERS FIRST NAME
+  $scope.fullname = $scope.authResponse.$$state.value.name
+  $scope.splitedname = $scope.fullname.split(" ");
+  $scope.loginName = $scope.splitedname[0]
+  console.log($scope.loginName)
+  
+  // Logout
+  $scope.logout = function(){
+    $auth.signOut().
+      then(function(response){
+        //handle success
+        console.log(response);
+        $scope.loggedIn = false;
+        $location.path('/')
+      }).
+      catch(function(response){
+        //handle error
+        console.log(response.data.errors);
+      });
+  };
+  // Go to profile
+  $scope.goToProfile = function(){
+    $location.path('/profile');
+  };
+
+  // Go to dashboard
+  $scope.myDash = function() {
+    $location.path('/home');
+  };
+
 
 }]);
+
+
+
+
 
