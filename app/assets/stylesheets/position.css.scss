@@ -1267,22 +1267,20 @@ textarea {
 
 /*Modal*/
 
-.btn-primary, .btn-warning {
+.btn-primary2, .btn-warning {
   background-color: transparent;
   border-color: #dfdfdf;
   color: #424242;
   border-width: 1px;
   width: 100px;
-
 }
 
-.btn-primary:hover, .btn-warning:hover {
+
+.btn-primary2:hover, .btn-warning:hover {
   background-color: #fbfbfb;
   border-color: #dfdfdf;
   color: #424242;  
 }
-
-
 
 .app-modal-window .modal-dialog {
   width: 390px;
