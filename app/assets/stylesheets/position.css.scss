@@ -12,6 +12,11 @@ body {
 }
 
 /*navbar*/
+
+.ng-aside.horizontal .modal-dialog .modal-content {
+    width: 300px;
+}
+
 .nav-toggle {
   float: left;
   margin-top: -20px;
