@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
           :omniauthable
   include DeviseTokenAuth::Concerns::User
   validates :email, uniqueness: true
-  has_many :positions
+  has_many :positions, dependent: :destroy
 end

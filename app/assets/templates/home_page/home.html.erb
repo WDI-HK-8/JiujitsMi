@@ -136,7 +136,7 @@
     <!-- HEADER -->
     <div class="right-card-header">
       <span>{{currentTechnique.name}}</span>
-      <button ng-click="deleteTech()" class="deleteTechRow">Delete</button>
+      <button ng-click="deleteTech(); backToTechs()" class="deleteTechRow">Delete</button>
     </div>
     <!-- MESSAGE IF NO DETAILS -->
     <div ng-show="showMessage">
