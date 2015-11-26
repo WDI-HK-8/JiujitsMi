@@ -81,6 +81,7 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', function
     }).result.then(postClose, postClose);
   }
 
+
   // POSITION TOGGLE
   $scope.toggleClass= "inactive"
   $scope.navToggle = function() {
@@ -89,6 +90,7 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', function
       $scope.ttypeCol = "ttypeColActive"
       $scope.posCol = "posColActive"
     }
+    
     else {
       $scope.toggleClass = "inactive";
       $scope.ttypeCol = "inactive"
@@ -96,6 +98,7 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', function
       };
       console.log($scope.toggleClass)
   };
+
 
 
 

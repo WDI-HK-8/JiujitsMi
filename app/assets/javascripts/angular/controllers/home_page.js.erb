@@ -103,7 +103,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
     $scope.proficiencySelect = false;
 
-    if (window.innerWidth <= 1024) {
+    if (window.innerWidth <= 1200) {
       $scope.navToggle()
       $scope.arrow = false;
     }
@@ -234,6 +234,14 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
   $scope.getTechnique = function(technique_type, technique){
     console.log(technique.id)
+
+    if (window.innerWidth <= 768) {
+      // $scope.navToggle()
+      // $scope.arrow = false;
+      $scope.smTtypeCol = "smTtypeColActive";
+      $scope.hideText = "hideTextActive";
+      $scope.techniqueBack = "techniqueBackActive";
+    };
 
     $scope.proficiencySelect = true;
     var tech_type_to_get = $scope.technique_types.indexOf(technique_type);
@@ -544,5 +552,13 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       $scope.profData.repeatSelect = $scope.currentTechnique.proficiency;
     };
   };
+
+  // MOBILE VERSION  - GO BACK TO TTYPES
+  $scope.backToTechs = function() {
+      $scope.smTtypeCol = "inactive";
+      $scope.hideText = "inactive";
+      $scope.techniqueBack = "inactive";
+  };
+
 
 }]);
