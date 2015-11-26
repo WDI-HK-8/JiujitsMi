@@ -39,7 +39,7 @@
   </nav>
 
   <!-- TTYPE HEADDER -->
-  <div ng-class="ttypeCol" class="ttype-head">
+  <div ng-class="ttypeCol; smTtypeCol" class="ttype-head">
     <span class="ttype-text">{{currentPositionName}}</span>
     <form ng-submit="techTypeForm.create()" class="create-ttype">
       <input class="forms-control-tech" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new intention"  maxlength="32">
@@ -83,7 +83,7 @@
   </div>
 
 <!-- TECHNIQUE TYPE  COLUMN-->
-<div ng-class="ttypeCol" class="ttype-capsule" ng-show="showTechTypes">
+<div ng-class="ttypeCol; smTtypeCol" class="ttype-capsule" ng-show="showTechTypes">
   <!-- TECHNIQUE CARDS -->
   <div ng-show="currentPosition" 
   dnd-list="technique_types" 
@@ -168,7 +168,7 @@
           </li>
           <li>
             <form ng-submit="stepForm.create()" class="add-step-form">
-              <input class="forms-control-step" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step" >
+              <input class="forms-control-step forms-control-step-sm" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step" >
               <button type="submit" class="subchck btn submit down-button addTech addStep" maxlength="1000" ><i class="fa fa-plus"></i></button>
             </form>
           </li>
