@@ -298,21 +298,31 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
       // CONVERT VIDEO URL TO EMBEDED
 
+      // if ($scope.currentTechnique.video_url != null) {
+      //  $scope.trustSrc = function(src) {
+      //     return $sce.trustAsResourceUrl(src);
+      //   };
+      //   vidURL = $scope.currentTechnique.video_url.split('v=');
+      //   vidID = vidURL[1];
+      //   var ampersandPosition = vidID.indexOf('&');
+      //   if(ampersandPosition != -1) {
+      //     vidID = vidID.substring(0, ampersandPosition);
+      //   };
+      //   $scope.vidSRC = "https://www.youtube.com/embed/" + vidID;
+      // };
+
       if ($scope.currentTechnique.video_url != null) {
        $scope.trustSrc = function(src) {
           return $sce.trustAsResourceUrl(src);
         };
-        vidURL = $scope.currentTechnique.video_url.split('v=');
-        vidID = vidURL[1];
-        var ampersandPosition = vidID.indexOf('&');
-        if(ampersandPosition != -1) {
-          vidID = vidID.substring(0, ampersandPosition);
-        };
-        $scope.vidSRC = "https://www.youtube.com/embed/" + vidID;
+        vidURL = $scope.currentTechnique.video_url;
+        vidID = vidURL.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+        console.log(vidID);
+        $scope.vidSRC = "https://www.youtube.com/embed/" + vidID[1];
       };
-         // $scope.currentProf = $scope.profData.availableOptions[Number($scope.currentTechnique.proficiency) - 1].name || null;
 
-         $scope.resetDropDown();
+
+      $scope.resetDropDown();
     });
 
     // GET STEPS
@@ -443,15 +453,24 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
       console.log(response);
-      $scope.videoResponse = response 
 
-      vidURL = $scope.videoResponse.video_url.split('v=');
-      vidID = vidURL[1];
-      var ampersandPosition = vidID.indexOf('&');
-      if(ampersandPosition != -1) {
-        vidID = vidID.substring(0, ampersandPosition);
-      };
-      $scope.vidSRC = "https://www.youtube.com/embed/" + vidID;
+
+      // $scope.videoResponse = response 
+      // vidURL = $scope.videoResponse.video_url.split('v=');
+      // vidID = vidURL[1];
+      // var ampersandPosition = vidID.indexOf('&');
+      // if(ampersandPosition != -1) {
+      //   vidID = vidID.substring(0, ampersandPosition);
+      // };
+      // $scope.vidSRC = "https://www.youtube.com/embed/" + vidID;
+
+
+      $scope.videoResponse = response 
+      vidURL = $scope.videoResponse.video_url
+      vidID = vidURL.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+      $scope.vidSRC = "https://www.youtube.com/embed/" + vidID[1];
+
+
       $scope.doVideosExist = true;
 
       $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +$scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id).success(function(response){
