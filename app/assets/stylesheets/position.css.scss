@@ -150,7 +150,7 @@ body {
 /* Position */
 
 .side-nav {
-  position: fixed;
+  position: relative;
   top: 128px;
   left: 20%;
   width: 20%;
@@ -169,7 +169,6 @@ body {
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
-  -webkit-overflow-scrolling: touch;
 }
 
 .newbrand {
