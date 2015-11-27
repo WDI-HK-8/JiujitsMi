@@ -11,6 +11,13 @@ body {
   color: #5c5c5c;
 }
 
+
+html.touch *:hover {
+    pointer-events: none !important;
+}
+
+
+
 /*navbar*/
 
 .ng-aside.horizontal .modal-dialog .modal-content {
@@ -184,10 +191,6 @@ body {
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
-}
-
-html.touch *:hover {
-    pointer-events: none !important;
 }
 
 .addposition {
@@ -626,7 +629,7 @@ input:focus {
   background-color: transparent;
   border-style: none;
   font-size: 12px;
-  color: #e1e1e1;
+  color: #e8f4f6;
 }
 
 .deleteTechRow:hover {
@@ -746,8 +749,8 @@ textarea {
 
 .addNotes:hover {
   background-color: #f2f0f0;
-  border-color: #e1e1e1;
-  color: #e1e1e1;
+  border-color: #c1bfbf;
+  color: #c1bfbf;
 }
 
 
@@ -755,7 +758,7 @@ textarea {
 .editNotes {
   margin-left: 73%;
   margin-bottom: -60px;
-  color: #e1e1e1;
+  color: #c1bfbf;
   background-color: white;
   border-color: white;
   padding-left: 0px;
@@ -856,7 +859,7 @@ textarea {
 .step-row:hover .deleteStepRow {
   display: inline;
   float: right;
-  color: #e1e1e1;
+  color: #c1bfbf;
   margin-right: -10px;
   background-color: transparent;
 }
@@ -880,11 +883,6 @@ textarea {
   border-style: none;
   font-size: 14px;
   color: white;
-}
-
-
-.deleteTechRow {
-  width: 10px;
 }
 
 
@@ -972,7 +970,7 @@ textarea {
 .editVideo {
   margin-left: 73%;
   margin-bottom: -60px;
-  color: #e1e1e1;
+  color: #c1bfbf;
   background-color: white;
   border-color: white;
   padding-left: 0px;
@@ -1076,7 +1074,7 @@ textarea {
 .deleteVideoBtn {
   margin-left: 83%;
   margin-bottom: -0.5%;
-  color: #e1e1e1;
+  color: #c1bfbf;
   background-color: white;
   border-color: white;
   padding-left: 0px;
@@ -1907,7 +1905,7 @@ textarea {
 
 
   .deleteTechRow {
-    margin-right: 60px;
+    margin-right: 20px;
   }
 
 

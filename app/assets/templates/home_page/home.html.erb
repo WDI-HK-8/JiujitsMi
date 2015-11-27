@@ -177,7 +177,7 @@
     </div>    
     <!-- OTHER NOTES -->
     <div ng-show="showNotes" class="notes-block">
-      <button ng-if="doNotesExist" ng-click="editNotesBtn()" class="subchck btn submit down-button editNotes" ><b>Edit Notes</b></button>
+      <button ng-if="doNotesExist" ng-click="editNotesBtn()" class="subchck btn submit down-button editNotes" >Edit Notes</button>
       <button  class="deleteVideoBtn subchck btn submit down-button" ng-click="deleteNotes()">Delete notes</button>
       <form ng-submit="notesForm.create()">
         <textarea ng-readonly="doNotesExist" rows="4" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="2000" id="text"></textarea>
