@@ -1598,6 +1598,24 @@ textarea {
 @media screen and (max-width: 768px) {
 
 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+
+  .app-modal-window .modal-dialog {
+    width: 350px;
+    height: 400px;
+  }
+
+  .modal {
+    text-align: center;
+    font-size: 16px;
+  }
+
+
   .newtech-head {
     width: 100%;
     margin-left: 0%;
