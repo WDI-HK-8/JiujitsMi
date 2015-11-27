@@ -281,7 +281,7 @@ textarea:focus {
     padding-right: 0px;
 }
 .navbar-default .navbar-nav>li>a {
-    color: #323A45;
+    color: #fff;
     font-weight: 800;
     font-size: 18px;
     font-family: Lato;
@@ -882,9 +882,7 @@ color: #0dc0c0;
 .intro-box-right {
   text-align: center;
 }
-.video-iframe {
-  height: 450px;
-}
+
 .callaction-container h4{
     margin-bottom: 60px;
   font-size: 22px;
@@ -1000,19 +998,11 @@ color: #0dc0c0;
     .social-icon {
         margin-top: 15px;
     }
-.video-iframe {
-  height: 400px;
-}
+
 
 }
 
 @media (max-width: 540px) {
-.navbar-default.menu-top li a{
-    color: #323A45 !important;
-}
-.navbar-default.menu-top .navbar-brand{
-    color: #323A45 !important;
-}
 
     .subscribe form input {
         width: 90%;
@@ -1022,9 +1012,7 @@ color: #0dc0c0;
         width: 90%;
         margin-top: 10px;
     }
-.video-iframe {
-  height: 300px;
-}
+
 .callaction-container h4{
     margin-bottom: 60px;
   font-size: 22px;
@@ -1035,15 +1023,7 @@ color: #0dc0c0;
 }
 
 @media (max-width: 400px) {
-.navbar-default.menu-top li a{
-    color: #323A45 !important;
-}
-.navbar-default.menu-top .navbar-brand{
-    color: #323A45 !important;
-}
-.video-iframe {
-  height: 200px;
-}
+
 .callaction-container h4{
     margin-bottom: 60px;
   font-size: 18px;
@@ -1055,12 +1035,6 @@ color: #0dc0c0;
 
 @media (max-width: 345px) {
 
-.navbar-default.menu-top li a{
-    color: #fff !important;
-}
-.navbar-default.menu-top .navbar-brand{
-    color: #fff !important;
-}
 
     .top-content h2, .top-content .logo a, .features h3, .product-text h3, .product-button, .faq-text h3, .subscribe h3, .testimonials h3, .team h3, .contact h3 {
         padding: 0 20px;
@@ -1069,9 +1043,7 @@ color: #0dc0c0;
     font-size: 22px;
     line-height: 32px;
 }
-.video-iframe {
-  height: 200px;
-}
+
 .callaction-container h4{
     margin-bottom: 60px;
   font-size: 18px;

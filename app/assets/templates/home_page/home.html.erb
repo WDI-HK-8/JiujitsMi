@@ -180,7 +180,7 @@
       <button ng-if="doNotesExist" ng-click="editNotesBtn()" class="subchck btn submit down-button editNotes" >Edit Notes</button>
       <button  class="deleteVideoBtn subchck btn submit down-button" ng-click="deleteNotes()">Delete notes</button>
       <form ng-submit="notesForm.create()">
-        <textarea ng-readonly="doNotesExist" rows="4" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="2000" id="text"></textarea>
+        <textarea class="notes-textarea" ng-readonly="doNotesExist" rows="4" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="2000" id="text"></textarea>
         <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addNotes" ><b>Add Notes</b></button>
       </form>
     </div>

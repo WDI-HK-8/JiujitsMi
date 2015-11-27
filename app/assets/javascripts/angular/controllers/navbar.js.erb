@@ -29,6 +29,7 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', '$uibMod
   // POSITION TOGGLE
   $scope.toggleClass= "inactive"
   $scope.navToggle = function() {
+      $scope.navToggleActive = true;
     if ($scope.toggleClass === "inactive") {
       $scope.toggleClass = "toggleClassActive"
       $scope.ttypeCol = "ttypeColActive"

@@ -3,7 +3,7 @@
   <nav class="navbar-inverse navbar homenav snav">
     <ul ng-class="posCol" class="newbrand">
       <a href="/#/" >
-        <img class="navbar-brand" id="brand" src="<%= image_path('logo.png') %>">
+        <img class="navbar-brand" id="brand" src="<%= image_path('newlogo.png') %>">
       </a>
     </ul>
     <ul ng-class="posCol" class="addposition">
@@ -50,11 +50,11 @@
          <div ng-show="showPasswordInput">
           <div ng-show="updateFail" ng-repeat="errorMessage in errorMessages" class="alert alert-danger" id="signupFail" role="alert">{{ errorMessage }}</div>
             <form role="form" ng-submit="editAccount()" >
-              <input ng-model='editAccountForm.current_password' type="text" name="text" class="profile-input profile-input-top" placeholder="Enter your current password"></input>
+              <input ng-model='editAccountForm.current_password' type="password" name="current-password" class="profile-input profile-input-top" placeholder="Enter your current password"></input>
               <hr>
-              <input ng-model='editAccountForm.password' type="text" name="text" placeholder="Enter your new password" class="profile-input"></input>
+              <input ng-model='editAccountForm.password' type="password" name="new-password" placeholder="Enter your new password" class="profile-input"></input>
               <hr>
-              <input ng-model='editAccountForm.password_confirmation' type="text" name="text"  placeholder="Enter your new password again" class="profile-input"></input>
+              <input ng-model='editAccountForm.password_confirmation' type="password" name="confirm-password"  placeholder="Enter your new password again" class="profile-input"></input>
               <hr>
               <button type="submit" class="btn1 btn-top btn-lg profile-btn" >Update</button>
             </form> 

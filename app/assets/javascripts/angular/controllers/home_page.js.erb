@@ -106,7 +106,6 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
     if (window.innerWidth <= 1200) {
 
-
       if( $scope.navToggleActive != false){
         $scope.navToggle()
       };
@@ -207,13 +206,15 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       index: technique_type.techniques.length
     };
 
-    console.log($scope.newTech)
 
     $http.post(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques', data).success(function(response){
-      console.log(response);
 
       $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
-        $scope.technique_types = response;
+        $scope.technique_types = response.sort(compare);
+        for (var i = 0; i < $scope.technique_types.length; i++) {
+          $scope.technique_types[i].techniques.sort(compare);
+        };
+
       });
     });
     $scope.newTech = {};
@@ -326,7 +327,6 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         vidURL = $scope.currentTechnique.video_url;
         vidID = vidURL.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
         console.log(vidID);
-        $scope.vidSRC = "https://www.youtube.com/embed/" + vidID[1];
       };
 
 
@@ -479,6 +479,14 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       $scope.videoResponse = response 
       var vidURL = $scope.videoResponse.video_url
       var vidID = vidURL.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+
+
+        if (vidID === null) {
+          alert("The youtube url is not valid.");
+        };
+
+        $scope.vidSRC = "https://www.youtube.com/embed/" + vidID[1];
+
       $scope.vidSRC = "https://www.youtube.com/embed/" + vidID[1];
 
       // console.log("videoResponse = " + $scope.videoResponse)
@@ -580,6 +588,8 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       // console.log(response)
         $scope.proficiencySelect = true;
     });
+      // This was to fix the position column from always apearing
+      $scope.navToggleActive = false;
   };
 
   $scope.resetDropDown = function() {
@@ -593,7 +603,6 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       $scope.smTtypeCol = "inactive";
       $scope.hideText = "inactive";
       $scope.techniqueBack = "inactive";
-      $scope.navToggleActive = true;
   };
 
 }]);
