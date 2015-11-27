@@ -186,6 +186,9 @@ body {
   transition: all 0.25s ease-in;
 }
 
+html.touch *:hover {
+    pointer-events: none !important;
+}
 
 .addposition {
   position: fixed;
