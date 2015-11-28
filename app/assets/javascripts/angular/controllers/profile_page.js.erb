@@ -80,9 +80,9 @@ app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', '$w
   $scope.editAccountForm = {}
   $scope.editAccount = function(){
     $auth.updateAccount($scope.editAccountForm).then(function(response){
-      // console.log(response);
+      console.log(response);
       $scope.newDetails = response
-      console.log($scope.newDetails.data.data.name)
+      // console.log($scope.newDetails.data.data.name)
       $scope.switchToProfile();
 
       if ($scope.newDetails.data.data.name != $scope.authName) {
@@ -96,7 +96,7 @@ app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', '$w
       $scope.editAccountForm = null;
 
     }).catch(function(response){
-      console.log(response);
+      // console.log(response);
       $scope.errorResponse = response;
       $scope.errorMessages = $scope.errorResponse.data.errors.full_messages;
       $scope.updateFail = true;
@@ -113,7 +113,7 @@ app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', '$w
         
       })
       .catch(function(response) {
-        console.log(response)
+        // console.log(response)
       });
     };
 

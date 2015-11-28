@@ -41,7 +41,7 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', '$uibMod
       $scope.ttypeCol = "inactive"
       $scope.posCol = "inactive"
       };
-      console.log($scope.toggleClass)
+      // console.log($scope.toggleClass)
   };
 }]);
 
@@ -64,33 +64,33 @@ app.controller('AsideCtrl', ['$scope', '$auth', '$location', '$aside', '$uibModa
 
   if ($scope.authStatus == 2) {
     $scope.loggedIn = false;  
-    console.log($scope.loggedIn);
-    console.log($scope.authStatus)
+    // console.log($scope.loggedIn);
+    // console.log($scope.authStatus)
   } else {
     $scope.loggedIn = true;
-    console.log($scope.loggedIn);
-    console.log($scope.authStatus)
-    console.log($scope.authResponse)
+    // console.log($scope.loggedIn);
+    // console.log($scope.authStatus)
+    // console.log($scope.authResponse)
   }
 
   // GET USERS FIRST NAME
   $scope.fullname = $scope.authResponse.$$state.value.name
   $scope.splitedname = $scope.fullname.split(" ");
   $scope.loginName = $scope.splitedname[0]
-  console.log($scope.loginName)
+  // console.log($scope.loginName)
   
   // Logout
   $scope.logout = function(){
     $auth.signOut().
       then(function(response){
         //handle success
-        console.log(response);
+        // console.log(response);
         $scope.loggedIn = false;
         $location.path('/')
       }).
       catch(function(response){
         //handle error
-        console.log(response.data.errors);
+        // console.log(response.data.errors);
       });
   };
   // Go to profile

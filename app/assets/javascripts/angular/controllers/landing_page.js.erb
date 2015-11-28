@@ -22,7 +22,7 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
     $auth.submitRegistration($scope.registrationForm).
       then(function(response){
         //handle success
-        console.log(response);
+        // console.log(response);
         $location.path('/home');
         $scope.loggedIn = true;
         $scope.authResponse = $auth.validateUser();
@@ -31,8 +31,8 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
         //handle errors
         $scope.errorResponse = response;
         $scope.errorMessages = $scope.errorResponse.data.errors.full_messages;
-        console.log(response);
-        console.log($scope.errorMessages);
+        // console.log(response);
+        // console.log($scope.errorMessages);
         $scope.signupFail = true;
       });
   };
@@ -43,7 +43,7 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
     $auth.submitLogin($scope.loginForm).
       then(function(response){
         //handle success
-        console.log(response);
+        // console.log(response);
         $scope.loggedIn = true;
         $scope.authResponse = $auth.validateUser();
         $scope.loginName = $scope.authResponse.$$state.value.username;
@@ -51,7 +51,7 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
       }).catch(function(response){
         //handle errors
         $scope.loginFail = true;
-        console.log(response);
+        // console.log(response);
       });
   };
 

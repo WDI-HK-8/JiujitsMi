@@ -282,7 +282,7 @@ textarea:focus {
 }
 .navbar-default .navbar-nav>li>a {
     color: #fff;
-    font-weight: 800;
+    font-weight: normal;
     font-size: 18px;
     font-family: Lato;
 }
@@ -1098,7 +1098,9 @@ color: #0dc0c0;
   visibility: hidden;
 }
 
-.optin-input, .signup-text { font-family: 'FontAwesome'; } /* This is for the placeholder */
+.optin-input, .signup-text { font-family: 'FontAwesome'; 
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;} /* This is for the placeholder */
 
 
 .landing-brand {

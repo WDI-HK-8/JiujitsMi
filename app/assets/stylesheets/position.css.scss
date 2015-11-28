@@ -214,14 +214,6 @@ html.touch *:hover {
 
 }
 
-.position-a {
-  width: 100%;
-  display: inline-block;
-  text-overflow: ellipsis;
-  overflow: hidden; 
-
-}
-
 .side-nav>li {
   float: left;
   clear: left;
@@ -235,7 +227,7 @@ html.touch *:hover {
   transition: all 0.25s ease-in;
   outline: none;
   background-color: #000 !important;
-  color: #ffbcad;
+  color: #B6DEDC;
 }
 
 .side-nav>li>ul {
@@ -244,6 +236,9 @@ html.touch *:hover {
 
 .position-a {
   display: block;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden; 
   padding: 10px 15px 10px 20px;
   text-decoration: none;
   color: #dce5f0;
@@ -755,7 +750,7 @@ textarea {
 
 
 
-.editNotes {
+.edit-notes {
   margin-left: 73%;
   margin-bottom: -60px;
   color: #c1bfbf;
@@ -763,9 +758,10 @@ textarea {
   border-color: white;
   padding-left: 0px;
   padding-right: 0px;
+  font-size: 12px;
 }
 
-.editNotes:hover {
+.edit-notes:hover {
   color: black;
   background-color: white;
   border-color: white;
@@ -773,6 +769,7 @@ textarea {
 
 .step-container {
   padding-bottom: 20px;
+  margin-top: -25px;
   
 }
 
@@ -794,13 +791,13 @@ textarea {
 .step-list-header {
   background-color: #9f9f9f;
   color: #fff;
-  height: 50px;  
+  height: 40px;  
   font-size: 17px;
 }
 
 .step-list-header>p {
   text-align: center;
-  padding-top: 12px;
+  padding-top: 9px;
   margin: auto;
 }
 
@@ -924,7 +921,7 @@ textarea {
 }
 
 .videocard {
-  margin-top: -5px;
+  margin-top: -15px;
 }
 
 .video-thumb {
@@ -950,22 +947,6 @@ textarea {
   height:90%;
 }
 
-/*.editVideo {
-  margin-top: -10px;
-  display: block;
-  margin: auto;
-  background-color: transparent;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #e1dfdf;
-  color: #e1dfdf;
-}
-
-.editVideo:hover {
-  background-color: #62dcee;
-  border-color: #fff;
-  color: #fff;
-}*/
 
 .editVideo {
   margin-left: 73%;
@@ -975,6 +956,7 @@ textarea {
   border-color: white;
   padding-left: 0px;
   padding-right: 0px;
+  font-size: 12px;
 }
 
 .editVideo:hover {
@@ -1004,8 +986,8 @@ textarea {
 }
 
 .notes-block {
-  margin-top: 1px;
-  padding-bottom: 100px;
+  margin-top: -40px;
+  padding-bottom: 90px;
 }
 
 .notes-textarea {
@@ -1083,6 +1065,7 @@ textarea {
   border-color: white;
   padding-left: 0px;
   padding-right: 0px;
+  font-size: 12px;
 }
 
 .deleteVideoBtn:hover {
@@ -1522,6 +1505,7 @@ textarea {
 
 .editNotes {
   margin-left: 65%;
+  font-size: 12px;
 }
 
   #posName {
@@ -1895,8 +1879,9 @@ textarea {
     margin-left: 72%
   }
 
-  .editNotes {
+  .edit-notes {
     margin-left: 48%;
+    font-size: 12px;
   }
 
   #blocker {
