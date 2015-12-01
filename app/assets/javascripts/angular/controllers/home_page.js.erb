@@ -202,6 +202,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     var data = {
       name: $scope.newTech.name,
       technique_type_id: technique_type.id,
+      video_url: "http://www.youtube.com",
       index: technique_type.techniques.length
     };
 
@@ -291,7 +292,8 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
       // VIDEO SHOW
       $scope.newVideo = $scope.currentTechnique.video_url;
-      if ($scope.currentTechnique.video_url == null) {
+      if ($scope.currentTechnique.video_url == "http://www.youtube.com") {
+        $scope.newVideo = null;
         $scope.doVideosExist = false;
         $scope.showVideo = false;
 

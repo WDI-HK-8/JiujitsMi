@@ -14,6 +14,7 @@ gem 'devise_token_auth'
 gem 'rack-cors'
 gem 'omniauth'
 gem 'font-awesome-sass'
+gem "validate_url"
 
 # heroku config:set BUILDPACK_URL='git://github.com/qnyp/heroku-buildpack-ruby-bower.git#run-bower'
 gem 'rails_12factor', group: :production
