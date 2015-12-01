@@ -1207,15 +1207,18 @@ textarea {
 
 
 .ttype-placeholder-text {
+  display: block;
   font-size: 20px;
   background-color: #ddd;
   border-radius: 10px;
-  position: absolute;
   font-weight: bold;
-  margin-left: 13%;
-  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  width: 18em;
   padding: 3px 10px 5px 10px;
   color: #fff;
+  text-align: center;
 }
 
 
@@ -1239,9 +1242,11 @@ textarea {
 }
 
 .tech-placeholder-text {
-  position: absolute;
+  display: block;
   font-weight: bold;
-  margin-left: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
   margin-top: 8px;
   color: #fff;
 }
@@ -1505,15 +1510,15 @@ textarea {
 
   .editVideo {
   margin-left: 65%;
-}
+  }
 
-.editNotes {
-  margin-left: 65%;
-  font-size: 12px;
-}
+  .editNotes {
+    margin-left: 65%;
+    font-size: 12px;
+  }
 
   #posName {
-    width: 75%;
+    width: 85%;
   }
 
   .ttype-text {
@@ -1899,6 +1904,18 @@ textarea {
 
   .deleteTechRow {
     margin-right: 20px;
+  }
+
+
+  /*CHANGE BG IMG SIZES*/
+  #bg-addposition {
+    width: 80%;
+    margin-top: 50%;
+  }
+
+  #bg-showmessage {
+    margin-top: 50%;
+    width: 80%;
   }
 
 

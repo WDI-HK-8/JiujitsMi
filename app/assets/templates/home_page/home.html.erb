@@ -10,7 +10,7 @@
     <ul ng-class="posCol" class="addposition">
       <li class="active">
         <form class="add-position-form" dnd-nodrag ng-submit="positionForm.create()">
-          <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position" maxlength="36">
+          <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position" maxlength="60">
           <button type="submit" class="subchck btn submit down-button addPos" ><i class="fa fa-plus"></i></button>
         </form>
       <li>  
@@ -42,7 +42,7 @@
   <div ng-class="ttypeCol; smTtypeCol" class="ttype-head">
     <span class="ttype-text">{{currentPositionName}}</span>
     <form ng-submit="techTypeForm.create()" class="create-ttype">
-      <input class="forms-control-tech" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new intention"  maxlength="32">
+      <input class="forms-control-tech" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new intention"  maxlength="60">
       <button type="submit" class="subchck btn submit down-button addTech" ><i class="fa fa-plus"></i></button>
     </form>
   </div>
@@ -110,7 +110,7 @@
 
         <li>
           <form ng-submit="techForm.create(technique_type)" class="add-tech-form">
-            <input class="forms-control-tech" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTech.name" required="required" placeholder="Add a new technique"  maxlength="40">
+            <input class="forms-control-tech" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTech.name" required="required" placeholder="Add a new technique"  maxlength="60">
             <button type="submit" class="subchck btn submit down-button addTech" ><i class="fa fa-plus"></i></button>
           </form>
         </li>
@@ -167,7 +167,7 @@
             </li>
             <li>
               <form ng-submit="stepForm.create()" class="add-step-form">
-                <input class="forms-control-step forms-control-step-sm" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step" maxlength="1000">
+                <input class="forms-control-step forms-control-step-sm" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step" maxlength="1200">
                 <button type="submit" class="subchck btn submit down-button addTech addStep" ><i class="fa fa-plus"></i></button>
               </form>
             </li>
