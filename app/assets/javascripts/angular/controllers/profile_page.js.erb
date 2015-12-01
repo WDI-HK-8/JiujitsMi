@@ -8,7 +8,8 @@ app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', '$w
   };
 
   $scope.showProfile = true;
-  $scope.showSub = false; 
+  $scope.showSub = false;
+  $scope.updateSuccess = false; 
 
   $scope.switchToProfile = function() {
     $scope.showProfile = true;
@@ -45,6 +46,7 @@ app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', '$w
   $scope.showName = function(){
     $scope.showEmailInput = false;
     $scope.showPasswordInput = false;
+    $scope.updateSuccess = false;
     if ($scope.showNameInput == false){
       $scope.showNameInput = true;
     } else {
@@ -57,7 +59,7 @@ app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', '$w
   $scope.showEmail = function(){
     $scope.showNameInput = false;
     $scope.showPasswordInput = false;
-
+    $scope.updateSuccess = false;
     if ($scope.showEmailInput == false){
       $scope.showEmailInput = true;
     } else {
@@ -69,6 +71,7 @@ app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', '$w
   $scope.showPassword = function(){
     $scope.showNameInput = false;
     $scope.showEmailInput = false;
+    $scope.updateSuccess = false;
     if ($scope.showPasswordInput == false){
       $scope.showPasswordInput = true;
     } else {
@@ -94,6 +97,7 @@ app.controller('ProfilePageCtrl', ['$scope', '$auth', '$location', '$aside', '$w
       };
 
       $scope.editAccountForm = null;
+      $scope.updateSuccess = true;
 
     }).catch(function(response){
       // console.log(response);
