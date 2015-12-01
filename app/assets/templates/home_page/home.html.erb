@@ -146,8 +146,10 @@
     </div>
     <!-- VIDEO -->
     <div ng-show="showVideo" class="videocard">
-       <button ng-show="doVideosExist" ng-click="editVideoBtn()" class="subchck btn submit down-button editVideo" >Edit video</button>
-      <button class="deleteVideoBtn subchck btn submit down-button" ng-click="deleteVideo()">Delete video</button>
+      <div class="video-btn-row">  
+        <button ng-show="doVideosExist" ng-click="editVideoBtn()" class="subchck btn submit down-button editVideo" >Edit video</button>
+        <button class="deleteVideoBtn subchck btn submit down-button" ng-click="deleteVideo()">Delete video</button>
+      </div>
       <div  ng-show="doVideosExist" class="video-container"><iframe width="640" height="360" class="video-thumb" ng-src="{{trustSrc(vidSRC)}}">
       </iframe></div>
       <form ng-show="!doVideosExist" ng-submit="videoForm.create()" class="add-video-form">
@@ -177,8 +179,10 @@
     </div>    
     <!-- OTHER NOTES -->
     <div ng-show="showNotes" class="notes-block">
-      <button ng-if="doNotesExist" ng-click="editNotesBtn()" class="subchck btn submit down-button edit-notes" >Edit Notes</button>
-      <button  class="deleteVideoBtn subchck btn submit down-button" ng-click="deleteNotes()">Delete notes</button>
+      <div class="notes-btn-row">  
+        <button ng-if="doNotesExist" ng-click="editNotesBtn()" class="subchck btn submit down-button edit-notes" >Edit Notes</button>
+        <button  class="deleteVideoBtn subchck btn submit down-button" ng-click="deleteNotes()">Delete notes</button>
+      </div>
       <form ng-submit="notesForm.create()">
         <textarea class="notes-textarea" ng-readonly="doNotesExist" rows="5" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="2000" id="text"></textarea>
         <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addNotes" ><b>Add Notes</b></button>

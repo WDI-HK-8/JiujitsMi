@@ -19,7 +19,6 @@ html.touch *:hover {
 
 
 /*navbar*/
-
 .ng-aside.horizontal .modal-dialog .modal-content {
     width: 300px;
 }
@@ -155,7 +154,6 @@ html.touch *:hover {
 }
 
 /* Position */
-
 .side-nav {
   position: fixed;
   top: 128px;
@@ -211,7 +209,6 @@ html.touch *:hover {
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
   z-index: 2;
-
 }
 
 .side-nav>li {
@@ -289,7 +286,6 @@ html.touch *:hover {
   z-index: 2;
   border-radius: 90px;
   margin-left: 4px;
-
 }
 
 .addPos:hover {
@@ -308,9 +304,6 @@ html.touch *:hover {
   -moz-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
 }
-
-
-
 
 .deletePos {
   display: inline-block;
@@ -339,8 +332,6 @@ html.touch *:hover {
   transition: all 0.15s ease-in;
 }
 
-
-
 .position-a .positionspan {
   display: inline-block;
   position: absolute;
@@ -355,7 +346,6 @@ html.touch *:hover {
   color: #d2d0d0;
 }
 
-
 .position-a:hover .positionspan:hover {
   color: #99d4d1;
   transform: scale(1.4);
@@ -363,9 +353,6 @@ html.touch *:hover {
   -moz-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
 }
-
-
-
 
 /*technique type*/
 .ttype-capsule {
@@ -593,10 +580,7 @@ input:focus {
 .add-step-form {
   width: 100%;
   float: right;  
-    margin-bottom: 2%;
-    /*border-width: 1px;*/
-  /*border-style: solid;*/
-  /*border-color: #e3e3e3;*/
+  margin-bottom: 2%;
 }
 
 .deleteTType {
@@ -749,25 +733,6 @@ textarea {
   color: #c1bfbf;
 }
 
-
-
-.edit-notes {
-  margin-left: 73%;
-  margin-bottom: -60px;
-  color: #c1bfbf;
-  background-color: white;
-  border-color: white;
-  padding-left: 0px;
-  padding-right: 0px;
-  font-size: 12px;
-}
-
-.edit-notes:hover {
-  color: black;
-  background-color: white;
-  border-color: white;
-}
-
 .step-container {
   padding-bottom: 20px;
   margin-top: 10px;
@@ -784,9 +749,6 @@ textarea {
   min-height: 50px;
   height:auto;
   list-style-type: none;
-  /*border-width: 1px;*/
-  /*border-style: solid;*/
-  /*border-color: #f3f3f4;*/
 }
 
 .step-list-header {
@@ -880,7 +842,6 @@ textarea {
 .deleteStepRow {
   float: right;
   margin-top: 5px;
-  /*margin-right: 35px;*/
   background-color: transparent;
   border-style: none;
   font-size: 14px;
@@ -925,8 +886,11 @@ textarea {
   transition: all 0.15s ease-in;
 }
 
+
+
+
 .videocard {
-  margin-top: -15px;
+  margin-top: 50px;
 }
 
 .video-thumb {
@@ -952,10 +916,40 @@ textarea {
   height:90%;
 }
 
+.video-btn-row {
+float: right;
+margin-right: 10%;
+margin-top: -80px;
+}
+
+.notes-btn-row {
+float: right;
+margin-right: 10%;
+margin-top: -50px;
+padding-bottom: 60px;
+}
+
+.edit-notes {
+  margin-right: 10px;
+  margin-bottom: -90px;
+  color: #c1bfbf;
+  background-color: transparent;
+  border-color: white;
+  padding-left: 0px;
+  padding-right: 0px;
+  font-size: 12px;
+}
+
+.edit-notes:hover {
+  color: black;
+  background-color: white;
+  border-color: white;
+}
+
 
 .editVideo {
-  margin-left: 73%;
-  margin-bottom: -60px;
+  margin-right: 10px;
+  margin-bottom: -90px;
   color: #c1bfbf;
   background-color: white;
   border-color: white;
@@ -969,6 +963,24 @@ textarea {
   background-color: white;
   border-color: white;
 }
+
+
+.deleteVideoBtn {
+  margin-right: -30px;
+  margin-bottom: -90px;
+  color: #c1bfbf;
+  background-color: transparent;
+  border: none;
+  padding-left: 0px;
+  padding-right: 0px;
+  font-size: 12px;
+}
+
+.deleteVideoBtn:hover {
+  color: red;
+}
+
+
 
 .add-video-form {
  margin-left: 12%;
@@ -992,7 +1004,7 @@ textarea {
 }
 
 .notes-block {
-  margin-top: -10px;
+  margin-top: 10px;
   padding-bottom: 90px;
 }
 
@@ -1063,20 +1075,7 @@ textarea {
 }
 
 
-.deleteVideoBtn {
-  margin-left: 83%;
-  margin-bottom: -0.5%;
-  color: #c1bfbf;
-  background-color: transparent;
-  border: none;
-  padding-left: 0px;
-  padding-right: 0px;
-  font-size: 12px;
-}
 
-.deleteVideoBtn:hover {
-  color: red;
-}
 
 #bg-showmessage {
   display: block;
@@ -1504,19 +1503,6 @@ textarea {
     transition: all 0.25s ease-out;
   }
 
-  .deleteVideoBtn {
-  margin-left: 79%;
-  }
-
-  .editVideo {
-  margin-left: 65%;
-  }
-
-  .editNotes {
-    margin-left: 65%;
-    font-size: 12px;
-  }
-
   #posName {
     width: 85%;
   }
@@ -1880,19 +1866,6 @@ textarea {
     width: 89%;
   }
 
-  .editVideo {
-    margin-left: 48%;
-  }
-  
-  .deleteVideoBtn {
-    margin-left: 72%
-  }
-
-  .edit-notes {
-    margin-left: 48%;
-    font-size: 12px;
-  }
-
   #blocker {
     margin-left: 61%;
   }
@@ -1904,6 +1877,14 @@ textarea {
 
   .deleteTechRow {
     margin-right: 20px;
+  }
+
+  .video-btn-row {
+    margin-right: 13%;
+  }
+
+  .notes-btn-row {
+    margin-right: 13%;
   }
 
 

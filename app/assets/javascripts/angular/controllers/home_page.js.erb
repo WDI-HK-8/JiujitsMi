@@ -387,6 +387,15 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
       // console.log(response);
       $scope.showNotes = false;
+      $scope.doNotesExist = false;
+      $scope.newNotes = null;
+
+      var t = document.getElementById('text');
+      if ($scope.doNotesExist == true) {
+        t.style.backgroundColor='#fdfdfd';
+      } else {
+        t.style.backgroundColor='white';
+      };
     });
   };
 
