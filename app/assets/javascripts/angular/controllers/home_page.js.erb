@@ -1,6 +1,5 @@
 app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', '$sce', '$modal', '$window', function($scope, $http, $location, $auth, $routeParams, $sce, $modal, $window){
 
-  // console.log("<%= ENV['URL'] %>")
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
   // redirect to landing page if user is signed in
@@ -244,8 +243,6 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     // console.log(technique.id)
 
     if (window.innerWidth <= 768) {
-      // $scope.navToggle()
-      // $scope.arrow = false;
       $scope.smTtypeCol = "smTtypeColActive";
       $scope.hideText = "hideTextActive";
       $scope.techniqueBack = "techniqueBackActive";
@@ -350,24 +347,14 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
       };
 
-    // CHANGE THE COLOR OF NOTES BOX
-    var t = document.getElementById('text');
-    if ($scope.doNotesExist == true) {
-      t.style.backgroundColor='#fdfdfd';
-    } else {
-      t.style.backgroundColor='white';
-    };
-
-
+      // CHANGE THE COLOR OF NOTES BOX
+      var t = document.getElementById('text');
+      if ($scope.doNotesExist == true) {
+        t.style.backgroundColor='#fdfdfd';
+      } else {
+        t.style.backgroundColor='white';
+      };
     });
-
-
-    // console.log('show video is now ' + $scope.showVideo)
-    // console.log('show notes is now ' + $scope.showNotes)
-    // console.log('steps.length is now ' + $scope.showSteps)
-    // console.log('=========================')
-
-    // console.log('show message is now ' + $scope.showMessage)
 
     // SHOW MESSAGE?
     if ($scope.showVideo == false && 
@@ -486,19 +473,13 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
           alert("The youtube url is not valid.");
         };
 
+
         $scope.vidSRC = "https://www.youtube.com/embed/" + vidID[1];
+        $scope.doVideosExist = true;
 
-      $scope.vidSRC = "https://www.youtube.com/embed/" + vidID[1];
-
-      console.log("videoResponse = " + $scope.videoResponse)
-      console.log("VIDURL = " + vidURL)
-      console.log("VIDID = " + vidID)
-
-      $scope.doVideosExist = true;
-
-      // $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +$scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id).success(function(response){
+      $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +$scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id).success(function(response){
         console.log(response);
-      // });
+      });
     });
   };
 
@@ -507,14 +488,15 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.stepForm = {};
   $scope.stepForm.create = function(){
     var data = {
-      instruction: $scope.newStep
+      instruction: $scope.newStep,
+      index: $scope.steps.length
     };
     $http.post(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id + '/steps', data).success(function(response){
-      // console.log(response);
+      console.log(response);
 
       $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id + '/steps').success(function(response) {
-        // console.log(response);
-        $scope.steps = response;
+        $scope.steps = response.sort(compare);
+        $scope.steps.sort(compare);
       });
     });
     $scope.newStep = null;

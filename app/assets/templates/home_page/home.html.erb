@@ -158,21 +158,21 @@
     </div>
     <!-- STEPS -->
     <div class="step-container" ng-show="showSteps">
-      <div class="step-list-container">
-        <div class="step-list-header">
-          <p> Steps </p>
+      <div class="step-outline">      
+
+        <div class="step-list-container">
+          <ul class="nav">
+            <li ng-repeat="step in steps" class="step-row">
+              <a><span class="step-text">{{$index +1}}. {{step.instruction}}</span><button ng-click="deleteStep(step)" class="deleteStepRow"><i class="fa fa-times-circle-o"></i></button></a>
+            </li>
+            <li>
+              <form ng-submit="stepForm.create()" class="add-step-form">
+                <input class="forms-control-step forms-control-step-sm" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step" maxlength="1000">
+                <button type="submit" class="subchck btn submit down-button addTech addStep" ><i class="fa fa-plus"></i></button>
+              </form>
+            </li>
+          </ul>
         </div>
-        <ul class="nav">
-          <li ng-repeat="step in steps" class="step-row">
-            <a><span class="step-text">{{$index +1}}. {{step.instruction}}</span><button ng-click="deleteStep(step)" class="deleteStepRow"><i class="fa fa-times-circle-o"></i></button></a>
-          </li>
-          <li>
-            <form ng-submit="stepForm.create()" class="add-step-form">
-              <input class="forms-control-step forms-control-step-sm" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step" >
-              <button type="submit" class="subchck btn submit down-button addTech addStep" maxlength="1000" ><i class="fa fa-plus"></i></button>
-            </form>
-          </li>
-        </ul>
       </div>
     </div>    
     <!-- OTHER NOTES -->
