@@ -1913,20 +1913,16 @@ padding-bottom: 60px;
   .position-a:hover {
     outline: none;
     background-color: #222c3e !important;
-    color: #ffbcad;
   }
-
-
 
   .deletePos, .position-a:hover .deletePos:hover, .position-a:hover .deletePos {
     padding-top: 6px;
     display: block;
     float: right;
-    color: #ec5355;
+    color: #848996;
     background-color: transparent;
-    transform: scale(1.1);
+    transform: scale(1.0);
   }
-
 
 
   .position-a .positionspan {
@@ -1980,7 +1976,7 @@ padding-bottom: 60px;
   }
 
   .deleteStepRow {
-    color: #c1bfbf;
+    color: #e1e1e1;
   }
 
 
