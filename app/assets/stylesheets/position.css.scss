@@ -988,6 +988,10 @@ padding-bottom: 60px;
  margin-left: 12%;
 }
 
+.add-video-form label {
+  font-weight: normal;
+}
+
 .forms-control-video {
   margin-left: 2%;
   margin-bottom: 40px;
@@ -1817,7 +1821,10 @@ padding-bottom: 60px;
   /*shrunk down position bar*/
   .posColActive {
     margin-left: -20%;
-    width: 100%;
+    width: 80%;
+  -webkit-box-shadow: 6px 0px 5px -4px #888;
+     -moz-box-shadow: 6px 0px 5px -4px #888;
+          box-shadow: 6px 0px 5px -4px #888;
   }
 
 
