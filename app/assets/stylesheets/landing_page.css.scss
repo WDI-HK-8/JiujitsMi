@@ -65,10 +65,6 @@ ul {
 
 /***** Buttons *****/
 
-.btn-fix {
-  margin-top: 40px;
-  margin-right: -140px;
-}
 
 .btn1:focus, .btn1:active:focus, .btn1.active:focus {
   outline: 0;
@@ -180,6 +176,12 @@ ul {
     -ms-transition: all .3s;
     transition: all .3s;
 }
+
+.btn-fix {
+  margin-top: 40px;
+  margin-right: -140px;
+}
+  
 
 /***** Form elements *****/
 
