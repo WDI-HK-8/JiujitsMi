@@ -15,6 +15,7 @@ gem 'rack-cors'
 gem 'omniauth'
 gem 'font-awesome-sass'
 gem "validate_url"
+gem 'figaro'
 
 # heroku config:set BUILDPACK_URL='git://github.com/qnyp/heroku-buildpack-ruby-bower.git#run-bower'
 gem 'rails_12factor', group: :production
@@ -28,6 +29,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'meta_request'
 end
 
 group :test do

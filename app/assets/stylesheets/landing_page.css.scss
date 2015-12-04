@@ -65,6 +65,11 @@ ul {
 
 /***** Buttons *****/
 
+.btn-fix {
+  margin-top: 40px;
+  margin-right: -140px;
+}
+
 .btn1:focus, .btn1:active:focus, .btn1.active:focus {
   outline: 0;
   color: #fff;
@@ -1135,10 +1140,10 @@ color: #0dc0c0;
   margin-top: 10px;
 }
 
-
-
-.fa-search { 
-  position: absolute;
-  top: 10px;
-  left: 10px;
+/*RESET PASSWORD*/
+.pw-link {
+  display: inline;
+  font-size: 14px;
+  color: #ccc;
+  float: right;
 }
