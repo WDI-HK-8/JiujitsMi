@@ -17,10 +17,16 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
     when('/account/reset_password', {
       templateUrl: "<%= asset_path('reset_password_page/reset_password.html.erb') %>",
       controller: 'ResetPasswordPageCtrl'
+    }).
+    when('/account/update_password', {
+      templateUrl: "<%= asset_path('reset_password_page/update_password.html.erb') %>",
+      controller: 'UpdatePasswordPageCtrl'
     })
 
+// https://github.com/lynndylanhurley/ng-token-auth/blob/master/dist%2Fng-token-auth.js#L219
   $authProvider.configure({
-      apiUrl: "<%= ENV['URL']%>" || 'http://localhost:3000' 
+      apiUrl:                  "<%= ENV['URL']%>",
+      passwordResetSuccessUrl: "<%= ENV['URL']%>#/account/update_password",
   })
 
 }]);
