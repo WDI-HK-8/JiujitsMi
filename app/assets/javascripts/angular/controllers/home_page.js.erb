@@ -292,7 +292,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
       // VIDEO SHOW
       $scope.newVideo = $scope.currentTechnique.video_url;
-      if ($scope.currentTechnique.video_url == "http://www.youtube.com") {
+      if ($scope.currentTechnique.video_url == "http://www.youtube.com" || null) {
         $scope.newVideo = null;
         $scope.doVideosExist = false;
         $scope.showVideo = false;
