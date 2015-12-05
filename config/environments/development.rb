@@ -53,4 +53,12 @@ Rails.application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
 
+    config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'grapplegame-user-videos-dev',
+      access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+      secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+    }
+  }
 end

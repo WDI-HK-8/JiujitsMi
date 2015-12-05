@@ -38,7 +38,14 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (6.0.3)
+    av (0.9.0)
+      cocaine (~> 0.5.3)
     awesome_print (1.6.1)
+    aws-sdk (1.66.0)
+      aws-sdk-v1 (= 1.66.0)
+    aws-sdk-v1 (1.66.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -61,7 +68,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
     cliver (0.3.2)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     columnize (0.9.0)
     database_cleaner (1.5.0)
@@ -116,6 +127,7 @@ GEM
       railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     mime-types (2.99)
+    mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
@@ -125,6 +137,15 @@ GEM
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
     orm_adapter (0.5.0)
+    paperclip (4.3.2)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
+    paperclip-av-transcoder (0.6.4)
+      av (~> 0.9.0)
+      paperclip (>= 2.5.2)
     pg (0.18.3)
     poltergeist (1.6.0)
       capybara (~> 2.1)
@@ -246,6 +267,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  aws-sdk (< 2.0)
   better_errors
   binding_of_caller
   bower
@@ -263,6 +285,8 @@ DEPENDENCIES
   launchy
   meta_request
   omniauth
+  paperclip (~> 4.3)
+  paperclip-av-transcoder
   pg
   poltergeist
   pry-byebug
