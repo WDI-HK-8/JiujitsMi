@@ -34,7 +34,12 @@ class TechniquesController < ApplicationController
     if @technique.nil?
       render json: { message: "Cannot find technique" }, status: :not_found
     else
-      @technique.update(technique_params)
+      @technique.assign_attributes(technique_params)
+      if @technique.save
+
+      else
+        render json: { message: "Couldn't Save", error: @technique.errors.messages }
+      end
     end
   end
 

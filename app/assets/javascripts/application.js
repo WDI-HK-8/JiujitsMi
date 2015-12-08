@@ -22,4 +22,7 @@
 //= require angular-ripple/angular-ripple
 //= require angular-scroll-animate/dist/angular-scroll-animate
 //= require angular-aside/dist/js/angular-aside
+//= require video.js/dist/video.js
+//= require ng-file-upload/ng-file-upload.min
+//= require ng-file-upload/ng-file-upload-shim.min
 //= require_tree .

@@ -59,6 +59,8 @@
     <!-- ICONS -->
     <div>
       <span id="blocker"></span>
+      <a href=""  ng-click="addUploadVideo()"><i class="fa fa-cloud-upload icons" id="video-upload" uib-popover="Add your own video" popover-trigger="mouseenter" popover-placement="bottom"></i>
+      </a>
       <a href=""  ng-click="addVideo()"><i class="fa fa-play-circle-o icons" id="video" uib-popover="Add a youtube video" popover-trigger="mouseenter" popover-placement="bottom"></i>
       </a>
       <a href="" ng-click="addNotes()" class="steps-notes-icon-margin"><i class="fa fa-pencil-square-o icons" id="notes"  uib-popover="Add technique notes" popover-trigger="mouseenter" popover-placement="bottom"></i>
@@ -156,7 +158,37 @@
         <label>Add a Youtube url: </label><input class="forms-control-video" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newVideo" required="required" placeholder="e.g. https://www.youtube.com/watch?v=YaNLxS2-HEY">
         <button type="submit" class="subchck btn submit down-button addTech" ><i class="fa fa-plus"></i></button>
       </form>
-     
+    </div>
+
+    <!-- UPLOAD VIDEO -->
+    <div ng-show="showUploadVideo" class="videocard">
+      <!-- VIDEO UPLOAD INPUT -->
+      <div class="video-upload-box" ng-show="!doVideosExist">
+        <form>
+          <label>Upload your video: </label>
+          <input disabled class="forms-control-video-upload" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newVideo" required="required" placeholder="{{selectedFile.name}}">
+
+          <button class="subchck btn submit down-button addTech" ngf-select="select($files)" accept='video/*' ng-model="video"><i class="fa fa-plus"></i></button>
+          <div></div>
+          <button ng-click="uploadVideo(video)" class="button" >Submit</button>
+        </form>
+
+        <div>
+          <span class="progress">
+            <div style="width:{{video.progress}}%" 
+            ng-bind="video.progress + '%'">
+            </div>
+          </span>
+        </div>
+      </div>
+
+      <!-- VIDEO SHOW -->
+      <div class="upload-video-thumb" ng-show="doVideosExist">
+        <div class="container video-js-responsive-container vjs-hd">
+          <video id="my_vid_id" class="video-js vjs-default-skin upload-video-thumb" controls preload="auto" width="auto" height="auto" poster="{{ trustSrc(new_thumb_url) }}" data-setup='{"fluid":true,"aspectRatio":"16:9"}' ng-src="{{ trustSrc(new_video_url) }}" type='video/mp4' >
+          </video>
+        </div>
+      </div>
     </div>
     <!-- STEPS -->
     <div class="step-container" ng-show="showSteps">

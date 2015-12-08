@@ -847,25 +847,33 @@ textarea {
 
 
 #blocker {
-  margin-left: 70%;
+  margin-left: 62%;
 }
 
-#video {
+#video-upload {
   display: inline-block;
   margin-top: -30px;
 }
 
-#steps {
+
+#video {
+  display: inline-block;
+  margin-top: -30px;
+  margin-left: 8%
+}
+
+#notes {
   display: inline-block;
   margin-left: 16%;
   margin-top: -29px;
 }
 
-#notes {
+#steps {
   display: inline-block;
-  margin-left: 8%;
+  margin-left: 24%;
   margin-top: -29px;
 }
+
 
 .icons {
   position: absolute;
@@ -883,6 +891,69 @@ textarea {
 }
 
 
+.button {
+  position: absolute;
+  border: 0 none;
+  border-radius: 36px;
+  padding: 5px 20px;
+  cursor: pointer;
+  margin-top: -20px;
+  margin-left: -40px;
+  display: inline-block;
+  font-size: 16px;
+  color: #fff;
+  text-transform: none;
+  
+  transition: all 100ms ease-in-out;
+
+  &:hover {
+      opacity: .7;
+  }
+}
+
+
+.progress {
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+}
+
+.progress div {
+    width: 300px; height: 14px;
+    border-radius: 10px;
+    border: 1px solid #CCC;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#6666cc), to(#4b4b95));
+    border-image: initial;
+}
+
+
+
+.upload-video-thumb {
+  width: 90%;
+  height: auto;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+
+.video-js-responsive-container.vjs-hd {
+  padding-top: 56.25%;
+}
+.video-js-responsive-container.vjs-sd {
+  padding-top: 75%;
+}
+.video-js-responsive-container {
+  width: 100%;
+  position: relative;
+}
+.video-js-responsive-container .video-js {
+  height: 100% !important; 
+  width: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
 
 .videocard {
@@ -903,6 +974,30 @@ textarea {
   overflow:hidden;
   margin: auto;
 }
+
+.video-upload-box {
+  text-align: center;
+  margin: auto;
+}
+
+
+.forms-control-video-upload {
+  margin-left: 2%;
+  margin-bottom: 40px;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f0f0f0;
+  color: #363636;
+  width: 48%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
 
 .video-container iframe, .video-container object, .video-container embed {
   position:absolute;
