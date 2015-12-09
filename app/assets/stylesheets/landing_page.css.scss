@@ -17,15 +17,24 @@ strong {
   font-weight: 600; 
 }
 
-a, a:hover {
+
+.top-link {
+  padding-top: 18px !important;
+  padding-bottom: 8px;
+}
+
+.top-link:hover {
   color: #0dc0c0;
+  -o-transition: all .3s;
+  -moz-transition: all .3s;
+  -webkit-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+  /*margin-top: 15px;*/
+}
+
+a {
   text-decoration: none;
-    -o-transition: all .3s;
-    -moz-transition: all .3s;
-    -webkit-transition: all .3s;
-    -ms-transition: all .3s;
-    transition: all .3s;
-    /*margin-top: 15px;*/
 }
 
 *,
@@ -1112,11 +1121,6 @@ color: #0dc0c0;
 
 .landing-brand {
   width: 250px;
-}
-
-.top-link {
-    padding-top: 18px !important;
-    padding-bottom: 8px;
 }
 
 
