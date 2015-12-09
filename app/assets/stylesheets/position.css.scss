@@ -1085,7 +1085,7 @@ padding-bottom: 60px;
 
 
 .add-video-form {
- margin-left: 12%;
+ margin-left: 5%;
 }
 
 .add-video-form label {
@@ -1621,6 +1621,14 @@ padding-bottom: 60px;
 
 @media screen and (max-width: 1200px) {
 
+  .forms-control-video {
+    width: 45%;
+  }
+
+  .homenav {
+    width: 100%;
+  }
+
   .add-position-form {
     width: 100%;
   }
@@ -1857,6 +1865,10 @@ padding-bottom: 60px;
 
 
 @media screen and (max-width: 768px) {
+
+    .forms-control-video {
+    width: 40%;
+  }
 
   /*FIX MODAL SIZE*/
   .modal:before {
