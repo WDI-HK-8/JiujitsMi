@@ -2,6 +2,11 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', '$uibMod
   $scope.loginForm = {};
 
 
+  if ('ontouchstart' in document) {
+    Y.one('body').removeClass('no-touch');
+}
+
+
   // ASIDE
   $scope.asideState = {
     open: false

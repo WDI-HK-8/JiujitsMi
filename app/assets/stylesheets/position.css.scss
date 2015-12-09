@@ -110,7 +110,7 @@ html.touch *:hover {
 }
 
 
-.dropdown-toggle:hover {
+.no-touch .dropdown-toggle:hover {
   border-color: #EC583A !important;
   color: #EC583A !important;
   transform: scale(1.15);
@@ -1845,11 +1845,6 @@ padding-bottom: 60px;
     }
   }
 
-  .dropdown-toggle:hover {
-    border-color: #fff !important;
-    color: #fff !important;
-    transform: scale(1);
-  }
 }
 
 
