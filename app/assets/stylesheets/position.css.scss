@@ -111,6 +111,9 @@ html.touch *:hover {
   display: block;
   list-style: none;
   text-decoration: none;
+  padding: 8px 10px;
+    line-height: 20px;
+    cursor: pointer;
 }
 
 .dropdown-toggle:hover {
