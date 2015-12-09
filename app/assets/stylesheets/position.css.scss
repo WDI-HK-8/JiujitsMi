@@ -109,6 +109,12 @@ html.touch *:hover {
   font-size: 20px;
   position: relative;
   display: block;
+  list-style: none;
+  text-decoration: none;
+}
+
+.dropdown-toggle:hover {
+  text-decoration: none;
 }
 
 
@@ -1755,9 +1761,8 @@ padding-bottom: 60px;
     padding-right: 35px;
     position: relative;
     width: 100px;
-    margin-left: 20px;
+    margin-left: -20px;
   }
-
 
   .toggle-p {
     padding-right: 20px;
