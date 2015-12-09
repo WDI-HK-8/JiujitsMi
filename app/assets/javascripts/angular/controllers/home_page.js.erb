@@ -1,6 +1,6 @@
 app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', '$sce', '$modal', '$window', 'Upload', '$timeout', function($scope, $http, $location, $auth, $routeParams, $sce, $modal, $window, Upload, $timeout){
 
-  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+  var url = "<%= ENV['URL'] %>" || "https://localhost:3000";
 
   // redirect to landing page if user is signed in
   $scope.authResponse = $auth.validateUser()
