@@ -9,6 +9,7 @@ body {
   font-size: 16px;
   font-family: Lato, sans-serif;
   color: #5c5c5c;
+  overflow-y: scroll;
   webkit-overflow-scrolling: touch;
 }
 
@@ -165,7 +166,7 @@ html.touch *:hover {
   margin-left: -20%;
   border: none;
   border-radius: 0;
-  overflow-y: auto;
+  overflow-y: scroll;
   background-color: #222c3e;
   bottom: 0;
   overflow-x: hidden;
@@ -173,7 +174,6 @@ html.touch *:hover {
   font-size: 16px;
   z-index: 2;
   display: inline-block;
-  overflow-y: auto;
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
@@ -202,7 +202,7 @@ html.touch *:hover {
   margin-left: -20%;
   border: none;
   border-radius: 0;
-  overflow-y: auto;
+  overflow-y: scroll;
   background-color: #222c3e;
   bottom: 0;
   overflow-x: hidden;
@@ -365,7 +365,7 @@ html.touch *:hover {
   top: 129px;
   border: none;
   border-radius: 0;
-  overflow-y: auto;
+  overflow-y: scroll;
   background-color: #f3f3f4;
   bottom: 0;
   overflow-x: hidden;
@@ -662,7 +662,7 @@ input:focus {
   top: 129px;
   border: none;
   border-radius: 0;
-  overflow-y: auto;
+  overflow-y: scroll;
   background-color: #f3f3f4;
   bottom: 0;
   overflow-x: hidden;
@@ -1153,7 +1153,7 @@ padding-bottom: 60px;
   top: 129px;
   border: none;
   border-radius: 0;
-  overflow-y: auto;
+  overflow-y: scroll;
   background-color: #f3f3f4;
   bottom: 0;
   overflow-x: hidden;
