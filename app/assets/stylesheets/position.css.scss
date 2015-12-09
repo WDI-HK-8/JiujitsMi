@@ -68,6 +68,8 @@ html.touch *:hover {
   border-bottom: 0px;
   font-family: Lato;
   margin-left: 20%;
+  position: fixed;
+  width: 80%;
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
@@ -393,7 +395,7 @@ html.touch *:hover {
   border-right-color: #e3e3e3;
   width: 30%;
   height: 65px;
-  margin-top: -21px;
+  margin-top: 65px;
   margin-left: 20%;
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
@@ -410,7 +412,7 @@ html.touch *:hover {
   width: 50%;
   height: 65px;
   margin-left: 50%;
-  margin-top: -21px;
+  margin-top: 65px;
   z-index: 1;
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
@@ -1962,6 +1964,7 @@ padding-bottom: 60px;
 
   .techniqueBackActive {
     display: inline-block;
+    margin-left: -20px;
   }
 
   .forms-control-step-sm {
