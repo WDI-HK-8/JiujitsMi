@@ -39,7 +39,7 @@
   </nav>
 
   <!-- TTYPE HEADDER -->
-  <div ng-class="ttypeCol; smTtypeCol" class="ttype-head">
+  <div ng-class="{'ttypeColActive': ttypeCol == true, 'smTtypeColActive': smTtypeCol == true } " class="ttype-head">
     <span class="ttype-text">{{currentPositionName}}</span>
     <form ng-submit="techTypeForm.create()" class="create-ttype">
       <input class="forms-control-tech" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new intention"  maxlength="60">
@@ -85,7 +85,7 @@
   </div>
 
 <!-- TECHNIQUE TYPE  COLUMN-->
-<div ng-class="ttypeCol; smTtypeCol" class="ttype-capsule" ng-show="showTechTypes">
+<div ng-class="{'ttypeColActive': ttypeCol == true, 'smTtypeColActive': smTtypeCol == true } " class="ttype-capsule" ng-show="showTechTypes">
   <!-- TECHNIQUE CARDS -->
   <div ng-show="currentPosition" 
   dnd-list="technique_types" 

@@ -36,17 +36,23 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', '$uibMod
   $scope.navToggle = function() {
       $scope.navToggleActive = true;
     if ($scope.toggleClass === "inactive") {
-      $scope.toggleClass = "toggleClassActive"
-      $scope.ttypeCol = "ttypeColActive"
-      $scope.posCol = "posColActive"
+      $scope.toggleClass = "toggleClassActive";
+      $scope.ttypeCol = true;
+      $scope.posCol = "posColActive";
+      if (window.innerWidth > 768) {
+        $scope.sideMenu = "sideMenuActive"
+      };
     }
     
     else {
       $scope.toggleClass = "inactive";
-      $scope.ttypeCol = "inactive"
-      $scope.posCol = "inactive"
+      $scope.ttypeCol = false;
+      $scope.posCol = "inactive";
+      if (window.innerWidth > 768) {
+        $scope.sideMenu = "inactive"
       };
-      // console.log($scope.toggleClass)
+    };
+
   };
 }]);
 
