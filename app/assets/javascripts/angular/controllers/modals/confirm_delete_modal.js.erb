@@ -1,7 +1,7 @@
 app.directive('ngReallyClick', ['$uibModal',
     function($uibModal) {
 
-  url = "<%= ENV['URL'] %>" || 'https://localhost:3000';
+  url = "<%= ENV['URL'] %>" || 'http://localhost:3000';
 
     return {
       restrict: 'A',
@@ -12,9 +12,6 @@ app.directive('ngReallyClick', ['$uibModal',
       link: function(scope, element, attrs) {
         element.bind('click', function() {
           var message = attrs.ngReallyMessage || "Are you sure ?";
-
- 
-
 
           var modalHtml = '<div class="modal-body">' + message + '</div>';
           modalHtml += '<div class="modal-footer"><button class="btn btn-primary2" ng-click="ok()">OK</button><button class="btn btn-warning" ng-click="cancel()">Cancel</button></div>';

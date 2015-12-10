@@ -155,7 +155,7 @@
       <div  ng-show="doVideosExist" class="video-container"><iframe width="640" height="360" class="video-thumb" ng-src="{{trustSrc(vidSRC)}}">
       </iframe></div>
       <form ng-show="!doVideosExist" ng-submit="videoForm.create()" class="add-video-form">
-        <label>Add a Youtube url: </label><input class="forms-control-video" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newVideo" required="required" placeholder="e.g. https://www.youtube.com/watch?v=YaNLxS2-HEY">
+        <label>Add a Youtube url: </label><input class="forms-control-video" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newVideo" required="required" placeholder="e.g. http://www.youtube.com/watch?v=YaNLxS2-HEY">
         <button type="submit" class="subchck btn submit down-button addTech" ><i class="fa fa-plus"></i></button>
       </form>
     </div>
@@ -164,28 +164,35 @@
     <div ng-show="showUploadVideo" class="videocard">
       <!-- VIDEO UPLOAD INPUT -->
       <div class="video-upload-box" ng-show="!doVideosExist">
-        <form>
+     <!--    <form>
           <label>Upload your video: </label>
           <input disabled class="forms-control-video-upload" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newVideo" required="required" placeholder="{{selectedFile.name}}">
 
           <button class="subchck btn submit down-button addTech" ngf-select="select($files)" accept='video/*' ng-model="video"><i class="fa fa-plus"></i></button>
           <div></div>
           <button ng-click="uploadVideo(video)" class="button" >Submit</button>
+        </form> -->
+
+        <form id="upload-form" action="{{uploadUrl}}" enctype="multipart/form-data" method="POST">
+          <input type="file" name="my_file" />
+          <input type="submit" value="Upload">
         </form>
 
-        <div>
+
+
+<!--         <div>
           <span class="progress">
             <div style="width:{{video.progress}}%" 
             ng-bind="video.progress + '%'">
             </div>
           </span>
-        </div>
+        </div> -->
       </div>
 
       <!-- VIDEO SHOW -->
-      <div class="upload-video-thumb" ng-show="doVideosExist">
+      <div class="upload-video-thumb">
         <div class="container video-js-responsive-container vjs-hd">
-          <video id="my_vid_id" class="video-js vjs-default-skin upload-video-thumb" controls preload="auto" width="auto" height="auto" poster="{{ trustSrc(new_thumb_url) }}" data-setup='{"fluid":true,"aspectRatio":"16:9"}' ng-src="{{ trustSrc(new_video_url) }}" type='video/mp4' >
+          <video id="my_vid_id" class="video-js vjs-default-skin upload-video-thumb" controls preload="auto" width="auto" height="auto" poster="{{ trustSrc(poster) }}" data-setup='{"fluid":true,"aspectRatio":"16:9"}' ng-src="{{ trustSrc(new_video_url) }}" type='video/mp4' >
           </video>
         </div>
       </div>

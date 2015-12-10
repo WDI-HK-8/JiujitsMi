@@ -56,14 +56,21 @@ ActiveRecord::Schema.define(version: 20151205050321) do
   end
 
   create_table "user_videos", force: :cascade do |t|
-    t.integer  "index"
-    t.string   "video_file_name"
-    t.string   "video_content_type"
-    t.integer  "video_file_size"
-    t.datetime "video_updated_at"
     t.integer  "technique_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "provided_id"
+    t.string   "name"
+    t.integer  "size"
+    t.integer  "cost"
+    t.string   "duration"
+    t.string   "url"
+    t.string   "ssl_url"
+    t.string   "thumb_name"
+    t.integer  "thumb_size"
+    t.integer  "thumb_cost"
+    t.string   "thumb_url"
+    t.string   "thumb_ssl_url"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
