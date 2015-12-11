@@ -243,6 +243,13 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.getTechnique = function(technique_type, technique){
     // console.log(technique.id)
 
+    $scope.showUploadVideo = false;
+    $scope.doUploadVideoExist = false;
+    $scope.doVideoExist = false;
+    $scope.showVideo = false;
+    $scope.showMessage = true;
+
+
     if (window.innerWidth <= 768) {
       $scope.smTtypeCol = true;
       $scope.hideText = "hideTextActive";
@@ -294,14 +301,16 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       $scope.newVideo = $scope.currentTechnique.video_url;
       if ($scope.currentTechnique.video_url == "http://www.youtube.com" || null) {
         $scope.newVideo = null;
-        $scope.doVideosExist = false;
+        $scope.doVideoExist = false;
         $scope.showVideo = false;
-
+        console.log("NO YOUTUBE VIDEO")
       } else {
-        $scope.doVideosExist = true;
+        $scope.doVideoExist = true;
         $scope.showVideo = true;
         $scope.showMessage = false;
+        console.log("YES YOUTUBE VIDEO")
       };
+
 
       // CONVERT VIDEO URL TO EMBEDED
       if ($scope.currentTechnique.video_url != null && $scope.currentTechnique.video_url != "http://www.youtube.com" ) {
@@ -326,11 +335,11 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
     //   // UPLOAD VIDEO SHOW
     //   if ($scope.video_uploaded.length == 0) {
-    //     $scope.doVideosExist = false;
+    //     $scope.doVideoExist = false;
     //     $scope.showUploadVideo = false;
 
     //   } else {
-    //     $scope.doVideosExist = true;
+    //     $scope.doVideoExist = true;
     //     $scope.showUploadVideo = true;
     //     $scope.showMessage = false;
 
@@ -345,19 +354,19 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
 
     //   console.log(technique);
-    //   console.log("Do videos exist = " + $scope.doVideosExist)
+    //   console.log("Do videos exist = " + $scope.doVideoExist)
     //   console.log("Show upload video = " + $scope.showUploadVideo)
     //   console.log ("Show Video = " + $scope.showVideo)
 
     // });
 
-      // GET UPLOAD VIDEO URL
-      $scope.uploadUrl = url + '/positions/' + $scope.currentPosition + '/technique_types/' + technique_type.id + '/techniques/' + technique.id + '/user_videos'
-
-      console.log($scope.uploadUrl)
-
+    // GET UPLOAD VIDEO URL
+    $scope.uploadUrl = url + '/positions/' + $scope.currentPosition + '/technique_types/' + technique_type.id + '/techniques/' + technique.id + '/user_videos'
 
     $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques/' + technique.id + '/user_videos').success(function(response) {
+
+      console.log(response.length)
+      if (response.length == 1) {
         $scope.trustSrc = function(src) {
           return $sce.trustAsResourceUrl(src);
         };
@@ -365,7 +374,18 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         console.log($scope.poster)
         console.log(response[0])
         $scope.new_video_url = response[0].ssl_url
+        $scope.showUploadVideo = true;
+        $scope.doUploadVideoExist = true;
+        $scope.doVideoExist = false;
+        $scope.showVideo = false;
+        $scope.showMessage = false;
+      } else {
+        $scope.doUploadVideoExist = false;
+      };
     });
+
+
+
 
 
     // GET STEPS
@@ -394,13 +414,22 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     });
 
     // SHOW MESSAGE?
-    if ($scope.showVideo == false && 
-        $scope.showNotes == false && 
-        $scope.showSteps == false) {
-      $scope.showMessage = true;
-    } else {
-      $scope.showMessage = false;
-    };    
+    // if ($scope.showVideo == false && 
+    //     $scope.showNotes == false && 
+    //     $scope.showSteps == false) {
+    //   $scope.showMessage = true;
+    //   console.log("message is showing")
+
+    // } else {
+    //   $scope.showMessage = false;
+    //   console.log("message is not showing")
+
+    // };    
+        console.log("Upload - " + $scope.doUploadVideoExist)
+        console.log("Video - " + $scope.doVideoExist )
+        console.log("ShowVideo - " + $scope.showVideo)
+        console.log("ShowMessage - " + $scope.showMessage)
+
   };
 
   // DELETE VIDEO
@@ -412,7 +441,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       console.log(response);
       console.log($scope.currentTechnique)
       $scope.showVideo = false;
-      $scope.doVideosExist = false;
+      $scope.doVideoExist = false;
       $scope.newVideo = null;
     });
   };
@@ -459,7 +488,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
   // ADD VIDEO BUTTON
   $scope.addVideo = function() {
-    if ($scope.doesVideosExist && $scope.showUploadVideo) {
+    if ($scope.doUploadVideoExist) {
       alert("You can only have one video per technique - please remove your uploaded video before adding a YouYube video. ")
     } else {
       $scope.showVideo = true;
@@ -470,7 +499,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
   // UPLOAD VIDEO BUTTON
   $scope.addUploadVideo = function() {
-    if ($scope.doesVideosExist && $scope.showVideo) {
+    if ($scope.doVideoExist) {
       alert("You can only have one video per technique - please remove your YouTube video before adding your own video. ")
     } else {
       $scope.showUploadVideo = true;
@@ -481,7 +510,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
     // EDIT VIDEO BUTTON
   $scope.editVideoBtn = function() {
-    $scope.doVideosExist = false;
+    $scope.doVideoExist = false;
   };
 
   // EDIT NOTES
@@ -540,7 +569,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
 
         $scope.vidSRC = "http://www.youtube.com/embed/" + vidID[1];
-        $scope.doVideosExist = true;
+        $scope.doVideoExist = true;
 
       $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +$scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id).success(function(response){
         console.log(response);
@@ -584,28 +613,28 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       $scope.selectedFile = $files[0];
   }
 
- $scope.uploadVideo = function(file) {
-    var videoData = {'user_video[video]': $scope.video};
-    console.log(videoData)
-    console.log("working")
-    file.upload = Upload.upload({
-      url: url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id + '/user_videos',
-      fields: videoData,
-      file: $scope.video,
-      fileFormDataName: 'user_video[video]'
-    });
+  // $scope.uploadVideo = function(file) {
+  //   var videoData = {'user_video[video]': $scope.video};
+  //   console.log(videoData)
+  //   console.log("working")
+  //   file.upload = Upload.upload({
+  //     url: url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id + '/user_videos',
+  //     fields: videoData,
+  //     file: $scope.video,
+  //     fileFormDataName: 'user_video[video]'
+  //   });
 
-    file.upload.then(function (response) {
-      $timeout(function () {
-        file.result = response.data;
-      });
-    }, function (response) {
-      if (response.status > 0)
-        $scope.errorMsg = response.status + ': ' + response.data;
-    }, function (evt) {
-      file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-    });
-    }
+  //   file.upload.then(function (response) {
+  //     $timeout(function () {
+  //       file.result = response.data;
+  //     });
+  //   }, function (response) {
+  //     if (response.status > 0)
+  //       $scope.errorMsg = response.status + ': ' + response.data;
+  //   }, function (evt) {
+  //     file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+  //   });
+  // }
 
   
 
@@ -733,6 +762,15 @@ $(function() {
     params: {
       auth: { key: "fa210e209ef311e5b9eef92df91aedb4" }, 
       template_id: "e60dffa09f0811e5b0f7ab6259adf54c"
+    },
+    onSuccess: function(assembly){
+        console.log("SUCCESS", assembly);
+        // do some stuff
+        alert("SUCCESS")
+    },
+    onError: function(assembly){
+      console.log("ERROR", assembly);
+      // do some stuff
     }
   });
 });

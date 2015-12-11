@@ -17,8 +17,6 @@ class UserVideosController < ApplicationController
 
     transloadit = params[:transloadit]
 
-binding.pry
-
     create_params[:name] = transloadit[:results][:iphone_video][0][:name]
     create_params[:size] = transloadit[:results][:iphone_video][0][:size]
     create_params[:cost] = transloadit[:results][:iphone_video][0][:cost]

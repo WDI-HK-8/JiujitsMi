@@ -944,7 +944,13 @@ textarea {
   height: auto;
   display: block;
   margin: auto;
+  text-align: center;
   margin-bottom: 10px;
+}
+
+#upload-form {
+  margin-left: 32%;
+  text-align: center;
 }
 
 
@@ -1879,6 +1885,10 @@ padding-bottom: 60px;
 
 @media screen and (max-width: 768px) {
 
+
+  #upload-form {
+  margin-left: 20%;
+}
     .forms-control-video {
     width: 40%;
   }
@@ -1934,7 +1944,8 @@ padding-bottom: 60px;
     -webkit-transition-delay: .25s; /* Safari */
     transition-delay: .25s;
     width: 100%;
-    margin-left: 0%
+    margin-left: 0%;
+      opacity: 1;
   }
 
 
