@@ -56,6 +56,7 @@
         <option ng-repeat="option in profData.availableOptions" value="{{option.id}}">{{option.name}}</option>
       </select>
     </div>
+
     <!-- ICONS -->
     <div>
       <span id="blocker"></span>
@@ -98,8 +99,23 @@
     dnd-effect-allowed="move" 
     dnd-selected="models.selected = technique_type">
       <div class="ttype-card-header" >
-        <button ng-really-message="Are you sure you want to delete this intention?"  ng-really-click="deleteTechType(technique_type)" class="deleteTType">Delete</button>
-        <p><span class="handle ttypespan"><i class="fa fa-ellipsis-v"></i></span><span dnd-nodrag>{{ technique_type.name}}</span></p>
+        <span class="title">
+          <span class="handle ttypespan"><i class="fa fa-ellipsis-v"></i></span><span dnd-nodrag>{{ technique_type.name}}</span>
+          <!-- EDIT DROPDOWN -->
+          <span class="dropdown" dropdown>
+            <a href="" dropdown-toggle>
+              <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu" dropdown-menu>
+              <li> 
+                <a ng-click="action1()">Edit title</a>
+              </li>
+              <li>
+                <a ng-really-message="Are you sure you want to delete this intention?"  ng-really-click="deleteTechType(technique_type)">Delete</a>
+              </li>
+            </ul>
+          </span>
+        </span>
       </div>
       <ul class="nav ttype-card-hover" dnd-list="technique_type.techniques" dnd-allowed-types="technique_type.techniques">
         <li ng-repeat="technique in technique_type.techniques" dnd-draggable="technique" dnd-moved="technique_type.techniques.splice($index, 1); techniqueSave()" dnd-effect-allowed="move" dnd-selected="models.selected = technique" dnd-type="technique" class="tech-row">
@@ -138,7 +154,19 @@
     <!-- HEADER -->
     <div class="right-card-header">
       <span>{{currentTechnique.name}}</span>
-      <button ng-click="deleteTech(); backToTechs()" class="deleteTechRow">Delete</button>
+      <span class="dropdown" dropdown>
+        <a href="" dropdown-toggle>
+          <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu" dropdown-menu>
+          <li> 
+            <a ng-click="action1()">Edit title</a>
+          </li>
+          <li>
+            <a ng-click="deleteTech(); backToTechs()">Delete</a>
+          </li>
+        </ul>
+      </span>
     </div>
     <!-- MESSAGE IF NO DETAILS -->
     <div ng-show="showMessage">
