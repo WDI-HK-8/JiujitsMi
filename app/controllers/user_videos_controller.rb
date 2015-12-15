@@ -6,6 +6,23 @@ class UserVideosController < ApplicationController
     @user_videos = Technique.find(params[:technique_id]).user_videos.all
   end
 
+
+  def destroy
+    @user_video = UserVideo.find_by_id(params[:id])
+
+    if @user_video.nil?
+      render json: { message: "Cannot find user_video" }, status: :not_found
+    else
+      if @user_video.destroy
+        render json: { message: "Successfully deleted" }, status: :no_content
+      else
+        render json: { message: "Unsuccessfully deleted" }, status: :bad_request 
+      end
+    end
+  end
+
+
+
   def new
   end
 

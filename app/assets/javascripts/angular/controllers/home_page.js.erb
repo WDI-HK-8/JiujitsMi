@@ -1,4 +1,4 @@
-app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$auth', '$routeParams', '$sce', '$uibModal', '$window', 'Upload', '$timeout','Sharedata', function($resource, $scope, $http, $location, $auth, $routeParams, $sce, $uibModal, $window, Upload, $timeout, Sharedata){
+app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$auth', '$routeParams', '$sce', '$uibModal', '$window', 'Upload', '$timeout','Sharedata', 'Amazon','$log',  function($resource, $scope, $http, $location, $auth, $routeParams, $sce, $uibModal, $window, Upload, $timeout, Sharedata, Amazon, $log){
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
@@ -9,6 +9,8 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
     $location.path('/')
   };
 
+  // GLOBAL VARIABLES
+  $scope.currentUploadVideo = '';
   $scope.uploadUrl = "";
 
   // BY DEFAULT HIDE ALL CARDS
@@ -367,6 +369,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
         };
         $scope.poster = response[0].thumb_ssl_url  
         console.log($scope.poster)
+        $scope.currentUploadVideo = response[0]
         console.log(response[0])
         $scope.new_video_url = response[0].ssl_url
         $scope.showUploadVideo = true;
@@ -424,7 +427,6 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
         console.log("Video - " + $scope.doVideoExist )
         console.log("ShowVideo - " + $scope.showVideo)
         console.log("ShowMessage - " + $scope.showMessage)
-
   };
 
   // DELETE VIDEO
@@ -812,6 +814,34 @@ console.log($scope.currentTechnique.id)
       $scope.techFixed = true;
     });
   };
+
+  // DELETE UPLOAD VIDEO
+  $scope.deleteUploadVideo = function() {
+
+    var data = {
+      user_id: $scope.authResponse.$$state.value.id,
+      technique_id: $scope.currentUploadVideo.technique_id,
+      video_id: $scope.currentUploadVideo.id,
+      name: $scope.currentUploadVideo.name,
+      size:  $scope.currentUploadVideo.size,
+      ssl_url:  $scope.currentUploadVideo.ssl_url,
+      thumb_name:  $scope.currentUploadVideo.thumb_name,
+      thumb_size:  $scope.currentUploadVideo.thumb_size,
+      thumb_ssl_url:  $scope.currentUploadVideo.thumb_ssl_url
+    }
+
+    $http.post(url + '/delete_user_videos', data).success(function(response){
+      var delete_video_id = response.video_id;
+      var delete_tech_id = response.technique_id;
+
+      $http.delete(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + delete_tech_id + '/user_videos/' + delete_video_id).success(function(response){
+        $scope.doUploadVideoExist = false;
+        $scope.showUploadVideo = false;
+        $scope.showMessage = true;
+      });
+    });
+  };
+
 }]);
 
 

@@ -415,7 +415,7 @@ html.touch *:hover {
   border-bottom-style: solid;
   border-bottom-color: #f3f3f4;
   width: 100%;
-  height: 50px;
+  height: 40px;
   /*margin-left: 50%;*/
   /*margin-top: 65px;*/
   /*z-index: 1;*/
@@ -718,12 +718,12 @@ input:focus {
 }
 
 .right-card-header:after {
-  height:1px;
+/*  height:1px;
   background:#bbc1c7;
   width:75%;
   display:block;
   content:"";
-  margin:6px auto;
+  margin:6px auto;*/
 }
 
 textarea {
@@ -865,7 +865,7 @@ textarea {
 
 
 #blocker {
-  margin-left: 58%;
+  margin-left: 64%;
 }
 
 #video-upload {
@@ -1514,8 +1514,8 @@ padding-bottom: 60px;
 
 .select-style {
     padding: 0;
-    margin-top: 16px;
-    margin-left: 12%;
+    /*margin-top: 16px;*/
+    margin-left: 6%;
     border: 0px solid #ccc;
     width: 155px;
     border-radius: 3px;

@@ -189,6 +189,7 @@
         <img id="bg-showmessage" ng-src="{{imgsrc7}}">
       </a>
     </div>
+    
     <!-- VIDEO -->
     <div ng-show="showVideo" class="videocard">
       <div class="video-btn-row">  
@@ -218,6 +219,11 @@
         </form>
       </div>
 
+
+
+      <div class="video-btn-row">  
+        <button class="deleteVideoBtn subchck btn submit down-button" ng-click="deleteUploadVideo()">Delete video</button>
+      </div>
 
       <!-- VIDEO SHOW -->
       <div class="upload-video-thumb" ng-show="doUploadVideoExist">
