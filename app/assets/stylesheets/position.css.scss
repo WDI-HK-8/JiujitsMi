@@ -23,6 +23,7 @@ html.touch *:hover {
 }
 
 /*navbar*/
+
 .ng-aside.horizontal .modal-dialog .modal-content {
     width: 300px;
 }
@@ -34,6 +35,13 @@ html.touch *:hover {
   border-style: none;
   margin-left: 10px;
 }
+
+
+.navadd {
+  float: left;
+  margin-left: 16%;
+}
+
 
 .navbar-default {
   border-style: none;
@@ -70,6 +78,7 @@ html.touch *:hover {
   margin-left: 20%;
   position: fixed;
   width: 80%;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
@@ -177,6 +186,7 @@ html.touch *:hover {
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
+  box-shadow: 0 0 10px rgba(51, 51, 51, 0.38);
 }
 
 .newbrand {
@@ -188,6 +198,7 @@ html.touch *:hover {
   background-color: #2a1f4f;
   font-size: 16px;
   z-index: 2;
+  box-shadow: 0 0 10px rgba(51, 51, 51, 0.38);
 
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
@@ -208,6 +219,7 @@ html.touch *:hover {
   overflow-x: hidden;
   padding-bottom: 40px;
   font-size: 16px;
+  box-shadow: 0 0 10px rgba(51, 51, 51, 0.38);
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
@@ -362,7 +374,7 @@ html.touch *:hover {
   margin-left: 20%;
   width: 30.5%;
   position: fixed;
-  top: 129px;
+  top: 65px;
   border: none;
   border-radius: 0;
   overflow-y: scroll;
@@ -371,6 +383,7 @@ html.touch *:hover {
   overflow-x: hidden;
   padding-bottom: 40px;
   font-family: Lato;
+  z-index: -1;
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
@@ -395,17 +408,17 @@ html.touch *:hover {
 }
 
 .newtech-head {
-  position: fixed;
+  /*position: fixed;*/
   border: none;
   background-color: #fff;
-  border-bottom-width: 4px;
+  border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #cfd4d6;
-  width: 50%;
-  height: 65px;
-  margin-left: 50%;
-  margin-top: 65px;
-  z-index: 1;
+  border-bottom-color: #f3f3f4;
+  width: 100%;
+  height: 50px;
+  /*margin-left: 50%;*/
+  /*margin-top: 65px;*/
+  /*z-index: 1;*/
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
@@ -450,10 +463,11 @@ ul {
 }
 
 .ttype-card-header {
+  font-family: Tahoma, Geneva, sans-serif;
   background-color: #fff;
-  color: gray;
+  color: #6d6d6d;
   height: 50px;  
-  font-size: 20px;
+  font-size: 21px;
   text-overflow: ellipsis;
   overflow: visible; 
   border-top-left-radius: 3px;
@@ -653,7 +667,7 @@ input:focus {
   margin-left: 50%;
   width:50%;
   position: fixed;
-  top: 129px;
+  top: 65px;
   border: none;
   border-radius: 0;
   overflow-y: scroll;
@@ -690,9 +704,10 @@ input:focus {
 
 .right-card-header {
   background-color: #fff;
-  color: gray;
+  color: #6d6d6d;
   height: 50px;  
-  font-size: 20px;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 21px;
   /*border-bottom-width: 1px;*/
   /*border-bottom-style: solid;*/
   /*border-bottom-color: #f3f3f4;*/
@@ -705,7 +720,7 @@ input:focus {
 .right-card-header:after {
   height:1px;
   background:#bbc1c7;
-  width:92%;
+  width:75%;
   display:block;
   content:"";
   margin:6px auto;
@@ -795,12 +810,12 @@ textarea {
 .ttype-nav-text {
   width: 40%;
   display: none;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   color: white;
-  margin-top: 25px;
-  margin-left: -45px;
+  margin-top: 20px;
+  margin-left: 10%;
+  font-size: 20px;
 }
 
 
@@ -850,7 +865,7 @@ textarea {
 
 
 #blocker {
-  margin-left: 62%;
+  margin-left: 58%;
 }
 
 #video-upload {
@@ -1158,7 +1173,7 @@ padding-bottom: 60px;
   margin-left: 20%;
   width: 80%;
   position: fixed;
-  top: 129px;
+  top: 65px;
   border: none;
   border-radius: 0;
   overflow-y: scroll;
@@ -1166,6 +1181,7 @@ padding-bottom: 60px;
   bottom: 0;
   overflow-x: hidden;
   padding-bottom: 40px;
+  z-index: -1;
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
@@ -1499,7 +1515,7 @@ padding-bottom: 60px;
 .select-style {
     padding: 0;
     margin-top: 16px;
-    margin-left: 25px;
+    margin-left: 12%;
     border: 0px solid #ccc;
     width: 155px;
     border-radius: 3px;
@@ -2146,7 +2162,41 @@ padding-bottom: 60px;
 .dropdown {
   margin-left: 5px;
 }
+.dropdown-nav {
+  display: inline-block;
+}
 
+/*EDIT NAMES*/
+.forms-control-editName {
+  background-color: transparent;
+  border-style: none;
+  color: #363636;
+  width: 30%;
+  height: 34px;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+    -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+}
 
+/*EDIT NAMES*/
+.forms-control-editPosName {
+  background-color: transparent;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  color: #CCC;
+  width: 35%;
+  height: 34px;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+    -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+}
 
-
+.edit-pos-form {
+  width: 100%;
+  float: right;  
+  margin-top: -10px;
+}

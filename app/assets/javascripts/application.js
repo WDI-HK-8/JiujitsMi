@@ -25,4 +25,5 @@
 //= require video.js/dist/video.js
 //= require ng-file-upload/ng-file-upload.min
 //= require ng-file-upload/ng-file-upload-shim.min
+//= require angular-resource/angular-resource
 //= require_tree .

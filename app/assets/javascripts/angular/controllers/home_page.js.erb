@@ -1,4 +1,4 @@
-app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$routeParams', '$sce', '$modal', '$window', 'Upload', '$timeout', function($scope, $http, $location, $auth, $routeParams, $sce, $modal, $window, Upload, $timeout){
+app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$auth', '$routeParams', '$sce', '$uibModal', '$window', 'Upload', '$timeout','Sharedata', function($resource, $scope, $http, $location, $auth, $routeParams, $sce, $uibModal, $window, Upload, $timeout, Sharedata){
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
@@ -19,6 +19,9 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   // DISABLE INPUT BOX UNLESS POSITION IS SELECTED
   $scope.techTypeInput = false;
 
+  // MAKE ALL NAMES SHOW
+  $scope.techFixed = true;
+  $scope.ttypeFixed = true;
 
   // DISABLE SELECT BOX UNLESS TECHNIQUE IS SELECTED
   $scope.proficiencySelect = false;
@@ -99,18 +102,13 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
   $scope.currentPostionName = [];
   $scope.currentPositionFull = [];
   $scope.getPosition = function(position){
-    // console.log(position.id);
-
 
     $scope.proficiencySelect = false;
 
     if (window.innerWidth <= 1200) {
-
       if( $scope.navToggleActive != false){
         $scope.navToggle()
       };
-
-
       $scope.arrow = false;
     }
 
@@ -121,9 +119,8 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
     $scope.newTechType = null;
 
     $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
-
+      console.log(response);
       $scope.technique_types = response.sort(compare);
-
       for (var i = 0; i < $scope.technique_types.length; i++) {
         $scope.technique_types[i].techniques.sort(compare);
       }
@@ -131,17 +128,15 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
       $scope.techTypeInput = true;
 
       // HIDE STARTING BACKGROUND
-
-        if ($scope.technique_types.length < 1) {
-          $scope.positionBg = false;
-          $scope.ttechBg = true;
-          $scope.showTechTypes = false;
-        } else {
-          $scope.positionBg = false;
-          $scope.ttechBg = false;
-          $scope.showTechTypes = true;
-        };
-
+      if ($scope.technique_types.length < 1) {
+        $scope.positionBg = false;
+        $scope.ttechBg = true;
+        $scope.showTechTypes = false;
+      } else {
+        $scope.positionBg = false;
+        $scope.ttechBg = false;
+        $scope.showTechTypes = true;
+      };
     });
   };
 
@@ -730,7 +725,7 @@ console.log($scope.currentTechnique.id)
     };  
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
       
-        $scope.getPosition($scope.currentPositionFull)  
+      $scope.getPosition($scope.currentPositionFull)  
 
       $scope.currentTechnique.proficiency = response.proficiency
       console.log(response)
@@ -754,32 +749,71 @@ console.log($scope.currentTechnique.id)
   };
 
 
-
-$(function() {
-  $('#upload-form').transloadit({
-    wait: true,
-    triggerUploadOnFileSelection: true,
-    params: {
-      auth: { key: "fa210e209ef311e5b9eef92df91aedb4" }, 
-      template_id: "e60dffa09f0811e5b0f7ab6259adf54c"
-    },
-    onSuccess: function(assembly){
-        console.log("SUCCESS", assembly);
+  // UPLOAD VIDEO
+  $(function() {
+    $('#upload-form').transloadit({
+      wait: true,
+      triggerUploadOnFileSelection: true,
+      params: {
+        auth: { key: "fa210e209ef311e5b9eef92df91aedb4" }, 
+        template_id: "e60dffa09f0811e5b0f7ab6259adf54c"
+      },
+      onSuccess: function(assembly){
+          console.log("SUCCESS", assembly);
+          // do some stuff
+          alert("SUCCESS")
+      },
+      onError: function(assembly){
+        console.log("ERROR", assembly);
         // do some stuff
-        alert("SUCCESS")
-    },
-    onError: function(assembly){
-      console.log("ERROR", assembly);
-      // do some stuff
-    }
+      }
+    });
   });
-});
 
 
+  $scope.editTech = function(){
+    $scope.techFixed = false;
+  }
+
+  // EDIT TECH TYPE BUTTON AND MODAL
+  $scope.editTtype = function(technique_type) {
+    console.log(technique_type)
+    Sharedata.ttype_to_edit = technique_type;
+    Sharedata.position_to_edit = $scope.currentPosition;
+    console.log(Sharedata.ttype_to_edit)
+    console.log(Sharedata.position_to_edit)
+
+    var modalInstance = $uibModal.open({
+      animation: true,
+      templateUrl: "<%= asset_path('directives/editTtypeName.html') %>",
+      controller: 'ModalInstanceCtrl',
+      size: 'md'
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $timeout(function() {
+        $scope.getPosition($scope.currentPositionFull);
+      }, 200);
+    }, function () {
+    });
+  }
 
 
-
+  // EDIT TECHNIQUE NAME
+  $scope.newTechNameForm = {};
+  $scope.newTechNameForm.create = function(){
+    var data = {
+      name: $scope.newTechName,
+    };
+    $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
+      console.log(response);
+      $scope.getPosition($scope.currentPositionFull);
+      $scope.currentTechnique.name = response.name;
+      $scope.techFixed = true;
+    });
+  };
 }]);
+
 
 
 

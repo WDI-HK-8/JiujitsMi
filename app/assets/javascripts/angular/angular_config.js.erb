@@ -1,4 +1,4 @@
-var app = angular.module('jiujitsmi', ['ngRoute', 'ng-token-auth', 'dndLists', 'ui.bootstrap', 'ngAnimate', 'angularRipple', 'angular-scroll-animate', 'ngAside', 'ngFileUpload']);
+var app = angular.module('jiujitsmi', ['ngRoute', 'ng-token-auth', 'dndLists', 'ui.bootstrap', 'ngAnimate', 'angularRipple', 'angular-scroll-animate', 'ngAside', 'ngFileUpload', 'ngResource']);
 
 app.config(['$routeProvider', '$authProvider', function($routeProvider, $authProvider) {
   $routeProvider.
@@ -22,6 +22,8 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
       templateUrl: "<%= asset_path('reset_password_page/update_password.html.erb') %>",
       controller: 'UpdatePasswordPageCtrl'
     })
+
+
 
 // https://github.com/lynndylanhurley/ng-token-auth/blob/master/dist%2Fng-token-auth.js#L219
   $authProvider.configure({

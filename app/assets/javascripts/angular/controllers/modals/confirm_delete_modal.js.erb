@@ -37,15 +37,35 @@ app.directive('ngReallyClick', ['$uibModal',
 ]);
 
 
-app.controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
+app.controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', 'Sharedata', '$http', '$timeout', function($scope, $uibModalInstance, Sharedata, $http, $timeout) {
 
-      $scope.ok = function() {
-        $uibModalInstance.close();
-        console.log("ok")
-      };
+  $scope.placeholder = Sharedata.ttype_to_edit.name
 
-      $scope.cancel = function() {
-        $uibModalInstance.dismiss('cancel');
-        console.log("cancel")
-      };
+  console.log($scope.placeholder);
+  $scope.ok = function() {
+    $uibModalInstance.close();
+
+
+    $timeout(function(){$http.get(url + '/positions/' + Sharedata.position_to_edit + '/technique_types').success(function(response){
+        console.log(response);
+      })}, 10000)
+  };
+
+  $scope.cancel = function() {
+    $uibModalInstance.dismiss('cancel');
+  };
+
+    // EDIT TECHNIQUE NAME
+  $scope.newTtypeNameForm = {};
+  $scope.newTtypeNameForm.create = function(){
+    var data = {
+      name: $scope.newTtypeName,
+    };
+
+    Sharedata.newTtypeName = data
+    $http.put(url + '/positions/' + Sharedata.position_to_edit + '/technique_types/' + Sharedata.ttype_to_edit.id, data).success(function(response){
+      // console.log(response);
+    });
+  };
+
 }]);
