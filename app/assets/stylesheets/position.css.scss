@@ -2269,7 +2269,7 @@ padding-bottom: 60px;
   .pos-name-span {
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 100%;
+    max-width: 300px;
     margin-top: 2px;
     display: inline-block;
     white-space: nowrap;
@@ -2371,6 +2371,14 @@ padding-bottom: 60px;
   .angular-ripple {
     background-color: #fff;
   }
+
+}
+
+@media screen and (max-width: 400px) {
+
+.pos-name-span {
+  width: 100%;
+}
 
 
 }
