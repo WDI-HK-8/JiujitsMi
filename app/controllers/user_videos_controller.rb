@@ -1,6 +1,6 @@
 class UserVideosController < ApplicationController
 # The param[:transloadit] is automatically decoded for you
-  include Transloadit::Rails::ParamsDecoder
+  # include Transloadit::Rails::ParamsDecoder
 
   def index
     @user_videos = Technique.find(params[:technique_id]).user_videos.all
@@ -28,7 +28,7 @@ class UserVideosController < ApplicationController
 
   def create
 
-    # Rails.logger.info("PARAMS: #{params[:transloadit].inspect}")
+    Rails.logger.info("PARAMS: #{params[:transloadit].inspect}")
 
     create_params = user_video_params
 

@@ -1,6 +1,18 @@
-app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$auth', '$routeParams', '$sce', '$uibModal', '$window', 'Upload', '$timeout','Sharedata', 'Amazon','$log',  function($resource, $scope, $http, $location, $auth, $routeParams, $sce, $uibModal, $window, Upload, $timeout, Sharedata, Amazon, $log){
+app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$auth', '$routeParams', '$sce', '$uibModal', '$window', '$timeout','Sharedata','$log',  function($resource, $scope, $http, $location, $auth, $routeParams, $sce, $uibModal, $window, $timeout, Sharedata, $log){
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+
+
+  // if(!('ontouchstart' in window)){
+  //   console.log("this is a touch device!")
+  //    $('.icons').popover-trigger('destroy');
+  // }
+
+    if (window.innerWidth <= 1281)  {
+      console.log("HI")
+     $('.icons').removeClass('popover');
+    }
+
 
   // redirect to landing page if user is signed in
   $scope.authResponse = $auth.validateUser()
@@ -9,9 +21,13 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
     $location.path('/')
   };
 
+  // console.log($scope.authResponse)
+
   // GLOBAL VARIABLES
   $scope.currentUploadVideo = '';
   $scope.uploadUrl = "";
+  $scope.posText = "posText"
+
 
   // BY DEFAULT HIDE ALL CARDS
   $scope.positionBg = true;
@@ -107,9 +123,13 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
 
     $scope.proficiencySelect = false;
 
-    if (window.innerWidth <= 1200) {
+    if (window.innerWidth <= 1281) {
       if( $scope.navToggleActive != false){
         $scope.navToggle()
+      };
+
+      if ($scope.techSelected != true) {
+        $scope.posText = "posTextActive"
       };
       $scope.arrow = false;
     }
@@ -168,9 +188,14 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
       // console.log(response);
       $scope.showTechTypes = true;
       $scope.techSelected = false;
+      $scope.addIntNav = true;
+      $scope.newTechType = null;
 
       $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types').success(function(response){
-      $scope.technique_types = response;
+        $scope.technique_types = response.sort(compare);
+        for (var i = 0; i < $scope.technique_types.length; i++) {
+          $scope.technique_types[i].techniques.sort(compare);
+        };
       });
     });
     $scope.newTechType = null;
@@ -245,9 +270,12 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
     $scope.doVideoExist = false;
     $scope.showVideo = false;
     $scope.showMessage = true;
+    $scope.posFixed = true;
+    $scope.addIntNav = true;
 
 
     if (window.innerWidth <= 768) {
+      $scope.posText = "PosText"
       $scope.smTtypeCol = true;
       $scope.hideText = "hideTextActive";
       $scope.techniqueBack = "techniqueBackActive";
@@ -321,42 +349,6 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
       $scope.resetDropDown();
     });
 
-    // GET VIDEO
-    // $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques/' + technique.id + '/user_videos').success(function(response) {
-
-    //   $scope.trustSrc = function(src) {
-    //     return $sce.trustAsResourceUrl(src);
-    //   };
-
-    //   $scope.video_uploaded = response
-
-    //   // UPLOAD VIDEO SHOW
-    //   if ($scope.video_uploaded.length == 0) {
-    //     $scope.doVideoExist = false;
-    //     $scope.showUploadVideo = false;
-
-    //   } else {
-    //     $scope.doVideoExist = true;
-    //     $scope.showUploadVideo = true;
-    //     $scope.showMessage = false;
-
-    //   var video_original = $scope.video_uploaded[0].video;
-    //   var video_split_array = video_original.split("/");
-    //   var image_name_array = video_split_array[10].split(".");
-
-    //   $scope.new_video_url = "https://s3-ap-southeast-1.amazonaws.com/grapplegame-user-videos-dev/user_videos/videos/000/000/" + video_split_array[8] + "/medium/" +image_name_array[0] + ".mp4";
-    //   $scope.new_thumb_url = "https://s3-ap-southeast-1.amazonaws.com/grapplegame-user-videos-dev/user_videos/videos/000/000/" + video_split_array[8] + "/thumb/" +image_name_array[0] + ".jpeg";
-
-    //   };
-
-
-    //   console.log(technique);
-    //   console.log("Do videos exist = " + $scope.doVideoExist)
-    //   console.log("Show upload video = " + $scope.showUploadVideo)
-    //   console.log ("Show Video = " + $scope.showVideo)
-
-    // });
-
     // GET UPLOAD VIDEO URL
     $scope.uploadUrl = url + '/positions/' + $scope.currentPosition + '/technique_types/' + technique_type.id + '/techniques/' + technique.id + '/user_videos'
 
@@ -382,10 +374,6 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
       };
     });
 
-
-
-
-
     // GET STEPS
     $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +technique_type.id + '/techniques/' + technique.id + '/steps').success(function(response) {
         // console.log(response);
@@ -394,12 +382,10 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
       if ($scope.steps.length < 1) {
         $scope.showSteps = false;
         $scope.doStepsExist = false;
-
       } else {
         $scope.showSteps = true;
         $scope.doStepsExist = true;
         $scope.showMessage = false;
-
       };
 
       // CHANGE THE COLOR OF NOTES BOX
@@ -410,23 +396,6 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
         t.style.backgroundColor='white';
       };
     });
-
-    // SHOW MESSAGE?
-    // if ($scope.showVideo == false && 
-    //     $scope.showNotes == false && 
-    //     $scope.showSteps == false) {
-    //   $scope.showMessage = true;
-    //   console.log("message is showing")
-
-    // } else {
-    //   $scope.showMessage = false;
-    //   console.log("message is not showing")
-
-    // };    
-        console.log("Upload - " + $scope.doUploadVideoExist)
-        console.log("Video - " + $scope.doVideoExist )
-        console.log("ShowVideo - " + $scope.showVideo)
-        console.log("ShowMessage - " + $scope.showMessage)
   };
 
   // DELETE VIDEO
@@ -539,17 +508,6 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
     };
   
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
-      // console.log(response);
-
-
-      // $scope.videoResponse = response 
-      // vidURL = $scope.videoResponse.video_url.split('v=');
-      // vidID = vidURL[1];
-      // var ampersandPosition = vidID.indexOf('&');
-      // if(ampersandPosition != -1) {
-      //   vidID = vidID.substring(0, ampersandPosition);
-      // };
-      // $scope.vidSRC = "https://www.youtube.com/embed/" + vidID;
 
       $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
@@ -559,11 +517,9 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
       var vidURL = $scope.videoResponse.video_url
       var vidID = vidURL.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
 
-
         if (vidID === null) {
           alert("The youtube url is not valid.");
         };
-
 
         $scope.vidSRC = "http://www.youtube.com/embed/" + vidID[1];
         $scope.doVideoExist = true;
@@ -604,76 +560,10 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
     });
   };
 
-
   // UPLOAD VIDEO - CREATE
   $scope.select = function($files) {
       $scope.selectedFile = $files[0];
-  }
-
-  // $scope.uploadVideo = function(file) {
-  //   var videoData = {'user_video[video]': $scope.video};
-  //   console.log(videoData)
-  //   console.log("working")
-  //   file.upload = Upload.upload({
-  //     url: url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id + '/user_videos',
-  //     fields: videoData,
-  //     file: $scope.video,
-  //     fileFormDataName: 'user_video[video]'
-  //   });
-
-  //   file.upload.then(function (response) {
-  //     $timeout(function () {
-  //       file.result = response.data;
-  //     });
-  //   }, function (response) {
-  //     if (response.status > 0)
-  //       $scope.errorMsg = response.status + ': ' + response.data;
-  //   }, function (evt) {
-  //     file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-  //   });
-  // }
-
-  
-
-$scope.call = function() {
-
-console.log($scope.uploadUrl)
-console.log($scope.currentPosition)
-console.log($scope.currentTechnique.technique_type_id)
-console.log($scope.currentTechnique.id)
-
-}
-
-
-
-  // $scope.uploadVideoForm = {}
-  // $scope.uploadVideoForm.create = function(){
-  //   var videoData = {'user_video[video]': $scope.video};
-  //   console.log("working")
-  //   console.log(videoData)
-  //   // ngFileUpload's method to upload a file
-  //   Upload.upload({
-  //     url: url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id + '/user_videos',
-  //     fields: videoData,
-  //     file: $scope.video,
-  //     fileFormDataName: 'user_video[video]'
-  //   }).then(function (resp) {
-  //       console.log(resp);
-  //       console.log('Success ' + resp.config.file.name + 'uploaded. Response: ' + resp.data);
-  //   }, function (resp) {
-  //       console.log('Error status: ' + resp.status);
-  //   }, function (evt) {
-  //       $scope.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-
-  //       console.log('progress: ' + $scope.progressPercentage + '% ' + evt.config.file.name);
-  //   });
-
-  // };
-
-  // UPLOAD VIDEO - DELETE
-
-
-
+  };
 
   // DRAG AND DROP - REORDER INDEX
   $scope.positionSave = function(){
@@ -748,6 +638,7 @@ console.log($scope.currentTechnique.id)
       $scope.smTtypeCol = false;
       $scope.hideText = "inactive";
       $scope.techniqueBack = "inactive";
+      $scope.posText = "posTextActive"
   };
 
 
@@ -756,6 +647,8 @@ console.log($scope.currentTechnique.id)
     $('#upload-form').transloadit({
       wait: true,
       triggerUploadOnFileSelection: true,
+      // formData: true,
+      autoSubmit: false,
       params: {
         auth: { key: "fa210e209ef311e5b9eef92df91aedb4" }, 
         template_id: "e60dffa09f0811e5b0f7ab6259adf54c"
@@ -763,7 +656,12 @@ console.log($scope.currentTechnique.id)
       onSuccess: function(assembly){
           console.log("SUCCESS", assembly);
           // do some stuff
-          alert("SUCCESS")
+          var data = {transloadit: assembly}
+          var json_data = JSON.stringify(data);
+          $http.post($scope.uploadUrl, json_data).success(function(response){
+            console.log(response);
+            $scope.doUploadVideoExist = true;
+          })
       },
       onError: function(assembly){
         console.log("ERROR", assembly);
@@ -799,7 +697,6 @@ console.log($scope.currentTechnique.id)
     }, function () {
     });
   }
-
 
   // EDIT TECHNIQUE NAME
   $scope.newTechNameForm = {};
@@ -837,7 +734,9 @@ console.log($scope.currentTechnique.id)
       $http.delete(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + delete_tech_id + '/user_videos/' + delete_video_id).success(function(response){
         $scope.doUploadVideoExist = false;
         $scope.showUploadVideo = false;
+        if ($scope.doStepsExist == false && $scope.doNotesExist == false) {
         $scope.showMessage = true;
+        };
       });
     });
   };

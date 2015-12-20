@@ -11,38 +11,48 @@
       </div>
     </div>
 
-     <span ng-click="backToTechs()" ng-class="techniqueBack" class="ttype-nav-text small-text hideTextActive"><i class="fa fa-arrow-circle-left back-arrow"></i><span class="" > {{currentPositionName}}</span></span>
+     <span ng-click="backToTechs()" ng-class="techniqueBack" class="ttype-nav-text small-text hideTextActive"><i class="fa fa-arrow-circle-left back-arrow"></i><span class="" > {{currentPositionName}}</span>
+
+      
+
+     </span>
      
-     <div class="navadd">
+     <div class="navadd" ng-hide="addIntNav">
       <form ng-submit="techTypeForm.create()" class="create-ttype">
-        <input focus-me="!posFixed" class="forms-control-tech" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new intention"  maxlength="60">
-        <button type="submit" class="subchck btn submit down-button addTech" ><i class="fa fa-plus"></i></button>
+        <input focus-me="!addIntNav" class="
+        forms-control-tech-edit" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new intention"  maxlength="60">
+        <button type="submit" class="subchck btn submit down-button-nav addTech" ><i class="fa fa-plus"></i></button>
       </form>
     </div>
 
-    <div class="ttype-nav-text">
-      <span ng-class="hideText" ng-show="posFixed">{{currentPositionName}}</span>
+    <div class="ttype-nav-text" ng-class="posText" ng-show="addIntNav">
+      <span ng-class="hideText" class="pos-name-span" ng-show="posFixed">{{currentPositionName}}</span>
         <!-- EDIT DROPDOWN -->
         <span ng-show="!posFixed">
           <form ng-submit="newPosNameForm.create()" class="edit-pos-form">
             <input focus-me="!posFixed"class="forms-control-editPosName" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newPosName" required="required" placeholder="{{currentPositionName}}" maxlength="70">
-            <button type="submit" class="subchck btn submit down-button addTech addStep" >Update</button>
+            <button type="submit" class="subchck btn submit down-button addTech addStep" ><i class="fa fa-pencil"></i></button>
+            <button type="button" ng-click="cancelPosNameChange()" class="btn down-button addTech addStep" ><i class="fa fa-times"></i></button>
           </form>
         </span>
-        <span ng-show="posFixed" class="dropdown" dropdown>
+        <span ng-class="hideText" ng-show="posFixed" class="dropdown" dropdown>
           <a href="" dropdown-toggle>
-            <i class="fa fa-caret-down"></i>
+            <i class="fa fa-caret-down mobile-fix"></i>
           </a>
           <ul class="dropdown-menu" dropdown-menu>
             <li> 
               <a ng-click="editPos()">Edit title</a>
             </li>
+            <li> 
+              <a ng-click="navPosDelete()">Delete Position</a>
+            </li>
           </ul>
         </span>
+        <i class="fa fa-plus add-int mobile-fix" ng-click="addInt()"></i>
       </div>
 
     <!-- sidemenu -->
-    <li ng-class="sideMenu" id="aside-icon" class="pull-right no-touch">
+    <li id="aside-icon" class="pull-right no-touch">
       <span ng-click="openAside('right', false)" href="" class="sidemenu-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></span>
     </li>
 

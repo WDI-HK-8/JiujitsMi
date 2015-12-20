@@ -17,13 +17,18 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', '$uibMod
 
   // MAKE POSITION NAME TRUE
   $scope.posFixed = true;
-
+  $scope.addIntNav = true;
 
   // EDIT POS NAME
   $scope.editPos = function() {
     $scope.posFixed = false;
     console.log("yo");
   };
+
+  $scope.addInt = function() {
+    $scope.addIntNav = false;
+    $scope.posText = "posTextActive";
+  }
 
   $scope.newPosNameForm = {};
   $scope.newPosNameForm.create = function(){
@@ -44,6 +49,11 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', '$uibMod
     });
   };
 
+
+  $scope.cancelPosNameChange = function() {
+      $scope.posFixed = true;
+      $scope.newPosName = null;
+  }
 
   // ASIDE
   $scope.asideState = {
@@ -72,6 +82,7 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', '$uibMod
   // POSITION TOGGLE
   $scope.toggleClass= "inactive"
   $scope.navToggle = function() {
+    $scope.addIntNav = true;
       $scope.navToggleActive = true;
     if ($scope.toggleClass === "inactive") {
       $scope.toggleClass = "toggleClassActive";
@@ -90,8 +101,35 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', '$uibMod
         $scope.sideMenu = "inactive"
       };
     };
-
   };
+
+
+  // DELETE A POSITION from Nav
+  $scope.navPosDelete = function(){
+    // var pos_to_delete = $scope.positions.indexOf(position);
+
+    $http.delete(url + '/positions/' + $scope.currentPosition).success(function(response){
+      // $scope.positions.splice(pos_to_delete, 1);
+      $scope.positionBg = true;
+      $scope.ttechBg = false;
+      $scope.showTechTypes = false;
+      $scope.techTypeInput = false;
+      $scope.currentPositionName = null;
+      $scope.currentPositionName = null;
+      $scope.techTypeInput = false;  
+      $scope.posText = "innactive"
+
+        $scope.positions = [];
+  $http.get(url + '/positions').success(function(response){
+    $scope.positions = response.sort(compare);
+    $scope.positions.sort(compare);
+    // console.log($scope.positions);
+  });
+      // console.log($scope.positions.length)
+      // $scope.positionSave(); 
+    });
+  };
+
 }]);
 
 app.controller('AsideCtrl', ['$scope', '$auth', '$location', '$aside', '$uibModalInstance', function($scope, $auth, $location, $aside, $uibModalInstance) {
