@@ -11,7 +11,7 @@
       <li class="active">
         <form class="add-position-form" dnd-nodrag ng-submit="positionForm.create()">
           <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position" maxlength="60">
-          <button type="submit" class="subchck btn submit down-button addPos" ><i class="fa fa-plus"></i></button>
+          <button type="submit" class="subchck btn submit down-button addPos down-button-overide" ><i class="fa fa-plus"></i></button>
         </form>
       <li>  
     </ul>
@@ -120,6 +120,7 @@
       <span class="ttype-placeholder-text"><strong>Drag and drop to reorder intention</strong></span>
     </div>
   </div>
+  <div class="bottom-intention-block"></div>
 </div>
 
 <!-- TECHNIQUE COLUMN-->  
@@ -244,12 +245,12 @@
         <div class="step-list-container">
           <ul class="nav">
             <li ng-repeat="step in steps" class="step-row">
-              <a><span class="step-text"><span class="step-index">{{$index +1}}.</span>   {{step.instruction}}</span><button ng-click="deleteStep(step)" class="deleteStepRow"><i class="fa fa-times-circle-o"></i></button></a>
+              <a id="step-row-a"><span class="step-text"><span class="step-index">{{$index +1}}.</span>   {{step.instruction}}</span><button ng-click="deleteStep(step)" class="deleteStepRow"><i class="fa fa-times-circle-o"></i></button></a>
             </li>
             <li>
               <form ng-submit="stepForm.create()" class="add-step-form">
-                <input class="forms-control-step forms-control-step-sm" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step" maxlength="1200">
-                <button type="submit" class="subchck btn submit down-button addTech addStep" ><i class="fa fa-plus"></i></button>
+                <input class="forms-control-step forms-control-step-sm" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step..." maxlength="1200">
+<!--                 <button type="submit" class="subchck btn submit down-button addTech addStep" ><i class="fa fa-plus"></i></button> -->
               </form>
             </li>
           </ul>

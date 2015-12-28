@@ -11,7 +11,7 @@
       </div>
     </div>
 
-     <span ng-click="backToTechs()" ng-class="techniqueBack" class="ttype-nav-text small-text hideTextActive"><i class="fa fa-arrow-circle-left back-arrow"></i><span class="" > {{currentPositionName}}</span>
+     <span ng-click="backToTechs()" ng-class="techniqueBack" class="ttype-nav-text ttype-nav-text-overide small-text hideTextActive"><i class="fa fa-arrow-circle-left back-arrow"></i><span class="" > {{currentPositionName}}</span>
 
       
 
@@ -25,7 +25,7 @@
       </form>
     </div>
 
-    <div class="ttype-nav-text" ng-class="posText" ng-show="addIntNav">
+    <div class="ttype-nav-text " ng-class="posText" ng-show="addIntNav">
       <span ng-class="hideText" class="pos-name-span" ng-show="posFixed">{{currentPositionName}}</span>
         <!-- EDIT DROPDOWN -->
         <span ng-show="!posFixed">
@@ -48,7 +48,7 @@
             </li>
           </ul>
         </span>
-        <i class="fa fa-plus add-int mobile-fix" ng-click="addInt()"></i>
+        <i ng-show="posFixed" class="fa fa-plus add-int mobile-fix" ng-click="addInt()"></i>
       </div>
 
     <!-- sidemenu -->

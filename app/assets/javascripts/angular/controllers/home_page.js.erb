@@ -27,6 +27,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
   $scope.currentUploadVideo = '';
   $scope.uploadUrl = "";
   $scope.posText = "posText"
+  $scope.lastPos = ""
 
 
   // BY DEFAULT HIDE ALL CARDS
@@ -160,7 +161,8 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
         $scope.showTechTypes = true;
       };
     });
-  };
+
+
 
   $scope.hideTech = function() {
     // HIDE ANY EXISTING SHOWING TECH
@@ -741,6 +743,20 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
     });
   };
 
+
+  // Update last position
+
+
+  // window.onbeforeunload = closingCode;
+  // function updateLastPosition(){
+  //   data = {last_postion: $scope.currentPosition}
+  //   $auth.updateAccount(data).then(function(response){
+  //     console.log(response)
+  //   });
+  //  return null;
+  // };
+  };
+  
 }]);
 
 

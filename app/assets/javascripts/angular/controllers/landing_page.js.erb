@@ -19,6 +19,7 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
   };
 
   $scope.signup = function(){
+    $scope.signupFail = false;
     $auth.submitRegistration($scope.registrationForm).
       then(function(response){
         //handle success
@@ -40,6 +41,8 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
   // Login
   $scope.loginForm = {};
   $scope.login = function(){
+    $scope.loginFail = false;
+
     $auth.submitLogin($scope.loginForm).
       then(function(response){
         //handle success
