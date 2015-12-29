@@ -5,6 +5,10 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
 /*font-weight: bold;*/
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .dbody {
     background: #fff;
     font-family: Lato, sans-serif;

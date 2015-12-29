@@ -66,12 +66,16 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
     $scope.positions = response.sort(compare);
     $scope.positions.sort(compare);
     // console.log($scope.positions);
+    if ($scope.positions.length >= 1) {
+      $scope.getPosition($scope.positions[0]);
+    } 
   });
+
+
 
   // CREATE NEW POSITION
   $scope.newPosition = {};
   $scope.positionForm = {};
-
 
   $scope.positionForm.create = function(){
     var data = {
@@ -128,12 +132,12 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
       if( $scope.navToggleActive != false){
         $scope.navToggle()
       };
-
-      if ($scope.techSelected != true) {
-        $scope.posText = "posTextActive"
-      };
       $scope.arrow = false;
-    }
+    };
+
+    if ($scope.techSelected != true) {
+      $scope.posText = "posTextActive"
+    };
 
     $scope.currentPositionFull = position;
     $scope.currentPosition = position.id;
@@ -742,19 +746,6 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
       });
     });
   };
-
-
-  // Update last position
-
-
-  // window.onbeforeunload = closingCode;
-  // function updateLastPosition(){
-  //   data = {last_postion: $scope.currentPosition}
-  //   $auth.updateAccount(data).then(function(response){
-  //     console.log(response)
-  //   });
-  //  return null;
-  // };
   };
   
 }]);
