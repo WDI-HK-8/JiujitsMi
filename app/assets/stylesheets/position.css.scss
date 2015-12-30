@@ -39,15 +39,6 @@ html.touch *:hover {
 
 /*navbar*/
 
-
-#aside-icon {
-  /*display: inline-block;*/
-  /*position: absolute;*/
-  /*right: 0px;*/
-  float: right;
-  display: block;
-}
-
 .pos-name-span {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -1819,6 +1810,16 @@ padding-bottom: 60px;
 
 }*/
 
+#aside-icon {
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  /*float: right;*/
+  /*display: block;*/
+}
+
+
+
 @media screen and (max-width: 1281px) {
 
   /*EDIT NAMES*/
@@ -2531,7 +2532,11 @@ padding-bottom: 60px;
     max-width: 110px;
   }
 
-/*  #aside-icon {
-    display: inline;
-  }*/
+  #aside-icon {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    /*float: right;*/
+    /*display: block;*/
+  }
 }
