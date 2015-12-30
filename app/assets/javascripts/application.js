@@ -15,8 +15,8 @@
 //= require angular-bootstrap/ui-bootstrap-tpls.js
 //= require ng-token-auth/dist/ng-token-auth
 //= require angular-cookie/angular-cookie
-//= require jquery/dist/jquery
-//= require bootstrap/dist/js/bootstrap
+//= require jquery/dist/jquery.min
+//= require bootstrap/dist/js/bootstrap.min
 //= require angular-drag-and-drop-lists/angular-drag-and-drop-lists
 //= require angular-animate/angular-animate
 //= require angular-ripple/angular-ripple
