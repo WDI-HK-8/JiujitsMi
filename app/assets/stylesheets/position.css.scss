@@ -41,6 +41,7 @@ html.touch *:hover {
 
 
 #aside-icon {
+  display: inline-block;
   position: absolute;
   right: 0px;
 }
@@ -141,7 +142,6 @@ html.touch *:hover {
 
 /* Top Navigation */
 .top-nav>li {
-  display: inline-block;
 }
 
 .top-nav>li>a {
