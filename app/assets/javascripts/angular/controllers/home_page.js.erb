@@ -669,8 +669,19 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
           // do some stuff
           var data = {transloadit: assembly}
           var json_data = JSON.stringify(data);
+
+
+
+
           $http.post($scope.uploadUrl, json_data).success(function(response){
             console.log(response);
+          
+          $scope.trustSrc = function(src) {
+            return $sce.trustAsResourceUrl(src);
+          };
+            $scope.poster = response.thumb_ssl_url  
+            $scope.new_video_url = response.ssl_url
+
             $scope.doUploadVideoExist = true;
           })
       },
