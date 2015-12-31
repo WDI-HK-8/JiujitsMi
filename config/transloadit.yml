@@ -5,8 +5,8 @@ development:
   # use "v1.0.0" if you need IE6 support (using jQuery < 1.9)
   jquery_sdk_version: 'latest'
   auth:
-    key     : 'YOUR_KEY'
-    secret  : 'YOUR_SECRET' # this is optional, but highly recommended, https://transloadit.com/docs/authentication
+    key     : "<%= ENV['TRANSLOADIT_AUTH_KEY'] %>"
+    secret  : "<%= ENV['TRANSLOADIT_SECRET_KEY'] %>" # this is optional, but highly recommended, https://transloadit.com/docs/authentication
     duration: 1800 # 30 minute validity period for signed upload forms
 
   templates:
@@ -28,8 +28,8 @@ production:
   # use "v1.0.0" if you need IE6 support (using jQuery < 1.9)
   jquery_sdk_version: 'latest'
   auth:
-    key     : 'YOUR_KEY'
-    secret  : 'YOUR_SECRET' # this is optional, but highly recommended, https://transloadit.com/docs/authentication
+    key     : "<%= ENV['TRANSLOADIT_AUTH_KEY'] %>"
+    secret  : "<%= ENV['TRANSLOADIT_SECRET_KEY'] %>" # this is optional, but highly recommended, https://transloadit.com/docs/authentication
     duration: 1800 # 30 minute validity period for signed upload forms
 
   templates:

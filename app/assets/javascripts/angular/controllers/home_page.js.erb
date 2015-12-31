@@ -99,6 +99,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
     $scope.newPosition = null; 
   };
 
+
   // DELETE A POSITION
   $scope.delete = function(position){
     var pos_to_delete = $scope.positions.indexOf(position);
@@ -165,6 +166,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
         $scope.showTechTypes = true;
       };
     });
+  };
 
 
 
@@ -267,6 +269,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
   // delete variables
   var tech_type_to_delete
   var tech_to_delete
+
 
   $scope.getTechnique = function(technique_type, technique){
     // console.log(technique.id)
@@ -607,6 +610,8 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
     };
   };
 
+
+
   // PROFECIENCY
   $scope.profData = {
     repeatSelect: null,
@@ -656,7 +661,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
       // formData: true,
       autoSubmit: false,
       params: {
-        auth: { key: "fa210e209ef311e5b9eef92df91aedb4" }, 
+        auth: { key: "<%= ENV['TRANSLOADIT_AUTH_KEY'] %>" }, 
         template_id: "e60dffa09f0811e5b0f7ab6259adf54c"
       },
       onSuccess: function(assembly){
@@ -675,7 +680,6 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
       }
     });
   });
-
 
   $scope.editTech = function(){
     $scope.techFixed = false;
@@ -745,7 +749,6 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
         };
       });
     });
-  };
   };
   
 }]);
