@@ -3,15 +3,13 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
 
-  // if(!('ontouchstart' in window)){
-  //   console.log("this is a touch device!")
-  //    $('.icons').popover-trigger('destroy');
-  // }
-
+  // remove for touch devices
     if (window.innerWidth <= 1281)  {
-      console.log("HI")
-     $('.icons').removeClass('popover');
-    }
+      var elems = document.querySelectorAll(".no-touch");
+      [].forEach.call(elems, function(el) {
+          el.classList.remove("no-touch");
+      });
+    };
 
 
   // redirect to landing page if user is signed in
