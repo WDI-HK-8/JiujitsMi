@@ -1748,7 +1748,7 @@ padding-bottom: 60px;
   background-color: transparent;
   border-style: none;
   color: #363636;
-  width: 30%;
+  width: 70%;
   height: 34px;
   padding: 6px 12px;
   line-height: 1.42857143;
@@ -2293,6 +2293,15 @@ padding-bottom: 60px;
     width: 200px;
     font-size: 14px;
   }
+
+  .forms-control-tech-edit {
+    width: 75%;
+    font-size: 14px;
+  }
+
+  .navadd {
+    width: 80%;
+  }
   
   /*shrunk down position bar*/
   .posColActive {
@@ -2541,7 +2550,15 @@ padding-bottom: 60px;
     width: 88%;
   }
 
-/*  #aside-icon {
-    display: inline;
-  }*/
+  .forms-control-tech-edit {
+    width: 62%;
+  }
+
+  /*MODAL*/
+  .modal-dialog .modal-content {
+    margin-top: -400px;
+    width: 85%;
+  }
+
+
 }
