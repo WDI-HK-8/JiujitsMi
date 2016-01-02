@@ -755,7 +755,9 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
         $scope.showUploadVideo = false;
         if ($scope.doStepsExist == false && $scope.doNotesExist == false) {
         $scope.showMessage = true;
-        };
+        }
+      }).error(function(response) {
+        console.log(response)
       });
     });
   };

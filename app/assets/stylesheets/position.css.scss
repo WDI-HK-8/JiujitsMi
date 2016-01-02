@@ -1071,6 +1071,7 @@ textarea {
   margin: auto;
   text-align: center;
   margin-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 #upload-form {
@@ -1244,7 +1245,6 @@ padding-bottom: 60px;
   font-size: 12px;
   line-height: 1.42857143;
   border-radius: 8px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 
 .notes-block {
@@ -2372,13 +2372,8 @@ padding-bottom: 60px;
     width: 250px;
   }
 
-
   .step-text {
     width: 89%;
-  }
-
-  #blocker {
-    margin-left: 61%;
   }
 
   .select-style {
@@ -2406,8 +2401,9 @@ padding-bottom: 60px;
   }
 
   #bg-showmessage {
-    margin-top: 25%;
-    width: 65%;
+    margin-top: 15%;
+    margin-bottom: 15%;
+    width: 50%;
   }
 
 
@@ -2416,19 +2412,19 @@ padding-bottom: 60px;
   }
 
   #blocker {
-    margin-left: 54%;
+    margin-left: 66%;
   }
 
   #video {
-    margin-left: 11%
+    margin-left: 8%
   }
 
   #notes {
-    margin-left: 22%;
+    margin-left: 16%;
   }
 
   #steps {
-    margin-left: 33%;
+    margin-left: 24%;
   }
 
 
@@ -2573,6 +2569,22 @@ padding-bottom: 60px;
     line-height: 0.8;
     font-size: 20px;
     text-align: center;
+  }
+
+  #blocker {
+    margin-left: 54%;
+  }
+
+  #video {
+    margin-left: 11%
+  }
+
+  #notes {
+    margin-left: 22%;
+  }
+
+  #steps {
+    margin-left: 33%;
   }
 
 
