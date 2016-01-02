@@ -607,12 +607,13 @@ html.touch *:hover {
 }
 
 .tech-row:hover{
-  z-index:1000;
-  box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
+  background-color: #f5f5f5;
+  /*z-index:1000;*/
+/*  box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
   -webkit-box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
   -moz-box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
   background-color: #fff;  
-  border-top-color: #ececec;
+  border-top-color: #ececec;*/
   -webkit-transition: all 0.1s ease;
   -moz-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
@@ -630,7 +631,7 @@ html.touch *:hover {
 }
 
 .tech-a:hover, .tech-a:focus {
-  background-color: #fff
+  background-color: #f5f5f5
 }
 
 .forms-control-tech {
