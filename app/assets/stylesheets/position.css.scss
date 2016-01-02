@@ -731,7 +731,8 @@ input:focus {
 
 .add-step-form {
   width: 100%;
-  float: left;  
+  float: left;
+  height: 30px;  
 }
 
 .deleteTechRow {
@@ -829,9 +830,9 @@ input:focus {
 .right-card-header {
   background-color: #fff;
   color: #6d6d6d;
-  height: 50px;  
+  height: 55px;  
   font-family: Tahoma, Geneva, sans-serif;
-  font-size: 21px;
+  font-size: 20px;
   text-align: center;
   padding-top: 10px;
   border-top-left-radius: 3px;
@@ -1374,7 +1375,7 @@ padding-bottom: 60px;
 .placeholder-text {
   position: absolute;
   font-weight: bold;
-  margin-left: 9%;
+  margin-left: 7%;
   margin-top: 8px;
   color: #f0f0f0;
 }
@@ -1469,6 +1470,7 @@ padding-bottom: 60px;
   margin-right: auto;
   text-align: center;
   margin-top: 8px;
+  padding-top: 10px;
   color: #fff;
 }
 
@@ -1748,9 +1750,8 @@ padding-bottom: 60px;
   background-color: transparent;
   border-style: none;
   color: #363636;
-  width: 70%;
+  width: 50%;
   height: 34px;
-  padding: 6px 12px;
   line-height: 1.42857143;
     -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
@@ -2402,7 +2403,7 @@ padding-bottom: 60px;
 
   #bg-showmessage {
     margin-top: 15%;
-    margin-bottom: 15%;
+    padding-bottom: 15%;
     width: 50%;
   }
 

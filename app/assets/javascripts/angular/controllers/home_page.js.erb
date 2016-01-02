@@ -351,7 +351,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
         };
         vidURL = $scope.currentTechnique.video_url;
         vidID = vidURL.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
-        $scope.vidSRC = "http://www.youtube.com/embed/" + vidID[1];
+        $scope.vidSRC = "https://www.youtube.com/embed/" + vidID[1];
       };
       $scope.resetDropDown();
     });
@@ -528,7 +528,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
           alert("The youtube url is not valid.");
         };
 
-        $scope.vidSRC = "http://www.youtube.com/embed/" + vidID[1];
+        $scope.vidSRC = "https://www.youtube.com/embed/" + vidID[1];
         $scope.doVideoExist = true;
 
       $http.get(url + '/positions/' + $scope.currentPosition + '/technique_types/' +$scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id).success(function(response){

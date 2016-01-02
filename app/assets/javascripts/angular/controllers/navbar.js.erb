@@ -55,6 +55,12 @@ app.controller('NavbarCtrl', ['$scope', '$auth', '$location', '$aside', '$uibMod
       $scope.newPosName = null;
   }
 
+  $scope.cancelTechNameChange = function() {
+      $scope.techFixed = true;
+      $scope.newPosName = null;
+  }
+
+
   // ASIDE
   $scope.asideState = {
     open: false
