@@ -37,7 +37,7 @@
           <div class="col-md-5 col-sm-5">
             <div class="vertical-registration-form">
             <div ng-show="loginFail" class="alert alert-danger" id="loginFail" role="alert">Your username or password is not correct</div>
-              <form class="registration-form" ng-submit="login()">
+              <form autocomplete="off" class="registration-form" ng-submit="login()">
                 <div class="form-group">
                   <input id="name" type="email" name="email" ng-model="loginForm.email" required="required"class="optin-input" placeholder="&#xf0e0;   Email">
                 </div>
@@ -181,7 +181,7 @@
             <ul>
               <li>
               <div ng-show="signupFail" ng-repeat="errorMessage in errorMessages" class="alert alert-danger" id="signupFail" role="alert">{{ errorMessage }}</div>
-              <form class="registration-form" ng-submit="signup()" >
+              <form autocomplete="off" class="registration-form" ng-submit="signup()" >
                 <div class="form-group">
                   <input id="full-name" type="text" name="full-name" ng-model="registrationForm.name" required="required" class="signup-text" placeholder=" &#xf007;   Full Name">
                 </div>

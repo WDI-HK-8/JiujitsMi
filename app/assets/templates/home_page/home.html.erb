@@ -9,7 +9,7 @@
 
     <ul ng-class="posCol" class="addposition">
       <li class="active">
-        <form class="add-position-form" dnd-nodrag ng-submit="positionForm.create()">
+        <form autocomplete="off" class="add-position-form" dnd-nodrag ng-submit="positionForm.create()">
           <input class="forms-control" type="text" name="name" ng-model="newPosition.name" required="required" placeholder="Add a new position" maxlength="60">
           <button type="submit" class="subchck btn submit down-button addPos down-button-overide" ><i class="fa fa-plus"></i></button>
         </form>
@@ -41,7 +41,7 @@
   <!-- TTYPE HEADDER -->
 <!--   <div ng-class="{'ttypeColActive': ttypeCol == true, 'smTtypeColActive': smTtypeCol == true } " class="ttype-head">
     <span class="ttype-text">{{currentPositionName}}</span>
-    <form ng-submit="techTypeForm.create()" class="create-ttype">
+    <form autocomplete="off" ng-submit="techTypeForm.create()" class="create-ttype">
       <input class="forms-control-tech" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new intention"  maxlength="60">
       <button type="submit" class="subchck btn submit down-button addTech" ><i class="fa fa-plus"></i></button>
     </form>
@@ -108,7 +108,7 @@
         </li>
 
         <li>
-          <form ng-submit="techForm.create(technique_type)" class="add-tech-form">
+          <form autocomplete="off" ng-submit="techForm.create(technique_type)" class="add-tech-form">
             <input class="forms-control-tech" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTech.name" required="required" placeholder="Add a new technique..."  maxlength="60">
             <button type="submit" class="subchck btn submit down-button addTech addTech-fix" ><i class="fa fa-plus"></i></button>
           </form>
@@ -141,10 +141,12 @@
     <div class="right-card-header">
       <span ng-show="techFixed">{{currentTechnique.name}}</span>
       <span ng-show="!techFixed">
-        <form ng-submit="newTechNameForm.create()" class="add-step-form">
+        <form autocomplete="off" ng-submit="newTechNameForm.create()" class="add-step-form">
           <input focus-me="!techFixed"class="forms-control-editName" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTechName" required="required" placeholder="{{currentTechnique.name}}" maxlength="70">
+        
           <button type="submit" class="subchck btn submit down-button addTech addStep" ><i class="fa fa-pencil"></i></button>
           <button type="button" ng-click="cancelTechNameChange()" class="btn down-button addTech addStep" ><i class="fa fa-times"></i></button>
+
         </form>
       </span>
       <span ng-show="techFixed" class="dropdown" dropdown>
@@ -207,7 +209,7 @@
       </iframe></div>
       
       <!-- VIDEO INPUT -->
-      <form ng-show="!doVideoExist" ng-submit="videoForm.create()" class="add-video-form">
+      <form autocomplete="off" ng-show="!doVideoExist" ng-submit="videoForm.create()" class="add-video-form">
         <h4 id="youtube-label">Add a Youtube video </h4>
         <input class="forms-control-video" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newVideo" required="required" placeholder="e.g. http://www.youtube.com/watch?v=YaNLxS2-HEY">
         <button type="submit" class="subchck btn submit down-button addTech" ><i class="fa fa-plus"></i></button>
@@ -220,7 +222,7 @@
       <div class="video-upload-box" ng-show="!doUploadVideoExist">
 
         <h4>Upload a video:</h4>
-        <form id="upload-form" enctype="multipart/form-data">
+        <form autocomplete="off" id="upload-form" enctype="multipart/form-data">
           <input type="file" name="my_file" accept="video/*" /> 
         </form>
       </div>
@@ -249,7 +251,7 @@
               <a id="step-row-a"><span class="step-text"><span class="step-index">{{$index +1}}.</span>   {{step.instruction}}</span><button ng-click="deleteStep(step)" class="deleteStepRow"><i class="fa fa-times-circle-o"></i></button></a>
             </li>
             <li>
-              <form ng-submit="stepForm.create()" class="add-step-form">
+              <form autocomplete="off" ng-submit="stepForm.create()" class="add-step-form">
                 <input class="forms-control-step forms-control-step-sm" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newStep" required="required" placeholder="Add a new step..." maxlength="1200">
 <!--                 <button type="submit" class="subchck btn submit down-button addTech addStep" ><i class="fa fa-plus"></i></button> -->
               </form>
@@ -264,7 +266,7 @@
         <button ng-if="doNotesExist" ng-click="editNotesBtn()" class="subchck btn submit down-button edit-notes" >Edit Notes</button>
         <button  class="deleteVideoBtn subchck btn submit down-button" ng-click="deleteNotes()">Delete notes</button>
       </div>
-      <form ng-submit="notesForm.create()">
+      <form autocomplete="off" ng-submit="notesForm.create()">
         <textarea class="notes-textarea" ng-readonly="doNotesExist" rows="5" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="2000" id="text"></textarea>
         <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addNotes" ><b>Add Notes</b></button>
       </form>
