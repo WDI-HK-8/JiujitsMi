@@ -27,11 +27,15 @@
 }
 
 .element-span {
+  display: inline-block;
+  width: 60%;
   font-size: 20px;
+  overflow: hidden;
 }
 
 .change-link {
   float: right;
+  padding-top: 5px;
 }
 
 .profile-icon {
@@ -68,25 +72,42 @@
   padding: 15px 15px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1281px) {
   .profile-details {
-  margin-top: 50px;
-  margin-left: 0%; 
-  height: 400px;
+  /*margin-top: 50px;*/
+  margin-left: 17%; 
+  /*height: 400px;*/
   }
+
+
+  .delete-profile-btn {
+    background-color: #ff2f00;
+    float: right;
+  }
+
+  .profile-input {
+    width: 70%;
+  }
+
 }
 
-.delete-profile-btn {
-  background-color: #ff2f00;
-  float: right;
-}
+@media screen and (max-width: 767px)  {
 
-@media screen and (max-width: 768px)  {
+  .profile-details {
+    /*margin-top: 50px;*/
+    margin-left: 0%; 
+    /*height: 400px;*/
+  }
+
 
   .delete-profile-btn {
     background-color: #ff2f00;
     float: left;
     margin-top: 40px;
     margin-left: -40px;
+  }
+
+  .element-span {
+    width: 60%;
   }
 }
