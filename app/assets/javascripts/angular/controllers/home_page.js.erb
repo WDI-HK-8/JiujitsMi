@@ -126,6 +126,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
   $scope.getPosition = function(position){
 
     $scope.proficiencySelect = false;
+    $scope.addIntNav = true;
 
     if (window.innerWidth <= 1281) {
       if( $scope.navToggleActive != false){
