@@ -756,9 +756,9 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
         if ($scope.doStepsExist == false && $scope.doNotesExist == false) {
         $scope.showMessage = true;
         }
-      }).error(function(response) {
-        console.log(response)
       });
+    }).error(function(response) {
+      console.log(response)
     });
   };
   
