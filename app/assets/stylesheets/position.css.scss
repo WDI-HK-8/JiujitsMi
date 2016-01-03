@@ -982,6 +982,11 @@ textarea {
   color: white;
 }
 
+.deleteStepRow:focus {
+  outline:none;
+  box-shadow:none;
+}
+
 
 #blocker {
   margin-left: 64%;
