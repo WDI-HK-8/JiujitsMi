@@ -110,7 +110,10 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
       $scope.techTypeInput = false;
       $scope.currentPositionName = null;
       $scope.currentPositionName = null;
-      $scope.techTypeInput = false;  
+      $scope.techTypeInput = false; 
+      // $scope.addIntNav = false;
+      $scope.posText = "innactive";
+
       // console.log($scope.positions.length)
       $scope.positionSave(); 
     });
@@ -280,6 +283,8 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
     $scope.showMessage = true;
     $scope.posFixed = true;
     $scope.addIntNav = true;
+    $scope.techFixed = true;
+    $scope.newTechName = null;
 
 
     if (window.innerWidth <= 768) {

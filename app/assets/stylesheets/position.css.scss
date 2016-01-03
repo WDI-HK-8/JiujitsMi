@@ -607,7 +607,7 @@ html.touch *:hover {
 }
 
 .tech-row:hover{
-  z-index:1000;
+  z-index:999;
   box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
   -webkit-box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
   -moz-box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
@@ -1510,6 +1510,17 @@ padding-bottom: 60px;
   font-size: 18px;
 }
 
+.edit-ttype-title {
+  line-height: 0.8;
+  font-size: 20px;
+  text-align: center;
+}
+
+.edit-ttype-body {
+  height: 70px;
+  text-align: center;
+}
+
 @media screen and (min-width: 768px) { 
   .modal:before {
     display: inline-block;
@@ -1756,6 +1767,10 @@ padding-bottom: 60px;
     -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
+}
+
+.edit-ttype-cancel {
+  margin-top: 20px;
 }
 
 /*EDIT NAMES*/
@@ -2255,13 +2270,6 @@ padding-bottom: 60px;
   .modal-dialog .modal-content {
     width: 340px;
   }
-
-  .edit-ttype-title {
-    line-height: 0.8;
-    font-size: 20px;
-    text-align: center;
-  }
-
 
   /*TRANSITIONS*/
   .newtech-head {

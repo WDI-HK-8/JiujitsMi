@@ -28,7 +28,7 @@
       <!-- NAME -->
         <li class="profile-element"><i class="fa fa-user profile-icon"></i><span class="element-span">{{authName}}</span><a ng-click="showName()"href=""class="change-link">Change Name</a>
           <div ng-show="showNameInput">
-            <form role="form" ng-submit="editAccount()" >
+            <form autocomplete="off" role="form" ng-submit="editAccount()" >
               <input ng-model='editAccountForm.name' type="text" name="text" class="profile-input profile-input-top" placeholder="Enter your selected name"></input>
               <hr>
               <button type="submit" class="btn1 btn-top btn-lg profile-btn">Update</button>
@@ -39,7 +39,7 @@
         <li class="profile-element"><i class="fa fa-envelope profile-icon"></i><span class="element-span">{{authEmail}}</span><a ng-click="showEmail()"href=""class="change-link">Change Email</a>
           <div ng-show="showEmailInput">
             <div ng-show="updateFail" ng-repeat="errorMessage in errorMessages" class="alert alert-danger" id="signupFail" role="alert">{{ errorMessage }}</div>
-            <form role="form" ng-submit="editAccount()" >
+            <form autocomplete="off" role="form" ng-submit="editAccount()" >
               <input ng-model='editAccountForm.email' type="email" name="email" class="profile-input profile-input-top" placeholder="Enter your new email address"></input>
               <hr>
               <button type="submit" class="btn1 btn-top btn-lg profile-btn" >Update</button>
@@ -50,7 +50,7 @@
         <li class="profile-element-last"><i class="fa fa-lock profile-icon"></i><span id="pw-block">  ********</span><a ng-click="showPassword()" href=""class="change-link">Change Password</a>
          <div ng-show="showPasswordInput">
           <div ng-show="updateFail" ng-repeat="errorMessage in errorMessages" class="alert alert-danger" id="signupFail" role="alert">{{ errorMessage }}</div>
-            <form role="form" ng-submit="editAccount()" >
+            <form autocomplete="off" role="form" ng-submit="editAccount()" >
               <input ng-model='editAccountForm.current_password' type="password" name="current-password" class="profile-input profile-input-top" placeholder="Enter your current password"></input>
               <hr>
               <input ng-model='editAccountForm.password' type="password" name="new-password" placeholder="Enter your new password" class="profile-input"></input>

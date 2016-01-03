@@ -1,10 +1,20 @@
 <div class="modal-header">
     <h3 class="modal-title edit-ttype-title">Enter a new title</h3>
 </div>
-<div class="modal-body">
-        <form ng-submit="newTtypeNameForm.create()" class="add-step-form">
-          <input class="forms-control-editName" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTtypeName" required="required" placeholder="{{placeholder}}" maxlength="70">
-          <button ng-click="ok()" type="submit" class="subchck btn submit down-button addTech addStep" >Update</button>
-        </form>
-    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+<div class="modal-body edit-ttype-body">
+  <form autocomplete="off" ng-submit="newTtypeNameForm.create()" class="add-step-form">
+    <input class="forms-control-editName" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTtypeName" required="required" placeholder="{{placeholder}}" maxlength="70">
+
+
+    <button ng-click="ok()" type="submit" class="subchck btn submit down-button addTech addStep" ><i class="fa fa-pencil"></i></button>
+    
+    <button type="button" ng-click="cancel()" class="btn down-button addTech addStep" ><i class="fa fa-times"></i></button>
+
+
+    <!-- <button ng-click="ok()" type="submit" class="subchck btn submit down-button addTech addStep" >Update</button> -->
+  </form>
+<!-- <button class="btn btn-warning edit-ttype-cancel" type="button" ng-click="cancel()">Cancel</button> -->
+
+
+
 </div>
