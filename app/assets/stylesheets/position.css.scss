@@ -650,7 +650,7 @@ html.touch *:hover {
   color: #363636;
   width: 250px;
   height: 34px;
-  padding: 25px 12px;
+  /*padding: 25px 12px;*/
   font-size: 16px;
   line-height: 1.42857143;
   border-radius: 8px;
@@ -733,7 +733,9 @@ input:focus {
 
 .add-tech-form {
   float: left;
-  margin-left: 20px;
+  margin-left: 30px;
+  padding-top: 5px;
+  padding-bottom: 8px;
 }
 
 .add-step-form {
@@ -1061,6 +1063,9 @@ textarea {
   transition: all 0.15s ease-in;
 }
 
+input:invalid {
+    box-shadow: none;
+}
 
 .button {
   position: absolute;

@@ -738,33 +738,38 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
   // DELETE UPLOAD VIDEO
   $scope.deleteUploadVideo = function() {
 
-    var data = {
-      user_id: $scope.authResponse.$$state.value.id,
-      technique_id: $scope.currentUploadVideo.technique_id,
-      video_id: $scope.currentUploadVideo.id,
-      name: $scope.currentUploadVideo.name,
-      size:  $scope.currentUploadVideo.size,
-      ssl_url:  $scope.currentUploadVideo.ssl_url,
-      thumb_name:  $scope.currentUploadVideo.thumb_name,
-      thumb_size:  $scope.currentUploadVideo.thumb_size,
-      thumb_ssl_url:  $scope.currentUploadVideo.thumb_ssl_url
-    }
+    if ($scope.doUploadVideoExist == false){
+      $scope.showUploadVideo = false;
+    } else {
 
-    $http.post(url + '/delete_user_videos', data).success(function(response){
-      console.log(response);
-      var delete_video_id = response.video_id;
-      var delete_tech_id = response.technique_id;
+      var data = {
+        user_id: $scope.authResponse.$$state.value.id,
+        technique_id: $scope.currentUploadVideo.technique_id,
+        video_id: $scope.currentUploadVideo.id,
+        name: $scope.currentUploadVideo.name,
+        size:  $scope.currentUploadVideo.size,
+        ssl_url:  $scope.currentUploadVideo.ssl_url,
+        thumb_name:  $scope.currentUploadVideo.thumb_name,
+        thumb_size:  $scope.currentUploadVideo.thumb_size,
+        thumb_ssl_url:  $scope.currentUploadVideo.thumb_ssl_url
+      }
 
-      $http.delete(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + delete_tech_id + '/user_videos/' + delete_video_id).success(function(response){
-        $scope.doUploadVideoExist = false;
-        $scope.showUploadVideo = false;
-        if ($scope.doStepsExist == false && $scope.doNotesExist == false) {
-        $scope.showMessage = true;
-        }
+      $http.post(url + '/delete_user_videos', data).success(function(response){
+        console.log(response);
+        var delete_video_id = response.video_id;
+        var delete_tech_id = response.technique_id;
+
+        $http.delete(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + delete_tech_id + '/user_videos/' + delete_video_id).success(function(response){
+          $scope.doUploadVideoExist = false;
+          $scope.showUploadVideo = false;
+          if ($scope.doStepsExist == false && $scope.doNotesExist == false && $scope.showNotes == false && $scope.showSteps == false) {
+          $scope.showMessage = true;
+          }
+        });
+      }).error(function(response) {
+        console.log(response)
       });
-    }).error(function(response) {
-      console.log(response)
-    });
+    };
   };
   
 }]);
