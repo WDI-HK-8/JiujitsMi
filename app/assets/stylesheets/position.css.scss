@@ -387,6 +387,11 @@ html.touch *:hover {
   border-color: transparent;
 }
 
+.deletePos:focus {
+  outline:none;
+  box-shadow:none;
+}
+
 .position-a:hover .deletePos {
   padding-top: 6px;
   display: block;
@@ -445,7 +450,7 @@ html.touch *:hover {
   overflow-x: hidden;
   padding-bottom: 40px;
   font-family: Lato;
-  z-index: -1;
+  /*z-index: -1;*/
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
@@ -885,8 +890,13 @@ textarea {
   transition: all 0.15s ease;
 }
 
+.addNotes:focus {
+  outline:none;
+  box-shadow:none;
+}
+
 .step-container {
-  padding-bottom: 10px;
+  padding-bottom: 25px;
   margin-top: 10px;
   
 }
@@ -1209,7 +1219,7 @@ padding-bottom: 60px;
 .editVideo {
   margin-right: 10px;
   margin-bottom: -90px;
-  color: #c1bfbf;
+  color: #a5a5a5;
   background-color: white;
   border-color: white;
   padding-left: 0px;
@@ -1274,7 +1284,7 @@ padding-bottom: 60px;
 
 .notes-block {
   margin-top: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 70px;
 }
 
 .notes-textarea {
