@@ -620,9 +620,10 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
   $scope.profData = {
     repeatSelect: null,
     availableOptions: [
-      {id: '1', name: 'Very good'},
-      {id: '2', name: 'Needs practice'},
-      {id: '3', name: 'To be learned'}
+      {id: '1', name: 'My go to move'},
+      {id: '2', name: 'Still needs work'},
+      {id: '3', name: 'Started learning'},
+      {id: '4', name: 'To be learned'}
     ],
    };
 
@@ -674,9 +675,6 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
           var data = {transloadit: assembly}
           var json_data = JSON.stringify(data);
 
-
-
-
           $http.post($scope.uploadUrl, json_data).success(function(response){
             console.log(response);
           
@@ -685,7 +683,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
           };
             $scope.poster = response.thumb_ssl_url  
             $scope.new_video_url = response.ssl_url
-
+            $scope.currentUploadVideo = response
             $scope.doUploadVideoExist = true;
           })
       },
@@ -753,6 +751,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
     }
 
     $http.post(url + '/delete_user_videos', data).success(function(response){
+      console.log(response);
       var delete_video_id = response.video_id;
       var delete_tech_id = response.technique_id;
 

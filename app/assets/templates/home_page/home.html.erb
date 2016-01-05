@@ -57,71 +57,73 @@
       </a>
     </div>
     <div ng-show="ttechBg">
-      <a ng-init="imgsrc5='<%= image_path('addTechType4.png') %>'">
+      <a ng-init="imgsrc5='<%= image_path('addTechType4.png') %>'" ng-click="addInt()">
         <img id="bg-addposition" ng-src="{{imgsrc5}}">
       </a>
     </div>
   </div>
 
-<!-- TECHNIQUE TYPE  COLUMN-->
-<div ng-class="{'smTtypeColActive': smTtypeCol == true } " class="ttype-capsule" ng-show="showTechTypes">
-  <!-- TECHNIQUE CARDS -->
-  <div ng-show="currentPosition" 
-  dnd-list="technique_types" 
-  dnd-allowed-types="technique_types" 
-  class="tnav">
-    <div class="ttype-card-container" ng-repeat="technique_type in technique_types" 
-    dnd-draggable="technique_type" 
-    dnd-type="technique_type"
-    dnd-moved="technique_types.splice($index, 1); ttypeSave()" 
-    dnd-effect-allowed="move" 
-    dnd-selected="models.selected = technique_type">
-
-      <div class="ttype-card-header" >
-        <span class="handle ttypespan"><i class="fa fa-ellipsis-v"></i></span>
-        <div class="title">
-          <span  dnd-nodrag>{{ technique_type.name}}</span>
-          <!-- EDIT DROPDOWN -->
-          <span class="dropdown" dropdown>
-            <a href="" class="no-touch" dropdown-toggle>
-              <i class="fa fa-caret-down"></i>
-            </a>
-            <ul class="dropdown-menu" dropdown-menu>
-              <li> 
-                <a ng-click="editTtype(technique_type)">Edit title</a>
-              </li>
-              <li>
-                <a ng-really-message="Are you sure you want to delete this intention?"  ng-really-click="deleteTechType(technique_type)">Delete</a>
-              </li>
-            </ul>
-          </span>
+  <!-- TECHNIQUE TYPE  COLUMN-->
+  <div ng-class="{'smTtypeColActive': smTtypeCol == true } " class="ttype-capsule" ng-show="showTechTypes">
+    <!-- TECHNIQUE CARDS -->
+    <div ng-show="currentPosition" 
+      dnd-list="technique_types" 
+      dnd-allowed-types="technique_types" 
+      class="tnav">
+      <div class="ttype-card-container" ng-repeat="technique_type in technique_types" 
+        dnd-draggable="technique_type" 
+        dnd-type="technique_type"
+        dnd-moved="technique_types.splice($index, 1); ttypeSave()" 
+        dnd-effect-allowed="move" 
+        dnd-selected="models.selected = technique_type">
+        <div class="ttype-card-header">
+            <span class="handle ttypespan"><i class="fa fa-ellipsis-v"></i></span>
+            <div class="title">
+              <span  dnd-nodrag>{{ technique_type.name}}</span>
+              <!-- EDIT DROPDOWN -->
+              <span class="dropdown" dropdown>
+                <a href="" class="no-touch" dropdown-toggle>
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu" dropdown-menu>
+                  <li> 
+                    <a ng-click="editTtype(technique_type)">Edit title</a>
+                  </li>
+                  <li>
+                    <a ng-really-message="Are you sure you want to delete this intention?"  ng-really-click="deleteTechType(technique_type)">Delete</a>
+                  </li>
+                </ul>
+              </span>
+            </div>
         </div>
+        <ul class="nav ttype-card-hover" dnd-list="technique_type.techniques" dnd-allowed-types="technique_type.techniques">
+            <li ng-repeat="technique in technique_type.techniques" dnd-draggable="technique" dnd-moved="technique_type.techniques.splice($index, 1); techniqueSave()" dnd-effect-allowed="move" dnd-selected="models.selected = technique" dnd-type="technique" class="tech-row">
+              <span class="tech-a" angular-ripple href="" ng-click="getTechnique(technique_type, technique)"><span class="handle techspan"><i class="fa fa-ellipsis-v"></i><i class="fa fa-ellipsis-v"></i></span><span dnd-nodrag> {{technique.name}}</span><div ng-class="{
+              'prof-color5': technique.proficiency === null,
+              'prof-color4': technique.proficiency === '4',
+              'prof-color3': technique.proficiency === '3', 
+              'prof-color2': technique.proficiency === '2', 
+              'prof-color1': technique.proficiency === '1'}"></div></span>
+            </li>
+
+            <li class="dndPlaceholder">
+              <span class="tech-placeholder-text"><strong>Drag and drop to reorder technique</strong></span>
+            </li>
+
+            <li>
+              <form autocomplete="off" ng-submit="techForm.create(technique_type)" class="add-tech-form">
+                <input class="forms-control-tech" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTech.name" required="required" placeholder="Add a new technique..."  maxlength="60">
+                <button type="submit" class="subchck btn submit down-button addTech addTech-fix" ><i class="fa fa-plus"></i></button>
+              </form>
+            </li>
+        </ul>
       </div>
-
-      <ul class="nav ttype-card-hover" dnd-list="technique_type.techniques" dnd-allowed-types="technique_type.techniques">
-        <li ng-repeat="technique in technique_type.techniques" dnd-draggable="technique" dnd-moved="technique_type.techniques.splice($index, 1); techniqueSave()" dnd-effect-allowed="move" dnd-selected="models.selected = technique" dnd-type="technique" class="tech-row">
-          <span class="tech-a" angular-ripple href="" ng-click="getTechnique(technique_type, technique)"><span class="handle techspan"><i class="fa fa-ellipsis-v"></i><i class="fa fa-ellipsis-v"></i></span><span dnd-nodrag> {{technique.name}}</span><div ng-class="{'prof-color4': technique.proficiency === null, 'prof-color3': technique.proficiency === '3', 'prof-color2': technique.proficiency === '2', 'prof-color1': technique.proficiency === '1'}"></div></span>
-        </li>
-
-        <li class="dndPlaceholder">
-          <span class="tech-placeholder-text"><strong>Drag and drop to reorder technique</strong></span>
-        </li>
-
-        <li>
-          <form autocomplete="off" ng-submit="techForm.create(technique_type)" class="add-tech-form">
-            <input class="forms-control-tech" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTech.name" required="required" placeholder="Add a new technique..."  maxlength="60">
-            <button type="submit" class="subchck btn submit down-button addTech addTech-fix" ><i class="fa fa-plus"></i></button>
-          </form>
-        </li>
-      </ul>
+      <div class="dndPlaceholder">
+        <span class="ttype-placeholder-text"><strong>Drag and drop to reorder intention</strong></span>
+      </div>
     </div>
-
-    <div class="dndPlaceholder">
-      <span class="ttype-placeholder-text"><strong>Drag and drop to reorder intention</strong></span>
-    </div>
+    <div class="bottom-intention-block"></div>
   </div>
-  <div class="bottom-intention-block"></div>
-</div>
 
 <!-- TECHNIQUE COLUMN-->  
 <div class="technique-capsule" ng-show="showTechTypes">
@@ -188,8 +190,6 @@
     </div>
   </div>
 
-
-
     <!-- MESSAGE IF NO DETAILS -->
     <div ng-show="showMessage">
       <a ng-init="imgsrc7='<%= image_path('addTechDetails3.png') %>'">
@@ -210,7 +210,8 @@
       
       <!-- VIDEO INPUT -->
       <form autocomplete="off" ng-show="!doVideoExist" ng-submit="videoForm.create()" class="add-video-form">
-        <h4 id="youtube-label">Add a Youtube video </h4>
+        <h4 id="youtube-label">Add a Youtube video</h4>
+        <h5> Copy and paste the link directly from your browser</h5>
         <input class="forms-control-video" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newVideo" required="required" placeholder="e.g. http://www.youtube.com/watch?v=YaNLxS2-HEY">
         <button type="submit" class="subchck btn submit down-button addTech" ><i class="fa fa-plus"></i></button>
       </form>
@@ -268,7 +269,7 @@
       </div>
       <form autocomplete="off" ng-submit="notesForm.create()">
         <textarea class="notes-textarea" ng-readonly="doNotesExist" rows="5" type="text" ng-model="newNotes" required="required" placeholder="Add any other notes you might have" maxlength="2000" id="text"></textarea>
-        <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addNotes" ><b>Add Notes</b></button>
+        <button ng-if="!doNotesExist" type="submit" class="subchck btn submit down-button addNotes" ><b>Save Notes</b></button>
       </form>
     </div>
   </div>

@@ -363,16 +363,16 @@ html.touch *:hover {
 }
 
 .addPos:hover {
-  border-color: #99d4d1;
+  border-color: #02ceff;
   transform: scale(1.05);
-  color: #99d4d1;
+  color: #02ceff;
   -webkit-transition: all 0.15s ease-in;
   -moz-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
 }
 
 .addPos:hover .fa-plus{
-  color: #99d4d1;
+  color: #02ceff;
   transform: scale(1.2);
   -webkit-transition: all 0.15s ease-in;
   -moz-transition: all 0.15s ease-in;
@@ -421,7 +421,7 @@ html.touch *:hover {
 }
 
 .position-a:hover .positionspan:hover {
-  color: #99d4d1;
+  color: #02ceff;
   transform: scale(1.4);
   -webkit-transition: all 0.15s ease-in;
   -moz-transition: all 0.15s ease-in;
@@ -527,7 +527,7 @@ html.touch *:hover {
 }
 
 .bottom-intention-block {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .ttype-card-header {
@@ -567,7 +567,7 @@ html.touch *:hover {
 }
 
 .ttype-card-header:hover .ttypespan:hover {
-  color: #99d4d1;
+  color: #02ceff;
   -webkit-transition: all 0.15s ease;
   -moz-transition: all 0.15s ease;
   transition: all 0.15s ease;
@@ -606,13 +606,15 @@ html.touch *:hover {
   border-top-color: #fff;
 }
 
-.tech-row:hover{
-  z-index:999;
+.tech-row:hover .tech-a{
+/*  z-index:999;
   box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
   -webkit-box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
   -moz-box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
   background-color: #fff;  
-  border-top-color: #ececec;
+  border-top-color: #ececec;*/
+  color: #02ceff;
+  font-weight: 900;
   -webkit-transition: all 0.1s ease;
   -moz-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
@@ -700,16 +702,16 @@ html.touch *:hover {
 
 
 .addTech:hover {
-  border-color: #99d4d1;
+  border-color: #02ceff;
   transform: scale(1.05);
-  color: #99d4d1;
+  color: #02ceff;
   -webkit-transition: all 0.15s ease-in;
   -moz-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
 }
 
 .addTech:hover .fa-plus{
-  color: #99d4d1;
+  color: #02ceff;
   transform: scale(1.3);
   -webkit-transition: all 0.15s ease-in;
   -moz-transition: all 0.15s ease-in;
@@ -750,8 +752,9 @@ input:focus {
   color: #fff;
 }
 
+/*my go to*/
 .prof-color1 {
-  background-color: #53ff5f;
+  background-color: #9954c9;
   width: 15px;
   margin-top: -10px;
   margin-right: -15px;
@@ -759,15 +762,28 @@ input:focus {
   float: right;
 }
 
+/*still needs work*/
 .prof-color2 {
-  background-color: #ffc24f;
+  background-color: #c5fb2a;
   width: 15px;  
   margin-top: -10px;
   margin-right: -15px;
   height: 48px;
   float: right;
 }
+
+/*started learning*/
 .prof-color3 {
+  background-color: #fbf22a;
+  width: 15px;
+  margin-top: -10px;
+  margin-right: -15px;
+  height: 48px;
+  float: right;
+}
+
+/*To be learned*/
+.prof-color4{
   background-color: #ddd;
   width: 15px;
   margin-top: -10px;
@@ -776,7 +792,8 @@ input:focus {
   float: right;
 }
 
-.prof-color4{
+
+.prof-color5{
   background-color: white;
   width: 15px;
   margin-top: -10px;
@@ -861,9 +878,11 @@ textarea {
 }
 
 .addNotes:hover {
-  background-color: #f2f0f0;
-  border-color: #c1bfbf;
-  color: #c1bfbf;
+  border-color: #02ceff;
+  color: #02ceff;
+  -webkit-transition: all 0.15s ease;
+  -moz-transition: all 0.15s ease;
+  transition: all 0.15s ease;
 }
 
 .step-container {
@@ -1020,12 +1039,12 @@ textarea {
 .icons {
   position: absolute;
   font-size: 30px !important;
-  color: #c3c3c3;
+  color: #a0afb2;
 }
 
 
 .no-touch .icons:hover {
-  color: #99d4d1;
+  color: #02ceff;
   transform: scale(1.3);
   -webkit-transition: all 0.15s ease-in;
   -moz-transition: all 0.15s ease-in;
@@ -1172,7 +1191,7 @@ padding-bottom: 60px;
 .edit-notes {
   margin-right: 10px;
   margin-bottom: -90px;
-  color: #c1bfbf;
+  color: #a5a5a5;
   background-color: transparent;
   border-color: white;
   padding-left: 0px;
@@ -1208,7 +1227,7 @@ padding-bottom: 60px;
 .deleteVideoBtn {
   margin-right: -30px;
   margin-bottom: -90px;
-  color: #c1bfbf;
+  color: #a5a5a5;
   background-color: transparent;
   border: none;
   padding-left: 0px;
@@ -1399,11 +1418,11 @@ padding-bottom: 60px;
 
 .tech-row:hover .techspan {
   display: inline;
-  color: #cecece;
+  color: #e3e3e3;
 }
 
 .tech-row:hover .techspan:hover {
-  color: #99d4d1;
+  color: #02ceff;
   -webkit-transition: all 0.15s ease;
   -moz-transition: all 0.15s ease;
   transition: all 0.15s ease;
@@ -1705,7 +1724,7 @@ padding-bottom: 60px;
 .angular-ripple {
   display: block;
   position: absolute;
-  background-color: rgba(182,222,220,.8);
+  /*background-color: rgba(182,222,220,.8);*/
   border-radius: 50%;
   transform: scale(0);
 }
@@ -1730,7 +1749,7 @@ padding-bottom: 60px;
 }
 
 .no-touch .fa-caret-down:hover {
-  color: #99d4d1;
+  color: #02ceff;
   transform: scale(1.4);
   -webkit-transition: all 0.15s ease;
   -moz-transition: all 0.15s ease;
@@ -1739,7 +1758,7 @@ padding-bottom: 60px;
 
 .fa-plus:hover {
   cursor: pointer;
-  color: #99d4d1;
+  color: #02ceff;
   transform: scale(1.2);
   -webkit-transition: all 0.15s ease;
   -moz-transition: all 0.15s ease;
