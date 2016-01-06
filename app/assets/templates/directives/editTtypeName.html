@@ -3,7 +3,7 @@
 </div>
 <div class="modal-body edit-ttype-body">
   <form autocomplete="off" ng-submit="newTtypeNameForm.create()" class="add-step-form">
-    <input class="forms-control-editName" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTtypeName" required="required" placeholder="{{placeholder}}" maxlength="70">
+    <input autofocus class="forms-control-editName" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newTtypeName" required="required" placeholder="{{placeholder}}" maxlength="70">
 
 
     <button ng-click="ok()" type="submit" class="subchck btn submit down-button addTech addStep" ><i class="fa fa-pencil"></i></button>

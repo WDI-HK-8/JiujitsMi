@@ -611,7 +611,7 @@ html.touch *:hover {
   border-top-color: #fff;
 }
 
-.tech-row:hover .tech-a{
+.no-touch .tech-row:hover .tech-a{
 /*  z-index:999;
   box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
   -webkit-box-shadow:rgba(0, 0, 0, 0.3) 0 3px 3px 0;
@@ -2460,7 +2460,7 @@ padding-bottom: 60px;
   }
 
   #blocker {
-    margin-left: 63%;
+    margin-left: 62%;
   }
 
   #video {
@@ -2546,7 +2546,7 @@ padding-bottom: 60px;
   }
 
   /*Technique*/
-  .tech-row:hover{
+/*  .tech-row:hover{
     box-shadow:rgba(0, 0, 0, 0.3) 0 0px 0px 0;
     -webkit-box-shadow:rgba(0, 0, 0, 0.3) 0 0px 0px 0;
     -moz-box-shadow:rgba(0, 0, 0, 0.3) 0 0px 0px 0;
@@ -2557,7 +2557,7 @@ padding-bottom: 60px;
     border-top-width: 1px;
     border-top-style: solid;
     border-top-color: #fff;
-  }
+  }*/
 
   .tech-row:hover .techspan, .tech-row:hover .techspan:hover {
       color: #fff;

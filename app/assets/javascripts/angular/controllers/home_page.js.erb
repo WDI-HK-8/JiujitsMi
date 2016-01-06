@@ -235,7 +235,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
     var data = {
       name: $scope.newTech.name,
       technique_type_id: technique_type.id,
-      video_url: "https://www.youtube.com",
+      video_url: "http://www.youtube.com",
       index: technique_type.techniques.length
     };
 
@@ -337,7 +337,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
 
       // VIDEO SHOW
       $scope.newVideo = $scope.currentTechnique.video_url;
-      if ($scope.currentTechnique.video_url == "https://www.youtube.com" || null) {
+      if ($scope.currentTechnique.video_url == "http://www.youtube.com" || null) {
         $scope.newVideo = null;
         $scope.doVideoExist = false;
         $scope.showVideo = false;
@@ -351,7 +351,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
 
 
       // CONVERT VIDEO URL TO EMBEDED
-      if ($scope.currentTechnique.video_url != null && $scope.currentTechnique.video_url != "https://www.youtube.com" ) {
+      if ($scope.currentTechnique.video_url != null && $scope.currentTechnique.video_url != "http://www.youtube.com" ) {
        $scope.trustSrc = function(src) {
           return $sce.trustAsResourceUrl(src);
         };
@@ -414,7 +414,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
   // DELETE VIDEO
   $scope.deleteVideo = function(){
     var data = {
-      video_url: "https://www.youtube.com"
+      video_url: "http://www.youtube.com"
     };
     $http.put(url + '/positions/' + $scope.currentPosition + '/technique_types/' + $scope.currentTechnique.technique_type_id + '/techniques/' + $scope.currentTechnique.id, data).success(function(response){
       console.log(response);
