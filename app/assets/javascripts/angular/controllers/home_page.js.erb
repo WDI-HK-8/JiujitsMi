@@ -667,7 +667,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
       autoSubmit: false,
       params: {
         auth: { key: "<%= ENV['TRANSLOADIT_AUTH_KEY'] %>"}, 
-        template_id: "e60dffa09f0811e5b0f7ab6259adf54c"
+        template_id: "<%= ENV['TRANSLOADIT_TEMPLATE_ID'] %>"
       },
       onSuccess: function(assembly){
           console.log("SUCCESS", assembly);
