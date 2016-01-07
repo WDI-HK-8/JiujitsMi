@@ -3,15 +3,6 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
 
-  // remove for touch devices
-    if (window.innerWidth <= 1281)  {
-      var elems = document.querySelectorAll(".no-touch");
-      [].forEach.call(elems, function(el) {
-          el.classList.remove("no-touch");
-      });
-    };
-
-
   // redirect to landing page if user is signed in
   $scope.authResponse = $auth.validateUser()
   $scope.authStatus = $scope.authResponse.$$state.status
@@ -275,6 +266,15 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
 
   $scope.getTechnique = function(technique_type, technique){
     // console.log(technique.id)
+
+    // IF CLICKING TECHNIQUE WHEN POSMENU STILL OPEN
+    if (window.innerWidth <= 1281 && $scope.posCol == "posColActive") {
+      $scope.posCol = "inactive";
+      $scope.arrow = false;
+      $scope.toggleClass = "inactive"
+      console.log("HAY")
+
+    }
 
     $scope.showUploadVideo = false;
     $scope.doUploadVideoExist = false;
@@ -771,8 +771,8 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
       });
     };
   };
-  
 }]);
+
 
 
 

@@ -448,7 +448,7 @@ html.touch *:hover {
   background-color: #f3f3f4;
   bottom: 0;
   overflow-x: hidden;
-  padding-bottom: 40px;
+  /*padding-bottom: 40px;*/
   font-family: Lato;
   /*z-index: -1;*/
   -webkit-transition: all 0.25s ease-in;
@@ -1447,6 +1447,7 @@ padding-bottom: 60px;
 /*TTYPE DND*/
 .tnav[dnd-list] {
     min-height: 42px;
+    padding-bottom: 60px;
 }
 
 .tnav[dnd-list] .dndDraggingSource {
@@ -2262,6 +2263,11 @@ padding-bottom: 60px;
 
   .deleteStepRow {
     color: #e1e1e1;
+  }
+
+  .no-touch .tech-row:hover .tech-a{
+    color: #363636;
+    font-weight: normal;
   }
 
 
