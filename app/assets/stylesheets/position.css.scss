@@ -125,6 +125,7 @@ html.touch *:hover {
 
 .homenav {
   background-color: #59439c;
+  overflow-y: hidden;
   border-radius: 0px;
   height:65px;
   border-bottom: 0px;
@@ -225,6 +226,25 @@ html.touch *:hover {
 */
 /* Position */
 
+/*CHANGE SCROLL BAR*/
+.scroller::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.scroller::-webkit-scrollbar-track {
+    background: transparent;
+}
+.scroller::-webkit-scrollbar-thumb {
+    background: #363636;
+    border-radius: 9px;
+    visibility:hidden;
+
+}
+.scroller:hover::-webkit-scrollbar-thumb {
+    visibility:visible;
+}
+
+
 .side-nav {
   font-family: Helvetica, sans-serif;
   position: fixed;
@@ -272,7 +292,7 @@ html.touch *:hover {
   margin-left: -20%;
   border: none;
   border-radius: 0;
-  overflow-y: scroll;
+  overflow-y: hidden;
   background-color: #212121;
   bottom: 0;
   overflow-x: hidden;
@@ -310,7 +330,7 @@ html.touch *:hover {
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden; 
-  padding: 10px 15px 10px 20px;
+  padding: 5px 15px 5px 20px;
   text-decoration: none;
   color: #ccc;
   cursor: pointer;
