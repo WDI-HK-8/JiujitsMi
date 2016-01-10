@@ -22,16 +22,16 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
     $scope.signupFail = false;
     $auth.submitRegistration($scope.registrationForm).
       then(function(response){
-        Sharedata.first_time_user = true;
-        console.log(Sharedata.first_time_user)
-        $location.path('/home');
-        $scope.loggedIn = true;
-        $scope.authResponse = $auth.validateUser();
-      }).catch(function(response){
-        $scope.errorResponse = response;
-        $scope.errorMessages = $scope.errorResponse.data.errors.full_messages;
-        $scope.signupFail = true;
-      });
+      Sharedata.first_time_user = true;
+      console.log(Sharedata.first_time_user)
+      $location.path('/home');
+      $scope.loggedIn = true;
+      $scope.authResponse = $auth.validateUser();
+    }).catch(function(response){
+      $scope.errorResponse = response;
+      $scope.errorMessages = $scope.errorResponse.data.errors.full_messages;
+      $scope.signupFail = true;
+    });
   };
   
   // Login
@@ -43,32 +43,32 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
       then(function(response){
         //handle success
         // console.log(response);
-        $scope.loggedIn = true;
-        $scope.authResponse = $auth.validateUser();
-        $scope.loginName = $scope.authResponse.$$state.value.username;
-        $location.path('/home');
-      }).catch(function(response){
-        //handle errors
-        $scope.loginFail = true;
-        // console.log(response);
-      });
+      $scope.loggedIn = true;
+      $scope.authResponse = $auth.validateUser();
+      $scope.loginName = $scope.authResponse.$$state.value.username;
+      $location.path('/home');
+    }).catch(function(response){
+      //handle errors
+      $scope.loginFail = true;
+      // console.log(response);
+    });
   };
 
 
-    $scope.gotoSignup = function() {
-      // set the location.hash to the id of
-      // the element you wish to scroll to.
-      $location.hash('signup');
+  $scope.gotoSignup = function() {
+    // set the location.hash to the id of
+    // the element you wish to scroll to.
+    $location.hash('signup');
 
-      // call $anchorScroll()
-      $anchorScroll();
-    };
+    // call $anchorScroll()
+    $anchorScroll();
+  };
 
 
 
   jQuery(document).ready(function() {
   /***** Scroll Up *****/
-    $('a[href=#]').bind("click", function(e){
+    $('a[href*="#"]').bind("click", function(e){
       var anchor = $(this);
       $('html, body').stop().animate({
         scrollTop: $(anchor.attr('href')).offset().top - 50
