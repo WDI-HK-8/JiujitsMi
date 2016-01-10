@@ -39,7 +39,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
 
   // SHOW ALL POSITIONS
   $scope.positions = [];
-  $http.get(url + '/positions').success(function(response){
+  $http.get("http://www.grappledash.com/positions").success(function(response){
     $scope.positions = response.sort(compare);
     $scope.positions.sort(compare);
     // console.log($scope.positions);
@@ -60,7 +60,7 @@ app.controller('HomePageCtrl', ['$scope', '$http', '$location', '$auth', '$route
         // console.log(data);
 
 
-    $http.post(url + '/positions', data).success(function(response){
+    $http.post("http://www.grappledash.com/positions", data).success(function(response){
       // console.log(response);      
 
       $http.get(url + '/positions').success(function(response){
