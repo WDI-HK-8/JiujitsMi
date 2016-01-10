@@ -1,4 +1,4 @@
-app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$window', '$rootScope','$anchorScroll', function($scope, $http, $location, $auth, $window, $rootScope, $anchorScroll){
+app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$window', '$rootScope','$anchorScroll', 'Sharedata', function($scope, $http, $location, $auth, $window, $rootScope, $anchorScroll, Sharedata){
 
   // Turn off alerts by default
   $scope.loginFail = false;
@@ -22,18 +22,14 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
     $scope.signupFail = false;
     $auth.submitRegistration($scope.registrationForm).
       then(function(response){
-        //handle success
-        // console.log(response);
+        Sharedata.first_time_user = true;
+        console.log(Sharedata.first_time_user)
         $location.path('/home');
         $scope.loggedIn = true;
         $scope.authResponse = $auth.validateUser();
-        $scope.loginName = $scope.authResponse.$$state.value.username;
       }).catch(function(response){
-        //handle errors
         $scope.errorResponse = response;
         $scope.errorMessages = $scope.errorResponse.data.errors.full_messages;
-        // console.log(response);
-        // console.log($scope.errorMessages);
         $scope.signupFail = true;
       });
   };

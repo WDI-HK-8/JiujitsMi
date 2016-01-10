@@ -2,6 +2,36 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
+  if (window.innerWidth <= 1281 ) {
+    $('.no-touch').removeClass("no-touch");
+  }
+
+
+
+  // FIRST TIME USER MODAL
+  $scope.firstTimeUser = function() {
+    var modalInstance = $uibModal.open({
+      animation: true,
+      templateUrl: "<%= asset_path('directives/first_time_user.html.erb') %>",
+      controller: 'ModalInstanceCtrl',
+      size: 'md'
+    });
+  }
+
+
+
+  if (Sharedata.first_time_user == true) {
+    console.log("first time user")
+    $scope.firstTimeUser();
+    Sharedata.first_time_user = false;
+  } else {
+    console.log("this may not be working")
+  }
+
+
+
+
+
 
   // redirect to landing page if user is signed in
   $scope.authResponse = $auth.validateUser()

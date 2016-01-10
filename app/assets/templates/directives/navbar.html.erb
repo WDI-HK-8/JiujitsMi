@@ -18,7 +18,7 @@
      </span>
      
      <div class="navadd" ng-hide="addIntNav">
-      <form ng-submit="techTypeForm.create()" class="create-ttype">
+      <form autocomplete="off" ng-submit="techTypeForm.create()" class="create-ttype">
         <input focus-me="!addIntNav" class="
         forms-control-tech-edit" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new intention"  maxlength="60">
         <button type="submit" class="subchck btn submit down-button-nav addTech" ><i class="fa fa-plus"></i></button>
@@ -29,7 +29,7 @@
       <span ng-class="hideText" class="pos-name-span" ng-show="posFixed">{{currentPositionName}}</span>
         <!-- EDIT DROPDOWN -->
         <span ng-show="!posFixed">
-          <form ng-submit="newPosNameForm.create()" class="edit-pos-form">
+          <form autocomplete="off" ng-submit="newPosNameForm.create()" class="edit-pos-form">
             <input focus-me="!posFixed"class="forms-control-editPosName" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newPosName" required="required" placeholder="{{currentPositionName}}" maxlength="70">
             <button type="submit" class="subchck btn submit down-button addTech addStep" ><i class="fa fa-pencil"></i></button>
             <button type="button" ng-click="cancelPosNameChange()" class="btn down-button addTech addStep" ><i class="fa fa-times"></i></button>

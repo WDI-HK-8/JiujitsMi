@@ -387,7 +387,7 @@ html.touch *:hover {
   border-color: transparent;
 }
 
-.deletePos:focus {
+.deletePos:focus, .addPos:focus {
   outline:none;
   box-shadow:none;
 }
@@ -2270,12 +2270,10 @@ padding-bottom: 60px;
     font-weight: normal;
   }
 
-
   /*REMOVE RIPPLE*/
   .angular-ripple {
     background-color: #fff;
   }
-
 }
 
 
@@ -2641,5 +2639,38 @@ padding-bottom: 60px;
     margin-left: 33%;
   }
 
+}
+
+
+
+
+
+@media screen and (min-width: 2050px) {
+  .ttype-card-container {
+    width: 590px;
+    float:right;
+    margin-right: 20px;
+  }
+
+  .details-card {
+    width: 950px;
+    margin-left: 20px;
+  }
+
+  #blocker {
+    margin-left: 700px;
+  }
+
+  #video {
+    margin-left: 60px;
+  }
+
+  #notes {
+    margin-left: 120px;
+  }
+
+  #steps {
+    margin-left: 180px;
+  }
 
 }
