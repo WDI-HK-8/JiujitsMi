@@ -1,0 +1,3653 @@
+app.service('SeedData', ['$resource','$http', function($resource, $http){
+
+  var SeedData = this;
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+
+  var data = [ 
+  {
+    index: 0,
+    name: "GI - Full Guard"
+  },
+        {
+    index: 1,
+    name: "GI - Half Guard"
+  },
+  {
+    index: 2,
+    name: "GI - Side Control"
+  },
+  {
+    index: 3,
+    name: "GI - Mount"
+  },
+  {
+    index: 4,
+    name: "GI - Back Control"
+  },
+  {
+    index: 5,
+    name: "GI - Standing"
+  }]
+
+  var data2 = [ 
+  {
+    index: 6,
+    name: "NO-GI - Full Guard"
+  },
+        {
+    index: 7,
+    name: "NO-GI - Half Guard"
+  },
+  {
+    index: 8,
+    name: "NO-GI - Side Control"
+  },
+  {
+    index: 9,
+    name: "NO-GI - Mount"
+  },
+  {
+    index: 10,
+    name: "NO-GI - Back Control"
+  },
+  {
+    index: 11,
+    name: "NO-GI - Standing"
+  }]
+
+  SeedData.populateGi = function() {
+    // Full Guard
+    // POSITION
+    $http.post(url + '/positions', data[0]).success(function(response){
+      console.log(response); 
+      
+      var posID = response.id
+
+      // INTENTION
+      var intentionData = [
+        {
+          name: "Submissions",
+          position_id: response.id,
+          index: 0
+        },
+          {
+          name: "Passes",
+          position_id: response.id,
+          index: 1
+        },
+          {
+          name: "Sweeps",
+          position_id: response.id,
+          index: 2
+        }]
+
+      //INTENTION 
+      $http.post(url + '/positions/' + posID + '/technique_types', intentionData[0]).success(function(response){
+        // TECHNIQUE
+        var intID = response.id
+
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response)
+
+          // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+
+
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+
+          // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + posID + '/technique_types', intentionData[1]).success(function(response){
+        // TECHNIQUES
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "TECHTEST1",
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 0,
+          other_notes: ""
+        },
+        {
+          name: "TECHTEST2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: ""
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[2]).success(function(response){
+        // TECHNIQUES
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "TECHTEST1",
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 0,
+          other_notes: ""
+        },
+        {
+          name: "TECHTEST2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: ""
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+      }); 
+    });
+
+
+    // Half Guard
+    // POSITION
+    $http.post(url + '/positions', data[1]).success(function(response){
+      var posID = response.id
+
+      // INTENTION
+      var intentionData = [
+        {
+        name: "Submissions",
+        position_id: response.id,
+        index: 0
+      },
+        {
+        name: "Passes",
+        position_id: response.id,
+        index: 1
+      },
+        {
+        name: "Sweeps",
+        position_id: response.id,
+        index: 2
+      }];
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[0]).success(function(response){
+          console.log(response);
+          // TECHNIQUES
+        var intID = response.id
+          
+          var techData = [
+          {
+            name: "TECHTEST1",
+            technique_type_id: response.id,
+            video_url: "http://www.youtube.com",
+            index: 0,
+            other_notes: ""
+          },
+          {
+            name: "TECHTEST2" ,
+            technique_type_id: response.id,
+            video_url: "http://www.youtube.com",
+            index: 1,
+            other_notes: ""
+          }]; 
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });     
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[1]).success(function(response){
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+          console.log(response);      
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[2]).success(function(response){
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+          console.log(response);      
+      }); 
+
+    });
+
+    // Side Control
+    // POSITION
+    $http.post(url + '/positions', data[2]).success(function(response){
+      var posID = response.id
+
+      // INTENTION
+      var intentionData = [
+      {
+        name: "Submissions",
+        position_id: response.id,
+        index: 0
+      },
+        {
+        name: "Transitions",
+        position_id: response.id,
+        index: 1
+      },
+        {
+        name: "Escapes",
+        position_id: response.id,
+        index: 2
+      }];
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[0]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[1]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[2]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+
+    });
+
+    // Mount
+    // POSITION
+    $http.post(url + '/positions', data[3]).success(function(response){
+      var posID = response.id
+
+      // INTENTION
+      var intentionData = [
+      {
+        name: "Submissions",
+        position_id: response.id,
+        index: 0
+      },
+        {
+        name: "Escapes",
+        position_id: response.id,
+        index: 1
+      }];
+
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[0]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[1]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+
+    });
+
+
+    // Back Control
+    // POSITION
+    $http.post(url + '/positions', data[4]).success(function(response){
+      var posID = response.id
+
+      // INTENTION
+      var intentionData = [
+      {
+        name: "Submissions",
+        position_id: response.id,
+        index: 0
+      },
+        {
+        name: "Escapes",
+        position_id: response.id,
+        index: 1
+      }];
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[0]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[1]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+     
+    });
+
+    // Standing
+    // POSITION
+    $http.post(url + '/positions', data[5]).success(function(response){
+      var posID = response.id
+
+      // INTENTION
+      var intentionData = [
+      {
+        name: "Submissions",
+        position_id: response.id,
+        index: 0
+      },
+        {
+        name: "Throws",
+        position_id: response.id,
+        index: 1
+      }];
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[0]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[1]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+      }); 
+    });
+  };
+
+  SeedData.populateNoGi = function() {
+    // Full Guard
+    // POSITION
+    $http.post(url + '/positions', data2[0]).success(function(response){
+      console.log(response); 
+      
+      var posID = response.id
+
+      // INTENTION
+      var intentionData = [
+        {
+          name: "Submissions",
+          position_id: response.id,
+          index: 0
+        },
+          {
+          name: "Passes",
+          position_id: response.id,
+          index: 1
+        },
+          {
+          name: "Sweeps",
+          position_id: response.id,
+          index: 2
+        }]
+
+      //INTENTION 
+      $http.post(url + '/positions/' + posID + '/technique_types', intentionData[0]).success(function(response){
+        // TECHNIQUE
+        var intID = response.id
+
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response)
+
+          // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+
+
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+
+          // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + posID + '/technique_types', intentionData[1]).success(function(response){
+        // TECHNIQUES
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "TECHTEST1",
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 0,
+          other_notes: ""
+        },
+        {
+          name: "TECHTEST2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: ""
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[2]).success(function(response){
+        // TECHNIQUES
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "TECHTEST1",
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 0,
+          other_notes: ""
+        },
+        {
+          name: "TECHTEST2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: ""
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+      }); 
+    });
+
+
+    // Half Guard
+    // POSITION
+    $http.post(url + '/positions', data2[1]).success(function(response){
+      var posID = response.id
+
+      // INTENTION
+      var intentionData = [
+        {
+        name: "Submissions",
+        position_id: response.id,
+        index: 0
+      },
+        {
+        name: "Passes",
+        position_id: response.id,
+        index: 1
+      },
+        {
+        name: "Sweeps",
+        position_id: response.id,
+        index: 2
+      }];
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[0]).success(function(response){
+          console.log(response);
+          // TECHNIQUES
+        var intID = response.id
+          
+          var techData = [
+          {
+            name: "TECHTEST1",
+            technique_type_id: response.id,
+            video_url: "http://www.youtube.com",
+            index: 0,
+            other_notes: ""
+          },
+          {
+            name: "TECHTEST2" ,
+            technique_type_id: response.id,
+            video_url: "http://www.youtube.com",
+            index: 1,
+            other_notes: ""
+          }]; 
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });     
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[1]).success(function(response){
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+          console.log(response);      
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[2]).success(function(response){
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+          console.log(response);      
+      }); 
+
+    });
+
+    // Side Control
+    // POSITION
+    $http.post(url + '/positions', data2[2]).success(function(response){
+      var posID = response.id
+
+      // INTENTION
+      var intentionData = [
+      {
+        name: "Submissions",
+        position_id: response.id,
+        index: 0
+      },
+        {
+        name: "Transitions",
+        position_id: response.id,
+        index: 1
+      },
+        {
+        name: "Escapes",
+        position_id: response.id,
+        index: 2
+      }];
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[0]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[1]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[2]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+
+    });
+
+    // Mount
+    // POSITION
+    $http.post(url + '/positions', data2[3]).success(function(response){
+      var posID = response.id
+
+      // INTENTION
+      var intentionData = [
+      {
+        name: "Submissions",
+        position_id: response.id,
+        index: 0
+      },
+        {
+        name: "Escapes",
+        position_id: response.id,
+        index: 1
+      }];
+
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[0]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[1]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+
+    });
+
+
+    // Back Control
+    // POSITION
+    $http.post(url + '/positions', data2[4]).success(function(response){
+      var posID = response.id
+
+      // INTENTION
+      var intentionData = [
+      {
+        name: "Submissions",
+        position_id: response.id,
+        index: 0
+      },
+        {
+        name: "Escapes",
+        position_id: response.id,
+        index: 1
+      }];
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[0]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[1]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+     
+    });
+
+    // Standing
+    // POSITION
+    $http.post(url + '/positions', data2[5]).success(function(response){
+      var posID = response.id
+
+      // INTENTION
+      var intentionData = [
+      {
+        name: "Submissions",
+        position_id: response.id,
+        index: 0
+      },
+        {
+        name: "Throws",
+        position_id: response.id,
+        index: 1
+      }];
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[0]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+      // INTENTION
+      $http.post(url + '/positions/' + response.id + '/technique_types', intentionData[1]).success(function(response){
+          console.log(response);
+        // TECHNIQUE
+        var intID = response.id
+        
+        var techData = [
+        {
+          name: "tech1",
+          technique_type_id: response.id,
+          video_url: "https://www.youtube.com/watch?v=pJ9MVtYv7oM",
+          index: 0,
+          other_notes: "bleh"
+        },
+        {
+          name: "tech2" ,
+          technique_type_id: response.id,
+          video_url: "http://www.youtube.com",
+          index: 1,
+          other_notes: "bleh"
+        }];
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[0]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });
+
+        $http.post(url + '/positions/' + posID + '/technique_types/' + response.id + '/techniques', techData[1]).success(function(response){
+          console.log(response);
+                    // STEPS
+          var stepData = [
+          {
+            instruction: "1",
+            index: 0
+          },
+          {
+            instruction: "2",
+            index: 1
+          },
+          {
+            instruction: "3",
+            index: 2
+          },
+          {
+            instruction: "4",
+            index: 3
+          },
+          {
+            instruction: "5",
+            index: 4
+          },
+          {
+            instruction: "6",
+            index: 5
+          },
+          {
+            instruction: "7",
+            index: 6
+          },
+          {
+            instruction: "8",
+            index: 7
+          }];
+
+          for (var s = 0; s < stepData.length; s++) {
+            $http.post(url + '/positions/' + posID + '/technique_types/' + intID + '/techniques/' + response.id + '/steps', stepData[s]).success(function(response){
+              console.log(response);
+            });
+          };
+        });      
+      }); 
+    });
+
+
+
+  };
+
+
+
+}])

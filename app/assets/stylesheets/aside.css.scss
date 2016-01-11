@@ -1,10 +1,11 @@
 /*ASIDE*/
 
 
-.modal-header {
+.aside-header {
   padding: 14px 14px 13px 14px;
-  background-color: #493b76;
+  background-color: #59439c;
   color: white;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -39,9 +40,19 @@
   padding-right: 10px;
 }
 
-.modal-title {
+.aside-title {
   font-family: lato;
   color: #fff;
   padding-left: 20px;
   font-size: 27px;
 }
+
+.contact-footer {
+  font-size: 14px;
+  text-align: left;
+  position: absolute;
+  bottom: 10px;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+

@@ -1,25 +1,59 @@
 <!-- NAVBAR START -->
 <nav  ng-class="toggleClass" class="navbar navbar-fixed-top" role="navigation">
   <!-- Top Menu Items -->
-  <ul class="homenav nav navbar navbar-default top-nav">
+  <ul class="homenav navbar navbar-default top-nav">
     <!-- Navbar toggle button -->
     <div ng-class="hideText">
-      <div ng-click="arrow = !arrow; navToggle()" ng-class="{'hamburger': !arrow, 'arrow-right': arrow}" id="test" class="nav-toggle">
+      <div ng-click="arrow = !arrow; navToggle()" ng-class="{'hamburger': !arrow, 'arrow-right': arrow}" id="" class="nav-toggle">
         <p class="toggle-p"ng-show="!arrow"></p>
         <p class="toggle-p" ng-show="arrow"></p>
         <span class="togglespan" ></span>
       </div>
     </div>
 
-     <span class="ttype-nav-text" ng-class="hideText">{{currentPositionName}}</span>
+     <span ng-click="backToTechs()" ng-class="techniqueBack" class="ttype-nav-text ttype-nav-text-overide small-text hideTextActive"><i class="fa fa-arrow-circle-left back-arrow"></i><span class="" > {{currentPositionName}}</span>
 
+      
 
-     <span ng-click="backToTechs()" ng-class="techniqueBack" class="ttype-nav-text small-text hideTextActive"><i class="fa fa-arrow-circle-left back-arrow"></i><span class="" > {{currentPositionName}}</span></span>
+     </span>
      
+     <div class="navadd" ng-hide="addIntNav">
+      <form autocomplete="off" ng-submit="techTypeForm.create()" class="create-ttype">
+        <input focus-me="!addIntNav" class="
+        forms-control-tech-edit" type="text" name="name" ng-model="newTechType.name" ng-disabled="!techTypeInput" required="required" placeholder="Add a new intention"  maxlength="60">
+        <button type="submit" class="subchck btn submit down-button-nav addTech" ><i class="fa fa-plus"></i></button>
+      </form>
+    </div>
+
+    <div class="ttype-nav-text " ng-class="posText" ng-show="addIntNav">
+      <span ng-class="hideText" class="pos-name-span" ng-show="posFixed">{{currentPositionName}}</span>
+        <!-- EDIT DROPDOWN -->
+        <span ng-show="!posFixed">
+          <form autocomplete="off" ng-submit="newPosNameForm.create()" class="edit-pos-form">
+            <input focus-me="!posFixed"class="forms-control-editPosName" type="text" name="name" ng-model-options="{updateOn : 'change blur'}" ng-model="newPosName" required="required" placeholder="{{currentPositionName}}" maxlength="70">
+            <button type="submit" class="subchck btn submit down-button addTech addStep" ><i class="fa fa-pencil"></i></button>
+            <button type="button" ng-click="cancelPosNameChange()" class="btn down-button addTech addStep" ><i class="fa fa-times"></i></button>
+          </form>
+        </span>
+        <span ng-class="hideText" ng-show="posFixed" class="dropdown" dropdown>
+          <a href="" dropdown-toggle>
+            <i class="fa fa-caret-down mobile-fix"></i>
+          </a>
+          <ul class="dropdown-menu" dropdown-menu>
+            <li> 
+              <a ng-click="editPos()">Edit title</a>
+            </li>
+            <li> 
+              <a ng-really-message="Are you sure you want to delete this position?" ng-really-click="navPosDelete()">Delete Position</a>
+            </li>
+          </ul>
+        </span>
+        <i ng-show="posFixed" class="fa fa-plus add-int mobile-fix" ng-click="addInt()"></i>
+      </div>
 
     <!-- sidemenu -->
-    <li class="pull-right">
-      <a ng-click="openAside('right', false)" href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+    <li id="aside-icon" class="no-touch">
+      <span ng-click="openAside('right', false)" href="" class="sidemenu-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></span>
     </li>
 
   </ul>

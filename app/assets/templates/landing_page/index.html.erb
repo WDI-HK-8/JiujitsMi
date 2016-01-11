@@ -29,7 +29,7 @@
             <h2 class="text-left"> Learn faster, <strong>your way</strong></h2>
             <p>Finally. A flexible dashboard to record, organise and master your techniques. Designed for all grappling sports.</p>
             <div class="top-button">
-              <a class="btn1 btn-top-white btn-lg btn-fix" href="#features-section"> Learn More</a>
+              <a class="btn1 btn-top-white btn-lg" href="#features-section"> Learn More</a>
             </div>
           </div>
 
@@ -37,7 +37,7 @@
           <div class="col-md-5 col-sm-5">
             <div class="vertical-registration-form">
             <div ng-show="loginFail" class="alert alert-danger" id="loginFail" role="alert">Your username or password is not correct</div>
-              <form class="registration-form" ng-submit="login()">
+              <form autocomplete="off" class="registration-form" ng-submit="login()">
                 <div class="form-group">
                   <input id="name" type="email" name="email" ng-model="loginForm.email" required="required"class="optin-input" placeholder="&#xf0e0;   Email">
                 </div>
@@ -58,7 +58,6 @@
          <img class="coming-soon" src="<%= image_path('comingsoon.png') %>">
     </div>
   </div>
-
     <!-- Features -->
   <div id="features-section" class="features-container">
     <div class="container">
@@ -95,7 +94,6 @@
       </div>
     </div>
   </div>    
-  
   <!-- Picture -->
   <div id="picture-section" class="product-container product-bg1" >
     <div class="container">
@@ -108,7 +106,6 @@
       </div>
     </div>
   </div>
-
   <!-- HOW IT WORKS -->
   <div id="how-it-works-section" class="product-container product-bg2">
     <div class="container">
@@ -162,7 +159,6 @@
         </div>
       </div>
     </div>
-
     <!-- Sign up -->
     <div id="pricing-section" class="pricing-container">
       <div class="container">
@@ -171,7 +167,6 @@
             <h3 class="section-header"><span>Advance your learning - starting right now</span></h3>
           </div>
         </div>
-
         <div class="col-md-5 toIn">
           <div class="price-column large">
             <h2>TESTER</h2>
@@ -181,14 +176,12 @@
             </ul>
           </div>
         </div>
-
         <div class="col-md-7  toIn">
           <div class="price-column large">
             <ul>
               <li>
-
               <div ng-show="signupFail" ng-repeat="errorMessage in errorMessages" class="alert alert-danger" id="signupFail" role="alert">{{ errorMessage }}</div>
-              <form class="registration-form" ng-submit="signup()" >
+              <form autocomplete="off" class="registration-form" ng-submit="signup()" >
                 <div class="form-group">
                   <input id="full-name" type="text" name="full-name" ng-model="registrationForm.name" required="required" class="signup-text" placeholder=" &#xf007;   Full Name">
                 </div>
@@ -208,23 +201,18 @@
             </ul>
           </div>
         </div>
-
       </div>
     </div>
-
-<!-- footer 2 -->
-<div id="footer2">
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-    <div class="copyright">©2015 GRAPPLEDASH
-        </div>
+    <!-- footer-->
+    <div id="footer2">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="copyright">© 2015 Grappledash</div>
+            <div class="copyright">Have a question? Contact us at support@grappledash.com</div>
+          </div>
         </div>
       </div>
     </div>
-      </div>
-
-
-
   </div>
 </div>

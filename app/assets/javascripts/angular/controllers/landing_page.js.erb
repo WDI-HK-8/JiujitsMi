@@ -1,4 +1,4 @@
-app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$window', '$rootScope','$anchorScroll', function($scope, $http, $location, $auth, $window, $rootScope, $anchorScroll){
+app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$window', '$rootScope','$anchorScroll', 'Sharedata', function($scope, $http, $location, $auth, $window, $rootScope, $anchorScroll, Sharedata){
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
@@ -23,51 +23,50 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
   };
 
   $scope.signup = function(){
+    $scope.signupFail = false;
     $auth.submitRegistration($scope.registrationForm).
       then(function(response){
-        //handle success
-        // console.log(response);
-        $location.path('/home');
-        $scope.loggedIn = true;
-        $scope.authResponse = $auth.validateUser();
-        $scope.loginName = $scope.authResponse.$$state.value.username;
-      }).catch(function(response){
-        //handle errors
-        $scope.errorResponse = response;
-        $scope.errorMessages = $scope.errorResponse.data.errors.full_messages;
-        // console.log(response);
-        // console.log($scope.errorMessages);
-        $scope.signupFail = true;
-      });
+      Sharedata.first_time_user = true;
+      console.log(Sharedata.first_time_user)
+      $location.path('/home');
+      $scope.loggedIn = true;
+      $scope.authResponse = $auth.validateUser();
+    }).catch(function(response){
+      $scope.errorResponse = response;
+      $scope.errorMessages = $scope.errorResponse.data.errors.full_messages;
+      $scope.signupFail = true;
+    });
   };
   
   // Login
   $scope.loginForm = {};
   $scope.login = function(){
+    $scope.loginFail = false;
+
     $auth.submitLogin($scope.loginForm).
       then(function(response){
         //handle success
         // console.log(response);
-        $scope.loggedIn = true;
-        $scope.authResponse = $auth.validateUser();
-        $scope.loginName = $scope.authResponse.$$state.value.username;
-        $location.path('/home');
-      }).catch(function(response){
-        //handle errors
-        $scope.loginFail = true;
-        // console.log(response);
-      });
+      $scope.loggedIn = true;
+      $scope.authResponse = $auth.validateUser();
+      $scope.loginName = $scope.authResponse.$$state.value.username;
+      $location.path('/home');
+    }).catch(function(response){
+      //handle errors
+      $scope.loginFail = true;
+      // console.log(response);
+    });
   };
 
 
-    $scope.gotoSignup = function() {
-      // set the location.hash to the id of
-      // the element you wish to scroll to.
-      $location.hash('signup');
+  $scope.gotoSignup = function() {
+    // set the location.hash to the id of
+    // the element you wish to scroll to.
+    $location.hash('signup');
 
-      // call $anchorScroll()
-      $anchorScroll();
-    };
+    // call $anchorScroll()
+    $anchorScroll();
+  };
 
 
 

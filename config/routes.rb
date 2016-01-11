@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :positions do
     resources :technique_types do
       resources :techniques do
+        resources :user_videos
         resources :steps
       end
     end
   end
+  resources :delete_user_videos
 end

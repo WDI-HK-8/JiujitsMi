@@ -1,0 +1,119 @@
+
+<!-- FIRST -->
+<div ng-init="first = true" class="first-time-card" ng-show="first">
+  <div class="modal-header first-time-header">
+    <h3 class="modal-title">Welcome!</h3>
+    <h4>First a 15 second tutorial with a present at the end to get you started</h4>
+    <div ng-init="giftbox='<%= image_path('giftbox.png') %>'">
+      <img id="giftbox" ng-src="{{giftbox}}">
+    </div>
+  </div>
+  <div class="modal-footer no-touch">
+    <div class="first-time-buttons">  
+      <button class="next-button" ng-click="first = false; second = true">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- SECOND -->
+<div class="first-time-card" ng-show="second">
+  <div class="modal-header first-time-header">
+    <h3 class="modal-title">Add a position</h3>
+    <h4>Start by adding positions that you will encounter</h4>
+    <div ng-init="addposgif='<%= image_path('addposition.gif') %>'">
+      <img class="gif-image" ng-src="{{addposgif}}">
+    </div>
+  </div>
+  <div class="modal-footer no-touch">
+    <div class="first-time-buttons">
+      <button class="next-button" ng-click="second = false; first = true">Back</button>  
+      <button class="next-button" ng-click="second = false; third = true">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- THIRD -->
+<div class="first-time-card" ng-show="third">
+  <div class="modal-header first-time-header">
+    <h3 class="modal-title">Add an intention</h3>
+    <h4>Intentions are a way to group techniques you will later add</h4>
+    <div ng-init="addintgif='<%= image_path('addintention.gif') %>'">
+      <img class="gif-image" ng-src="{{addintgif}}">
+    </div>
+  </div>
+  <div class="modal-footer no-touch">
+    <div class="first-time-buttons">
+      <button class="next-button" ng-click="third = false; second = true">Back</button>    
+      <button class="next-button" ng-click="third = false; fourth = true">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOURTH -->
+<div class="first-time-card" ng-show="fourth">
+  <div class="modal-header first-time-header">
+    <h3 class="modal-title">Add techniques</h3>
+    <h4>Start recording your techniques in your arsenal</h4>
+    <div ng-init="addtechgif='<%= image_path('addtechnique.gif') %>'">
+      <img class="gif-image" ng-src="{{addtechgif}}">
+    </div>
+  </div>
+  <div class="modal-footer no-touch">
+    <div class="first-time-buttons">  
+      <button class="next-button" ng-click="fourth = false; third = true">Back</button>    
+      <button class="next-button" ng-click="fourth = false; fith = true">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- FITH-->
+<div class="first-time-card" ng-show="fith">
+  <div class="modal-header first-time-header">
+    <h3 class="modal-title">Add technique details</h3>
+    <h4>Link to YouTube, upload your own video, add steps and other notes</h4>
+    <div ng-init="adddetailsgif='<%= image_path('adddetails.gif') %>'">
+      <img class="gif-image" ng-src="{{adddetailsgif}}">
+    </div>
+  </div>
+  <div class="modal-footer no-touch">
+    <div class="first-time-buttons">  
+      <button class="next-button" ng-click="fith = false; fourth = true">Back</button>    
+      <button class="next-button" ng-click="fith = false; sixth = true">Next</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Sixth-->
+<div class="first-time-card" ng-show="sixth">
+  <div class="modal-header first-time-header">
+    <h3 ng-hide="loadingBar" class="modal-title">Present time!</h3>
+    <h4 ng-hide="loadingBar">To help you get started, here are some templates with essential techniques that everyone should know.</h4>
+
+
+
+
+    <!-- RAIDOS -->
+    <div ng-hide="loadingBar" class="radio-section">
+      <label class="label-sport"><input class="radio-sport" type="radio" name="choose_template" value="gi"><span class="outside"><span class="inside"></span></span>BJJ with Gi</label>
+      <label class="label-sport"><input class="radio-sport" type="radio" name="choose_template" value="nogi"><span class="outside"><span class="inside"></span></span>BJJ without Gi</label>
+      <label class="label-sport"><input class="radio-sport" type="radio" name="choose_template" value="both"><span class="outside"><span class="inside"></span></span>BJJ with and without Gi. </label>
+       <label class="label-sport"><input class="radio-sport" type="radio" name="choose_template" value="none"><span class="outside"><span class="inside"></span></span>I will get started by myself, but thanks anyway. </label>
+    </div>
+
+    <!-- LOADING -->
+    <div ng-show="loadingBar" class="loading-container">
+      <div class="loading"></div>
+      <div id="loading-text">Customizing your Grappledash</div>
+    </div>
+    <h4 ng-show="loadingBar">This may take a minute</h4>
+
+
+  </div>
+  <div ng-hide="loadingBar" class="modal-footer no-touch">
+    <div class="first-time-buttons">  
+      <button class="next-button" ng-click="sixth = false; fith = true">Back</button>    
+      <button class="GS-button" ng-click="populate()">Get started!</button>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,8 @@ gem 'omniauth'
 gem 'font-awesome-sass'
 gem "validate_url"
 gem 'figaro'
+gem 'aws-sdk', '< 2.0'
+gem 'transloadit-rails'
 
 # heroku config:set BUILDPACK_URL='git://github.com/qnyp/heroku-buildpack-ruby-bower.git#run-bower'
 gem 'rails_12factor', group: :production

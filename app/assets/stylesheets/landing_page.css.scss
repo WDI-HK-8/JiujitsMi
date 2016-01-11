@@ -5,6 +5,10 @@ src: asset-url("Lato-Light.ttf")  format('truetype');
 /*font-weight: bold;*/
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .dbody {
     background: #fff;
     font-family: Lato, sans-serif;
@@ -17,15 +21,24 @@ strong {
   font-weight: 600; 
 }
 
-a, a:hover {
+
+.top-link {
+  padding-top: 18px !important;
+  padding-bottom: 8px;
+}
+
+.top-link:hover {
   color: #0dc0c0;
+  -o-transition: all .3s;
+  -moz-transition: all .3s;
+  -webkit-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+  /*margin-top: 15px;*/
+}
+
+a {
   text-decoration: none;
-    -o-transition: all .3s;
-    -moz-transition: all .3s;
-    -webkit-transition: all .3s;
-    -ms-transition: all .3s;
-    transition: all .3s;
-    /*margin-top: 15px;*/
 }
 
 *,
@@ -1114,11 +1127,6 @@ color: #0dc0c0;
   width: 250px;
 }
 
-.top-link {
-    padding-top: 18px !important;
-    padding-bottom: 8px;
-}
-
 
 .how-icon {
   position: absolute;
@@ -1148,4 +1156,24 @@ color: #0dc0c0;
   font-size: 14px;
   color: #ccc;
   float: right;
+}
+
+
+#name:-webkit-autofill {
+  background: rgba(250, 250, 250, 0.08) !important; 
+  color: #FFF
+}
+
+@media screen and (max-width: 768px) {
+  .landing-brand {
+    width: 210px;
+  }
+
+  .navbar-default-landing {
+    padding: 10px 0;
+  }
+  
+  .navbar-brand {
+    padding-top: 18px !important;
+  }
 }

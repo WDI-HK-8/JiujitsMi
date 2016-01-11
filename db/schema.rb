@@ -11,17 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125024038) do
+ActiveRecord::Schema.define(version: 20151220103750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "delete_user_videos", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "technique_id"
+    t.integer  "video_id"
+    t.string   "name"
+    t.integer  "size"
+    t.string   "ssl_url"
+    t.string   "thumb_name"
+    t.integer  "thumb_size"
+    t.string   "thumb_ssl_url"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "positions", force: :cascade do |t|
+    t.integer  "index"
     t.string   "name"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "index"
   end
 
   add_index "positions", ["user_id"], name: "index_positions_on_user_id", using: :btree
@@ -55,6 +69,24 @@ ActiveRecord::Schema.define(version: 20151125024038) do
     t.string   "proficiency"
   end
 
+  create_table "user_videos", force: :cascade do |t|
+    t.integer  "technique_id"
+    t.string   "provided_id"
+    t.string   "name"
+    t.integer  "size"
+    t.integer  "cost"
+    t.string   "duration"
+    t.string   "url"
+    t.string   "ssl_url"
+    t.string   "thumb_name"
+    t.integer  "thumb_size"
+    t.integer  "thumb_cost"
+    t.string   "thumb_url"
+    t.string   "thumb_ssl_url"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
     t.string   "uid",                    default: "",      null: false
@@ -74,6 +106,7 @@ ActiveRecord::Schema.define(version: 20151125024038) do
     t.datetime "updated_at"
     t.string   "membership_type"
     t.string   "status"
+    t.integer  "last_position"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree

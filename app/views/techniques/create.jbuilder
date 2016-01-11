@@ -1,3 +1,4 @@
+json.id @technique.id
 json.index @technique.index
 json.name @technique.name
 json.video_url @technique.video_url

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html ng-app="jiujitsmi">
 <head>
-  <title>GRAPPLEDASH</title>
+  <title>Grappledash</title>
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
+
+<!-- For FA to work on IE -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
   <!-- for FF, Chrome, Opera -->
 <link rel="icon" type="image/png" href="<%= image_path('favicon-16x16.png') %>" sizes="16x16">
 <link rel="icon" type="image/png" href="<%= image_path('favicon-32x32.png') %>" sizes="32x32">
@@ -12,6 +15,9 @@
 <!-- for IE -->
 <link rel="icon" type="image/x-icon" href="<%= image_path('favicon.ico') %>" >
 <link rel="shortcut icon" type="image/x-icon" href="<%= image_path('favicon.ico') %>"/>
+
+<!-- TRANSLOAD IT -->
+<script src="//assets.transloadit.com/js/jquery.transloadit2-v2-latest.js"></script>
 
 <!-- VIEWPORT FOR RESPONSIVENESS -->
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
