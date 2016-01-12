@@ -23,8 +23,8 @@ module Jiujitsmi
         origins 'www.grappledash.com'
         resource '*',
           :headers => :any,
-          :methods => [:get, :post, :delete, :put, :patch, :options, :head],
-          :max_age => 0
+          :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+          :methods => [:get, :post, :options, :delete, :put]
       end
     end
     # Do not swallow errors in after_commit/after_rollback callbacks.
