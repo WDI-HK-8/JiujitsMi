@@ -2,9 +2,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
-  var template = "<%= ENV['TRANSLOADIT_TEMPLATE_ID'] %>"
-
-  console.log(template)
+  var transloadit_template = "<%= ENV['TRANSLOADIT_TEMPLATE_ID'] %>"
 
   if (window.innerWidth <= 1281 ) {
     $('.no-touch').removeClass("no-touch");
@@ -698,7 +696,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
       autoSubmit: false,
       params: {
         auth: { key: "<%= ENV['TRANSLOADIT_AUTH_KEY'] %>"}, 
-        template_id: "<%= ENV['TRANSLOADIT_TEMPLATE_ID'] %>"
+        template_id: transloadit_template
       },
       onSuccess: function(assembly){
           console.log("SUCCESS", assembly);
