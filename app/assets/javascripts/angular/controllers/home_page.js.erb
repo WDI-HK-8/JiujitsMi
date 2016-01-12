@@ -88,6 +88,8 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
     if ($scope.positions.length >= 1) {
       $scope.getPosition($scope.positions[0]);
     } 
+  }).error(function(response){
+    console.log(response);
   });
 
 
