@@ -155,7 +155,6 @@ GEM
       git-version-bump (~> 0.15)
       rack (~> 1.4)
     rack-cors (0.4.0)
-    rack-rewrite (1.5.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.3)
@@ -293,7 +292,6 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   rack-cors
-  rack-rewrite
   rails (= 4.2.3)
   rails_12factor
   rspec-rails
