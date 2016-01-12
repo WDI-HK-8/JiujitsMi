@@ -11,7 +11,7 @@ gem 'unicorn'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'active_hash'
 gem 'devise_token_auth'
-gem 'rack-cors'
+gem 'rack-cors', :require => 'rack/cors'
 gem 'omniauth'
 gem 'font-awesome-sass'
 gem "validate_url"

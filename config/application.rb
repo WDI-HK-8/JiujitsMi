@@ -18,7 +18,7 @@ Bundler.require(*Rails.groups)
 module Jiujitsmi
   class Application < Rails::Application
 
-    config.middleware.insert_before 0, "Rack::Cors" do
+    config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
       allow do
         origins 'www.grappledash.com'
         resource '*',
