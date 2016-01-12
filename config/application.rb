@@ -26,7 +26,10 @@ module Jiujitsmi
           :methods => [:get, :post, :delete, :put, :patch, :options, :head],
           :max_age => 0
 
-
+        resource '/positions',
+          :headers => :any,
+          :methods => [:get, :post, :delete, :put, :patch, :options, :head],
+          :max_age => 0
       end
     end
     # Do not swallow errors in after_commit/after_rollback callbacks.
