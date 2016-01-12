@@ -2,9 +2,7 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
-  console.log(url)
-
-  var transloadit_template = "<%= ENV['TRANSLOADIT_TEMPLATE_ID'] %>"
+  var transloadit_template = "<%= ENV['TRANSLOADIT_TEMPLATE_ID'] %>";
 
   if (window.innerWidth <= 1281 ) {
     $('.no-touch').removeClass("no-touch");
