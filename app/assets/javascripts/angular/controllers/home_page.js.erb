@@ -1,6 +1,7 @@
 app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$auth', '$routeParams', '$sce', '$uibModal', '$window', '$timeout','Sharedata','$log',  function($resource, $scope, $http, $location, $auth, $routeParams, $sce, $uibModal, $window, $timeout, Sharedata, $log){
 
-  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+  var url = "<%= ENV['URL'] %>";
+   // || "http://localhost:3000";
 
   var transloadit_template = "<%= ENV['TRANSLOADIT_TEMPLATE_ID'] %>";
 
