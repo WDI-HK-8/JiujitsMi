@@ -27,7 +27,7 @@ app.config(['$routeProvider', '$authProvider', function($routeProvider, $authPro
 
 // https://github.com/lynndylanhurley/ng-token-auth/blob/master/dist%2Fng-token-auth.js#L219
   $authProvider.configure({
-      apiUrl:                  "www.grappledash.com",
+      apiUrl:                  "<%= ENV['URL']%>",
       passwordResetSuccessUrl: "<%= ENV['URL']%>#/account/update_password",
   })
 
