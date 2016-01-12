@@ -2,9 +2,7 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
-  var url2 = url
   console.log(url)
-  console.log(url2)
 
   // Turn off alerts by default
   $scope.loginFail = false;
