@@ -1,6 +1,6 @@
 var app = angular.module('jiujitsmi', ['ngRoute', 'ng-token-auth', 'dndLists', 'ui.bootstrap', 'ngAnimate', 'angularRipple', 'angular-scroll-animate', 'ngAside', 'ngResource']);
 
-app.config(['$routeProvider', '$authProvider', '$locationProvider' function($routeProvider, $authProvider, $locationProvider) {
+app.config(['$routeProvider', '$authProvider', '$locationProvider', function($routeProvider, $authProvider, $locationProvider) {
   $routeProvider.
     when('/', {
       templateUrl: "<%= asset_path('landing_page/index.html') %>",
