@@ -1,10 +1,23 @@
 var app = angular.module('jiujitsmi', ['ngRoute', 'ng-token-auth', 'dndLists', 'ui.bootstrap', 'ngAnimate', 'angularRipple', 'angular-scroll-animate', 'ngAside', 'ngResource']);
 
 app.config(['$routeProvider', '$authProvider', '$locationProvider', function($routeProvider, $authProvider, $locationProvider) {
+  $locationProvider.html5Mode(true);
   $routeProvider.
     when('/', {
       templateUrl: "<%= asset_path('landing_page/index.html') %>",
-      controller: 'LandingPageCtrl'
+      controller: 'LandingPageCtrl',
+      redirectTo: function(current, path, search){
+        if(search.goto){
+          // if we were passed in a search param, and it has a path
+          // to redirect to, then redirect to that path
+          return "/" + search.goto
+        }
+        else{
+          // else just redirect back to this location
+          // angular is smart enough to only do this once.
+          return "/"
+        }
+      }
     }).
     when('/home', {
       templateUrl: "<%= asset_path('home_page/home.html') %>",
@@ -21,12 +34,15 @@ app.config(['$routeProvider', '$authProvider', '$locationProvider', function($ro
     when('/account/update_password', {
       templateUrl: "<%= asset_path('reset_password_page/update_password.html.erb') %>",
       controller: 'UpdatePasswordPageCtrl'
-    })
+    }).
+    otherwise({
+      redirectTo: '/'
+    });
 
- $locationProvider.html5Mode({
-    enabled: true,
-    requireBase: false
-  });
+ // $locationProvider.html5Mode({
+ //    enabled: true,
+ //    requireBase: false
+ //  });
 
 // https://github.com/lynndylanhurley/ng-token-auth/blob/master/dist%2Fng-token-auth.js#L219
   $authProvider.configure({
