@@ -1,8 +1,8 @@
 app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$window', '$rootScope','$anchorScroll', 'Sharedata', function($scope, $http, $location, $auth, $window, $rootScope, $anchorScroll, Sharedata){
 
-  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+  var url = "<%= ENV['URL'] %>"; 
+  // || "http://localhost:3000";
 
-  console.log(url)
 
   // Turn off alerts by default
   $scope.loginFail = false;
