@@ -2,6 +2,7 @@ app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$win
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
+  console.log("<%= ENV['URL'] %>")
   console.log(url)
 
   // Turn off alerts by default
