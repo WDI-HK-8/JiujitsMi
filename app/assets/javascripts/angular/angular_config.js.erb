@@ -23,7 +23,10 @@ app.config(['$routeProvider', '$authProvider', '$locationProvider', function($ro
       controller: 'UpdatePasswordPageCtrl'
     })
 
-  $locationProvider.html5Mode(true);
+ $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
 
 // https://github.com/lynndylanhurley/ng-token-auth/blob/master/dist%2Fng-token-auth.js#L219
   $authProvider.configure({
