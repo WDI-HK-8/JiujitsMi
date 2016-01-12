@@ -1,5 +1,8 @@
 app.controller('LandingPageCtrl', ['$scope', '$http', '$location', '$auth','$window', '$rootScope','$anchorScroll', 'Sharedata', function($scope, $http, $location, $auth, $window, $rootScope, $anchorScroll, Sharedata){
 
+  console.log("<%= ENV['URL'] %>"); 
+
+
   // Turn off alerts by default
   $scope.loginFail = false;
   $scope.signupFail = false;
