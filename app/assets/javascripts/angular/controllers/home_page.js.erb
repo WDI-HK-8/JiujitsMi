@@ -82,9 +82,10 @@ app.controller('HomePageCtrl', ['$resource', '$scope', '$http', '$location', '$a
   // SHOW ALL POSITIONS
   $scope.positions = [];
   $http.get(url + '/positions').success(function(response){
+    console.log($scope.positions);
+    console.log(url)
     $scope.positions = response.sort(compare);
     $scope.positions.sort(compare);
-    // console.log($scope.positions);
     if ($scope.positions.length >= 1) {
       $scope.getPosition($scope.positions[0]);
     } 
